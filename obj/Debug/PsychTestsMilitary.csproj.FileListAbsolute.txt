@@ -1,0 +1,16 @@
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.AssemblyReference.cache
+D:\projects\PsychTestsMilitary\obj\Debug\Views\App.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\MainWindow.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary_MarkupCompile.cache
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary_MarkupCompile.lref
+D:\projects\PsychTestsMilitary\bin\Debug\PsychTestsMilitary.exe.config
+D:\projects\PsychTestsMilitary\bin\Debug\PsychTestsMilitary.exe
+D:\projects\PsychTestsMilitary\bin\Debug\PsychTestsMilitary.pdb
+D:\projects\PsychTestsMilitary\obj\Debug\Views\App.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\MainWindow.baml
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.g.resources
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.Properties.Resources.resources
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.GenerateResource.cache
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CoreCompileInputs.cache
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.exe
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.pdb
