@@ -24,5 +24,15 @@ namespace PsychTestsMilitary.ViewModels
         {
             InitializeComponent();
         }
+
+        public void AppExit(object sender, EventArgs e)
+        {
+            App.ExitApp();
+        }
+
+        public void AppRegistration(object sender, EventArgs e)
+        {
+
+        }
     }
 }
