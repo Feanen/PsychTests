@@ -4,8 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Background="Aqua">
+        <Border Margin="20" Background="Aquamarine" VerticalAlignment="Center" Padding="20">
+            <StackPanel>
+                <Button Content="Реєстрація/вхід" FontSize="30" FontFamily="Times New Roman" Height="50" Click="AppRegistration"></Button>
+                <Button Content="Вихід" FontSize="20" Margin="0 15 0 0" FontFamily="Times New Roman" Click="AppExit"></Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

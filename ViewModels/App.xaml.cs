@@ -22,5 +22,10 @@ namespace PsychTestsMilitary.ViewModels
             app.InitializeComponent();
             app.Run();
         }
+
+        public static void ExitApp()
+        {
+            Current.Shutdown();
+        }
     }
 }
