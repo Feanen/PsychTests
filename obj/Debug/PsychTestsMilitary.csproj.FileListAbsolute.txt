@@ -14,3 +14,11 @@ D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.GenerateResou
 D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CoreCompileInputs.cache
 D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.exe
 D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.pdb
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignColors.dll
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignColors.pdb
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CopyComplete
+D:\projects\PsychTestsMilitary\obj\Debug\Views\RegistrationForm.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\RegistrationForm.baml
