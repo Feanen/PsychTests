@@ -108,6 +108,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\Date.cs" />
+    <Compile Include="Services\Contexts\AccountContext.cs" />
     <Compile Include="Services\PlaceholderService.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\App.xaml.cs" />
