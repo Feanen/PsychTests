@@ -9,8 +9,15 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Реєстрація" Height="600" Width="800">
-    <Grid Background="#B0C4DE">
-        <Border Margin="20" Background="Aquamarine" VerticalAlignment="Center" Padding="20">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/CustomStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+        <Border Style="{StaticResource CustomBorderStyle}">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>

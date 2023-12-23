@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,15 +9,8 @@ namespace PsychTestsMilitary.Models
 {
     public class Account
     {
-        private string login;
-        private string surname { get; set; }
-        private string name { get; set; }
-        private string fname { get; set; }
-        private string gender { get; set; }
-        private string birthday { get; set; }
-        private string job { get; set; }
-        private string spec { get; set; }
-        private string rank { get; set; }
+        [Key] public string login { get; set; }
+        private string surname, name, fname, gender, birthday, job, spec, rank;
 
         public Account() { }
 
@@ -31,12 +25,6 @@ namespace PsychTestsMilitary.Models
             this.job = job;
             this.spec = spec;
             this.rank = rank;
-        }
-
-        public string Login
-        {
-            get { return this.login; }
-            set { this.login = value; }
         }
 
         public string Surname

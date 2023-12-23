@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-31095978623
+5-640067445
 
-11-834995569
+12-1051564591
 211193076044
-Views\App.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;
+Styles\CustomStyles.xaml;Views\App.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;Views\UserForm.xaml;
 
 False
 

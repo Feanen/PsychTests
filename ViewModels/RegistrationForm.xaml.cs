@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using PsychTestsMilitary.Services.Contexts;
 
 using PsychTestsMilitary.Models;
+using System.Data.Entity;
 
 namespace PsychTestsMilitary.ViewModels
 {
@@ -23,11 +24,9 @@ namespace PsychTestsMilitary.ViewModels
     /// </summary>
     public partial class RegistrationForm : Window
     {
-        AccountContext database;
         public RegistrationForm()
         {
             InitializeComponent();
-            database = new AccountContext();
         }
 
         public void ButtonClicked(object sender, RoutedEventArgs e)
@@ -42,10 +41,25 @@ namespace PsychTestsMilitary.ViewModels
                 case "registrationButton":
                     Account acc = CreateAccountData();
                     if (!ValidateAccData(acc)) {
-                        Console.WriteLine("ddddddd");
-                    } else
+                        Console.WriteLine("ddddddd"); //TODO feedback alerts for users
+                    } 
+                    else
                     {
-                        ShowMainWindow();
+                        using (AccountContext db = new AccountContext())
+                        {
+                            if (db.CheckOnUniqueAccount(acc.login))
+                            {
+                                MessageBox.Show("Користувач з таким логіном вже існує!");
+                                return;
+                            }
+
+                            db.Accounts.Add(acc);
+                            db.SaveChanges();
+                            MessageBox.Show("Реєстрація пройшла успішно!");
+
+                            //TODO Form for successful registration
+                            //ShowMainWindow();
+                        }
                     }
                     break;
             }
@@ -68,7 +82,7 @@ namespace PsychTestsMilitary.ViewModels
         private bool ValidateAccData(Account acc) 
         {
             // first step for validating account data
-            if (acc.Login.Equals(login.Tag) || acc.Surname.Equals(surname.Tag) ||
+            if (acc.login.Equals(login.Tag) || acc.Surname.Equals(surname.Tag) ||
                 acc.Name.Equals(name.Tag) || acc.FName.Equals(fname.Tag) ||
                 acc.Gender.Equals((gender.Items.GetItemAt(0) as ComboBoxItem).Content.ToString()) ||
                 acc.Job.Equals(job.Tag) || acc.Spec.Equals(spec.Tag) || acc.Rank.Equals(rank.Tag) || !Date.checkOnCriticalAge(acc.Birthday))

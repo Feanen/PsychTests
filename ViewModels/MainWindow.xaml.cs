@@ -33,8 +33,13 @@ namespace PsychTestsMilitary.ViewModels
         public void AppRegistration(object sender, EventArgs e)
         {
             RegistrationForm form = new RegistrationForm();
-            form.Show();
-            this.Close();
+            form.Show(); this.Close();
+        }
+
+        public void AppChoosingTests(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            form.Show(); this.Close();
         }
     }
 }
