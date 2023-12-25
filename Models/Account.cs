@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,15 +9,8 @@ namespace PsychTestsMilitary.Models
 {
     public class Account
     {
-        private string login { get; set; }
-        private string surname { get; set; }
-        private string name { get; set; }
-        private string fname { get; set; }
-        private string gender { get; set; }
-        private string birthday { get; set; }
-        private string job { get; set; }
-        private string spec { get; set; }
-        private string rank { get; set; }
+        [Key] public string login { get; set; }
+        private string surname, name, fname, gender, birthday, job, spec, rank;
 
         public Account() { }
 
@@ -31,6 +25,54 @@ namespace PsychTestsMilitary.Models
             this.job = job;
             this.spec = spec;
             this.rank = rank;
+        }
+
+        public string Surname
+        {
+            get { return this.surname; }
+            set { this.surname = value; }
+        }
+
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
+        public string FName
+        {
+            get { return this.fname; }
+            set { this.fname = value; }
+        }
+
+        public string Gender
+        {
+            get { return this.gender; }
+            set { this.gender = value; }
+        }
+
+        public string Birthday
+        {
+            get { return this.birthday; }
+            set { this.birthday = value; }
+        }
+
+        public string Job
+        {
+            get { return this.job; }
+            set { this.job = value; }
+        }
+
+        public string Spec
+        {
+            get { return this.spec; }
+            set { this.spec = value; }
+        }
+
+        public string Rank
+        {
+            get { return this.rank; }
+            set { this.rank = value; }
         }
     }
 }

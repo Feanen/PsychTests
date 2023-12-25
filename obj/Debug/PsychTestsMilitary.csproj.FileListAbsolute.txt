@@ -30,3 +30,7 @@ D:\projects\PsychTestsMilitary\bin\Debug\System.Data.SQLite.Linq.dll
 D:\projects\PsychTestsMilitary\bin\Debug\EntityFramework.xml
 D:\projects\PsychTestsMilitary\bin\Debug\EntityFramework.SqlServer.xml
 D:\projects\PsychTestsMilitary\bin\Debug\System.Data.SQLite.xml
+D:\projects\PsychTestsMilitary\bin\Debug\Databases\accounts.db
+D:\projects\PsychTestsMilitary\obj\Debug\Styles\CustomStyles.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\UserForm.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\UserForm.baml

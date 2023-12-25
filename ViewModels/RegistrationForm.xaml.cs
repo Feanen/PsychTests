@@ -12,6 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PsychTestsMilitary.Services.Contexts;
+
+using PsychTestsMilitary.Models;
+using System.Data.Entity;
 
 namespace PsychTestsMilitary.ViewModels
 {
@@ -32,15 +36,65 @@ namespace PsychTestsMilitary.ViewModels
             switch (button.Name)
             {
                 case "backButton":
-                    MainWindow window = new MainWindow();
-                    window.Show();
-                    this.Close();
+                    ShowMainWindow();
                     break;
                 case "registrationButton":
+                    Account acc = CreateAccountData();
+                    if (!ValidateAccData(acc)) {
+                        Console.WriteLine("ddddddd"); //TODO feedback alerts for users
+                    } 
+                    else
+                    {
+                        using (AccountContext db = new AccountContext())
+                        {
+                            if (db.CheckOnUniqueAccount(acc.login))
+                            {
+                                MessageBox.Show("Користувач з таким логіном вже існує!");
+                                return;
+                            }
+
+                            db.Accounts.Add(acc);
+                            db.SaveChanges();
+                            MessageBox.Show("Реєстрація пройшла успішно!");
+
+                            //TODO Form for successful registration
+                            //ShowMainWindow();
+                        }
+                    }
                     break;
             }
         }
 
+        private Account CreateAccountData()
+        {
+            return new Account(login.Text, surname.Text, name.Text, fname.Text,
+                              (gender.SelectedItem as ComboBoxItem).Content.ToString(), birthday.SelectedDate.ToString().Split(' ')[0],
+                              job.Text, spec.Text, rank.Text);
+        }
+
+        private void ShowMainWindow()
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Close();
+        }
+
+        private bool ValidateAccData(Account acc) 
+        {
+            // first step for validating account data
+            if (acc.login.Equals(login.Tag) || acc.Surname.Equals(surname.Tag) ||
+                acc.Name.Equals(name.Tag) || acc.FName.Equals(fname.Tag) ||
+                acc.Gender.Equals((gender.Items.GetItemAt(0) as ComboBoxItem).Content.ToString()) ||
+                acc.Job.Equals(job.Tag) || acc.Spec.Equals(spec.Tag) || acc.Rank.Equals(rank.Tag) || !Date.checkOnCriticalAge(acc.Birthday))
+            {
+                MessageBox.Show("Невірно вказані дані");
+                return false;
+            }
+            else
+            {
+                return true;
+            } 
+        }
         public void FocusOn(object sender, EventArgs e)
         {
             Control textBox = (Control)sender;
