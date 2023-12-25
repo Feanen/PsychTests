@@ -16,6 +16,7 @@ using PsychTestsMilitary.Services.Contexts;
 
 using PsychTestsMilitary.Models;
 using System.Data.Entity;
+using PsychTestsMilitary.Constructors;
 
 namespace PsychTestsMilitary.ViewModels
 {
@@ -61,6 +62,12 @@ namespace PsychTestsMilitary.ViewModels
                             //ShowMainWindow();
                         }
                     }
+                    break;
+
+                case "developersButton":
+                    TechniqueConstructor window1 = new TechniqueConstructor();
+                    window1.Show();
+                    this.Close();
                     break;
             }
         }

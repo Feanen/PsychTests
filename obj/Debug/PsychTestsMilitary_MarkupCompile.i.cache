@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-5-640067445
+7-941107297
 
-13-1306641952
+181704225437
 211193076044
-Styles\CustomStyles.xaml;Views\App.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;Views\UserForm.xaml;
+Constructors\Question.xaml;Constructors\TechniqueConstructor.xaml;Styles\CustomStyles.xaml;Views\App.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;Views\UserForm.xaml;
 
 False
 
