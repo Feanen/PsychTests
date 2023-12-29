@@ -31,7 +31,11 @@
                 </Grid>
                 
                 <Button Content="Вихід" FontSize="20" Margin="0 15 0 0" FontFamily="Times New Roman" Click="AppExit"></Button>
+                <Button Content="For Developers" FontFamily="Arial" Margin="0 15 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" Name="developersButton" Click="DeveloperToolsClick"/>
+                
             </StackPanel>
+            
+            
         </Border>
     </Grid>
 </Window>

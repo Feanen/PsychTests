@@ -30,7 +30,7 @@ namespace PsychTestsMilitary.ViewModels
             InitializeComponent();
         }
 
-        public void ButtonClicked(object sender, RoutedEventArgs e)
+        private void ButtonClicked(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
 
@@ -62,12 +62,6 @@ namespace PsychTestsMilitary.ViewModels
                             //ShowMainWindow();
                         }
                     }
-                    break;
-
-                case "developersButton":
-                    TechniqueConstructor window1 = new TechniqueConstructor();
-                    window1.Show();
-                    this.Close();
                     break;
             }
         }

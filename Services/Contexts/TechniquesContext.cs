@@ -11,6 +11,7 @@ namespace PsychTestsMilitary.Services.Contexts
     public class TechniquesContext : DbContext
     {
         public DbSet<Technique> Techniques { get; set; }
+        public DbSet<Question> Questions { get; set; }
         public TechniquesContext() : base("TechniquesConnection") {}
       
     }

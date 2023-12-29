@@ -36,6 +36,8 @@ namespace PsychTestsMilitary.Constructors
             { 
                 context.Techniques.Add(technique);
                 context.SaveChanges();
+                name.Text = "";
+                instruction.Text = "";
             };
 
             id++;
