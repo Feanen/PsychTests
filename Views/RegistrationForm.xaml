@@ -68,6 +68,6 @@
 
             </StackPanel>
         </Border>
-        <Button Content="For Developers" HorizontalAlignment="Center" Margin="0,519,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Times New Roman" Name="developersButton" Click="ButtonClicked"/>
+        
     </Grid>
 </Window>
