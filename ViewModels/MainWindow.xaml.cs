@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PsychTestsMilitary.Constructors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,21 +26,28 @@ namespace PsychTestsMilitary.ViewModels
             InitializeComponent();
         }
 
-        public void AppExit(object sender, EventArgs e)
+        private void AppExit(object sender, EventArgs e)
         {
             App.ExitApp();
         }
 
-        public void AppRegistration(object sender, EventArgs e)
+        private void AppRegistration(object sender, EventArgs e)
         {
             RegistrationForm form = new RegistrationForm();
             form.Show(); this.Close();
         }
 
-        public void AppChoosingTests(object sender, EventArgs e)
+        private void AppChoosingTests(object sender, EventArgs e)
         {
             UserForm form = new UserForm();
             form.Show(); this.Close();
+        }
+
+        
+        private void DeveloperToolsClick(object sender, RoutedEventArgs e)
+        {
+            DeveloperToolsConstructor window1 = new DeveloperToolsConstructor();
+            window1.Show(); this.Close();
         }
     }
 }

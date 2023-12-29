@@ -9,7 +9,7 @@ namespace PsychTestsMilitary.Models
 {
     public class Technique
     {
-        [Key] public int id { get; set; }
+        public int id;
 
         private string name, instruction;
 

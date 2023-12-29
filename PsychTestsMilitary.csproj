@@ -94,14 +94,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constructors\Question.xaml.cs">
-      <DependentUpon>Question.xaml</DependentUpon>
+    <Compile Include="Constructors\QuestionsConstructor.xaml.cs">
+      <DependentUpon>QuestionsConstructor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constructors\TechniqueConstructor.xaml.cs">
       <DependentUpon>TechniqueConstructor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constructors\DeveloperToolsConstructor.xaml.cs">
+      <DependentUpon>DeveloperToolsConstructor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Technique.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -132,7 +135,9 @@
     <None Include="Databases\accounts.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Databases\techniques.db" />
+    <None Include="Databases\techniques.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -155,11 +160,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Constructors\Question.xaml">
+    <Page Include="Constructors\QuestionsConstructor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Constructors\TechniqueConstructor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Constructors\TechniqueConstructor.xaml">
+    <Page Include="Constructors\DeveloperToolsConstructor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

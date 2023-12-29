@@ -34,7 +34,10 @@ D:\projects\PsychTestsMilitary\bin\Debug\Databases\accounts.db
 D:\projects\PsychTestsMilitary\obj\Debug\Styles\CustomStyles.baml
 D:\projects\PsychTestsMilitary\obj\Debug\Views\UserForm.g.cs
 D:\projects\PsychTestsMilitary\obj\Debug\Views\UserForm.baml
-D:\projects\PsychTestsMilitary\obj\Debug\Constructors\Question.g.cs
-D:\projects\PsychTestsMilitary\obj\Debug\Constructors\Question.baml
 D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueConstructor.g.cs
 D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\QuestionsConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\DeveloperToolsConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\QuestionsConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\DeveloperToolsConstructor.baml
+D:\projects\PsychTestsMilitary\bin\Debug\Databases\techniques.db
