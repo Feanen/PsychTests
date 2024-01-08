@@ -1,0 +1,16 @@
+UPDATE Questions
+SET answer_options = ('{"options": [{"id": 1, "text": "абсолютно невірно"}, {"id": 2, "text": "скоріше невірно"}, {"id": 3, "text": "частково вірно, почасти невірно"}, {"id": 4, "text": "скоріше вірно"}, {"id": 5, "text": "абсолютно вірно"}]}')
+WHERE Technique_id = 11;
+
+
+UPDATE Questions
+SET answer_options = ('{"options": [{"id": 1, "text": "так"}, {"id": 2, "text": "ні"}]}')
+WHERE Technique_id = 14;
+
+
+UPDATE Questions
+SET answer_options = ('{"options": [{"id": 0, "text": ""}, {"id": 1, "text": ""}, {"id": 2, "text": ""}, {"id": 3, "text": ""}]}')
+WHERE Technique_id = 19 AND number = ;
+
+
+{"options": [{"id": 1, "text": "найгірший"}, {"id": 2, "text": "найкращий"}]}
