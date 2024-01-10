@@ -56,10 +56,11 @@ namespace PsychTestsMilitary.ViewModels
 
                             db.Accounts.Add(acc);
                             db.SaveChanges();
-                            MessageBox.Show("Реєстрація пройшла успішно!");
+                            ShowSuccessMessageBox("Реєстрація пройшла успішно!");
 
                             //TODO Form for successful registration
                             //ShowMainWindow();
+                            ShowMainWindow();
                         }
                     }
                     break;
@@ -88,13 +89,24 @@ namespace PsychTestsMilitary.ViewModels
                 acc.Gender.Equals((gender.Items.GetItemAt(0) as ComboBoxItem).Content.ToString()) ||
                 acc.Job.Equals(job.Tag) || acc.Spec.Equals(spec.Tag) || acc.Rank.Equals(rank.Tag) || !Date.checkOnCriticalAge(acc.Birthday))
             {
-                MessageBox.Show("Невірно вказані дані");
+                ShowCustomMessageBox("Невірно вказані дані. Спробуйте ще раз");
                 return false;
             }
             else
             {
                 return true;
             } 
+        }
+        private void ShowCustomMessageBox(string errorMessage)
+        {
+            CustomMessageBox customMessageBox = new CustomMessageBox(errorMessage);
+            customMessageBox.ShowDialog();
+        }
+
+        private void ShowSuccessMessageBox(string successMessage)
+        {
+            SuccessMessageBox successMessageBox = new SuccessMessageBox(successMessage);
+            successMessageBox.ShowDialog();
         }
         public void FocusOn(object sender, EventArgs e)
         {

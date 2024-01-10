@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\projects\PsychTestsMilitary\obj\Debug\
+D:\Projects C#\PsychTests\obj\Debug\
 PsychTestsMilitary
 none
 false
 DEBUG;TRACE
 
-8-1266662834
+10144850402
 
-18-560949632
-211193076044
-Constructors\QuestionsConstructor.xaml;Constructors\TechniqueConstructor.xaml;Constructors\DeveloperToolsConstructor.xaml;Styles\CustomStyles.xaml;Views\App.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;Views\UserForm.xaml;
+201425329429
+21735007856
+Constructors\QuestionsConstructor.xaml;Constructors\TechniqueConstructor.xaml;Constructors\DeveloperToolsConstructor.xaml;Styles\CustomStyles.xaml;Views\App.xaml;Views\CustomMessageBox.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;Views\SuccessMessageBox.xaml;Views\UserForm.xaml;
 
 False
 

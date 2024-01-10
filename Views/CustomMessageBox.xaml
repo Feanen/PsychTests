@@ -1,0 +1,10 @@
+﻿<Window x:Class="PsychTestsMilitary.ViewModels.CustomMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Помилка Авторизації" Height="200" Width="400" Background="#007ACC">
+    <Grid>
+        <TextBlock Text="{Binding ErrorMessage}" Foreground="White" FontSize="16"
+                   FontFamily="Segoe UI"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</Window>

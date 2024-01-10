@@ -125,8 +125,10 @@
     <Compile Include="Services\PlaceholderService.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModels\App.xaml.cs" />
+    <Compile Include="ViewModels\CustomMessageBox.xaml.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
+    <Compile Include="ViewModels\SuccessMessageBox.xaml.cs" />
     <Compile Include="ViewModels\UserForm.xaml.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,11 +182,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\CustomMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SuccessMessageBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
