@@ -11,30 +11,24 @@ namespace PsychTestsMilitary.Models
     {
         public int id;
 
-        private string name, instruction;
+        public string Name { get; set; }
+
+        public string Instruction { get; set; }
+
+        public int Type { get; set; }
 
         public Technique() { }
-        public Technique(int id, string name, string instruction) 
+        public Technique(int id, string name, string instruction, int type) 
         { 
             this.id = id;
-            this.name = name;
-            this.instruction = instruction; 
+            Name = name;
+            Instruction = instruction; 
+            Type = type;
         }
         public int Id
         {
             get { return this.id; }
             set { this.id = value; }
         }
-        public string Name
-        {
-            get { return this.name; }
-            set { this.name = value; }
-        }
-        public string Instruction
-        {
-            get { return this.instruction; }
-            set { this.instruction = value; }
-        }
-
     }
 }

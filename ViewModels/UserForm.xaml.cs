@@ -1,4 +1,5 @@
 ﻿using PsychTestsMilitary.Models;
+using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Contexts;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace PsychTestsMilitary.ViewModels
 {
     public partial class UserForm : Window
     {
-        private Dictionary<CheckBox, Technique> connectionBetweenCheckboxAndTechnique;
+        private Dictionary<CheckBox, Technique> connectionBetweenCheckboxAndTechnique = new Dictionary<CheckBox, Technique>();
         public UserForm()
         {
             InitializeComponent();
@@ -36,13 +37,38 @@ namespace PsychTestsMilitary.ViewModels
 
             IEnumerator<Technique> enumerator = techniques.GetEnumerator();
 
-            foreach (UIElement element in stackPanel.Children)
+            foreach (UIElement element in grid.Children)
             {
                 if (element is CheckBox)
                 {
-
-                    connectionBetweenCheckboxAndTechnique.Add(element, techniques.MoveNex)
+                    if (enumerator.MoveNext())
+                    {
+                        connectionBetweenCheckboxAndTechnique.Add(element as CheckBox, enumerator.Current);
+                    }
+                } else if (element is TextBlock)
+                {
+                    if (enumerator.Current != null)
+                    {
+                        (element as TextBlock).Text = enumerator.Current.Name;
+                    }   
                 }
+            }
+        }
+
+        private void BeginButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Queue<Technique> chosenTests = new Queue<Technique>();
+
+            foreach (KeyValuePair<CheckBox, Technique> pair in connectionBetweenCheckboxAndTechnique)
+            {
+                if ((bool) pair.Key.IsChecked)
+                    chosenTests.Enqueue(pair.Value);
+            }
+
+            if (chosenTests.Count > 0)
+            {
+                TestsQueueSingleton.Instance.Techniques = chosenTests;
+                this.Close();
             }
         }
     }

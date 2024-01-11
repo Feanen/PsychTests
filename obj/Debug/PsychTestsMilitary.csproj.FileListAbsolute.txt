@@ -41,3 +41,5 @@ D:\projects\PsychTestsMilitary\obj\Debug\Constructors\DeveloperToolsConstructor.
 D:\projects\PsychTestsMilitary\obj\Debug\Constructors\QuestionsConstructor.baml
 D:\projects\PsychTestsMilitary\obj\Debug\Constructors\DeveloperToolsConstructor.baml
 D:\projects\PsychTestsMilitary\bin\Debug\Databases\techniques.db
+D:\projects\PsychTestsMilitary\bin\Debug\Newtonsoft.Json.dll
+D:\projects\PsychTestsMilitary\bin\Debug\Newtonsoft.Json.xml
