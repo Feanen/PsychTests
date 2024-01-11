@@ -19,7 +19,7 @@
     </Window.Resources>
     <Grid Style="{StaticResource CustomGridBackgroundStyle}">
         <Border Style="{StaticResource CustomBorderStyle}">
-            <StackPanel>
+            <StackPanel x:Name="stackPanel">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

@@ -27,10 +27,22 @@ namespace PsychTestsMilitary.ViewModels
 
         private void ConnectDictionaryData()
         {
-            List<Technique> techniques = new List<Technique>();
+           List<Technique> techniques;
+
             using (TechniquesContext context = new TechniquesContext())
             {
+                techniques = context.Techniques.ToList();
+            }
 
+            IEnumerator<Technique> enumerator = techniques.GetEnumerator();
+
+            foreach (UIElement element in stackPanel.Children)
+            {
+                if (element is CheckBox)
+                {
+
+                    connectionBetweenCheckboxAndTechnique.Add(element, techniques.MoveNex)
+                }
             }
         }
     }
