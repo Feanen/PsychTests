@@ -57,87 +57,87 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <CheckBox Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox1" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Багаторівневий особистісний опитувальник "Адаптивність-200"
                     </TextBlock>
-                    <CheckBox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox2" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Опитувальник Міні-пульт
                     </TextBlock>
-                    <CheckBox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox3" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Оцінка схильності до суїцидальних реакцій
                     </TextBlock>
-                    <CheckBox Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox4" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock4" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Шкала оцінки рівня реактивної (ситуативної) та особистісної тривожності Ч.Д.Спілбергера - Ю.Л.Ханіна
                     </TextBlock>
-                    <CheckBox Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox5" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock5" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Методика шкалованої самооцінки психофізіологічного стану О.М.Кокуна
                     </TextBlock>
-                    <CheckBox Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox6" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock6" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Диференціальна діагностика депресивних станів В.А.Жмурова
                     </TextBlock>
 
-                    <CheckBox Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox7" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock7" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Шкала депресії А.Т.Бека
                     </TextBlock>
-                    <CheckBox Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox8" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock8" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Методика диференціальної діагностики депресивних станів В.Зунга (адаптація Т.І.Балашової)
                     </TextBlock>
-                    <CheckBox Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox9" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock9" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Коротка шкала тривоги, депресії та ПТСР
                     </TextBlock>
-                    <CheckBox Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox10" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock10" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Первинний скринінг посттравматичного стресового розладу (ПТСР)
                     </TextBlock>
 
-                    <CheckBox Grid.Row="0" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="0" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox11" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock11" Grid.Row="0" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Опитувальник травматичного стресу І.О. Котєньова
                     </TextBlock>
-                    <CheckBox Grid.Row="1" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox12" Grid.Row="1" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock12" Grid.Row="1" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Міссісіпська шкала для оцінки посттравматичних реакцій (військовий варіант)
                     </TextBlock>
-                    <CheckBox Grid.Row="2" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox13" Grid.Row="2" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock13" Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Шкала оцінки впливу травматичної події
                     </TextBlock>
-                    <CheckBox Grid.Row="3" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox14" Grid.Row="3" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock14" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Опитувальник рівня агресивності А.Басса - А.Даркі
                     </TextBlock>
-                    <CheckBox Grid.Row="4" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock  Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox15" Grid.Row="4" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock15" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Шкала оцінки інтенсивності бойового досвіду
                     </TextBlock>
-                    <CheckBox Grid.Row="5" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox16" Grid.Row="5" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock16" Grid.Row="5" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Госпітальна шкала тривоги і депресії (HADS)
                     </TextBlock>
 
-                    <CheckBox Grid.Row="6" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox17" Grid.Row="6" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock17" Grid.Row="6" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Шкала Монтгомері - Асберга для оцінки депресії (MADRS)
                     </TextBlock>
-                    <CheckBox Grid.Row="7" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox18" Grid.Row="7" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock18" Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Опитувальник визначення рівня невротизації та психопатизації (РНП)
                     </TextBlock>
-                    <CheckBox Grid.Row="8" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="8" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox19" Grid.Row="8" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock19" Grid.Row="8" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Стрес-фактори
                     </TextBlock>
-                    <CheckBox Grid.Row="9" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                    <TextBlock Grid.Row="9" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
+                    <CheckBox Name="checkBox20" Grid.Row="9" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Name="textBlock20" Grid.Row="9" Grid.Column="11" Grid.ColumnSpan="9" Style="{StaticResource CustomUserFormTextBlockStyle}">
                         Експрес-опитувальник вивчення основних складових готовності військовослужбовців захищати Україну від військової агресії
                     </TextBlock>
 

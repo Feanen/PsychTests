@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PsychTestsMilitary.Models;
+using PsychTestsMilitary.Services.Contexts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +16,22 @@ using System.Windows.Shapes;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    /// <summary>
-    /// Логика взаимодействия для UserForm.xaml
-    /// </summary>
     public partial class UserForm : Window
     {
+        private Dictionary<CheckBox, Technique> connectionBetweenCheckboxAndTechnique;
         public UserForm()
         {
             InitializeComponent();
+            ConnectDictionaryData();
+        }
+
+        private void ConnectDictionaryData()
+        {
+            List<Technique> techniques = new List<Technique>();
+            using (TechniquesContext context = new TechniquesContext())
+            {
+
+            }
         }
     }
 }

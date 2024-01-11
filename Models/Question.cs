@@ -14,6 +14,7 @@ namespace PsychTestsMilitary.Models
         public int Technique_id { get; set; }
         public int Number { get; set; }
         public string Description { get; set; }
+        public string Answer_options { get; set; }
 
         public Question() { }
         public Question(int id, int number, string description, int tech_id)
