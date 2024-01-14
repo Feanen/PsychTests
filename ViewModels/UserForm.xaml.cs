@@ -68,6 +68,7 @@ namespace PsychTestsMilitary.ViewModels
             if (chosenTests.Count > 0)
             {
                 TestsQueueSingleton.Instance.Techniques = chosenTests;
+                TechniquesManager.RunNextTechnique();
                 this.Close();
             }
         }

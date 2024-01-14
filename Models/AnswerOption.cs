@@ -16,9 +16,4 @@ namespace PsychTestsMilitary.Models
     {
         public List<AnswerOption> Options { get; set; }
     }
-
-    public class AnswerOptionsRoot
-    {
-        public AnswerOptions Root { get; set; }
-    }
 }
