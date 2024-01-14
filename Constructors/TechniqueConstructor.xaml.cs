@@ -30,7 +30,7 @@ namespace PsychTestsMilitary.Constructors
 
         public void ButtonClicked(object sender, RoutedEventArgs e)
         {
-            Technique technique = new Technique(id, this.name.Text, this.instruction.Text);
+            Technique technique = new Technique(id, this.name.Text, this.instruction.Text, 0);
 
             using (TechniquesContext context = new TechniquesContext()) 
             { 
