@@ -10,5 +10,6 @@ namespace PsychTestsMilitary.Interfaces
     public interface ITechniqueData
     {
         void Init(Technique tech, List<Question> quests);
+        Question NextQuestion();   
     }
 }

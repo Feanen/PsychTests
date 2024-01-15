@@ -1,4 +1,4 @@
-﻿<Window x:Class="PsychTestsMilitary.ViewModels.TemplateViewModels.TechniqueType1"
+﻿<Window x:Class="PsychTestsMilitary.ViewModels.TemplateViewModels.TechniqueType2"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -41,11 +41,18 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Button Name="answer1" Style="{StaticResource NormalAnswerButtonStyle}" Height="Auto" Grid.Column="0" Grid.Row="0" Margin="10 10 10 10" FontSize="20" FontFamily="Times New Roman" Click="ChooseAnswer">
                         <TextBlock TextWrapping="Wrap" Margin="3 3 3 3"/>
                     </Button>
                     <Button Name="answer2" Style="{StaticResource NormalAnswerButtonStyle}"  Height="Auto" Grid.Column="1" Grid.Row="0" Margin="10 10 10 10" FontSize="20" FontFamily="Times New Roman" Click="ChooseAnswer">
+                        <TextBlock TextWrapping="Wrap" Margin="3 3 3 3"/>
+                    </Button>
+                    <Button Name="answer3" Style="{StaticResource NormalAnswerButtonStyle}" Height="Auto" Grid.Column="0" Grid.Row="1" Margin="10 10 10 10" FontSize="20" FontFamily="Times New Roman" Click="ChooseAnswer">
+                        <TextBlock TextWrapping="Wrap" Margin="3 3 3 3"/>
+                    </Button>
+                    <Button Name="answer4" Style="{StaticResource NormalAnswerButtonStyle}"  Height="Auto" Grid.Column="1" Grid.Row="1" Margin="10 10 10 10" FontSize="20" FontFamily="Times New Roman" Click="ChooseAnswer">
                         <TextBlock TextWrapping="Wrap" Margin="3 3 3 3"/>
                     </Button>
                 </Grid>

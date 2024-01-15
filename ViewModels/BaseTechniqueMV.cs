@@ -12,12 +12,18 @@ namespace PsychTestsMilitary.ViewModels
     public class BaseTechniqueMV : ITechniqueData
     {
         public Technique Technique { get; private set; }
-        public List<Question> Questions { get; private set; }
+        public List<Question> Questions { get; set; }
 
         public void Init(Technique tech, List<Question> quests)
         {
             Technique = tech;
             Questions = quests;
+        }
+
+        public Question NextQuestion()
+        {
+            Questions.RemoveAt(0);
+            return Questions[0];
         }
     }
 }

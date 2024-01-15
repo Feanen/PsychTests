@@ -19,12 +19,15 @@ namespace PsychTestsMilitary.Services
                 Window window = new Window();
                 BaseTechniqueMV baseTechniqueMV = new BaseTechniqueMV();
                 baseTechniqueMV.Init(tech, questions);
+
                 switch (tech.Type)
                 {                 
                     case 1:
                         window = new TechniqueType1(baseTechniqueMV);
                         break;
-
+                    case 2:
+                        window = new TechniqueType2(baseTechniqueMV);
+                        break;
                 }
 
                 window.Show();

@@ -11,12 +11,12 @@ using System.Windows.Controls;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
-    public partial class TechniqueType1 : Window
+    public partial class TechniqueType2 : Window
     {
         public BaseTechniqueMV TechniqueData { get; set; }
         private static Style normalButtonStyle;
         private static Style selectedButtonStyle;
-        public TechniqueType1(BaseTechniqueMV td) 
+        public TechniqueType2(BaseTechniqueMV td) 
         {
             TechniqueData = td;
             Loaded += WindowLoaded;

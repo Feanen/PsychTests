@@ -19,4 +19,12 @@
     <Style TargetType="Grid" x:Key="CustomGridBackgroundStyle">
         <Setter Property="Background" Value="#778899"/>
     </Style>
+
+    <Style TargetType="Button" x:Key="NormalAnswerButtonStyle">
+        <Setter Property="Background" Value="LightGray"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="SelectedAnswerButtonStyle">
+        <Setter Property="Background" Value="LightGreen"/>
+    </Style>
 </ResourceDictionary>
