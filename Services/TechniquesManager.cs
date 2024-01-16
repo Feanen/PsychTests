@@ -15,7 +15,7 @@ namespace PsychTestsMilitary.Services
             if (TestsQueueSingleton.Instance.Techniques.Count != 0)
             {
                 Technique tech = TestsQueueSingleton.Instance.Techniques.Dequeue();
-                List<Question> questions = GetQuestions(tech);
+                Queue<Question> questions = GetQuestions(tech);
                 Window window = new Window();
                 BaseTechniqueMV baseTechniqueMV = new BaseTechniqueMV();
                 baseTechniqueMV.Init(tech, questions);
@@ -34,11 +34,22 @@ namespace PsychTestsMilitary.Services
             }
         }
 
-        private static List<Question> GetQuestions(Technique tech)
+        private static Queue<Question> GetQuestions(Technique tech)
         {
             using (TechniquesContext context = new TechniquesContext())
             {
-                return context.Questions.Where( q => q.Technique_id == tech.Id ).ToList();
+                return new Queue<Question>(context.Questions.Where( q => q.Technique_id == tech.Id ).ToList());
+            }
+        }
+
+        public static void SaveAnswers(int techID, List<UserAnswer> listOfAnswers)
+        {
+            UserAnswers answers = new UserAnswers("feanen1", techID, JSONStringParcer.StringToJSON(listOfAnswers));
+
+            using (AccountContext context = new AccountContext())
+            {
+                context.UserAnswers.Add(answers);
+                context.SaveChanges();
             }
         }
     }

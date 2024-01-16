@@ -12,9 +12,9 @@ namespace PsychTestsMilitary.ViewModels
     public class BaseTechniqueMV : ITechniqueData
     {
         public Technique Technique { get; private set; }
-        public List<Question> Questions { get; set; }
+        public Queue<Question> Questions { get; set; }
 
-        public void Init(Technique tech, List<Question> quests)
+        public void Init(Technique tech, Queue<Question> quests)
         {
             Technique = tech;
             Questions = quests;
@@ -22,8 +22,7 @@ namespace PsychTestsMilitary.ViewModels
 
         public Question NextQuestion()
         {
-            Questions.RemoveAt(0);
-            return Questions[0];
+            return (Questions.Count > 0) ? Questions.Dequeue() : null;
         }
     }
 }

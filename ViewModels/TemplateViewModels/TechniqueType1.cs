@@ -3,6 +3,7 @@ using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,9 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         public BaseTechniqueMV TechniqueData { get; set; }
         private static Style normalButtonStyle;
         private static Style selectedButtonStyle;
+        private List<UserAnswer> userAnswers = new List<UserAnswer>();
+        private Button selectedButton;
+        private Question currentQuestion;
         public TechniqueType1(BaseTechniqueMV td) 
         {
             TechniqueData = td;
@@ -36,7 +40,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
                 this.Title = TechniqueData.Technique.Name;
                 this.instruction.Text = TechniqueData.Technique.Instruction;
 
-                Update(TechniqueData.Questions[0]);
+                Update(TechniqueData.NextQuestion());
             }
         }
 
@@ -45,6 +49,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
             ClearAnswerButtonsBack();
             nextButton.IsEnabled = true;
             (sender as Button).Style = selectedButtonStyle;
+            selectedButton = sender as Button;
         }
 
         private void ClearAnswerButtonsBack()
@@ -57,20 +62,36 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 
         private void NextQuestion(object sender, EventArgs e)
         {
+            userAnswers.Add(new UserAnswer(currentQuestion.Number, (selectedButton.Tag as AnswerOption).Id));
             Update(TechniqueData.NextQuestion());
             ClearAnswerButtonsBack();
         }
 
         private void Update(Question question)
         {
-            nextButton.IsEnabled = false;
-            this.question.Text = question.Number + ". " + question.Description;
-            List<AnswerOption> answerOptions = JSONStringParcer.ParseAnswerOptions(question.Answer_options);
-
-            foreach (Button btn in answerButtonsGrid.Children)
+            if (question != null)
             {
-                (btn.Content as TextBlock).Text = answerOptions[0].Text;
-                answerOptions.RemoveAt(0);
+                currentQuestion = question;
+                nextButton.IsEnabled = false;
+                this.question.Text = question.Number + ". " + question.Description;
+                Queue<AnswerOption> answerOptions = JSONStringParcer.ParseAnswerOptions(question.Answer_options);
+
+                foreach (Button btn in answerButtonsGrid.Children)
+                {
+                    AnswerOption answerOption = answerOptions.Dequeue();
+                    btn.Tag = answerOption;
+                    (btn.Content as TextBlock).Text = answerOption.Text;
+                }
+
+                if (TechniqueData.Questions.Count == 0)
+                    nextButton.Content = "Завершити тест";
+            }
+            else
+            {
+                TechniquesManager.SaveAnswers(TechniqueData.Technique.Id, userAnswers);
+
+                TechniquesManager.RunNextTechnique();
+                this.Close();
             }
         }
     }

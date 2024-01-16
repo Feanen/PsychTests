@@ -112,6 +112,8 @@
     <Compile Include="Models\AnswerOption.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Technique.cs" />
+    <Compile Include="Models\UserAnswer.cs" />
+    <Compile Include="Models\UserAnswers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -10,10 +10,15 @@ namespace PsychTestsMilitary.Services
 {
     public static class JSONStringParcer
     {
-        public static List<AnswerOption> ParseAnswerOptions(string json)
+        public static Queue<AnswerOption> ParseAnswerOptions(string json)
         {
             AnswerOptions answerOption = JsonConvert.DeserializeObject<AnswerOptions>(json);
             return answerOption?.Options;
+        }
+
+        public static string StringToJSON<T>(List<T> list)
+        {
+            return JsonConvert.SerializeObject(list);
         }
     }
 }

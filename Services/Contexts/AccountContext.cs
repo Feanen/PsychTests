@@ -12,6 +12,7 @@ namespace PsychTestsMilitary.Services.Contexts
     public class AccountContext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<UserAnswers> UserAnswers { get; set; }
 
         public AccountContext() : base("AccountsConnection") {}
 
