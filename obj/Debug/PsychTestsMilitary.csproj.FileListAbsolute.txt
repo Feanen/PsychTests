@@ -47,3 +47,5 @@ D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CoreCompileIn
 D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CopyComplete
 D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.exe
 D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.pdb
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueKeysConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueKeysConstructor.baml

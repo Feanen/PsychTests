@@ -106,12 +106,24 @@
     <Compile Include="Constructors\DeveloperToolsConstructor.xaml.cs">
       <DependentUpon>DeveloperToolsConstructor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constructors\BarriersConstructor.xaml.cs">
+      <DependentUpon>BarriersConstructor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Constructors\TechniqueKeysConstructor.xaml.cs">
+      <DependentUpon>TechniqueKeysConstructor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICalculationService.cs" />
     <Compile Include="Interfaces\ITechniqueData.cs" />
     <Compile Include="Interfaces\ITestTypes.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AdditionalModels\Barrier.cs" />
+    <Compile Include="Models\AdditionalModels\Gradation.cs" />
+    <Compile Include="Models\AdditionalModels\Scale.cs" />
     <Compile Include="Models\AnswerOption.cs" />
+    <Compile Include="Models\Key.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Technique.cs" />
+    <Compile Include="Models\TechniqueKey.cs" />
     <Compile Include="Models\UserAnswer.cs" />
     <Compile Include="Models\UserAnswers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -127,7 +139,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\CalculationService.cs" />
+    <Compile Include="Services\Contexts\AdditionalInfoContext.cs" />
     <Compile Include="Services\JSONStringParcer.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueACalculationService.cs" />
     <Compile Include="Services\TechniquesManager.cs" />
     <Compile Include="Services\TestsQueueSingleton.cs" />
     <Compile Include="Services\Contexts\TechniquesContext.cs" />
@@ -184,6 +199,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Constructors\DeveloperToolsConstructor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Constructors\BarriersConstructor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Constructors\TechniqueKeysConstructor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-10-1064942401
+111419515188
 
-301533919348
+40-350289402
 222115868734
-Constructors\QuestionsConstructor.xaml;Constructors\TechniqueConstructor.xaml;Constructors\DeveloperToolsConstructor.xaml;Styles\CustomStyles.xaml;Views\App.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;Views\TechniqueTypes\TechniqueType2.xaml;Views\TechniqueTypes\TechniqueType1.xaml;Views\UserForm.xaml;
+Constructors\QuestionsConstructor.xaml;Constructors\TechniqueConstructor.xaml;Constructors\DeveloperToolsConstructor.xaml;Constructors\TechniqueKeysConstructor.xaml;Styles\CustomStyles.xaml;Views\App.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;Views\TechniqueTypes\TechniqueType2.xaml;Views\TechniqueTypes\TechniqueType1.xaml;Views\UserForm.xaml;
 
 False
 
