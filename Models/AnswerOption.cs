@@ -14,6 +14,6 @@ namespace PsychTestsMilitary.Models
 
     public class AnswerOptions
     {
-        public List<AnswerOption> Options { get; set; }
+        public Queue<AnswerOption> Options { get; set; }
     }
 }

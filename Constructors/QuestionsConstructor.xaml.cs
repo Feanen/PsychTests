@@ -40,7 +40,6 @@ namespace PsychTestsMilitary.Constructors
                     break;
                 case "add":
                     Question question = new Question(id++, Int32.Parse(number.Text), this.description.Text, (techniques.SelectedItem as Technique).Id);
-                    //question.Technique = techniques.SelectedItem as Technique;
                     context.Questions.Add(question);
                     context.SaveChanges();
                     Update();

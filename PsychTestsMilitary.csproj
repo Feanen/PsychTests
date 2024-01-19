@@ -97,6 +97,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constructors\GradationsConstructor.xaml.cs">
+      <DependentUpon>GradationsConstructor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Constructors\QuestionsConstructor.xaml.cs">
       <DependentUpon>QuestionsConstructor.xaml</DependentUpon>
     </Compile>
@@ -106,12 +109,26 @@
     <Compile Include="Constructors\DeveloperToolsConstructor.xaml.cs">
       <DependentUpon>DeveloperToolsConstructor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constructors\BarriersConstructor.xaml.cs">
+      <DependentUpon>BarriersConstructor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Constructors\TechniqueKeysConstructor.xaml.cs">
+      <DependentUpon>TechniqueKeysConstructor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\ICalculationService.cs" />
     <Compile Include="Interfaces\ITechniqueData.cs" />
     <Compile Include="Interfaces\ITestTypes.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AdditionalModels\Barrier.cs" />
+    <Compile Include="Models\AdditionalModels\Gradation.cs" />
+    <Compile Include="Models\AdditionalModels\Scale.cs" />
     <Compile Include="Models\AnswerOption.cs" />
+    <Compile Include="Models\Key.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Technique.cs" />
+    <Compile Include="Models\TechniqueKey.cs" />
+    <Compile Include="Models\UserAnswer.cs" />
+    <Compile Include="Models\UserAnswers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -125,9 +142,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\CalculationService.cs" />
+    <Compile Include="Services\Contexts\AdditionalInfoContext.cs" />
     <Compile Include="Services\JSONStringParcer.cs" />
+    <Compile Include="Services\Singletons\AdditionalInfoDBSingleton.cs" />
+    <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueACalculationService.cs" />
     <Compile Include="Services\TechniquesManager.cs" />
-    <Compile Include="Services\TestsQueueSingleton.cs" />
+    <Compile Include="Services\Singletons\TestsQueueSingleton.cs" />
     <Compile Include="Services\Contexts\TechniquesContext.cs" />
     <Compile Include="Services\Date.cs" />
     <Compile Include="Services\Contexts\AccountContext.cs" />
@@ -138,6 +160,8 @@
     <Compile Include="ViewModels\BaseTechniqueMV.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
+    <Compile Include="ViewModels\TemplateViewModels\TechniqueType2.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType1.cs" />
     <Compile Include="ViewModels\UserForm.xaml.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -147,6 +171,7 @@
     <None Include="Databases\accounts.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Databases\additionalInfo.db" />
     <None Include="Databases\techniques.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -172,6 +197,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Constructors\GradationsConstructor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Constructors\QuestionsConstructor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -184,6 +213,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Constructors\BarriersConstructor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Constructors\TechniqueKeysConstructor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\CustomStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -192,11 +229,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TechniqueTypes\TechniqueType2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

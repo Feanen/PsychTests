@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PsychTestsMilitary.Services.Singletons;
+using PsychTestsMilitary.Services.Contexts;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -19,6 +21,8 @@ namespace PsychTestsMilitary.ViewModels
         public static void Main()
         {
             App app = new App();
+            TechniquesDBSingleton.Instance.TechniquesContext = new TechniquesContext();
+            AdditionalInfoDBSingleton.Instance.AddInfoContext = new AdditionalInfoContext();
             app.InitializeComponent();
             app.Run();
         }

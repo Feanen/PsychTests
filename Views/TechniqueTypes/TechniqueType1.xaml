@@ -28,20 +28,29 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
 
                     </Grid.RowDefinitions>
                     <TextBlock Grid.ColumnSpan="2" Grid.Row="0" Name="instruction" FontSize="12" Margin="0 0 0 30" TextWrapping="Wrap"></TextBlock>
                     <TextBlock Grid.ColumnSpan="2" Grid.Row="1" TextAlignment="Center" Name="question" FontSize="20" Margin="0 0 0 10" TextWrapping="Wrap"></TextBlock>
-                    <Button Name="answer1" Height="Auto" Grid.Column="0" Grid.Row="2" Margin="0 0 10 0" FontSize="20" FontFamily="Times New Roman" Click="ChooseAnswer">
+                </Grid>
+
+                <Grid Name="answerButtonsGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button Name="answer1" Style="{StaticResource NormalAnswerButtonStyle}" Height="Auto" Grid.Column="0" Grid.Row="0" Margin="10 10 10 10" FontSize="20" FontFamily="Times New Roman" Click="ChooseAnswer">
                         <TextBlock TextWrapping="Wrap" Margin="3 3 3 3"/>
                     </Button>
-                    <Button Name="answer2" Height="Auto" Grid.Column="1" Grid.Row="2" Margin="10 0 0 0" FontSize="20" FontFamily="Times New Roman" Click="ChooseAnswer">
+                    <Button Name="answer2" Style="{StaticResource NormalAnswerButtonStyle}"  Height="Auto" Grid.Column="1" Grid.Row="0" Margin="10 10 10 10" FontSize="20" FontFamily="Times New Roman" Click="ChooseAnswer">
                         <TextBlock TextWrapping="Wrap" Margin="3 3 3 3"/>
                     </Button>
                 </Grid>
 
-                <Button Content="Далі" Height="Auto" FontSize="30" Margin="0 15 0 0" FontFamily="Times New Roman" Click="NextQuestion" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
+                <Button Content="Далі" Name="nextButton" IsEnabled="False" Height="Auto" FontSize="30" Margin="0 15 0 0" FontFamily="Times New Roman" Click="NextQuestion" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
 
             </StackPanel>
 

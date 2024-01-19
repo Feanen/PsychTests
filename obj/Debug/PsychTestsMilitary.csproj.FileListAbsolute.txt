@@ -1,92 +1,57 @@
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.AssemblyReference.cache
-D:\projects\PsychTestsMilitary\obj\Debug\Views\App.g.cs
-D:\projects\PsychTestsMilitary\obj\Debug\Views\MainWindow.g.cs
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary_MarkupCompile.cache
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary_MarkupCompile.lref
+D:\projects\PsychTestsMilitary\bin\Debug\Databases\accounts.db
+D:\projects\PsychTestsMilitary\bin\Debug\Databases\techniques.db
 D:\projects\PsychTestsMilitary\bin\Debug\PsychTestsMilitary.exe.config
 D:\projects\PsychTestsMilitary\bin\Debug\PsychTestsMilitary.exe
 D:\projects\PsychTestsMilitary\bin\Debug\PsychTestsMilitary.pdb
-D:\projects\PsychTestsMilitary\obj\Debug\Views\App.baml
-D:\projects\PsychTestsMilitary\obj\Debug\Views\MainWindow.baml
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.g.resources
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.Properties.Resources.resources
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.GenerateResource.cache
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CoreCompileInputs.cache
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.exe
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.pdb
-D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignColors.dll
-D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignColors.pdb
-D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CopyComplete
-D:\projects\PsychTestsMilitary\obj\Debug\Views\RegistrationForm.g.cs
-D:\projects\PsychTestsMilitary\obj\Debug\Views\RegistrationForm.baml
 D:\projects\PsychTestsMilitary\bin\Debug\EntityFramework.dll
 D:\projects\PsychTestsMilitary\bin\Debug\EntityFramework.SqlServer.dll
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignColors.dll
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\projects\PsychTestsMilitary\bin\Debug\Newtonsoft.Json.dll
 D:\projects\PsychTestsMilitary\bin\Debug\System.Data.SQLite.dll
 D:\projects\PsychTestsMilitary\bin\Debug\System.Data.SQLite.EF6.dll
 D:\projects\PsychTestsMilitary\bin\Debug\System.Data.SQLite.Linq.dll
 D:\projects\PsychTestsMilitary\bin\Debug\EntityFramework.xml
 D:\projects\PsychTestsMilitary\bin\Debug\EntityFramework.SqlServer.xml
-D:\projects\PsychTestsMilitary\bin\Debug\System.Data.SQLite.xml
-D:\projects\PsychTestsMilitary\bin\Debug\Databases\accounts.db
-D:\projects\PsychTestsMilitary\obj\Debug\Styles\CustomStyles.baml
-D:\projects\PsychTestsMilitary\obj\Debug\Views\UserForm.g.cs
-D:\projects\PsychTestsMilitary\obj\Debug\Views\UserForm.baml
-D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueConstructor.g.cs
-D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueConstructor.baml
-D:\projects\PsychTestsMilitary\obj\Debug\Constructors\QuestionsConstructor.g.cs
-D:\projects\PsychTestsMilitary\obj\Debug\Constructors\DeveloperToolsConstructor.g.cs
-D:\projects\PsychTestsMilitary\obj\Debug\Constructors\QuestionsConstructor.baml
-D:\projects\PsychTestsMilitary\obj\Debug\Constructors\DeveloperToolsConstructor.baml
-D:\projects\PsychTestsMilitary\bin\Debug\Databases\techniques.db
-D:\projects\PsychTestsMilitary\bin\Debug\Newtonsoft.Json.dll
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignColors.pdb
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\projects\PsychTestsMilitary\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\projects\PsychTestsMilitary\bin\Debug\Newtonsoft.Json.xml
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary.csproj.AssemblyReference.cache
-D:\Work\Visual Studio\PsychTests\obj\Debug\Styles\CustomStyles.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Constructors\QuestionsConstructor.g.cs
-D:\Work\Visual Studio\PsychTests\obj\Debug\Constructors\TechniqueConstructor.g.cs
-D:\Work\Visual Studio\PsychTests\obj\Debug\Constructors\DeveloperToolsConstructor.g.cs
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\App.g.cs
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\MainWindow.g.cs
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\RegistrationForm.g.cs
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\UserForm.g.cs
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary_MarkupCompile.cache
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary_MarkupCompile.lref
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary.exe
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary.pdb
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\TechniqueTypes\TechniqueType1.g.cs
-D:\Work\Visual Studio\PsychTests\bin\Debug\Databases\accounts.db
-D:\Work\Visual Studio\PsychTests\bin\Debug\Databases\techniques.db
-D:\Work\Visual Studio\PsychTests\bin\Debug\PsychTestsMilitary.exe.config
-D:\Work\Visual Studio\PsychTests\bin\Debug\PsychTestsMilitary.exe
-D:\Work\Visual Studio\PsychTests\bin\Debug\PsychTestsMilitary.pdb
-D:\Work\Visual Studio\PsychTests\bin\Debug\EntityFramework.dll
-D:\Work\Visual Studio\PsychTests\bin\Debug\EntityFramework.SqlServer.dll
-D:\Work\Visual Studio\PsychTests\bin\Debug\MaterialDesignColors.dll
-D:\Work\Visual Studio\PsychTests\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\Work\Visual Studio\PsychTests\bin\Debug\Newtonsoft.Json.dll
-D:\Work\Visual Studio\PsychTests\bin\Debug\System.Data.SQLite.dll
-D:\Work\Visual Studio\PsychTests\bin\Debug\System.Data.SQLite.EF6.dll
-D:\Work\Visual Studio\PsychTests\bin\Debug\System.Data.SQLite.Linq.dll
-D:\Work\Visual Studio\PsychTests\bin\Debug\EntityFramework.xml
-D:\Work\Visual Studio\PsychTests\bin\Debug\EntityFramework.SqlServer.xml
-D:\Work\Visual Studio\PsychTests\bin\Debug\MaterialDesignColors.pdb
-D:\Work\Visual Studio\PsychTests\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\Work\Visual Studio\PsychTests\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\Work\Visual Studio\PsychTests\bin\Debug\Newtonsoft.Json.xml
-D:\Work\Visual Studio\PsychTests\bin\Debug\System.Data.SQLite.xml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Constructors\QuestionsConstructor.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Constructors\TechniqueConstructor.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Constructors\DeveloperToolsConstructor.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\App.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\MainWindow.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\RegistrationForm.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\TechniqueTypes\TechniqueType1.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\Views\UserForm.baml
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary.g.resources
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary.Properties.Resources.resources
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary.csproj.GenerateResource.cache
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary.csproj.CoreCompileInputs.cache
-D:\Work\Visual Studio\PsychTests\obj\Debug\PsychTestsMilitary.csproj.CopyComplete
+D:\projects\PsychTestsMilitary\bin\Debug\System.Data.SQLite.xml
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.AssemblyReference.cache
+D:\projects\PsychTestsMilitary\obj\Debug\Styles\CustomStyles.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\QuestionsConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\DeveloperToolsConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\App.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\MainWindow.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\RegistrationForm.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\TechniqueTypes\TechniqueType2.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\TechniqueTypes\TechniqueType1.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\UserForm.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary_MarkupCompile.cache
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary_MarkupCompile.lref
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\QuestionsConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\DeveloperToolsConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\App.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\MainWindow.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\RegistrationForm.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\TechniqueTypes\TechniqueType2.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\TechniqueTypes\TechniqueType1.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\UserForm.baml
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.g.resources
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.Properties.Resources.resources
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.GenerateResource.cache
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CoreCompileInputs.cache
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.csproj.CopyComplete
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.exe
+D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.pdb
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueKeysConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueKeysConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\BarriersConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\BarriersConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\GradationsConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\GradationsConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\FinalResultsViews\TechniqueA.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\FinalResultsViews\TechniqueA.baml
