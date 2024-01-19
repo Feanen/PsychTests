@@ -8,11 +8,11 @@
         Title="Keys" Height="450" Width="800"
         Loaded="Window_Loaded">
     <Grid>
-        <TextBox Name="qid" BorderThickness="1" HorizontalAlignment="Left" Height="26" Margin="358,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+        <TextBox Name="number" BorderThickness="1" HorizontalAlignment="Left" Height="26" Margin="358,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
         <Button Name="addPair" Content="Add Pair" HorizontalAlignment="Left" Margin="370,237,0,0" VerticalAlignment="Top" Click="ButtonClicked" Height="41" Width="129"/>
-        <ComboBox Name="techniques" HorizontalAlignment="Center" Margin="0,43,0,0" VerticalAlignment="Top" Width="661" BorderThickness="1" SelectionChanged="SelectionChanged"/>
+        <ComboBox Name="scale" HorizontalAlignment="Center" Margin="0,43,0,0" VerticalAlignment="Top" Width="661" BorderThickness="1" SelectionChanged="SelectionChanged"/>
         <Button Name="back" Content="Back" HorizontalAlignment="Left" Margin="122,248,0,0" VerticalAlignment="Top" Width="100" Click="ButtonClicked"/>
-        <TextBox Name="aid" BorderThickness="1" HorizontalAlignment="Left" Height="179" Margin="516,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
+        <TextBox Name="result" BorderThickness="1" HorizontalAlignment="Left" Height="179" Margin="516,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
         <TextBlock Text="Scale" HorizontalAlignment="Left" Height="20" Margin="336,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350"/>
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="402,122,0,0" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" Width="116"/>
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="619,122,0,0" TextWrapping="Wrap" Text="Result" VerticalAlignment="Top" Width="116"/>

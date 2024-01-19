@@ -13,6 +13,7 @@
         <Button Name="keys" Content="Keys" HorizontalAlignment="Left" Margin="131,131,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
         <Button Name="test" Content="Testing" HorizontalAlignment="Left" Margin="472,88,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
         <Button Name="barriers" Content="Barriers" HorizontalAlignment="Left" Margin="131,257,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
+        <Button Name="gradations" Content="Gradations" HorizontalAlignment="Left" Margin="131,291,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
 
     </Grid>
 </Window>

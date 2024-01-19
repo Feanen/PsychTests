@@ -1,6 +1,7 @@
 ﻿using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.TechniqueCalculations;
 using PsychTestsMilitary.ViewModels;
+using PsychTestsMilitary.ViewModels.FinalResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +50,13 @@ namespace PsychTestsMilitary.Constructors
                 case "test":
                     CalculationService calculationService = new TechniqueACalculationService("feanen1", 1);
                     calculationService.CalculationProcess();
+                    window = new TechniqueA(calculationService.ShowResults());
+                    break;
+                case "barriers":
+                    window = new BarriersConstructor();
+                    break;
+                case "gradations":
+                    window = new GradationsConstructor();
                     break;
            }
 

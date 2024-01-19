@@ -2,6 +2,7 @@
 using PsychTestsMilitary.Interfaces;
 using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services.Contexts;
+using PsychTestsMilitary.Services.Singletons;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -46,7 +47,7 @@ namespace PsychTestsMilitary.Services
 
         protected static List<TechniqueKey> GetKeys(int techID)
         {
-            using (TechniquesContext context = new TechniquesContext())
+            using (TechniquesContext context = TechniquesDBSingleton.Instance.TechniquesContext)
             {
                 var keys = context.Keys
                 .Where(u => u.Id == techID)
@@ -58,7 +59,18 @@ namespace PsychTestsMilitary.Services
         }
 
         public abstract void CalculationProcess();
-        public abstract void ShowResults();
+        public abstract string[] ShowResults();
 
+        protected string ShowScaleResult(KeyValuePair<string, int> keyValues)
+        {
+            string result = (from barrier in AdditionalInfoDBSingleton.Instance.AddInfoContext.Barriers
+                        join gradation in AdditionalInfoDBSingleton.Instance.AddInfoContext.Gradations on barrier.barrierID equals gradation.barrierID
+                        join scale in AdditionalInfoDBSingleton.Instance.AddInfoContext.Scales on barrier.id equals scale.id
+                        where gradation.Value == keyValues.Value && scale.Name == keyValues.Key
+                        select barrier.Result)
+                        .FirstOrDefault();
+
+            return result;
+        }
     }
 }

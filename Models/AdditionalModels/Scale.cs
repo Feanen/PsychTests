@@ -11,6 +11,8 @@ namespace PsychTestsMilitary.Models.AdditionalModels
         public int id {  get; set; }
         public string Name { get; set; }
 
+        public Scale() { }
+
         public Scale(string name)
         {
             Name = name;

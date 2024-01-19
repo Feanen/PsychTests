@@ -20,11 +20,12 @@ using System.Windows.Shapes;
 
 namespace PsychTestsMilitary.Constructors
 {
-    public partial class BarriersConstructor : Window
+    public partial class GradationsConstructor : Window
     {
         private AdditionalInfoContext context = new AdditionalInfoContext();
         private int index = 0;
-        public BarriersConstructor()
+        private int currentIndex = 0;
+        public GradationsConstructor()
         {
             InitializeComponent();
         }
@@ -42,46 +43,50 @@ namespace PsychTestsMilitary.Constructors
                     wnd.Show();
                     break;
                 case "addPair":
-                    AddPair(number.Text, result.Text);
-                    int nextBarrIndex = Int32.Parse(number.Text) + 1;
-                    number.Text = nextBarrIndex.ToString();
-                    result.Text = "";
+                    AddPair(Int32.Parse(min.Text), Int32.Parse(max.Text));
                     break;
             }
         }
 
-        private void AddPair(string nmbr, string resultD)
+        private void AddPair(int min, int max)
         {
-            Barrier brr = new Barrier(index++, (scale.SelectedItem as Scale).id, Int32.Parse(nmbr), resultD);
-            context.Barriers.Add(brr);
+            for (int i = min; i <= max; i++)
+            {
+                Gradation grad = new Gradation(index++, (barrierID.SelectedItem as Barrier).barrierID, i);
+                context.Gradations.Add(grad);
+            }
+            
             context.SaveChanges();
             Update();
         }
 
-        private async Task<List<Scale>> GetScales()
+        private async Task<List<Barrier>> GetBarriers()
         {
-            return await context.Scales.ToListAsync();
+            return await context.Barriers.ToListAsync();
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Scale> scales = await GetScales();
-            scale.ItemsSource = scales;
-            scale.DisplayMemberPath = "Name";
+            List<Barrier> barriers = await GetBarriers();
+            barrierID.ItemsSource = barriers;
+            barrierID.DisplayMemberPath = "barrierID";
 
-            Barrier lastRecord = ((context.Barriers.OrderByDescending(q => q.barrierID).FirstOrDefault()) as Barrier);
-            index = (lastRecord == null) ? 0 : lastRecord.barrierID;
+            Gradation lastRecord = ((context.Gradations.OrderByDescending(q => q.gradationID).FirstOrDefault()) as Gradation);
+            index = (lastRecord == null) ? 0 : lastRecord.gradationID;
         }
 
         private void SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (scale.SelectedItem != null)
-                Update();
+            min.Text = max.Text = "";
+            currentIndex = (sender as ComboBox).SelectedIndex;
+            Update();    
         }
 
         private void Update()
         {
-            Scale selectedScale = (Scale) scale.SelectedItem;
+            barrierID.SelectedIndex = currentIndex++;
+            Barrier selectedBarrier = (Barrier) barrierID.SelectedItem;
+            info.Text = selectedBarrier.Result;
         }
     }
 }

@@ -49,3 +49,9 @@ D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.exe
 D:\projects\PsychTestsMilitary\obj\Debug\PsychTestsMilitary.pdb
 D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueKeysConstructor.g.cs
 D:\projects\PsychTestsMilitary\obj\Debug\Constructors\TechniqueKeysConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\BarriersConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\BarriersConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\GradationsConstructor.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Constructors\GradationsConstructor.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\FinalResultsViews\TechniqueA.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\FinalResultsViews\TechniqueA.baml

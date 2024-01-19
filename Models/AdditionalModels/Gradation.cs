@@ -11,8 +11,9 @@ namespace PsychTestsMilitary.Models.AdditionalModels
         public int gradationID { get; set; }
         public int barrierID { get; set; }
         public int Value { get; set; }
-
-        public Gradation(int barrID, int value) { 
+        public Gradation() { }
+        public Gradation(int gradID, int barrID, int value) { 
+            gradationID = gradID;
             barrierID = barrID;
             Value = value;
         }
