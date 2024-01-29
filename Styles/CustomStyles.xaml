@@ -16,6 +16,13 @@
         <Setter Property="Margin" Value="20"/>
     </Style>
 
+    <Style TargetType="Border" x:Key="ValidationBorderStyle">
+        <Setter Property="Background" Value="#B0C4DE"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
     <Style TargetType="Grid" x:Key="CustomGridBackgroundStyle">
         <Setter Property="Background" Value="#778899"/>
     </Style>

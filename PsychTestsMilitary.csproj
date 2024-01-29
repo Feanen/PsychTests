@@ -56,6 +56,9 @@
     <StartupObject>PsychTestsMilitary.ViewModels.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net35\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -145,7 +148,9 @@
     <Compile Include="Services\CalculationService.cs" />
     <Compile Include="Services\Contexts\AdditionalInfoContext.cs" />
     <Compile Include="Services\JSONStringParcer.cs" />
+    <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\Singletons\AdditionalInfoDBSingleton.cs" />
+    <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueACalculationService.cs" />
     <Compile Include="Services\TechniquesManager.cs" />
@@ -157,10 +162,13 @@
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\TestsType.cs" />
     <Compile Include="ViewModels\App.xaml.cs" />
+    <Compile Include="ViewModels\AuthorizationWindow.xaml.cs" />
     <Compile Include="ViewModels\BaseTechniqueMV.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
+    <Compile Include="ViewModels\PsychologistWndow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
+    <Compile Include="ViewModels\SuperUserValidationWindow.xaml.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType2.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType1.cs" />
     <Compile Include="ViewModels\UserForm.xaml.cs" />
@@ -229,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FinalResultsViews\TechniqueA.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -236,6 +248,10 @@
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PsychologistWndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -252,6 +268,10 @@
     <Page Include="Views\UserForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SuperUserValidationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup />

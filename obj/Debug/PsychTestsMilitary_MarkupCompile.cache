@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-14-513824793
+17-225189362
 
-45396669653
-222115868734
-Constructors\GradationsConstructor.xaml;Constructors\QuestionsConstructor.xaml;Constructors\TechniqueConstructor.xaml;Constructors\DeveloperToolsConstructor.xaml;Constructors\BarriersConstructor.xaml;Constructors\TechniqueKeysConstructor.xaml;Styles\CustomStyles.xaml;Views\App.xaml;Views\FinalResultsViews\TechniqueA.xaml;Views\MainWindow.xaml;Views\RegistrationForm.xaml;Views\TechniqueTypes\TechniqueType2.xaml;Views\TechniqueTypes\TechniqueType1.xaml;Views\UserForm.xaml;
+501199274396
+23539279877
+Constructors\GradationsConstructor.xaml;Constructors\QuestionsConstructor.xaml;Constructors\TechniqueConstructor.xaml;Constructors\DeveloperToolsConstructor.xaml;Constructors\BarriersConstructor.xaml;Constructors\TechniqueKeysConstructor.xaml;Styles\CustomStyles.xaml;Views\App.xaml;Views\AuthorizationWindow.xaml;Views\FinalResultsViews\TechniqueA.xaml;Views\MainWindow.xaml;Views\PsychologistWndow.xaml;Views\RegistrationForm.xaml;Views\TechniqueTypes\TechniqueType2.xaml;Views\TechniqueTypes\TechniqueType1.xaml;Views\UserForm.xaml;Views\SuperUserValidationWindow.xaml;
 
 False
 

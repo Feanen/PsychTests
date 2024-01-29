@@ -21,8 +21,6 @@ namespace PsychTestsMilitary.ViewModels
         public static void Main()
         {
             App app = new App();
-            TechniquesDBSingleton.Instance.TechniquesContext = new TechniquesContext();
-            AdditionalInfoDBSingleton.Instance.AddInfoContext = new AdditionalInfoContext();
             app.InitializeComponent();
             app.Run();
         }
@@ -30,6 +28,14 @@ namespace PsychTestsMilitary.ViewModels
         public static void ExitApp()
         {
             Current.Shutdown();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            TechniquesDBSingleton.Instance.Init();
+            AdditionalInfoDBSingleton.Instance.Init();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace PsychTestsMilitary.Services
                 ComboBox comboBox = (ComboBox)control;
                 if (comboBox.SelectedIndex == 0 )
                     SetDefaultValue(comboBox, 0.5f);
-            }
+            } 
         }
 
         private void SetDefaultValue(IInputElement obj, double opacity)

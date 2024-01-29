@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsychTestsMilitary.Constructors"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Developer Tools" Height="450" Width="800">
     <Grid>
         <Button Name="techniques" Content="Techniques" HorizontalAlignment="Left" Margin="131,55,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
@@ -14,6 +15,7 @@
         <Button Name="test" Content="Testing" HorizontalAlignment="Left" Margin="472,88,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
         <Button Name="barriers" Content="Barriers" HorizontalAlignment="Left" Margin="131,257,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
         <Button Name="gradations" Content="Gradations" HorizontalAlignment="Left" Margin="131,291,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
+        <Button Name="pwds" Content="Passwords" HorizontalAlignment="Left" Margin="472,197,0,0" VerticalAlignment="Top" Width="120" Click="ButtonClick"/>
 
     </Grid>
 </Window>

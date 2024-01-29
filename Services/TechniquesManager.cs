@@ -2,6 +2,7 @@
 using PsychTestsMilitary.Services.Contexts;
 using PsychTestsMilitary.ViewModels;
 using PsychTestsMilitary.ViewModels.TemplateViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -16,7 +17,7 @@ namespace PsychTestsMilitary.Services
             {
                 Technique tech = TestsQueueSingleton.Instance.Techniques.Dequeue();
                 Queue<Question> questions = GetQuestions(tech);
-                Window window = new Window();
+                Window window = null;
                 BaseTechniqueMV baseTechniqueMV = new BaseTechniqueMV();
                 baseTechniqueMV.Init(tech, questions);
 
@@ -30,7 +31,19 @@ namespace PsychTestsMilitary.Services
                         break;
                 }
 
-                window.Show();
+                if (window != null)
+                    window.Show();
+            }
+        }
+
+        public static void SaveAnswers(int techID, List<UserAnswer> listOfAnswers)
+        {
+            UserAnswers answers = new UserAnswers("feanen1", techID, JSONStringParser.StringToJSON(listOfAnswers), DateTime.Today.Date);
+
+            using (AccountContext context = new AccountContext())
+            {
+                context.UserAnswers.Add(answers);
+                context.SaveChanges();
             }
         }
 
@@ -38,18 +51,7 @@ namespace PsychTestsMilitary.Services
         {
             using (TechniquesContext context = new TechniquesContext())
             {
-                return new Queue<Question>(context.Questions.Where( q => q.Technique_id == tech.Id ).ToList());
-            }
-        }
-
-        public static void SaveAnswers(int techID, List<UserAnswer> listOfAnswers)
-        {
-            UserAnswers answers = new UserAnswers("feanen1", techID, JSONStringParcer.StringToJSON(listOfAnswers));
-
-            using (AccountContext context = new AccountContext())
-            {
-                context.UserAnswers.Add(answers);
-                context.SaveChanges();
+                return new Queue<Question>(context.Questions.Where(q => q.Technique_id == tech.Id).ToList());
             }
         }
     }

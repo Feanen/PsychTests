@@ -58,6 +58,9 @@ namespace PsychTestsMilitary.Constructors
                 case "gradations":
                     window = new GradationsConstructor();
                     break;
+                case "pwds":
+                    string result = PasswordHasher.HashPassword("");
+                    break;
            }
 
             window.Show();

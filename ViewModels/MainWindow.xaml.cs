@@ -1,7 +1,10 @@
 ﻿using PsychTestsMilitary.Constructors;
+using PsychTestsMilitary.Services.Contexts;
+using PsychTestsMilitary.Services.Singletons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -43,7 +46,14 @@ namespace PsychTestsMilitary.ViewModels
             form.Show(); this.Close();
         }
 
-        
+        private void Authorization(object sender, EventArgs e)
+        {
+            AuthorizationWindow window = new AuthorizationWindow();
+            window.Owner = this;
+            window.ShowDialog();
+
+        }
+
         private void DeveloperToolsClick(object sender, RoutedEventArgs e)
         {
             DeveloperToolsConstructor window1 = new DeveloperToolsConstructor();

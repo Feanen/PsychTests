@@ -75,7 +75,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
                 currentQuestion = question;
                 nextButton.IsEnabled = false;
                 this.question.Text = question.Number + ". " + question.Description;
-                Queue<AnswerOption> answerOptions = JSONStringParcer.ParseAnswerOptions(question.Answer_options);
+                Queue<AnswerOption> answerOptions = JSONStringParser.ParseAnswerOptions(question.Answer_options);
 
                 foreach (Button btn in answerButtonsGrid.Children)
                 {

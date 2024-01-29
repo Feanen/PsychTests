@@ -9,7 +9,7 @@ namespace PsychTestsMilitary.Services
     public static class Date
     {
         private const int CRITICAL_AGE = 18;
-        public static bool checkOnCriticalAge(string birthday) {
+        public static bool CheckOnCriticalAge(string birthday) {
             DateTime dateTime = DateTime.Now;
             int[] numbers = new int[3];
             int i = 0;

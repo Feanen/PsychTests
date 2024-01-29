@@ -10,6 +10,7 @@ namespace PsychTestsMilitary.Services.Singletons
     public class TechniquesDBSingleton
     {
         private static TechniquesDBSingleton instance;
+        private TechniquesContext context;
 
         public static TechniquesDBSingleton Instance
         {
@@ -23,6 +24,12 @@ namespace PsychTestsMilitary.Services.Singletons
                 return instance;
             }
         }
-        public TechniquesContext TechniquesContext { get; set; }
+        public void Init()
+        {
+            context = new TechniquesContext();
+        }
+        public TechniquesContext GetTechniqueContext() {
+            return context;
+        }
     }
 }

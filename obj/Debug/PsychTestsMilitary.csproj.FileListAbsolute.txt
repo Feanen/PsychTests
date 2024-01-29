@@ -55,3 +55,11 @@ D:\projects\PsychTestsMilitary\obj\Debug\Constructors\GradationsConstructor.g.cs
 D:\projects\PsychTestsMilitary\obj\Debug\Constructors\GradationsConstructor.baml
 D:\projects\PsychTestsMilitary\obj\Debug\Views\FinalResultsViews\TechniqueA.g.cs
 D:\projects\PsychTestsMilitary\obj\Debug\Views\FinalResultsViews\TechniqueA.baml
+D:\projects\PsychTestsMilitary\bin\Debug\BCrypt.Net-Next.dll
+D:\projects\PsychTestsMilitary\bin\Debug\BCrypt.Net-Next.xml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\SuperUserValidationWindow.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\SuperUserValidationWindow.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\AuthorizationWindow.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\AuthorizationWindow.baml
+D:\projects\PsychTestsMilitary\obj\Debug\Views\PsychologistWndow.g.cs
+D:\projects\PsychTestsMilitary\obj\Debug\Views\PsychologistWndow.baml

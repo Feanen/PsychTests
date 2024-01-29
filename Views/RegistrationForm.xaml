@@ -35,7 +35,20 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Label Content="Реєстрація" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0 0 0 15" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label Content="Реєстрація" HorizontalContentAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0 5 0 5" Grid.Row="0" Grid.Column="0"/>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <CheckBox Name="isPsychologist" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10 5 5 5" Click="PsychologistCheckBoxChecked"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="ПСИХОЛОГ" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"/>
+
+                    </Grid>
+                    
                     <TextBox Name="surname" Grid.Row="1" Grid.Column="0" FontSize="20" Background="White" Margin="0 10 10 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть прізвище"/>
                     <TextBox Name="name" Grid.Row="1" Grid.Column="1" FontSize="20" Background="White" Margin="10 10 0 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть ім'я"/>
                     <TextBox Name="fname" Grid.Row="2" Grid.Column="0" FontSize="20" Background="White" Margin="0 10 10 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="По батькові"/>
@@ -47,8 +60,12 @@
                     <TextBox Name="login" Grid.Row="3" Grid.Column="0" FontSize="20" Background="White" Margin="0 10 10 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Логін" ToolTip="Введіть логін, який повинен складатися з латинських літер, чисел та знаку _ &#x0a;Логін повинен починатися з літери"/>
                     <DatePicker Name="birthday" Grid.Row="3" Grid.Column="1" FontSize="20" Background="White" Margin="10 10 0 10" IsTodayHighlighted="True" SelectedDate="{x:Static sys:DateTime.Today}" Opacity="0.5" SelectedDateChanged="DataChanged"/>
                     <TextBox Name="job" Grid.Row="4" Grid.ColumnSpan="2" FontSize="20" Background="White" Margin="0 10 0 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Посада, підрозділ"/>
+                    <TextBlock Name="passTB" Grid.Row="4" FontSize="20" Grid.Column="0" Margin="0 10 10 10" Text="Введіть пароль" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <PasswordBox Name="pass" Grid.Row="5" Grid.Column="0" FontSize="20" Background="White" Margin="0 10 10 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть пароль" Visibility="Hidden"/>
                     <TextBox Name="spec" Grid.Row="5" Grid.Column="0" FontSize="20" Background="White" Margin="0 10 10 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Спеціальність"/>
                     <TextBox Name="rank" Grid.Row="5" Grid.Column="1" FontSize="20" Background="White" Margin="10 10 0 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Військове звання"/>
+                    <TextBlock Name="repassTB" Grid.Row="4" FontSize="20" Grid.Column="1" Margin="10 10 0 10" Text="Повторіть пароль" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <PasswordBox Name="repass" Grid.Row="5" Grid.Column="1" FontSize="20" Background="White" Margin="10 10 0 10" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Повторіть пароль" Visibility="Hidden"/>
                     <Button Content="Зареєструватися" FontSize="30" FontFamily="Times New Roman" Height="50" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Name="registrationButton" Click="ButtonClicked"/>
 
                     <Grid Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">

@@ -47,7 +47,7 @@ namespace PsychTestsMilitary.Services
 
         protected static List<TechniqueKey> GetKeys(int techID)
         {
-            using (TechniquesContext context = TechniquesDBSingleton.Instance.TechniquesContext)
+            using (TechniquesContext context = TechniquesDBSingleton.Instance.GetTechniqueContext())
             {
                 var keys = context.Keys
                 .Where(u => u.Id == techID)
@@ -63,14 +63,12 @@ namespace PsychTestsMilitary.Services
 
         protected string ShowScaleResult(KeyValuePair<string, int> keyValues)
         {
-            string result = (from barrier in AdditionalInfoDBSingleton.Instance.AddInfoContext.Barriers
-                        join gradation in AdditionalInfoDBSingleton.Instance.AddInfoContext.Gradations on barrier.barrierID equals gradation.barrierID
-                        join scale in AdditionalInfoDBSingleton.Instance.AddInfoContext.Scales on barrier.id equals scale.id
-                        where gradation.Value == keyValues.Value && scale.Name == keyValues.Key
-                        select barrier.Result)
-                        .FirstOrDefault();
-
-            return result;
+            return (from barrier in AdditionalInfoDBSingleton.Instance.GetAddInfoContext().Barriers
+                    join gradation in AdditionalInfoDBSingleton.Instance.GetAddInfoContext().Gradations on barrier.barrierID equals gradation.barrierID
+                    join scale in AdditionalInfoDBSingleton.Instance.GetAddInfoContext().Scales on barrier.id equals scale.id
+                    where gradation.Value == keyValues.Value && scale.Name == keyValues.Key
+                    select barrier.Result)
+                    .FirstOrDefault();
         }
     }
 }

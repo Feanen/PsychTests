@@ -14,11 +14,13 @@ namespace PsychTestsMilitary.Models
         public string Login {  get; set; }
         public int TechniqueID { get; set; }
         public string Answers { get; set; }
-        public UserAnswers(string login, int techniqueID, string answers)
+        public DateTime Date {  get; set; } 
+        public UserAnswers(string login, int techniqueID, string answers, DateTime dt)
         {
             Login = login;
             TechniqueID = techniqueID;
             Answers = answers;
+            Date = dt;
         }
     }
 }
