@@ -76,7 +76,7 @@ namespace PsychTestsMilitary.ViewModels
             if (isUser)
                 wind = new UserForm();
             else
-                wind = new DeveloperToolsConstructor();
+                wind = new PsychologistWndow();
 
             wind.Show();
         }

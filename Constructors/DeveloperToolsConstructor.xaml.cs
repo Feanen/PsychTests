@@ -48,9 +48,9 @@ namespace PsychTestsMilitary.Constructors
                     window = new MainWindow();
                     break;
                 case "test":
-                    CalculationService calculationService = new TechniqueACalculationService("feanen1", 1);
-                    calculationService.CalculationProcess();
-                    window = new TechniqueA(calculationService.ShowResults());
+                    //CalculationService calculationService = new TechniqueACalculationService("feanen1", 1);
+                    //calculationService.CalculationProcess();
+                    //window = new TechniqueA(calculationService.ShowResults());
                     break;
                 case "barriers":
                     window = new BarriersConstructor();

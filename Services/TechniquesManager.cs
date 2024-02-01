@@ -1,5 +1,6 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services.Contexts;
+using PsychTestsMilitary.Services.Singletons;
 using PsychTestsMilitary.ViewModels;
 using PsychTestsMilitary.ViewModels.TemplateViewModels;
 using System;
@@ -45,6 +46,27 @@ namespace PsychTestsMilitary.Services
                 context.UserAnswers.Add(answers);
                 context.SaveChanges();
             }
+        }
+
+        public static List<CompletedTechniquesModel> GetUserResults(string login)
+        {
+            List<CompletedTechniquesModel> completedTechniquesModels = new List<CompletedTechniquesModel>();
+
+            using (AccountContext context = new AccountContext())
+            {
+                var answers = context.UserAnswers.Where(q => q.Login == login).ToList();
+
+                foreach (UserAnswers answer in answers)
+                {
+                    completedTechniquesModels.Add(new CompletedTechniquesModel(
+                                                    TechniquesDBSingleton.Instance.GetTechniqueContext().Techniques
+                                                    .Where(t => t.Id == answer.TechniqueID)
+                                                    .Select(t => t.Name).FirstOrDefault(), answer));
+                }
+            }
+
+            
+            return completedTechniquesModels;
         }
 
         private static Queue<Question> GetQuestions(Technique tech)

@@ -28,6 +28,7 @@ namespace PsychTestsMilitary.Services.Singletons
         {
             context = new TechniquesContext();
         }
+
         public TechniquesContext GetTechniqueContext() {
             return context;
         }

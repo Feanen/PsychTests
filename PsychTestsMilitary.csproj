@@ -119,13 +119,16 @@
       <DependentUpon>TechniqueKeysConstructor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ICalculationService.cs" />
+    <Compile Include="Interfaces\ICreatingCalculation.cs" />
     <Compile Include="Interfaces\ITechniqueData.cs" />
     <Compile Include="Interfaces\ITestTypes.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountTrie.cs" />
     <Compile Include="Models\AdditionalModels\Barrier.cs" />
     <Compile Include="Models\AdditionalModels\Gradation.cs" />
     <Compile Include="Models\AdditionalModels\Scale.cs" />
     <Compile Include="Models\AnswerOption.cs" />
+    <Compile Include="Models\CompletedTechniquesModel.cs" />
     <Compile Include="Models\Key.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Technique.cs" />
@@ -149,6 +152,7 @@
     <Compile Include="Services\Contexts\AdditionalInfoContext.cs" />
     <Compile Include="Services\JSONStringParcer.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
+    <Compile Include="Services\ResultsManager.cs" />
     <Compile Include="Services\Singletons\AdditionalInfoDBSingleton.cs" />
     <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
