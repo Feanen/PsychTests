@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tests">
+      <div class="overlap-wrapper">
+        <div class="overlap">
+          <div class="overlap-group">
+            <div class="group">
+              <div class="div">
+                <div class="frame"><img class="img" src="img/group-4.png" /></div>
+                <div class="vector-wrapper"><img class="vector" src="img/image.svg" /></div>
+                <div class="group-wrapper"><img class="group-2" src="img/group-7.png" /></div>
+              </div>
+            </div>
+            <div class="group">
+              <div class="img-wrapper"><img class="img" src="img/image.png" /></div>
+              <div class="frame-2"><img class="vector" src="img/vector-3.svg" /></div>
+              <div class="frame-3"><img class="group-2" src="img/group-7-2.png" /></div>
+            </div>
+          </div>
+          <div class="overlap-group-wrapper">
+            <div class="overlap-group-2">
+              <img class="vector-2" src="img/vector-7.svg" />
+              <div class="text-wrapper">Введіть ПІБ</div>
+            </div>
+          </div>
+          <div class="div-wrapper"><div class="text-wrapper-2">Результат</div></div>
+          <img class="vector-3" src="img/vector-12.svg" />
+          <div class="text-wrapper-3">Константинов Іван Володимирович (1980)</div>
+          <div class="text-wrapper-4">Константинов Іван Володимирович (1972)</div>
+          <img class="vector-4" src="img/vector-20.svg" />
+          <div class="text-wrapper-5">Результати:</div>
+          <div class="overlap-2">
+            <div class="group-3">
+              <div class="overlap-3">
+                <div class="overlap-group-3">
+                  <img class="line" src="img/line-2.svg" />
+                  <img class="line-2" src="img/line-1.svg" />
+                  <div class="group-4">
+                    <p class="p">Оцінка схильності до суїцидальних реакцій</p>
+                    <div class="text-wrapper-6">12.02.2024</div>
+                    <div class="text-wrapper-7">12.02.2024</div>
+                    <div class="text-wrapper-8">14.02.2024</div>
+                    <div class="text-wrapper-9">Стрес-фактори</div>
+                    <p class="text-wrapper-10">Диференціальна діагностика депресивних станів В.А. Жмурова</p>
+                  </div>
+                </div>
+                <div class="text-wrapper-11">Назва методу</div>
+                <div class="text-wrapper-12">Дата проходження</div>
+              </div>
+              <div class="rectangle"></div>
+            </div>
+            <div class="rectangle-2"></div>
+          </div>
+          <div class="text-wrapper-13">Константинов Іван Володимирович (1972)</div>
+          <img class="vector-5" src="img/vector-22.svg" />
+          <div class="frame-4"><div class="text-wrapper-2">Очистити</div></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

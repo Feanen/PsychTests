@@ -1,0 +1,8 @@
+:root {
+  --main-font-family: "Montserrat-Regular", Helvetica;
+  --main-font-weight: 400;
+  --main-font-size: 15px;
+  --main-letter-spacing: 0px;
+  --main-line-height: normal;
+  --main-font-style: normal;
+}

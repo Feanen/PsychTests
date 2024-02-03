@@ -1,5 +1,4 @@
-﻿using MaterialDesignThemes.Wpf.Converters;
-using System;
+﻿using System;
 using System.IO.Ports;
 using System.Security.Cryptography;
 using System.Windows;

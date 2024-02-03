@@ -21,7 +21,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для AuthorizationWindow.xaml
     /// </summary>
-    public partial class AuthorizationWindow : Window
+    public partial class AuthorizationWindow : BaseWindow
     {
         public AuthorizationWindow()
         {
@@ -37,7 +37,7 @@ namespace PsychTestsMilitary.ViewModels
                     VerifyAccountAndPassword(login.Text, password.Password);
                     break;
                 case "cancel":
-                    this.Close();
+                    base.Close();
                     break;
             }
         }
@@ -68,7 +68,7 @@ namespace PsychTestsMilitary.ViewModels
 
         private void ShowNextWindow(bool isUser)
         {
-            this.Close();
+            Close();
             Owner.Hide();
 
             Window wind = null;

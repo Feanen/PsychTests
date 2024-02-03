@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-screen">
+      <div class="overlap-group-wrapper">
+        <div class="overlap-group">
+          <div class="group">
+            <div class="frame"><div class="text-wrapper">Реєстрація</div></div>
+            <div class="div-wrapper"><div class="div">Вхід</div></div>
+            <div class="frame-2"><div class="text-wrapper-2">Вихід</div></div>
+          </div>
+          <div class="group-2">
+            <div class="group-3">
+              <div class="group-wrapper"><img class="img" src="img/group-4.png" /></div>
+              <div class="vector-wrapper"><img class="vector" src="img/vector-3.svg" /></div>
+              <div class="img-wrapper"><img class="group-4" src="img/group-7.png" /></div>
+            </div>
+            <img class="mask-group" src="img/mask-group.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

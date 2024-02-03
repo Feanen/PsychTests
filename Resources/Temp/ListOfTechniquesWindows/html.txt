@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tests">
+      <div class="overlap-wrapper">
+        <div class="overlap">
+          <div class="overlap-group">
+            <div class="group">
+              <div class="div">
+                <div class="frame"><img class="img" src="img/group-4.png" /></div>
+                <div class="vector-wrapper"><img class="vector" src="img/image.svg" /></div>
+                <div class="group-wrapper"><img class="group-2" src="img/group-7.png" /></div>
+              </div>
+            </div>
+            <div class="group">
+              <div class="img-wrapper"><img class="img" src="img/image.png" /></div>
+              <div class="frame-2"><img class="vector" src="img/vector-3.svg" /></div>
+              <div class="frame-3"><img class="group-2" src="img/group-7-2.png" /></div>
+            </div>
+          </div>
+          <div class="overlap-group-wrapper">
+            <div class="overlap-group-2">
+              <img class="vector-2" src="img/vector-7.svg" />
+              <div class="text-wrapper">Виберіть тести</div>
+            </div>
+          </div>
+          <div class="group-3">
+            <div class="group-4">
+              <div class="div-2"></div>
+              <p class="p">Багаторівневий особистісний опитувальник (БОО) &#34;Адаптивність-200&#34;</p>
+            </div>
+            <div class="group-5">
+              <div class="ellipse"></div>
+              <p class="p">
+                Опитувальник Міні-мульт (Скорочений Міссісіпська шкала для оцінки Багатофакторний Опитувальник для
+                дослідження Особистості (СБОО))
+              </p>
+            </div>
+            <div class="overlap-2">
+              <div class="group-4">
+                <div class="div-2"><div class="ellipse-2"></div></div>
+                <p class="text-wrapper-2">Оцінка схильності до суїцидальних реакцій</p>
+              </div>
+              <img class="vector-3" src="img/vector-19.svg" />
+            </div>
+            <div class="group-6">
+              <div class="ellipse-3"></div>
+              <p class="p">
+                Шкала оцінки рівня реактивної (ситуативної) та особистісної тривожності Ч.Д. Спілбергера - Ю.Л. Ханіна
+              </p>
+            </div>
+            <div class="group-7">
+              <div class="ellipse-4"></div>
+              <p class="p">Методика шкалованої самооцінки психофізіологічного стану О.М. Кокуна</p>
+            </div>
+          </div>
+          <div class="div-wrapper"><div class="text-wrapper-3">Розпочати тест</div></div>
+          <img class="vector-4" src="img/vector-9.svg" />
+          <img class="vector-5" src="img/vector-10.svg" />
+          <div class="group-8">
+            <div class="ellipse-5"></div>
+            <div class="ellipse-6"></div>
+            <div class="ellipse-7"></div>
+            <div class="ellipse-8"></div>
+          </div>
+          <img class="vector-6" src="img/vector-12.svg" />
+          <p class="element">
+            <span class="span">Іван </span>
+            <span class="text-wrapper-4">Константинов Володимирович<br /></span>
+            <span class="span">(1980) </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

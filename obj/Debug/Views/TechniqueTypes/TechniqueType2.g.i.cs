@@ -9,9 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using MaterialDesignThemes.Wpf;
-using MaterialDesignThemes.Wpf.Converters;
-using MaterialDesignThemes.Wpf.Transitions;
 using PsychTestsMilitary.Services;
 using PsychTestsMilitary.ViewModels.TemplateViewModels;
 using System;

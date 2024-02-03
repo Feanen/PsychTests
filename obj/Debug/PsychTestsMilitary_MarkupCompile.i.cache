@@ -11,10 +11,10 @@ false
 DEBUG;TRACE
 
 17-225189362
-
-55872346617
-23539279877
+51802637724
+56-186586333
+211021642665
 Constructors\GradationsConstructor.xaml;Constructors\QuestionsConstructor.xaml;Constructors\TechniqueConstructor.xaml;Constructors\DeveloperToolsConstructor.xaml;Constructors\BarriersConstructor.xaml;Constructors\TechniqueKeysConstructor.xaml;Styles\CustomStyles.xaml;Views\App.xaml;Views\AuthorizationWindow.xaml;Views\FinalResultsViews\TechniqueA.xaml;Views\MainWindow.xaml;Views\PsychologistWndow.xaml;Views\RegistrationForm.xaml;Views\TechniqueTypes\TechniqueType2.xaml;Views\TechniqueTypes\TechniqueType1.xaml;Views\UserForm.xaml;Views\SuperUserValidationWindow.xaml;
 
-False
+True
 
