@@ -23,7 +23,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class RegistrationForm : Window
+    public partial class RegistrationForm : BaseWindow
     {
         public RegistrationForm()
         {

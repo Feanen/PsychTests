@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PsychTestsMilitary.exe" size="131032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PsychTestsMilitary.exe" size="131544">
       <assemblyIdentity name="PsychTestsMilitary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WkevhDegcwIYxKFp1eX3JeBteals2dthWulv4BWt2m0=</dsig:DigestValue>
+        <dsig:DigestValue>oCLAkhS+72pfM8oeGZABV/12DZabdVNWS3WzhWERIHw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
