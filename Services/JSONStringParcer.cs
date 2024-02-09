@@ -8,7 +8,7 @@ using PsychTestsMilitary.Models;
 
 namespace PsychTestsMilitary.Services
 {
-    public static class JSONStringParcer
+    public static class JSONStringParser
     {
         public static Queue<AnswerOption> ParseAnswerOptions(string json)
         {

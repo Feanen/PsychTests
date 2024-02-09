@@ -1,0 +1,44 @@
+﻿<local:BaseWindow x:Class="PsychTestsMilitary.ViewModels.SuperUserValidationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/CustomStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+        <Border Style="{StaticResource ValidationBorderStyle}">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0 0 0 5">
+                        Введіть пароль суперкористувача
+                    </TextBlock>
+                    <PasswordBox Name="password" Grid.Row="1" Grid.ColumnSpan="2" Margin="0 0 0 5" Background="White"/>
+                    <TextBlock Name="wrongPassInfo" Visibility="Hidden" Grid.Row="2" Grid.ColumnSpan="2" Margin="0 0 0 5">
+                        Невірно вказаний пароль!
+                    </TextBlock>
+                    <Button Name="accept" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="OK" Margin="0 0 0 5" Click="ButtonClicked"/>
+                    <Button Name="cancel" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Відміна" Margin="0 0 0 5" Click="ButtonClicked"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</local:BaseWindow>

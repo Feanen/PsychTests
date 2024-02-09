@@ -10,11 +10,11 @@ namespace PsychTestsMilitary.Models
     public class Account
     {
         [Key] public string login { get; set; }
-        private string surname, name, fname, gender, birthday, job, spec, rank;
+        private string surname, name, fname, gender, birthday, job, spec, rank, password;
 
         public Account() { }
 
-        public Account(string login, string surname, string name, string fname, string gender, string birthday, string job, string spec, string rank)
+        public Account(string login, string surname, string name, string fname, string gender, string birthday, string job, string spec, string rank, string pass)
         {
             this.login = login;
             this.surname = surname;
@@ -25,6 +25,7 @@ namespace PsychTestsMilitary.Models
             this.job = job;
             this.spec = spec;
             this.rank = rank;
+            this.password = pass;
         }
 
         public string Surname
@@ -73,6 +74,12 @@ namespace PsychTestsMilitary.Models
         {
             get { return this.rank; }
             set { this.rank = value; }
+        }
+
+        public string Password
+        {
+            get { return this.password; }
+            set { this.password = value; }
         }
     }
 }

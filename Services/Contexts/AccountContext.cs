@@ -14,19 +14,19 @@ namespace PsychTestsMilitary.Services.Contexts
         public DbSet<Account> Accounts { get; set; }
         public DbSet<UserAnswers> UserAnswers { get; set; }
 
+        public Account CurrentAccount { get; private set; }
+
         public AccountContext() : base("AccountsConnection") {}
 
         public bool CheckOnUniqueAccount(string login)
         {
-            foreach (Account user in this.Accounts)
-            {
-                if (user.login.Equals(login))
-                {
-                    return true;
-                }
-            }
+            CurrentAccount = this.Accounts.FirstOrDefault(user => user.login.Equals(login));
+            return CurrentAccount == null ? false : true;
+        }
 
-            return false;
+        public bool CheckOnCorrectPassword(string pass)
+        {
+            return PasswordHasher.CheckOnPsychPassword(pass, CurrentAccount.Password);
         }
     }
 }

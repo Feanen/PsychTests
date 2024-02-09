@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tests">
+      <div class="overlap-wrapper">
+        <div class="overlap">
+          <div class="group">
+            <div class="div">
+              <div class="frame"><img class="img" src="img/group-4.png" /></div>
+              <div class="vector-wrapper"><img class="vector" src="img/vector-3-2.svg" /></div>
+              <div class="group-wrapper"><img class="group-2" src="img/image.png" /></div>
+            </div>
+          </div>
+          <div class="overlap-group-wrapper">
+            <div class="overlap-group">
+              <img class="vector-2" src="img/vector-7.svg" />
+              <div class="text-wrapper">Введіть ПІБ</div>
+            </div>
+          </div>
+          <div class="div-wrapper"><div class="text-wrapper-2">Результат</div></div>
+          <div class="group">
+            <div class="img-wrapper"><img class="img" src="img/group-4-2.png" /></div>
+            <div class="frame-2"><img class="vector" src="img/image.svg" /></div>
+            <div class="frame-3"><img class="group-2" src="img/group-7.png" /></div>
+          </div>
+          <img class="vector-3" src="img/vector-12.svg" />
+          <img class="vector-4" src="img/vector-20.svg" />
+          <div class="text-wrapper-3">Результати:</div>
+          <div class="group-3">
+            <div class="overlap-2">
+              <div class="overlap-group-2">
+                <img class="line" src="img/line-2.svg" />
+                <img class="line-2" src="img/line-1.svg" />
+                <div class="group-4">
+                  <p class="p">Оцінка схильності до суїцидальних реакцій</p>
+                  <div class="text-wrapper-4">12.02.2024</div>
+                  <div class="text-wrapper-5">12.02.2024</div>
+                  <div class="text-wrapper-6">14.02.2024</div>
+                  <div class="text-wrapper-7">Стрес-фактори</div>
+                  <p class="text-wrapper-8">Диференціальна діагностика депресивних станів В.А. Жмурова</p>
+                </div>
+              </div>
+              <div class="text-wrapper-9">Назва методу</div>
+              <div class="text-wrapper-10">Дата проходження</div>
+            </div>
+            <div class="rectangle"></div>
+          </div>
+          <div class="rectangle-2"></div>
+          <div class="text-wrapper-11">Константинов Іван Володимирович (1980)</div>
+          <img class="vector-5" src="img/vector-21.svg" />
+          <div class="frame-4"><div class="text-wrapper-12">Очистити</div></div>
+          <div class="rectangle-3"></div>
+          <div class="view">
+            <div class="group-5">
+              <div class="img-wrapper"><img class="img" src="img/group-4-3.png" /></div>
+              <div class="frame-2"><img class="vector" src="img/vector-3.svg" /></div>
+              <div class="frame-3"><img class="group-2" src="img/group-7-2.png" /></div>
+            </div>
+            <div class="group-6">
+              <div class="overlap-group-3">
+                <img class="vector-6" src="img/vector-7-2.svg" />
+                <div class="text-wrapper-13">Висновок</div>
+              </div>
+            </div>
+            <div class="text-wrapper-14">Константинов Іван Володимирович (1972)</div>
+            <div class="text-wrapper-15">12.02.2024</div>
+            <p class="element">
+              <span class="span">Шкала достовірності<br /></span>
+              <span class="text-wrapper-16"
+                >Висока достовірність результатів обстеження.<br />Шкала поведінкової регуляції<br />Виражені ознаки
+                нервово-психічної нестійкості і порушення поведінкової регуляції.<br />Низька толерантність до психічних
+                і фізичних навантажень. Адаптація до нових умов життєдіяльності протікає хворобливо. Можливе тривале 1
+                виражене погіршення функціонального стану організму. Рівень професійної працездатності у даний період
+                часу низький. При посиленні психічних навантажень достатньо вірогідний зрив професійної діяльності.<br
+              /></span>
+              <span class="text-wrapper-17"><br /></span>
+              <span class="span">Шкала комунікативного потенціалу<br /></span>
+              <span class="text-wrapper-16"
+                >Понижений рівень комунікативних здібностей. Наявність окремих ознак акцентуації характеру. На
+                початковому етапі адаптації до нового колективу виникають значні ускладнення. Міжперсональні
+                взаємостосунки (як по горизонталі, так і по вертикалі) часто будує неправильно. Хворобливо реагує на
+                критику. Недостатньо розвинута здатність до корекції своєї поведінки.</span
+              >
+            </p>
+            <p class="text-wrapper-18">Оцінка схильності до суїцидальних реакцій</p>
+            <div class="rectangle-wrapper"><div class="rectangle-4"></div></div>
+            <div class="frame-wrapper"><img class="frame-5" src="img/frame.svg" /></div>
+            <div class="frame-6"><div class="text-wrapper-19">Закрити</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

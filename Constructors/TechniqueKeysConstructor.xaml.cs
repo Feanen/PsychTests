@@ -58,7 +58,7 @@ namespace PsychTestsMilitary.Constructors
 
         private void AddKey()
         {
-            string json = JSONStringParcer.StringToJSON(keys);
+            string json = JSONStringParser.StringToJSON(keys);
             Models.Key km = new Models.Key((techniques.SelectedItem as Technique).Id, json);
             context.Keys.Add(km);
             context.SaveChanges();

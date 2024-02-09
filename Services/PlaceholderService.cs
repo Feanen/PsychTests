@@ -1,5 +1,4 @@
-﻿using MaterialDesignThemes.Wpf.Converters;
-using System;
+﻿using System;
 using System.IO.Ports;
 using System.Security.Cryptography;
 using System.Windows;
@@ -43,7 +42,7 @@ namespace PsychTestsMilitary.Services
                 ComboBox comboBox = (ComboBox)control;
                 if (comboBox.SelectedIndex == 0 )
                     SetDefaultValue(comboBox, 0.5f);
-            }
+            } 
         }
 
         private void SetDefaultValue(IInputElement obj, double opacity)

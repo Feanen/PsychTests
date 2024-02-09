@@ -1,16 +1,18 @@
 ﻿using PsychTestsMilitary.Models;
+using PsychTestsMilitary.ViewModels.FinalResults;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueACalculationService : CalculationService
     {
         private string[] finalResults;
-        public TechniqueACalculationService(string login, int techID) : base(login, techID)
+        public TechniqueACalculationService(UserAnswers answers) : base(answers)
         {
         }
 
@@ -29,9 +31,9 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             finalResults = new string[] {D, PR, KP, MN, VPS, DAP, CR, RTCS};
         }
 
-        public override string[] ShowResults()
+        public override Window ShowResults()
         {
-            return finalResults;
+            return new TechniqueA(finalResults);
         }
 
         private Dictionary<string, int> GetRawScores()

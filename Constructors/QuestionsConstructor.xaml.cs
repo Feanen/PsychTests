@@ -1,5 +1,6 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services.Contexts;
+using PsychTestsMilitary.Services.Singletons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,6 @@ namespace PsychTestsMilitary.Constructors
 {
     public partial class QuestionsConstructor : Window
     {
-        private TechniquesContext context = new TechniquesContext();
         int id;
         public QuestionsConstructor()
         {
@@ -40,23 +40,23 @@ namespace PsychTestsMilitary.Constructors
                     break;
                 case "add":
                     Question question = new Question(id++, Int32.Parse(number.Text), this.description.Text, (techniques.SelectedItem as Technique).Id);
-                    context.Questions.Add(question);
-                    context.SaveChanges();
+                    TechniquesDBSingleton.Instance.GetTechniqueContext().Questions.Add(question);
+                    TechniquesDBSingleton.Instance.GetTechniqueContext().SaveChanges();
                     Update();
                     break;
             }
         }
 
-        private async Task<List<Technique>> GetTechniques()
+        private List<Technique> GetTechniques()
         {
-            return await context.Techniques.ToListAsync();            
+            return TechniquesDBSingleton.Instance.GetTechniqueContext().Techniques.ToList();            
         }
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Technique> techs = await GetTechniques();
+            List<Technique> techs = GetTechniques();
 
-            Question lastQuestion = ((context.Questions.OrderByDescending(q => q.qId).FirstOrDefault()) as Question);
+            Question lastQuestion = ((TechniquesDBSingleton.Instance.GetTechniqueContext().Questions.OrderByDescending(q => q.qId).FirstOrDefault()) as Question);
             id = (lastQuestion == null) ? 0 : lastQuestion.qId;
             techniques.ItemsSource = techs;
             techniques.DisplayMemberPath = "Name";
@@ -70,8 +70,8 @@ namespace PsychTestsMilitary.Constructors
 
         private void Update()
         {
-            Technique selectedTech = (Technique)techniques.SelectedItem;
-            Question lastQuestion = context.Questions.Where(q => q.Technique_id == selectedTech.Id)
+            Technique selectedTech = (Technique) techniques.SelectedItem;
+            Question lastQuestion = TechniquesDBSingleton.Instance.GetTechniqueContext().Questions.Where(q => q.Technique_id == selectedTech.Id)
                 .OrderByDescending(q => q.Number)
                 .FirstOrDefault();
 

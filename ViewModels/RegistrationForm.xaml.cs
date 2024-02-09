@@ -23,7 +23,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class RegistrationForm : Window
+    public partial class RegistrationForm : BaseWindow
     {
         public RegistrationForm()
         {
@@ -40,12 +40,13 @@ namespace PsychTestsMilitary.ViewModels
                     ShowMainWindow();
                     break;
                 case "registrationButton":
-                    Account acc = CreateAccountData();
-                    if (!ValidateAccData(acc)) {
-                        Console.WriteLine("ddddddd"); //TODO feedback alerts for users
+                    if (!ValidateAccData()) {
+                        MessageBox.Show("Невірно вказані дані");
                     } 
                     else
                     {
+                        Account acc = CreateAccountData();
+
                         using (AccountContext db = new AccountContext())
                         {
                             if (db.CheckOnUniqueAccount(acc.login))
@@ -66,11 +67,43 @@ namespace PsychTestsMilitary.ViewModels
             }
         }
 
+        private void PsychologistCheckBoxChecked(object sender, RoutedEventArgs e)
+        {
+            if ((bool) (sender as CheckBox).IsChecked)
+            {
+                if (ShowSUValidationWindow())
+                {
+                    job.Visibility = spec.Visibility = rank.Visibility = Visibility.Hidden;
+                    job.Text = spec.Text = rank.Text = null;
+                    pass.Visibility = repass.Visibility = passTB.Visibility = repassTB.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    (sender as CheckBox).IsChecked = false;
+                }
+            } 
+            else
+            {
+                job.Visibility = spec.Visibility = rank.Visibility = Visibility.Visible;
+                pass.Visibility = repass.Visibility = passTB.Visibility = repassTB.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private bool ShowSUValidationWindow()
+        {
+            Window suvalidwindow = new SuperUserValidationWindow();
+            suvalidwindow.Owner = this;
+            return (bool) suvalidwindow.ShowDialog();
+        }
+
         private Account CreateAccountData()
         {
             return new Account(login.Text, surname.Text, name.Text, fname.Text,
                               (gender.SelectedItem as ComboBoxItem).Content.ToString(), birthday.SelectedDate.ToString().Split(' ')[0],
-                              job.Text, spec.Text, rank.Text);
+                              job.Text = (job.Text.Equals(job.Tag)) ? null : job.Text, 
+                              spec.Text = (spec.Text.Equals(spec.Tag)) ? null : spec.Text,
+                              rank.Text = (rank.Text.Equals(rank.Tag)) ? null : rank.Text,
+                              PasswordHasher.HashPassword(pass.Password));
         }
 
         private void ShowMainWindow()
@@ -80,20 +113,26 @@ namespace PsychTestsMilitary.ViewModels
             this.Close();
         }
 
-        private bool ValidateAccData(Account acc) 
+        private bool ValidateAccData() 
         {
-            // first step for validating account data
-            if (acc.login.Equals(login.Tag) || acc.Surname.Equals(surname.Tag) ||
-                acc.Name.Equals(name.Tag) || acc.FName.Equals(fname.Tag) ||
-                acc.Gender.Equals((gender.Items.GetItemAt(0) as ComboBoxItem).Content.ToString()) ||
-                acc.Job.Equals(job.Tag) || acc.Spec.Equals(spec.Tag) || acc.Rank.Equals(rank.Tag) || !Date.checkOnCriticalAge(acc.Birthday))
+            if ((bool) isPsychologist.IsChecked) 
             {
-                MessageBox.Show("Невірно вказані дані");
-                return false;
+                if (login.Text.Equals(login.Tag) || surname.Text.Equals(surname.Tag) ||
+                    name.Text.Equals(name.Tag) || fname.Equals(fname.Tag) ||
+                    (gender.SelectedItem as ComboBoxItem).Equals((gender.Items.GetItemAt(0) as ComboBoxItem).Content.ToString()) ||
+                    !Date.CheckOnCriticalAge(birthday.SelectedDate.ToString().Split(' ')[0]) || pass.Password != repass.Password)
+                { return false; }
+                else { return true; }
             }
             else
             {
-                return true;
+                if (login.Text.Equals(login.Tag) || surname.Text.Equals(surname.Tag) ||
+                    name.Text.Equals(name.Tag) || fname.Equals(fname.Tag) ||
+                    (gender.SelectedItem as ComboBoxItem).Equals((gender.Items.GetItemAt(0) as ComboBoxItem).Content.ToString()) ||
+                    job.Text.Equals(job.Tag) || spec.Text.Equals(spec.Tag) || rank.Text.Equals(rank.Tag) || 
+                    !Date.CheckOnCriticalAge(birthday.SelectedDate.ToString().Split(' ')[0]))
+                { return false; }
+                else { return true; }
             } 
         }
         public void FocusOn(object sender, EventArgs e)
