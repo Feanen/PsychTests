@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
         mc:Ignorable="d"
         MouseLeftButtonDown="WindowMouseLeftButtonDown"
-        Style="{DynamicResource CustomWindowStyle}"
-        WindowStartupLocation="CenterScreen">
+        Style="{DynamicResource CustomWindowStyle}">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

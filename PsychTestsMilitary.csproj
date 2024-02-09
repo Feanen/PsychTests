@@ -178,6 +178,7 @@
     <Compile Include="ViewModels\AuthorizationWindow.xaml.cs" />
     <Compile Include="ViewModels\BaseTechniqueMV.cs" />
     <Compile Include="ViewModels\BaseWindow.cs" />
+    <Compile Include="ViewModels\BaseWindowWithEditableFields.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
     <Compile Include="ViewModels\PsychologistWndow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />

@@ -31,7 +31,10 @@ namespace PsychTestsMilitary.ViewModels
 
         protected void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
+            if (this.Owner == null)
+                App.Current.Shutdown();
+            else
+                this.Close();
         }
     }
 }

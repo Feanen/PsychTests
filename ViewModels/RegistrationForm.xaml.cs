@@ -23,7 +23,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class RegistrationForm : BaseWindow
+    public partial class RegistrationForm : BaseWindowWithEditableFields
     {
         public RegistrationForm()
         {
@@ -135,21 +135,6 @@ namespace PsychTestsMilitary.ViewModels
                 else { return true; }
             } 
         }
-        public void FocusOn(object sender, EventArgs e)
-        {
-            Control textBox = (Control)sender;
-            string defaultValue = textBox.Tag as string;
-            PlaceholderService placeHolder = new PlaceholderService(textBox);
-            placeHolder.GotFocus(sender, e);
-        }
-
-        public void FocusOff(object sender, EventArgs e)
-        {
-            Control textBox = (Control)sender;
-            string defaultValue = textBox.Tag as string;
-            PlaceholderService placeHolder = new PlaceholderService(textBox);
-            placeHolder.LostFocus(sender, e);
-        }
 
         public void DataChanged(object sender, EventArgs e)
         {
@@ -158,12 +143,6 @@ namespace PsychTestsMilitary.ViewModels
                 picker.Opacity = 1.0f;
                 picker.Focusable = false;
             }
-        }
-#pragma warning disable CS0108 // Член скрывает унаследованный член: отсутствует новое ключевое слово
-        public void Loaded(object sender, EventArgs e)
-#pragma warning restore CS0108 // Член скрывает унаследованный член: отсутствует новое ключевое слово
-        {
-            this.FocusOff(sender, e);
         }
     }
 }

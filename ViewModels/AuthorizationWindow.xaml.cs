@@ -21,7 +21,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для AuthorizationWindow.xaml
     /// </summary>
-    public partial class AuthorizationWindow : BaseWindow
+    public partial class AuthorizationWindow : BaseWindowWithEditableFields
     {
         public AuthorizationWindow()
         {
