@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public partial class UserForm : Window
+    public partial class UserForm : BaseWindow
     {
         private Dictionary<CheckBox, Technique> connectionBetweenCheckboxAndTechnique = new Dictionary<CheckBox, Technique>();
         public UserForm()

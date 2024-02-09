@@ -18,7 +18,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class SuperUserValidationWindow : Window
+    public partial class SuperUserValidationWindow : BaseWindow
     {
         public SuperUserValidationWindow()
         {

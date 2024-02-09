@@ -45,7 +45,7 @@ namespace PsychTestsMilitary.Constructors
                     break;
                     
                 case "back":
-                    BaseWindow wnd = new MainWindow();
+                    window = new MainWindow();
                     break;
                 case "test":
                     //CalculationService calculationService = new TechniqueACalculationService("feanen1", 1);

@@ -33,7 +33,7 @@ namespace PsychTestsMilitary.ViewModels
         private void Authorization(object sender, EventArgs e)
         {
             AuthorizationWindow window = new AuthorizationWindow();
-            //window.Owner = this;
+            window.Owner = this;
             window.ShowDialog();
 
         }

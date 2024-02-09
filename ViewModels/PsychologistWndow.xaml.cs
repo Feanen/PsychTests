@@ -19,7 +19,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для PsychologistWndow.xaml
     /// </summary>
-    public partial class PsychologistWndow : Window
+    public partial class PsychologistWndow : BaseWindow
     {
         private static AccountTrie accountData = new AccountTrie();
         private static Dictionary<string, string> accounts;

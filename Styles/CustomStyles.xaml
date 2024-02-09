@@ -53,6 +53,38 @@
     </Style>
     <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+    <Style TargetType="TextBox" x:Key="CustomTextBox">
+        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Background" Value="#222d1e"/>
+        <Setter Property="BorderThickness" Value="0 0 0 2"/>
+        <Setter Property="BorderBrush" Value="#fffce6"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    </Style>
+
+    <Style TargetType="ComboBox" x:Key="CustomComboBox">
+        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="BorderThickness" Value="0 0 0 2"/>
+        <Setter Property="BorderBrush" Value="#fffce6"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="Background" Value="#222d1e"/>
+                    <Setter Property="BorderThickness" Value="0 0 0 0"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="Button" x:Key="CustomRoundedButtonStyle">
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontWeight" Value="Normal"/>
@@ -106,15 +138,12 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
-    
     <Style TargetType="Border" x:Key="ValidationBorderStyle">
         <Setter Property="Background" Value="#B0C4DE"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="5" />
         <Setter Property="Margin" Value="5"/>
     </Style>
-
-
 
     <Style TargetType="Button" x:Key="NormalAnswerButtonStyle">
         <Setter Property="Background" Value="LightGray"/>
@@ -130,11 +159,50 @@
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
+    <Style TargetType="DatePicker" x:Key="CustomDP">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#FFFCE6"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Opacity" Value="0.5"/>
+    </Style>
+
+    <Style TargetType="DatePickerTextBox" x:Key="CustomDPTextBox">
+        <Setter Property="Background" Value="#222D1E"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="CustomLabel">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontStyle" Value="Normal"/>
+        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="Margin" Value="8"/>
+    </Style>
+    
     <Style TargetType="TextBlock" x:Key="FinalResultsTextBlockStyle">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontFamily" Value="Times New Roman"/>
         <Setter Property="FontWeight" Value="Normal"/>
     </Style>
+
+    <Style TargetType="TextBlock" x:Key="RegistrationTextBlockStyle">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#FFFCE6"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Opacity" Value="0.5"/>
+        <Setter Property="Margin" Value="0 5 5 5"/>
+    </Style>
+
     <Style x:Key="CustomWindowStyle" TargetType="{x:Type Window}">
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
