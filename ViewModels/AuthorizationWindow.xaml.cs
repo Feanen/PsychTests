@@ -46,22 +46,18 @@ namespace PsychTestsMilitary.ViewModels
             using (AccountContext context = new AccountContext())
             {
                 if (!context.CheckOnUniqueAccount(login))
-                {
                     MessageBox.Show("No user with login: " + login);
-                } else
+                else
                 {
                     bool isUser = PasswordHasher.CheckOnUserPassword(pwd);
 
                     if (((bool)isPsychologist.IsChecked ^ isUser) && context.CheckOnCorrectPassword(pwd))
                     {
                         CurrentUserSingleton.CurrentAcc = context.CurrentAccount;
-
                         ShowNextWindow(isUser);
                     }
                     else
-                    {
                         MessageBox.Show("Invalid password");
-                    }
                 }
             }
         }
@@ -83,15 +79,19 @@ namespace PsychTestsMilitary.ViewModels
 
         private void CheckedPsychologystCB(object sender, RoutedEventArgs e)
         {
-            password.IsEnabled = true;
-            password.Background = Brushes.White;
+            password.Visibility = Visibility.Visible;
         }
 
         private void UncheckedPsychologistCB(object sender, RoutedEventArgs e)
         {
-            password.IsEnabled = false;
-            password.Background = Brushes.Gray;
-            password.Password = "";
+            password.Visibility = Visibility.Hidden;
+            password.Password = string.Empty;
+        }
+
+        protected override void KeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                VerifyAccountAndPassword(login.Text, password.Password);
         }
     }
 }

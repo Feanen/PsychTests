@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public class BaseWindow : Window
+    public abstract class BaseWindow : Window
     {
         public BaseWindow() : base() {}
 

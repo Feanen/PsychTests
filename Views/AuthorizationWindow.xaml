@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
+        xmlns:pwdph="clr-namespace:PsychTestsMilitary.Services"
         mc:Ignorable="d"
         MouseLeftButtonDown="WindowMouseLeftButtonDown"
         Style="{DynamicResource CustomWindowStyle}"
         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Width="300" Height="300">
     <Window.Resources>
         <ResourceDictionary>
@@ -28,10 +30,10 @@
                 <Image Style="{StaticResource CloseWindowImage}"/>
             </Button>
         </StackPanel>
-        <Label Grid.Row="1" Style="{StaticResource CustomLabel}" Content="Вхід" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+        <Label Grid.Row="1" Margin="0" Style="{StaticResource CustomLabel}" Content="Вхід" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
         <Border Grid.Row="2" Style="{StaticResource CustomBorderStyle}" Margin="0" VerticalAlignment="Top" Padding="0">
             <StackPanel>
-                <Grid>
+                <Grid Margin="50 0 0 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
@@ -39,11 +41,10 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <CheckBox Name="isPsychologist" Grid.Row="0" Grid.Column="0" Style="{StaticResource PsychologistCheckBox}" Checked="CheckedPsychologystCB" Unchecked="UncheckedPsychologistCB" />
+                    <CheckBox Name="isPsychologist" Grid.Row="0" Grid.Column="0" Style="{StaticResource PsychologistCheckBox}" Checked="CheckedPsychologystCB" Unchecked="UncheckedPsychologistCB" TabIndex="4"/>
                     <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Text="Психолог" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-
                 </Grid>
-                <Grid>
+                <Grid Margin="50 0 50 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
@@ -52,8 +53,8 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox Name="login" Style="{StaticResource CustomTextBox}" Grid.Row="0" Grid.Column="0" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть логін"/>
-                    <PasswordBox Style="{DynamicResource PasswordBoxStyle1}" Name="password" Grid.Row="1" Grid.Column="0" Password="" HorizontalAlignment="Stretch" IsEnabled="False" Background="Gray" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" />
+                    <TextBox Name="login" Style="{StaticResource CustomTextBox}" Grid.Row="0" Grid.Column="0" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть логін" TabIndex="1"/>
+                    <PasswordBox Style="{DynamicResource PasswordBoxStyle1}" Name="password" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden" TabIndex="2"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -63,7 +64,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Button Name="accept" Grid.Row="0" Grid.ColumnSpan="2" Content="Увійти" Style="{StaticResource CustomRoundedButtonStyle}" Click="ButtonClicked"/>
+                    <Button Name="accept" Grid.Row="0" Grid.ColumnSpan="2" Content="Увійти" Style="{StaticResource CustomRoundedButtonStyle}" Width="150" Click="ButtonClicked" TabIndex="3"/>
                     <Button Name="cancel" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Відміна" Margin="5,5,0,5" Click="ButtonClicked" Visibility="Hidden"/>
                 </Grid>
             </StackPanel>

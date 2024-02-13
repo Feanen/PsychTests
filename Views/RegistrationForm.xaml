@@ -82,25 +82,13 @@
                         </DatePicker.Resources>
                     </DatePicker>
                     <TextBox Name="job" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Посада, підрозділ"/>
-                    <TextBlock Name="passTB" Grid.Row="5" Grid.Column="0" Text="Введіть пароль" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden"/>
-                    <PasswordBox Name="pass" Grid.Row="6" Grid.Column="0" FontSize="20" Background="White" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть пароль" Visibility="Hidden"/>
                     <TextBox Name="spec" Grid.Row="5" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Спеціальність"/>
                     <TextBox Name="rank" Grid.Row="5" Grid.Column="1" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Військове звання"/>
-                    <TextBlock Name="repassTB" Grid.Row="5" FontSize="20" Grid.Column="1" Text="Повторіть пароль" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden"/>
-                    <PasswordBox Name="repass" Grid.Row="6" Grid.Column="1" FontSize="20" Background="White" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Повторіть пароль" Visibility="Hidden"/>
-                    <Button Content="Зареєструватися" Style="{StaticResource CustomRoundedButtonStyle}" Margin="0 10 0 0" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="registrationButton" Click="ButtonClicked"/>
+                    <PasswordBox Name="pass" Grid.Row="5" Grid.Column="0" Style="{StaticResource PasswordBoxStyle1}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
+                    <PasswordBox Name="repass" Grid.Row="5" Grid.Column="1" Style="{StaticResource PasswordBoxStyle2}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
+                    <Button Content="Зареєструватися" Style="{StaticResource CustomRoundedButtonStyle}" Margin="0 25 0 0" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="registrationButton" Click="ButtonClicked"/>
 
-                    <Grid Grid.Row="7" Grid.Column="1" VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Button Content="Назад" Grid.Column="1" Grid.Row="0" FontSize="20" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top" Name="backButton" Click="ButtonClicked" Visibility="Hidden"/>
-                    </Grid>
+                    <Button Content="Назад" Grid.Column="1" Grid.Row="0" FontSize="20" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top" Name="backButton" Click="ButtonClicked" Visibility="Hidden"/>
                 </Grid>
 
             </StackPanel>

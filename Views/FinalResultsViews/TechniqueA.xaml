@@ -16,8 +16,8 @@
         </ResourceDictionary>
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Style="{StaticResource CustomGridBackgroundStyle}">
-            <Border Style="{StaticResource CustomBorderStyle}">
+        <Grid Style="{StaticResource CustomGridBackgroundStyle}" Background="White">
+            <Border Style="{StaticResource CustomBorderStyle}" Background="White">
                 <StackPanel>
                     <Grid Name="grid">
                         <Grid.ColumnDefinitions>

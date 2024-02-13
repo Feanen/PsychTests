@@ -158,9 +158,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\CalculationService.cs" />
+    <Compile Include="Services\PasswordBoxMonitor.cs" />
     <Compile Include="Services\Contexts\AdditionalInfoContext.cs" />
     <Compile Include="Services\JSONStringParcer.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
+    <Compile Include="Services\PasswordPlaceholder.cs" />
     <Compile Include="Services\ResultsManager.cs" />
     <Compile Include="Services\Singletons\AdditionalInfoDBSingleton.cs" />
     <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />

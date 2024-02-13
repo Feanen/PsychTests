@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public class BaseWindowWithEditableFields : BaseWindow
+    public abstract class BaseWindowWithEditableFields : BaseWindow
     {
         public void FocusOn(object sender, EventArgs e)
         {
@@ -31,5 +32,7 @@ namespace PsychTestsMilitary.ViewModels
         {
             this.FocusOff(sender, e);
         }
+
+        protected abstract void KeyDownHandler(object sender, KeyEventArgs e);
     }
 }

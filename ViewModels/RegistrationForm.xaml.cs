@@ -58,9 +58,6 @@ namespace PsychTestsMilitary.ViewModels
                             db.Accounts.Add(acc);
                             db.SaveChanges();
                             MessageBox.Show("Реєстрація пройшла успішно!");
-
-                            //TODO Form for successful registration
-                            //ShowMainWindow();
                         }
                     }
                     break;
@@ -75,7 +72,7 @@ namespace PsychTestsMilitary.ViewModels
                 {
                     job.Visibility = spec.Visibility = rank.Visibility = Visibility.Hidden;
                     job.Text = spec.Text = rank.Text = null;
-                    pass.Visibility = repass.Visibility = passTB.Visibility = repassTB.Visibility = Visibility.Visible;
+                    pass.Visibility = repass.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -85,7 +82,7 @@ namespace PsychTestsMilitary.ViewModels
             else
             {
                 job.Visibility = spec.Visibility = rank.Visibility = Visibility.Visible;
-                pass.Visibility = repass.Visibility = passTB.Visibility = repassTB.Visibility = Visibility.Hidden;
+                pass.Visibility = repass.Visibility = Visibility.Hidden;
             }
         }
 
@@ -143,6 +140,11 @@ namespace PsychTestsMilitary.ViewModels
                 picker.Opacity = 1.0f;
                 picker.Focusable = false;
             }
+        }
+
+        protected override void KeyDownHandler(object sender, KeyEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
