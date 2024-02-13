@@ -23,7 +23,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class RegistrationForm : BaseWindow
+    public partial class RegistrationForm : BaseWindowWithEditableFields
     {
         public RegistrationForm()
         {
@@ -58,9 +58,6 @@ namespace PsychTestsMilitary.ViewModels
                             db.Accounts.Add(acc);
                             db.SaveChanges();
                             MessageBox.Show("Реєстрація пройшла успішно!");
-
-                            //TODO Form for successful registration
-                            //ShowMainWindow();
                         }
                     }
                     break;
@@ -75,7 +72,7 @@ namespace PsychTestsMilitary.ViewModels
                 {
                     job.Visibility = spec.Visibility = rank.Visibility = Visibility.Hidden;
                     job.Text = spec.Text = rank.Text = null;
-                    pass.Visibility = repass.Visibility = passTB.Visibility = repassTB.Visibility = Visibility.Visible;
+                    pass.Visibility = repass.Visibility = Visibility.Visible;
                 }
                 else
                 {
@@ -85,7 +82,7 @@ namespace PsychTestsMilitary.ViewModels
             else
             {
                 job.Visibility = spec.Visibility = rank.Visibility = Visibility.Visible;
-                pass.Visibility = repass.Visibility = passTB.Visibility = repassTB.Visibility = Visibility.Hidden;
+                pass.Visibility = repass.Visibility = Visibility.Hidden;
             }
         }
 
@@ -135,21 +132,6 @@ namespace PsychTestsMilitary.ViewModels
                 else { return true; }
             } 
         }
-        public void FocusOn(object sender, EventArgs e)
-        {
-            Control textBox = (Control)sender;
-            string defaultValue = textBox.Tag as string;
-            PlaceholderService placeHolder = new PlaceholderService(textBox);
-            placeHolder.GotFocus(sender, e);
-        }
-
-        public void FocusOff(object sender, EventArgs e)
-        {
-            Control textBox = (Control)sender;
-            string defaultValue = textBox.Tag as string;
-            PlaceholderService placeHolder = new PlaceholderService(textBox);
-            placeHolder.LostFocus(sender, e);
-        }
 
         public void DataChanged(object sender, EventArgs e)
         {
@@ -159,11 +141,10 @@ namespace PsychTestsMilitary.ViewModels
                 picker.Focusable = false;
             }
         }
-#pragma warning disable CS0108 // Член скрывает унаследованный член: отсутствует новое ключевое слово
-        public void Loaded(object sender, EventArgs e)
-#pragma warning restore CS0108 // Член скрывает унаследованный член: отсутствует новое ключевое слово
+
+        protected override void KeyDownHandler(object sender, KeyEventArgs e)
         {
-            this.FocusOff(sender, e);
+            throw new NotImplementedException();
         }
     }
 }

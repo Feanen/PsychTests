@@ -18,7 +18,7 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class SuperUserValidationWindow : BaseWindow
+    public partial class SuperUserValidationWindow : BaseWindowWithEditableFields
     {
         public SuperUserValidationWindow()
         {
@@ -31,19 +31,28 @@ namespace PsychTestsMilitary.ViewModels
             switch (button.Name)
             {
                 case "accept":
-                    if (PasswordHasher.CheckOnSuperUserPassword(password.Password))
-                    {
-                        DialogResult = true;
-                        this.Close();
-                    }
-                    else
-                        wrongPassInfo.Visibility = Visibility.Visible;
+                    CheckSUPassword();
                     break;
                 case "cancel":
                     DialogResult = false;
                     this.Close();
                     break;
             }
+        }
+
+        private void CheckSUPassword()
+        {
+            if (PasswordHasher.CheckOnSuperUserPassword(password.Password))
+            {
+                DialogResult = true;
+                this.Close();
+            }
+        }
+
+        protected override void KeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                CheckSUPassword();
         }
     }
 }

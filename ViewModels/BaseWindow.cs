@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public class BaseWindow : Window
+    public abstract class BaseWindow : Window
     {
         public BaseWindow() : base() {}
 
@@ -31,7 +31,10 @@ namespace PsychTestsMilitary.ViewModels
 
         protected void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
+            if (this.Owner == null)
+                App.Current.Shutdown();
+            else
+                this.Close();
         }
     }
 }

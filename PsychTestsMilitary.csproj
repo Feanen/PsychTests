@@ -158,9 +158,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\CalculationService.cs" />
+    <Compile Include="Services\PasswordBoxMonitor.cs" />
     <Compile Include="Services\Contexts\AdditionalInfoContext.cs" />
     <Compile Include="Services\JSONStringParcer.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
+    <Compile Include="Services\PasswordPlaceholder.cs" />
     <Compile Include="Services\ResultsManager.cs" />
     <Compile Include="Services\Singletons\AdditionalInfoDBSingleton.cs" />
     <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="ViewModels\AuthorizationWindow.xaml.cs" />
     <Compile Include="ViewModels\BaseTechniqueMV.cs" />
     <Compile Include="ViewModels\BaseWindow.cs" />
+    <Compile Include="ViewModels\BaseWindowWithEditableFields.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
     <Compile Include="ViewModels\PsychologistWndow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />

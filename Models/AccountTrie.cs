@@ -41,7 +41,7 @@ namespace PsychTestsMilitary.Models
             }
 
             foreach (Account account in accounts) {
-                this.Add( ConcatDBFields(new string[] {account.Surname, " ", account.Name, " ", account.FName, " (",
+                this.Add(ConcatDBFields(new string[] {account.Surname, " ", account.Name, " ", account.FName, " (",
                                                         account.Birthday,")"}), account.login);
             }
         }

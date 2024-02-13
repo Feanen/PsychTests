@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid Style="{StaticResource CustomGridBackgroundStyle}">
-        <Border Style="{StaticResource CustomBorderStyle}" VerticalAlignment="Top">
+        <Border Style="{StaticResource CustomBorderStyle}" VerticalAlignment="Top" Background="White">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
