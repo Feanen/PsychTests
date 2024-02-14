@@ -1,6 +1,7 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Contexts;
+using PsychTestsMilitary.Services.Singletons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,9 @@ namespace PsychTestsMilitary.ViewModels
 {
     public partial class UserForm : BaseWindow
     {
-        private Dictionary<CheckBox, Technique> connectionBetweenCheckboxAndTechnique = new Dictionary<CheckBox, Technique>();
+        private List<Dictionary<CheckBox, Technique>> connectionBetweenCheckboxAndTechnique = new List<Dictionary<CheckBox, Technique>>();
+        private const byte numberOfTechniquesInAColumn = 5;
+
         public UserForm()
         {
             InitializeComponent();
@@ -28,29 +31,44 @@ namespace PsychTestsMilitary.ViewModels
 
         private void ConnectDictionaryData()
         {
-           List<Technique> techniques;
-
-            using (TechniquesContext context = new TechniquesContext())
-            {
-                techniques = context.Techniques.ToList();
-            }
-
+            List<Technique> techniques;
+            techniques = TechniquesDBSingleton.Instance.GetTechniqueContext().Techniques.ToList();
             IEnumerator<Technique> enumerator = techniques.GetEnumerator();
 
-            foreach (UIElement element in grid.Children)
+            //foreach (UIElement element in grid.Children)
+            //{
+            //    if (element is CheckBox)
+            //    {
+            //        if (enumerator.MoveNext())
+            //        {
+            //            connectionBetweenCheckboxAndTechnique.Add(element as CheckBox, enumerator.Current);
+            //        }
+            //    } else if (element is TextBlock)
+            //    {
+            //        if (enumerator.Current != null)
+            //        {
+            //            (element as TextBlock).Text = enumerator.Current.Name;
+            //        }   
+            //    }
+            //}
+            Dictionary<CheckBox, Technique> listOfTechs = new Dictionary<CheckBox, Technique>();
+            foreach (Technique technique in techniques)
             {
-                if (element is CheckBox)
+                if (enumerator.MoveNext())
                 {
-                    if (enumerator.MoveNext())
+                    if (listOfTechs.Count.Equals(numberOfTechniquesInAColumn))
                     {
-                        connectionBetweenCheckboxAndTechnique.Add(element as CheckBox, enumerator.Current);
+                        connectionBetweenCheckboxAndTechnique.Add(listOfTechs);
+                        listOfTechs = new Dictionary<CheckBox, Technique>();
                     }
-                } else if (element is TextBlock)
-                {
-                    if (enumerator.Current != null)
+                    else
                     {
-                        (element as TextBlock).Text = enumerator.Current.Name;
-                    }   
+                        listOfTechs.Add(FindName("checkBox" + listOfTechs.Count) as CheckBox, enumerator.Current);
+                    }       
+                } 
+                else
+                {
+                    connectionBetweenCheckboxAndTechnique.Add(listOfTechs);
                 }
             }
         }
@@ -59,11 +77,11 @@ namespace PsychTestsMilitary.ViewModels
         {
             Queue<Technique> chosenTests = new Queue<Technique>();
 
-            foreach (KeyValuePair<CheckBox, Technique> pair in connectionBetweenCheckboxAndTechnique)
-            {
-                if ((bool) pair.Key.IsChecked)
-                    chosenTests.Enqueue(pair.Value);
-            }
+            //foreach (List<KeyValuePair<CheckBox, Technique>> pair in connectionBetweenCheckboxAndTechnique)
+            //{
+            //    if ((bool) pair.Key.IsChecked)
+            //        chosenTests.Enqueue(pair.Value);
+            //}
 
             if (chosenTests.Count > 0)
             {
