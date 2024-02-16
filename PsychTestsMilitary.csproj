@@ -189,6 +189,8 @@
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType2.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType1.cs" />
     <Compile Include="ViewModels\UserForm.xaml.cs" />
+    <Resource Include="Views\Vector2.png" />
+    <Resource Include="Views\Vector1.png" />
     <None Include="PsychTestsMilitary_TemporaryKey.pfx" />
     <Resource Include="Resources\Images\close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

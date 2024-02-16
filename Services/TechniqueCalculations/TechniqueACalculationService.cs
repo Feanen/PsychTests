@@ -41,9 +41,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             Dictionary<string, int> rawScores = new Dictionary<string, int>();
 
             foreach (TechniqueKey key in techniqueKeys)
-            {
                 rawScores.Add(key.Scale, CalculateRawScoresOnScale(key.Pairs));
-            }
 
             return rawScores;
         }
@@ -53,9 +51,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             int result = 0;
 
             foreach (QAPair pair in pairs)
-            {
                 result += (pair.AnswerID == userAnswers[pair.QuestionID - 1].AnswerID) ? 1 : 0;
-            }
 
             return result;
         }

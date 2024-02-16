@@ -11,6 +11,7 @@
         Style="{DynamicResource CustomWindowStyle}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Height="600" Width="800">
     <Window.Resources>
         <ResourceDictionary>
@@ -58,44 +59,62 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Background="Transparent" BorderThickness="0">
-                    <Button.Content>
-                        <Image Source="/Resources/Images/Arrows/Vector1.png"/>
-                    </Button.Content>
-                </Button>
+
                 <Border Grid.Column="1" Style="{StaticResource CustomBorderStyle}">
                     <StackPanel x:Name="stackPanel">
-                        <Grid Name="grid">
+                        <Grid Height="230" DataContext="{Binding RelativeSource={RelativeSource AncestorType=local:UserForm}}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
-                            <CheckBox Name="checkBox0" Grid.Row="0" Grid.Column="0" Style="{StaticResource PsychologistCheckBox}" HorizontalAlignment="Center" VerticalAlignment="Center"></CheckBox>
-                            <TextBlock Name="textBlock1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource RegistrationTextBlockStyle}"/>
+                            <Button Style="{DynamicResource ButtonArrowsStyle}" Name="back" Grid.Column="0" BorderThickness="0" Click="ButtonClicked" Margin="30 0 30 0">
+                                <Button.Content>
+                                    <Image Source="/Views/Vector1.png" Width="14" Height="24"/>
+                                </Button.Content>
+                            </Button>
+                            <Button Style="{StaticResource ButtonArrowsStyle}" Name="forward" Grid.Column="3" BorderThickness="0" Click="ButtonClicked" Margin="30 0 30 0">
+                                <Button.Content>
+                                    <Image Source="/Views/Vector2.png" Width="14" Height="24"/>
+                                </Button.Content>
+                            </Button>
+
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <CheckBox Grid.Row="0" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[0].Value}"></CheckBox>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[0].Key.Name}"/>
 
 
-                            <CheckBox Name="checkBox1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource PsychologistCheckBox}" VerticalAlignment="Center"></CheckBox>
-                            <TextBlock Name="textBlock2" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource RegistrationTextBlockStyle}"/>
+                                <CheckBox Grid.Row="1" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[1].Value}"></CheckBox>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[1].Key.Name}"/>
 
 
-                            <CheckBox Name="checkBox2" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource PsychologistCheckBox}" VerticalAlignment="Center"></CheckBox>
-                            <TextBlock Name="textBlock3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource RegistrationTextBlockStyle}"/>
+                                <CheckBox Grid.Row="2" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[2].Value}"></CheckBox>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[2].Key.Name}"/>
 
 
-                            <CheckBox Name="checkBox3" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource PsychologistCheckBox}" VerticalAlignment="Center"></CheckBox>
-                            <TextBlock Name="textBlock4" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource RegistrationTextBlockStyle}"/>
+                                <CheckBox Grid.Row="3" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[3].Value}"/>
+                                <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[3].Key.Name}"/>
 
 
-                            <CheckBox Name="checkBox4" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource PsychologistCheckBox}" VerticalAlignment="Center"></CheckBox>
-                            <TextBlock Name="textBlock5" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="9" Style="{StaticResource RegistrationTextBlockStyle}"/>
+                                <CheckBox Grid.Row="4" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[4].Value}"></CheckBox>
+                                <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[4].Key.Name}"/>
+                            </Grid>
 
                         </Grid>
                         <Grid>
@@ -106,12 +125,10 @@
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                         </Grid>
-                        <Button Grid.Row="1" Grid.Column="1" Name="beginButton" Content="Розпочати тести" Click="BeginButtonClicked" Style="{StaticResource CustomRoundedButtonStyle}"/>
-
+                        <Button Grid.Row="1" Grid.Column="1" Name="beginButton" FontSize="13" Content="Розпочати тести" Click="BeginButtonClicked" Style="{StaticResource CustomRoundedButtonStyle}"/>
                     </StackPanel>
                 </Border>
             </Grid>
-            
         </StackPanel>
     </Grid>
 </local:BaseWindow>
