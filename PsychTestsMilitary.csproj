@@ -189,8 +189,11 @@
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType2.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType1.cs" />
     <Compile Include="ViewModels\UserForm.xaml.cs" />
-    <Resource Include="Views\Vector2.png" />
-    <Resource Include="Views\Vector1.png" />
+    <Resource Include="Resources\Images\Arrows\Vector1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Arrows\Vector2.png" />
+    <Resource Include="Resources\Images\Arrows\Vector3.png" />
     <None Include="PsychTestsMilitary_TemporaryKey.pfx" />
     <Resource Include="Resources\Images\close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -325,7 +328,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
-    <Folder Include="Resources\Images\Arrows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

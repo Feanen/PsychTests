@@ -3,9 +3,11 @@ using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Contexts;
 using PsychTestsMilitary.Services.Singletons;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,7 +70,6 @@ namespace PsychTestsMilitary.ViewModels
 
         private void ConnectDictionaryData()
         {
-            //observableTechniques = new ObservableCollection<DataWrapper[]>();
             List<Technique> techniques = TechniquesDBSingleton.Instance.GetTechniqueContext().Techniques.ToList();
             IEnumerator<Technique> enumerator = techniques.GetEnumerator();
 
@@ -108,15 +109,15 @@ namespace PsychTestsMilitary.ViewModels
                     value = dataQueue.First();
                     dataQueue.RemoveFirst();
                     dataQueue.AddLast(value);
-                    ObservableTechniques = ShowTechniquesList();
                     break;
                 case "back":
                     value = dataQueue.Last();
                     dataQueue.RemoveLast();
                     dataQueue.AddFirst(value);
-                    ObservableTechniques = ShowTechniquesList();
                     break;
             }
+
+            ObservableTechniques = ShowTechniquesList();
         }
 
         private ObservableCollection<DataWrapper> ShowTechniquesList()
@@ -132,12 +133,22 @@ namespace PsychTestsMilitary.ViewModels
         private void BeginButtonClicked(object sender, RoutedEventArgs e)
         {
             Queue<Technique> chosenTests = new Queue<Technique>();
+            IEnumerator enumerator = dataQueue.GetEnumerator();
+            DataWrapper[] data;
 
-            //foreach (List<KeyValuePair<CheckBox, Technique>> pair in connectionBetweenCheckboxAndTechnique)
-            //{
-            //    if ((bool) pair.Key.IsChecked)
-            //        chosenTests.Enqueue(pair.Value);
-            //}
+            while (enumerator.MoveNext())
+            {
+                data = enumerator.Current as DataWrapper[];
+
+                for (int i = 0; i < data.Length; i++)
+                {
+                    if (data[i] != null)
+                    {
+                        if (data[i].Value)
+                            chosenTests.Enqueue(data[i].Key);
+                    }
+                }
+            }  
 
             if (chosenTests.Count > 0)
             {
@@ -157,6 +168,19 @@ namespace PsychTestsMilitary.ViewModels
         { 
             Key = key;
             Value = value;
+        }
+    }
+
+    public class DataToVisibilityConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return (value == null) ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }

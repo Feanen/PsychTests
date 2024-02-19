@@ -41,8 +41,8 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <CheckBox Name="isPsychologist" Grid.Row="0" Grid.Column="0" Style="{StaticResource PsychologistCheckBox}" Checked="CheckedPsychologystCB" Unchecked="UncheckedPsychologistCB" TabIndex="4"/>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Text="Психолог" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <CheckBox Name="isPsychologist" Grid.Row="0" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource PsychologistCheckBox}" Checked="CheckedPsychologystCB" Unchecked="UncheckedPsychologistCB" TabIndex="4"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Text="Психолог" VerticalAlignment="Center" HorizontalAlignment="Left" Focusable="True"/>
                 </Grid>
                 <Grid Margin="50 0 50 0">
                     <Grid.ColumnDefinitions>

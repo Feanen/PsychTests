@@ -18,6 +18,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/CustomStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <local:DataToVisibilityConverter x:Key="VisibilityConverter"/>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -74,12 +75,12 @@
 
                             <Button Style="{DynamicResource ButtonArrowsStyle}" Name="back" Grid.Column="0" BorderThickness="0" Click="ButtonClicked" Margin="30 0 30 0">
                                 <Button.Content>
-                                    <Image Source="/Views/Vector1.png" Width="14" Height="24"/>
+                                    <Image Source="/Resources/Images/Arrows/Vector1.png" Width="14" Height="24"/>
                                 </Button.Content>
                             </Button>
                             <Button Style="{StaticResource ButtonArrowsStyle}" Name="forward" Grid.Column="3" BorderThickness="0" Click="ButtonClicked" Margin="30 0 30 0">
                                 <Button.Content>
-                                    <Image Source="/Views/Vector2.png" Width="14" Height="24"/>
+                                    <Image Source="/Resources/Images/Arrows/Vector2.png" Width="14" Height="24"/>
                                 </Button.Content>
                             </Button>
 
@@ -96,23 +97,23 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <CheckBox Grid.Row="0" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[0].Value}"></CheckBox>
+                                <CheckBox Grid.Row="0" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[0].Value}" Visibility="{Binding ObservableTechniques[0], Converter={StaticResource VisibilityConverter}}"/>
                                 <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[0].Key.Name}"/>
 
 
-                                <CheckBox Grid.Row="1" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[1].Value}"></CheckBox>
+                                <CheckBox Grid.Row="1" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[1].Value}" Visibility="{Binding ObservableTechniques[1], Converter={StaticResource VisibilityConverter}}"/>
                                 <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[1].Key.Name}"/>
 
 
-                                <CheckBox Grid.Row="2" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[2].Value}"></CheckBox>
+                                <CheckBox Grid.Row="2" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[2].Value}" Visibility="{Binding ObservableTechniques[2], Converter={StaticResource VisibilityConverter}}"/>
                                 <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[2].Key.Name}"/>
 
 
-                                <CheckBox Grid.Row="3" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[3].Value}"/>
+                                <CheckBox Grid.Row="3" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[3].Value}" Visibility="{Binding ObservableTechniques[3], Converter={StaticResource VisibilityConverter}}"/>
                                 <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[3].Key.Name}"/>
 
 
-                                <CheckBox Grid.Row="4" Grid.Column="0" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[4].Value}"></CheckBox>
+                                <CheckBox Grid.Row="4" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[4].Value}" Visibility="{Binding ObservableTechniques[4], Converter={StaticResource VisibilityConverter}}"/>
                                 <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[4].Key.Name}"/>
                             </Grid>
 
