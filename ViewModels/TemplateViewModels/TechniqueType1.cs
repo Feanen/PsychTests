@@ -12,7 +12,7 @@ using System.Windows.Controls;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
-    public partial class TechniqueType1 : Window
+    public partial class TechniqueType1 : BaseWindow
     {
         public BaseTechniqueMV TechniqueData { get; set; }
         private static Style normalButtonStyle;
@@ -20,6 +20,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         private List<UserAnswer> userAnswers = new List<UserAnswer>();
         private Button selectedButton;
         private Question currentQuestion;
+
         public TechniqueType1(BaseTechniqueMV td) 
         {
             TechniqueData = td;
@@ -30,8 +31,8 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-            normalButtonStyle = (Style)FindResource("NormalAnswerButtonStyle");
-            selectedButtonStyle = (Style)FindResource("SelectedAnswerButtonStyle");
+            normalButtonStyle = (Style) FindResource("NormalAnswerButtonStyle");
+            selectedButtonStyle = (Style) FindResource("SelectedAnswerButtonStyle");
         }
 
         private void InitTechnique()
