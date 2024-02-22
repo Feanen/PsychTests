@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,10 @@ namespace PsychTestsMilitary.Services
 {
     public static class JSONStringParser
     {
-        public static Queue<AnswerOption> ParseAnswerOptions(string json)
+        public static List<AnswerOption> ParseAnswerOptions(string json)
         {
-            AnswerOptions answerOption = JsonConvert.DeserializeObject<AnswerOptions>(json);
-            return answerOption?.Options;
+            AnswerOptions answerOptions = JsonConvert.DeserializeObject<AnswerOptions>(json);
+            return answerOptions?.Options;
         }
 
         public static string StringToJSON<T>(List<T> list)

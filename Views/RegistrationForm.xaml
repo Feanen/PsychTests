@@ -21,7 +21,7 @@
     </Window.Resources>
     <Grid Style="{StaticResource CustomGridBackgroundStyle}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Style="{StaticResource WindowPanelStyle}">

@@ -19,16 +19,16 @@ namespace PsychTestsMilitary.Services
                 Technique tech = TestsQueueSingleton.Instance.Techniques.Dequeue();
                 Queue<Question> questions = GetQuestions(tech);
                 Window window = null;
-                BaseTechniqueMV baseTechniqueMV = new BaseTechniqueMV();
-                baseTechniqueMV.Init(tech, questions);
+                BaseTechniqueModel model = new BaseTechniqueModel();
+                model.Init(tech, questions);
 
                 switch (tech.Type)
                 {                 
                     case 1:
-                        window = new TechniqueType1(baseTechniqueMV);
+                        window = new TechniqueType1(model);
                         break;
                     case 2:
-                        window = new TechniqueType2(baseTechniqueMV);
+                        window = new TechniqueType2(model);
                         break;
                 }
 

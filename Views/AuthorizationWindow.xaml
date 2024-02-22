@@ -20,7 +20,7 @@
     </Window.Resources>
     <Grid Style="{StaticResource CustomGridBackgroundStyle}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -66,6 +66,7 @@
                     </Grid.RowDefinitions>
                     <Button Name="accept" Grid.Row="0" Grid.ColumnSpan="2" Content="Увійти" Style="{StaticResource CustomRoundedButtonStyle}" Width="150" Click="ButtonClicked" TabIndex="3"/>
                     <Button Name="cancel" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalContentAlignment="Center" Content="Відміна" Margin="5,5,0,5" Click="ButtonClicked" Visibility="Hidden"/>
+                    
                 </Grid>
             </StackPanel>
         </Border>

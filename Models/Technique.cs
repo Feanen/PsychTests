@@ -25,6 +25,7 @@ namespace PsychTestsMilitary.Models
             Instruction = instruction; 
             Type = type;
         }
+
         public int Id
         {
             get { return this.id; }
