@@ -71,13 +71,13 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <RadioButton Style="{DynamicResource ToggleButtonStyle}" DataContext="{Binding AnswerOptions[0]}" Grid.Column="0" GroupName="AnswersList" Grid.Row="0" Checked="AnswerSelected">
-                        <TextBlock Style="{StaticResource RegistrationTextBlockStyle}" TextWrapping="Wrap" Margin="3 3 3 3" Text="{Binding Text}"/>
+                    <RadioButton Style="{StaticResource RadioButtonStyle}" DataContext="{Binding AnswerOptions[0]}" Grid.Column="0" GroupName="AnswersList" Grid.Row="0" Checked="AnswerSelected">
+                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" TextWrapping="Wrap" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
                     </RadioButton>
-                    <RadioButton Style="{DynamicResource ToggleButtonStyle}" DataContext="{Binding AnswerOptions[1]}" Grid.Column="1" GroupName="AnswersList" Grid.Row="0" Checked="AnswerSelected">
-                        <TextBlock Style="{StaticResource RegistrationTextBlockStyle}" TextWrapping="Wrap" Margin="3 3 3 3" Text="{Binding Text}"/>
+                    <RadioButton Style="{StaticResource RadioButtonStyle}" DataContext="{Binding AnswerOptions[1]}" Grid.Column="1" GroupName="AnswersList" Grid.Row="0" Checked="AnswerSelected">
+                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" TextWrapping="Wrap" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
                     </RadioButton>
-                    <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="1" Grid.ColumnSpan="2" Content="Далі" Name="nextButton" IsEnabled="False" Click="NextQuestion"></Button>
+                    <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="1" Grid.ColumnSpan="2" Content="Далі" Name="nextButton" IsEnabled="False" Click="ShowNextQuestion" Opacity="0.3"></Button>
                 </Grid>
             </StackPanel>
         </Border>

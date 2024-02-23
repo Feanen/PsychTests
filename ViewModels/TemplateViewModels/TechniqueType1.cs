@@ -71,14 +71,9 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         public TechniqueType1(BaseTechniqueModel td) 
         {
             TechniqueData = td;
-            Loaded += WindowLoaded;
             DataContext = this;
             InitializeComponent();
             InitTechnique();
-        }
-
-        private void WindowLoaded(object sender, RoutedEventArgs e)
-        {
         }
 
         private void InitTechnique()
@@ -94,11 +89,13 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         {
             RadioButton rb = (RadioButton)sender;
             nextButton.IsEnabled = true;
+            nextButton.Opacity = 1.0;
             selectedAnswer = rb.DataContext as AnswerOption;
         }
 
-        private void NextQuestion(object sender, EventArgs e)
+        private void ShowNextQuestion(object sender, EventArgs e)
         {
+            ResetRadiobuttons();
             userAnswers.Add(new UserAnswer(Question.Number, selectedAnswer.Id));
             Update(TechniqueData.NextQuestion());
         }
@@ -110,6 +107,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
                 Question = question;
                 QuestionNumber = question.Number.ToString();
                 nextButton.IsEnabled = false;
+                nextButton.Opacity = 0.3;
                 AnswerOptions = new ObservableCollection<AnswerOption>(JSONStringParser.ParseAnswerOptions(question.Answer_options));
 
                 if (TechniqueData.Questions.Count == 0)
@@ -120,6 +118,15 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
                 TechniquesManager.SaveAnswers(TechniqueData.Technique.Id, userAnswers);
                 TechniquesManager.RunNextTechnique();
                 this.Close();
+            }
+        }
+
+        private void ResetRadiobuttons()
+        {
+            foreach (Control ctrl in answerButtonsGrid.Children)
+            {
+                if (ctrl is RadioButton)
+                    (ctrl as RadioButton).IsChecked = false;
             }
         }
     }
