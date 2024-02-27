@@ -34,28 +34,36 @@
                     <Label Content="Введіть прізвище: " Grid.Column="0" Grid.Row="0" Style="{StaticResource FinalResultsLabelStyle}"/>
                     <TextBox Name="text" Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14" TextChanged="TextChanged" Background="White" GotFocus="FocusOn"/>
                     <Label Content="Результати: " Grid.Column="0" Grid.Row="2" Style="{StaticResource FinalResultsLabelStyle}"/>
-                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
-                                  CellStyle="{DynamicResource DataGridCellStyle}" 
-                                  Style="{DynamicResource DataGridStyle}" 
-                                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" 
-                                  CanUserReorderColumns="False"
-                                  CanUserResizeRows="False"
-                                  CanUserResizeColumns="False"
-                                  Name="data" 
-                                  Grid.Row="3" Grid.ColumnSpan="2"
-                                  Background="Transparent" AutoGenerateColumns="False" 
-                                  VerticalScrollBarVisibility="Visible"
-                                  Height="300" IsReadOnly="True" 
-                                  HorizontalGridLinesBrush="{x:Null}" 
-                                  HeadersVisibility="Column"
-                                  VerticalGridLinesBrush="#FFFFFCE6" GridLinesVisibility="Vertical">
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
+                              CellStyle="{DynamicResource DataGridCellStyle}" 
+                              Style="{DynamicResource DataGridStyle}" 
+                              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" 
+                              CanUserReorderColumns="False"
+                              CanUserResizeRows="False"
+                              CanUserResizeColumns="False"
+                              Name="data" 
+                              Grid.Row="3" Grid.ColumnSpan="2"
+                              Background="Transparent" AutoGenerateColumns="False" 
+                              VerticalScrollBarVisibility="Auto"
+                              Height="300" IsReadOnly="True" 
+                              HorizontalGridLinesBrush="{x:Null}" 
+                              HeadersVisibility="Column"
+                              VerticalGridLinesBrush="#FFFFFCE6" GridLinesVisibility="Vertical">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Методика" Binding="{Binding Name}" Width="*" 
                                                 HeaderStyle="{StaticResource DataGridNotRightestColumnHeaderStyle}"
-                                                CellStyle="{StaticResource DataGridCellStyle}"/>
+                                                CellStyle="{StaticResource DataGridCellStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridCellContent}"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Дата проходження" Binding="{Binding Answers.Date}" Width="Auto" 
                                                 HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
-                                                CellStyle="{StaticResource DataGridCellStyle}"/>
+                                                CellStyle="{StaticResource DataGridCellStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridCellContent}"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
 
