@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -67,6 +68,26 @@ namespace PsychTestsMilitary.ViewModels
                     window.ShowDialog();
                     break;
             }
+        }
+
+
+        private double thumbOffset;
+
+        private void Thumb_DragStarted(object sender, DragStartedEventArgs e)
+        {
+            var scrollBar = (ScrollBar)sender;
+            thumbOffset = scrollBar.Value;
+        }
+
+        private void Thumb_DragDelta(object sender, DragDeltaEventArgs e)
+        {
+            var scrollBar = (ScrollBar)sender;
+            var offset = thumbOffset - e.VerticalChange;
+        }
+
+        private void Thumb_DragCompleted(object sender, DragCompletedEventArgs e)
+        {
+            thumbOffset = 0;
         }
     }
 }
