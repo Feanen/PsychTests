@@ -31,9 +31,9 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             finalResults = new string[] {D, PR, KP, MN, VPS, DAP, CR, RTCS};
         }
 
-        public override Window ShowResults()
+        public override Window ShowResults(string personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueA(finalResults);
+            return new TechniqueA(finalResults, personalData, completedTechniqueDate, techniqueName);
         }
 
         private Dictionary<string, int> GetRawScores()

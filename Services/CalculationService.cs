@@ -44,7 +44,7 @@ namespace PsychTestsMilitary.Services
         }
 
         public abstract void CalculationProcess();
-        public abstract Window ShowResults();
+        public abstract Window ShowResults(string personalData, string completedTechniqueDate, string techniqueName);
 
         protected string ShowScaleResult(KeyValuePair<string, int> keyValues)
         {

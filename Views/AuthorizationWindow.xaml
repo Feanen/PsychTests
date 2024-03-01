@@ -30,7 +30,7 @@
                 <Image Style="{StaticResource CloseWindowImage}"/>
             </Button>
         </StackPanel>
-        <Label Grid.Row="1" Margin="0" Style="{StaticResource CustomLabel}" Content="Вхід" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+        <Label Grid.Row="1" Margin="0" Style="{StaticResource CustomLabel}" Content="Вхід" VerticalAlignment="Stretch" HorizontalAlignment="Center" FontWeight="Medium"/>
         <Border Grid.Row="2" Style="{StaticResource CustomBorderStyle}" Margin="0" VerticalAlignment="Top" Padding="0">
             <StackPanel>
                 <Grid Margin="50 0 0 0">

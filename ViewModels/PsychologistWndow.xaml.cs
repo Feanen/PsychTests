@@ -20,19 +20,19 @@ namespace PsychTestsMilitary.ViewModels
     /// <summary>
     /// Логика взаимодействия для PsychologistWndow.xaml
     /// </summary>
-    public partial class PsychologistWndow : BaseWindow
+    public partial class PsychologistWindow : BaseWindow
     {
         private static AccountTrie accountData = new AccountTrie();
         private static Dictionary<string, string> accounts;
 
-        public PsychologistWndow()
+        public PsychologistWindow()
         {
             InitializeComponent();
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
-            accounts = accountData.Autocomplete(text.Text);
+            accounts = accountData.Autocomplete(selectedData.Text);
 
             if (accounts != null)
                 dropList.ItemsSource = accounts.Values;
@@ -42,7 +42,7 @@ namespace PsychTestsMilitary.ViewModels
         {
             if (dropList.ItemsSource != null)
             {
-                text.Text = dropList.SelectedItem.ToString();
+                selectedData.Text = dropList.SelectedItem.ToString();
                 data.ItemsSource = TechniquesManager.GetUserResults(accounts.Keys.FirstOrDefault());
                 dropList.ItemsSource = null;
             }
@@ -62,8 +62,9 @@ namespace PsychTestsMilitary.ViewModels
             {
                 case "showResults":
                     ResultsManager manager = new ResultsManager();
-                    CalculationService calculationService = manager.GetCalculationService((data.SelectedItem as CompletedTechniquesModel).Answers);
-                    Window window = calculationService.ShowResults();
+                    CompletedTechniquesModel selectedItem = data.SelectedItem as CompletedTechniquesModel;
+                    CalculationService calculationService = manager.GetCalculationService(selectedItem.Answers);
+                    Window window = calculationService.ShowResults(selectedData.Text, selectedItem.Answers.Date, selectedItem.Name);
                     window.Owner = this;
                     window.ShowDialog();
                     break;

@@ -8,13 +8,14 @@ using System.Windows.Controls;
 
 namespace PsychTestsMilitary.ViewModels.FinalResults
 {
-    public partial class TechniqueA : Window
+    public partial class TechniqueA : BaseResultsWindow
     {
-        public TechniqueA() {}
+        public TechniqueA() : base() { }
 
-        public TechniqueA(string[] finalResults)
+        public TechniqueA(string[] finalResults, string pd, string ctp, string tn) : base(finalResults, pd, ctp, tn)
         {
             InitializeComponent();
+            DataContext = this;
             Update(finalResults);
         }
 

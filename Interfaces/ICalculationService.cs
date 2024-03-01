@@ -10,6 +10,5 @@ namespace PsychTestsMilitary.Interfaces
     public interface ICalculationService
     {
         void CalculationProcess();
-        Window ShowResults();
     }
 }
