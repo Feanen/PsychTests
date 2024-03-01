@@ -14,13 +14,13 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
     public partial class TechniqueType2 : Window
     {
-        public BaseTechniqueMV TechniqueData { get; set; }
+        public BaseTechniqueModel TechniqueData { get; set; }
         private static Style normalButtonStyle;
         private static Style selectedButtonStyle;
         private List<UserAnswer> userAnswers = new List<UserAnswer>();
         private Button selectedButton;
         private Question currentQuestion;
-        public TechniqueType2(BaseTechniqueMV td)
+        public TechniqueType2(BaseTechniqueModel td)
         {
             TechniqueData = td;
             Loaded += WindowLoaded;
@@ -75,14 +75,8 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
                 currentQuestion = question;
                 nextButton.IsEnabled = false;
                 this.question.Text = question.Number + ". " + question.Description;
-                Queue<AnswerOption> answerOptions = JSONStringParser.ParseAnswerOptions(question.Answer_options);
+                //Queue<AnswerOption> answerOptions = JSONStringParser.ParseAnswerOptions(question.Answer_options);
 
-                foreach (Button btn in answerButtonsGrid.Children)
-                {
-                    AnswerOption answerOption = answerOptions.Dequeue();
-                    btn.Tag = answerOption;
-                    (btn.Content as TextBlock).Text = answerOption.Text;
-                }
 
                 if (TechniqueData.Questions.Count == 0)
                     nextButton.Content = "Завершити тест";

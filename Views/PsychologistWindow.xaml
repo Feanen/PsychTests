@@ -1,0 +1,113 @@
+﻿<local:BaseWindow x:Class="PsychTestsMilitary.ViewModels.PsychologistWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        WindowStyle="None"
+        Title="Вікно психолога" Height="600" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/CustomStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/PsychologistWindowStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Style="{StaticResource WindowPanelStyle}">
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
+                <Image Style="{StaticResource MinimizeWindowImage}"/>
+            </Button>
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
+                <Image Style="{StaticResource CloseWindowImage}"/>
+            </Button>
+        </StackPanel>
+        <Border Grid.Row="1" Style="{StaticResource CustomBorderStyle}" VerticalAlignment="Top">
+            <StackPanel>
+                <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Введіть ПІБ: " Grid.Column="0" Grid.Row="0" Style="{StaticResource CustomLabel}" FontSize="30"/>
+                    <TextBox Name="selectedData" Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomTextBox}" FontSize="14" TextChanged="TextChanged" GotFocus="FocusOn" VerticalAlignment="Center"/>
+                    <Label Content="Результати: " Grid.Column="0" Grid.Row="1" Style="{StaticResource CustomLabel}" FontSize="20" HorizontalAlignment="Left" Margin="5 50 0 10"/>
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
+                              CellStyle="{DynamicResource DataGridCellStyle}" 
+                              Style="{DynamicResource DataGridStyle}" 
+                              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" 
+                              CanUserReorderColumns="False"
+                              CanUserResizeRows="False"
+                              CanUserResizeColumns="False"
+                              Name="data" 
+                              Grid.Row="2" Grid.ColumnSpan="2"
+                              Background="Transparent" AutoGenerateColumns="False" 
+                              VerticalScrollBarVisibility="Auto"
+                              Height="300" IsReadOnly="True" 
+                              HorizontalGridLinesBrush="{x:Null}" 
+                              HeadersVisibility="Column"
+                              VerticalGridLinesBrush="#FFFFFCE6" GridLinesVisibility="Vertical">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Методика" Binding="{Binding Name}" Width="*" 
+                                                HeaderStyle="{StaticResource DataGridNotRightestColumnHeaderStyle}"
+                                                CellStyle="{StaticResource DataGridCellStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridCellContent}"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Дата проходження" Binding="{Binding Answers.Date}" Width="Auto" 
+                                                HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                CellStyle="{StaticResource DataGridCellStyle}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridCellContent}"/>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Canvas Grid.Row="1" Grid.Column="1" Margin="10 -19 10 10">
+                        <ListBox Style="{DynamicResource ListBoxStyle}"
+                                 ItemContainerStyle="{DynamicResource ListBoxItemContainerStyle}"
+                                 Name="dropList" 
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                                 Height="Auto" 
+                                 MaxHeight="200" 
+                                 SelectionChanged="DropListSelected" 
+                                 Width="{Binding ActualWidth, ElementName=text}">
+
+                        </ListBox>
+                    </Canvas>
+
+                    <Grid Margin="0 10 0 0" Grid.Row="3" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Button Content="Очистити" Grid.Column="0" Grid.Row="0" Style="{StaticResource CustomRoundedButtonStyle}" Name="clear" Click="ButtonClicked" FontSize="13"/>
+                        <Button Content="Результат" Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomRoundedButtonStyle}" Name="showResults" Click="ButtonClicked" FontSize="13"/>
+                    </Grid>
+                </Grid>
+                
+            </StackPanel>
+        </Border>
+    </Grid>
+</local:BaseWindow>

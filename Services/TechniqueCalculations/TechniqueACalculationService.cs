@@ -31,9 +31,9 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             finalResults = new string[] {D, PR, KP, MN, VPS, DAP, CR, RTCS};
         }
 
-        public override Window ShowResults()
+        public override Window ShowResults(string personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueA(finalResults);
+            return new TechniqueA(finalResults, personalData, completedTechniqueDate, techniqueName);
         }
 
         private Dictionary<string, int> GetRawScores()
@@ -41,9 +41,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             Dictionary<string, int> rawScores = new Dictionary<string, int>();
 
             foreach (TechniqueKey key in techniqueKeys)
-            {
                 rawScores.Add(key.Scale, CalculateRawScoresOnScale(key.Pairs));
-            }
 
             return rawScores;
         }
@@ -53,9 +51,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             int result = 0;
 
             foreach (QAPair pair in pairs)
-            {
                 result += (pair.AnswerID == userAnswers[pair.QuestionID - 1].AnswerID) ? 1 : 0;
-            }
 
             return result;
         }

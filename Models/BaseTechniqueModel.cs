@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public class BaseTechniqueMV : ITechniqueData
+    public class BaseTechniqueModel : ITechniqueData
     {
         public Technique Technique { get; private set; }
         public Queue<Question> Questions { get; set; }
