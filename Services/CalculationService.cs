@@ -17,15 +17,23 @@ namespace PsychTestsMilitary.Services
 {
     public abstract class CalculationService : ICalculationService
     {
-        protected UserAnswer[] userAnswers {  get; set; }
+        protected UserAnswer[] userAnswers { get; set; }
         protected List<TechniqueKey> techniqueKeys { get; set; }
+        protected Account CurrentAccount { get; }
+        protected UserAnswers Answers { get; }
 
-        public CalculationService(UserAnswers answers) {
+        public CalculationService(Account acc, UserAnswers answers) {
             userAnswers = GetAnswers(answers);
             techniqueKeys = GetKeys(answers.TechniqueID);
+            CurrentAccount = acc;
             CalculationProcess();
         }
-        
+
+        protected CalculationService(UserAnswers answers)
+        {
+            Answers = answers;
+        }
+
         protected static UserAnswer[] GetAnswers(UserAnswers answers)
         {
             return JsonConvert.DeserializeObject<List<UserAnswer>>(answers.Answers).ToArray();     
@@ -44,7 +52,7 @@ namespace PsychTestsMilitary.Services
         }
 
         public abstract void CalculationProcess();
-        public abstract Window ShowResults(string personalData, string completedTechniqueDate, string techniqueName);
+        public abstract Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName);
 
         protected string ShowScaleResult(KeyValuePair<string, int> keyValues)
         {
@@ -54,6 +62,26 @@ namespace PsychTestsMilitary.Services
                     where gradation.Value == keyValues.Value && scale.Name == keyValues.Key
                     select barrier.Result)
                     .FirstOrDefault();
+        }
+
+        protected Dictionary<string, int> GetRawScores()
+        {
+            Dictionary<string, int> rawScores = new Dictionary<string, int>();
+
+            foreach (TechniqueKey key in techniqueKeys)
+                rawScores.Add(key.Scale, CalculateRawScoresOnScale(key.Pairs));
+
+            return rawScores;
+        }
+
+        private int CalculateRawScoresOnScale(List<QAPair> pairs)
+        {
+            int result = 0;
+
+            foreach (QAPair pair in pairs)
+                result += (pair.AnswerID == userAnswers[pair.QuestionID - 1].AnswerID) ? 1 : 0;
+
+            return result;
         }
     }
 }

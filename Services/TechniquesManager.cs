@@ -48,13 +48,13 @@ namespace PsychTestsMilitary.Services
             }
         }
 
-        public static List<CompletedTechniquesModel> GetUserResults(string login)
+        public static List<CompletedTechniquesModel> GetUserResults(Account account)
         {
             List<CompletedTechniquesModel> completedTechniquesModels = new List<CompletedTechniquesModel>();
 
             using (AccountContext context = new AccountContext())
             {
-                var answers = context.UserAnswers.Where(q => q.Login == login).ToList();
+                var answers = context.UserAnswers.Where(q => q.Login == account.login).ToList();
 
                 foreach (UserAnswers answer in answers)
                 {

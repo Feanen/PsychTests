@@ -3,17 +3,9 @@ using PsychTestsMilitary.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PsychTestsMilitary.ViewModels
 {
@@ -23,7 +15,9 @@ namespace PsychTestsMilitary.ViewModels
     public partial class PsychologistWindow : BaseWindow
     {
         private static AccountTrie accountData = new AccountTrie();
-        private static Dictionary<string, string> accounts;
+        private static Dictionary<Account, string> accounts;
+        private static Account selectedAcc;
+        private double thumbOffset;
 
         public PsychologistWindow()
         {
@@ -43,7 +37,8 @@ namespace PsychTestsMilitary.ViewModels
             if (dropList.ItemsSource != null)
             {
                 selectedData.Text = dropList.SelectedItem.ToString();
-                data.ItemsSource = TechniquesManager.GetUserResults(accounts.Keys.FirstOrDefault());
+                selectedAcc = accounts.Keys.FirstOrDefault();
+                data.ItemsSource = TechniquesManager.GetUserResults(selectedAcc);
                 dropList.ItemsSource = null;
             }
         }
@@ -61,18 +56,16 @@ namespace PsychTestsMilitary.ViewModels
             switch (btn.Name)
             {
                 case "showResults":
+                    //TODO ResultsManager as Singleton
                     ResultsManager manager = new ResultsManager();
                     CompletedTechniquesModel selectedItem = data.SelectedItem as CompletedTechniquesModel;
-                    CalculationService calculationService = manager.GetCalculationService(selectedItem.Answers);
-                    Window window = calculationService.ShowResults(selectedData.Text, selectedItem.Answers.Date, selectedItem.Name);
+                    CalculationService calculationService = manager.GetCalculationService(selectedAcc, selectedItem.Answers);
+                    Window window = calculationService.ShowResults(selectedAcc, selectedItem.Answers.Date, selectedItem.Name);
                     window.Owner = this;
                     window.ShowDialog();
                     break;
             }
         }
-
-
-        private double thumbOffset;
 
         private void Thumb_DragStarted(object sender, DragStartedEventArgs e)
         {

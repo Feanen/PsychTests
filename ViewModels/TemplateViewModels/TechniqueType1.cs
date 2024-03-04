@@ -45,7 +45,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
             get { return questionNumber; }
             set
             {
-                questionNumber = "Питання №" + value;
+                questionNumber = "Питання або твердження №" + value;
                 OnPropertyChanged(nameof(questionNumber));
             }
         }

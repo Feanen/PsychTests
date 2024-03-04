@@ -10,6 +10,6 @@ namespace PsychTestsMilitary.Interfaces
 {
     public interface ICreatingCalculation
     {
-        CalculationService GetCalculationService(UserAnswers data);
+        CalculationService GetCalculationService(Account acc, UserAnswers data);
     }
 }

@@ -13,6 +13,8 @@ namespace PsychTestsMilitary.Services.Contexts
         public DbSet<Scale> Scales { get; set; }
         public DbSet<Barrier> Barriers { get; set; }
         public DbSet<Gradation> Gradations { get; set; }
+        public DbSet<CorrectionFactor> CorrectionFactors { get; set; }
+        public DbSet<GenderDifference> GenderDifferences { get; set; }
 
         public AdditionalInfoContext() : base("AdditionalInfoConnection") {}
     }

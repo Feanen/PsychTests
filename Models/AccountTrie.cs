@@ -13,7 +13,7 @@ namespace PsychTestsMilitary.Models
         public char chr;
         public Dictionary<char, TrieNode> children;
         public bool isEndOfWord;
-        public string login;
+        public Account acc;
 
         public TrieNode(char symbol) {
             chr = symbol;
@@ -42,16 +42,16 @@ namespace PsychTestsMilitary.Models
 
             foreach (Account account in accounts) {
                 this.Add(ConcatDBFields(new string[] {account.Surname, " ", account.Name, " ", account.FName, " (",
-                                                        account.Birthday,")"}), account.login);
+                                                        account.Birthday,")"}), account);
             }
         }
 
-        public Dictionary<string, string> Autocomplete(string prefix)
+        public Dictionary<Account, string> Autocomplete(string prefix)
         {
             if (prefix.Length < 3)
                 return null;
 
-            Dictionary<string, string> suggestions = new Dictionary<string, string>();
+            Dictionary<Account, string> suggestions = new Dictionary<Account, string>();
             TrieNode lastNode = FindLastNodeOfPrefix(prefix);
 
             if (lastNode != null)
@@ -75,10 +75,12 @@ namespace PsychTestsMilitary.Models
             return current;
         }
 
-        private void AutocompleteRec(TrieNode node, string currentPrefix, Dictionary<string, string> suggestions)
+        private void AutocompleteRec(TrieNode node, string currentPrefix, Dictionary<Account, string> suggestions)
         {
             if (node.isEndOfWord)
-                suggestions.Add(node.login, currentPrefix);
+            {
+                suggestions.Add(node.acc, currentPrefix);
+            }  
 
             foreach (var child in node.children)
                 AutocompleteRec(child.Value, currentPrefix + child.Key, suggestions);
@@ -94,7 +96,7 @@ namespace PsychTestsMilitary.Models
             return result;
         }
 
-        private void Add(string str, string login)
+        private void Add(string str, Account account)
         {
             TrieNode currentNode = root;
 
@@ -107,7 +109,7 @@ namespace PsychTestsMilitary.Models
             }
 
             currentNode.isEndOfWord = true;
-            currentNode.login = login;
+            currentNode.acc = account;
         }
     }
 }
