@@ -46,5 +46,12 @@ namespace PsychTestsMilitary.ViewModels
             CompletedTechniqueDate = ctp;
             TechniqueName = tn;
         }
+
+        public BaseResultsWindow(Dictionary<double, string> dataSet, string pd, string ctp, string tn)
+        {
+            PersonalData = pd;
+            CompletedTechniqueDate = ctp;
+            TechniqueName = tn;
+        }
     }
 }

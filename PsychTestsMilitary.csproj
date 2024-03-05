@@ -190,6 +190,7 @@
     <Compile Include="ViewModels\BaseResultsWindow.cs" />
     <Compile Include="ViewModels\BaseWindow.cs" />
     <Compile Include="ViewModels\BaseWindowWithEditableFields.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueB.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
     <Compile Include="ViewModels\PsychologistWndow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
@@ -237,7 +238,6 @@
     <Content Include="Databases\techniques.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Databases\techniques.sqbpro" />
     <None Include="PsychTestsMilitary_TemporaryKey.pfx" />
     <Resource Include="Resources\Images\close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -257,7 +257,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Databases\SQLQueries.txt" />
     <Resource Include="PTSDdiag.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +332,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
