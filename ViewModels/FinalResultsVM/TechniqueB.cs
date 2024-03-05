@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PsychTestsMilitary.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,33 +12,12 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
 {
     public partial class TechniqueB : BaseResultsWindow
     {
-        public ObservableCollection<DataSet> Results { get; set; }
-        public Dictionary<double, string> DataSet
-        {
-            get { return (Dictionary<double, string>) GetValue(dataSetProperty); }
-            set { SetValue(dataSetProperty, value); }
-        }
-
-        public static readonly DependencyProperty dataSetProperty =
-            DependencyProperty.Register("DataSet", typeof(Dictionary<double, string>), typeof(TechniqueB), new PropertyMetadata(null));
-
-
         public TechniqueB() : base() { }
 
-        public TechniqueB(string[] finalResults, string pd, string ctp, string tn) : base(finalResults, pd, ctp, tn)
+        public TechniqueB(List<ScaleResult> ur, string pd, string ctp, string tn) : base(ur, pd, ctp, tn)
         {
-        }
-
-        public TechniqueB(Dictionary<double, string> dataSet, string pd, string ctp, string tn) : base(dataSet, pd, ctp, tn)
-        {
-            DataSet = dataSet;
             InitializeComponent();
             DataContext = this;
         }
-    }
-
-    internal class DataSet()
-    {
-
     }
 }

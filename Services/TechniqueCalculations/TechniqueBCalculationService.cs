@@ -11,7 +11,6 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueBCalculationService : CalculationService
     {
-        private Dictionary<double, string> finalResults;
         private const int MINIMAL_THRESHOLD = 40;
         private const int MAXIMUM_THRESHOLD = 70;
 
@@ -21,7 +20,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
         public override void CalculationProcess()
         {
-            finalResults = new Dictionary<double, string>();
+            CalculatedResults = new List<ScaleResult>();
 
             int gender = GetGenderValue();
             Dictionary<string, int> rawScores = GetRawScores();
@@ -40,17 +39,17 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             double Se = CalculateStandartValues(rawScores.ElementAt(9).Value, GetGenderDifference("Se", gender), correctionFactor.CorrectionFull);//ShowScaleResult(rawScores.ElementAt(9));
             double Ma = CalculateStandartValues(rawScores.ElementAt(10).Value, GetGenderDifference("Ma", gender), correctionFactor.CorrectionTwentyPercent);//ShowScaleResult(rawScores.ElementAt(10));
 
-            finalResults.Add(L, GetScaleResult(L, "L"));
-            finalResults.Add(F, GetScaleResult(F, "F"));
-            finalResults.Add(K, GetScaleResult(K, "K"));
-            finalResults.Add(Hs, GetScaleResult(Hs, "Hs"));
-            finalResults.Add(D1, GetScaleResult(D1, "D1"));
-            finalResults.Add(Hy, GetScaleResult(Hy, "Hy"));
-            finalResults.Add(Pd, GetScaleResult(Pd, "Pd"));
-            finalResults.Add(Pa, GetScaleResult(Pa, "Pa"));
-            finalResults.Add(Pt, GetScaleResult(Pt, "Pt"));
-            finalResults.Add(Se, GetScaleResult(Se, "Se"));
-            finalResults.Add(Ma, GetScaleResult(Ma, "Ma"));
+            CalculatedResults.Add(new ScaleResult(L, GetScaleResult(L, "L")));
+            CalculatedResults.Add(new ScaleResult(F, GetScaleResult(F, "F")));
+            CalculatedResults.Add(new ScaleResult(K, GetScaleResult(K, "K")));
+            CalculatedResults.Add(new ScaleResult(Hs, GetScaleResult(Hs, "Hs")));
+            CalculatedResults.Add(new ScaleResult(D1, GetScaleResult(D1, "D1")));
+            CalculatedResults.Add(new ScaleResult(Hy, GetScaleResult(Hy, "Hy")));
+            CalculatedResults.Add(new ScaleResult(Pd, GetScaleResult(Pd, "Pd")));
+            CalculatedResults.Add(new ScaleResult(Pa, GetScaleResult(Pa, "Pa")));
+            CalculatedResults.Add(new ScaleResult(Pt, GetScaleResult(Pt, "Pt")));
+            CalculatedResults.Add(new ScaleResult(Se, GetScaleResult(Se, "Se")));
+            CalculatedResults.Add(new ScaleResult(Ma, GetScaleResult(Ma, "Ma")));
         }
 
         private string GetScaleResult(double value, string scale)
@@ -94,7 +93,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueB(finalResults, String.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
+            return new TechniqueB(CalculatedResults, String.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
     }

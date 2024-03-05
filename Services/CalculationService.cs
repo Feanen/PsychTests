@@ -21,6 +21,7 @@ namespace PsychTestsMilitary.Services
         protected List<TechniqueKey> techniqueKeys { get; set; }
         protected Account CurrentAccount { get; }
         protected UserAnswers Answers { get; }
+        protected List<ScaleResult> CalculatedResults { get; set; }
 
         public CalculationService(Account acc, UserAnswers answers) {
             userAnswers = GetAnswers(answers);

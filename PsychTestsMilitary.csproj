@@ -146,6 +146,7 @@
     <Compile Include="Models\CompletedTechniquesModel.cs" />
     <Compile Include="Models\Key.cs" />
     <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\ScaleResult.cs" />
     <Compile Include="Models\Technique.cs" />
     <Compile Include="Models\TechniqueKey.cs" />
     <Compile Include="Models\UserAnswer.cs" />

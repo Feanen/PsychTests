@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PsychTestsMilitary.Models;
+using PsychTestsMilitary.ViewModels.FinalResults;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,12 @@ namespace PsychTestsMilitary.ViewModels
 {
     public abstract class BaseResultsWindow : BaseWindow
     {
+        protected List<ScaleResult> UserResults
+        {
+            get { return (List<ScaleResult>)GetValue(userResultsProperty); }
+            set { SetValue(userResultsProperty, value); }
+        }
+
         protected string PersonalData
         {
             get { return (string) GetValue(personalData); }
@@ -37,6 +45,9 @@ namespace PsychTestsMilitary.ViewModels
         public static readonly DependencyProperty personalData =
             DependencyProperty.Register("PersonalData", typeof(string), typeof(BaseResultsWindow), new PropertyMetadata(string.Empty));
 
+        public static readonly DependencyProperty userResultsProperty =
+            DependencyProperty.Register("DataSet", typeof(List<ScaleResult>), typeof(BaseResultsWindow), new PropertyMetadata(null));
+
 
         public BaseResultsWindow() : base() { }
 
@@ -47,8 +58,9 @@ namespace PsychTestsMilitary.ViewModels
             TechniqueName = tn;
         }
 
-        public BaseResultsWindow(Dictionary<double, string> dataSet, string pd, string ctp, string tn)
+        public BaseResultsWindow(List<ScaleResult> ur, string pd, string ctp, string tn)
         {
+            UserResults = ur;
             PersonalData = pd;
             CompletedTechniqueDate = ctp;
             TechniqueName = tn;

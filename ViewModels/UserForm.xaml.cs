@@ -1,5 +1,4 @@
 ﻿using PsychTestsMilitary.Models;
-using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Contexts;
 using PsychTestsMilitary.Services.Singletons;
