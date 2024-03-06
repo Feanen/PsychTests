@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
         mc:Ignorable="d"
+        MouseLeftButtonDown="WindowMouseLeftButtonDown"
+        Style="{DynamicResource CustomWindowStyle}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
         WindowStyle="None"
-        Title="Вікно психолога" Height="600" Width="800">
+        Height="600" Width="800">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

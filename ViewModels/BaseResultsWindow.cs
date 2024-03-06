@@ -65,5 +65,10 @@ namespace PsychTestsMilitary.ViewModels
             CompletedTechniqueDate = ctp;
             TechniqueName = tn;
         }
+
+        protected new void CloseButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

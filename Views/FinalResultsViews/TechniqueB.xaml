@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
         mc:Ignorable="d"
+        MouseLeftButtonDown="WindowMouseLeftButtonDown"
         Style="{DynamicResource CustomWindowStyle}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -93,81 +94,81 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Label Grid.Row="0" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала брехні (L)"/>
-                            <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding UserResults[0].Result}"/>
+                            <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[0].Result}"/>
                             <TextBlock Grid.Row="1" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Оцінює щирість досліджуваного.
                             </TextBlock>
-                            <TextBlock Name="textBlock1" Grid.Row="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[0].Description}"/>
+                            <TextBlock Name="textBlock1" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[0].Description}"/>
 
                             <Label Grid.Row="3" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала вірогідності (F)" />
                             <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[1].Result}"/>
                             <TextBlock Grid.Row="4" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Виявляє недостовірні відповіді: чим вище значення за цією шкалою, тим менш достовірні результати.
                             </TextBlock>
-                            <TextBlock Name="textBlock2" Grid.Row="5" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[1].Description}"/>
+                            <TextBlock Name="textBlock2" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[1].Description}"/>
 
                             <Label Grid.Row="6" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала корекції (К)"/>
                             <Label Grid.Row="6" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[2].Result}"/>
                             <TextBlock Grid.Row="7" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Згладжує спотворення, що вносяться надмірною обережністю і контролем респондента під час тестування. Високі показники за цією шкалою свідчать про неусвідомлений контроль поведінки. Шкала (К) використовується для корекції базисних шкал, які залежать від її величини.
                             </TextBlock>
-                            <TextBlock Name="textBlock3" Grid.Row="8" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[2].Description}"/>
+                            <TextBlock Name="textBlock3" Grid.Row="8" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[2].Description}"/>
 
                             <Label Grid.Row="9" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала іпохондрії (Hs)"/>
                             <Label Grid.Row="9" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[3].Result}"/>
                             <TextBlock Grid.Row="10" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 “Близькість” респондента до астеноневротичного типу. Респонденти з високими оцінками повільні, пасивні, приймають все на віру, покірні владі, повільно пристосовуються, погано переносять зміну обстановки, легко втрачають рівновагу в соціальних конфліктах.
                             </TextBlock>
-                            <TextBlock Name="textBlock4" Grid.Row="11" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[3].Description}"/>
+                            <TextBlock Name="textBlock4" Grid.Row="11" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[3].Description}"/>
 
                             <Label Grid.Row="12" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала депресії (D)"/>
                             <Label Grid.Row="12" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[4].Result}"/>
                             <TextBlock Grid.Row="13" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Високі оцінки мають чутливі, сензитивні особи, схильні до тривог, боязкі, сором’язливі. У справах вони старанні, сумлінні, високоморальні і обов’язкові, але не здатні прийняти рішення самостійно, немає впевненості в собі, при найменших невдачах вони впадають у відчай.
                             </TextBlock>
-                            <TextBlock Name="textBlock5" Grid.Row="14" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[4].Description}"/>
+                            <TextBlock Name="textBlock5" Grid.Row="14" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[4].Description}"/>
 
                             <Label Grid.Row="15" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала істерії (Ну)"/>
                             <Label Grid.Row="15" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[5].Result}"/>
                             <TextBlock Grid.Row="16" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Виявляє осіб, схильних до неврологічних захисних реакцій конверсійного типу. Вони використовують симптоми соматичного захворювання як засіб уникнення відповідальності. Всі проблеми вирішуються відходом у хворобу. Головною особливістю таких людей є прагнення здаватися більше, значніше, ніж є насправді, прагнення звернути на себе увагу у будьякий спосіб, жага захоплення. Почуття таких людей поверхневі й інтереси неглибокі.
                             </TextBlock>
-                            <TextBlock Name="textBlock6" Grid.Row="17" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[5].Description}"/>
+                            <TextBlock Name="textBlock6" Grid.Row="17" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[5].Description}"/>
 
                             <Label Grid.Row="18" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала психопатії (Pd)"/>
                             <Label Grid.Row="18" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[6].Result}"/>
                             <TextBlock Grid.Row="19" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Високі оцінки за цією шкалою свідчать про соціальну дезадаптацію, такі люди агресивні, конфліктні, нехтують соціальними нормами і цінностями. Настрій у них нестійкий, вони уразливі, збудливі і чутливі. Можливий тимчасовий підйом за цією шкалою, викликаний якою-небудь причиною.
                             </TextBlock>
-                            <TextBlock Name="textBlock7" Grid.Row="20" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[6].Description}"/>
+                            <TextBlock Name="textBlock7" Grid.Row="20" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[6].Description}"/>
 
                             <Label Grid.Row="21" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала паранойяльності (Ра)"/>
                             <Label Grid.Row="21" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[7].Result}"/>
                             <TextBlock Grid.Row="22" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Основна риса людей з високими показниками за цією шкалою – схильність до формування надцінних ідей. Це люди односторонні, агресивні і злопам’ятні. Протилежна точка зору розглядається як ворожа. Свої погляди вони активно нав’язують, тому мають часті конфлікти з оточуючими. Власні найнезначніші успіхи вони завжди переоцінюють.
                             </TextBlock>
-                            <TextBlock Name="textBlock8" Grid.Row="23" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[7].Description}"/>
+                            <TextBlock Name="textBlock8" Grid.Row="23" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[7].Description}"/>
 
                             <Label Grid.Row="24" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала психастенії (Pt)"/>
                             <Label Grid.Row="24" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[8].Result}"/>
                             <TextBlock Grid.Row="25" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Діагностує осіб з тривожнонедовірливим типом характеру, якому властиві тривожність, боязкість, нерішучість, постійні сумніви.
                             </TextBlock>
-                            <TextBlock Name="textBlock9" Grid.Row="26" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[8].Description}"/>
+                            <TextBlock Name="textBlock9" Grid.Row="26" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[8].Description}"/>
 
                             <Label Grid.Row="27" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала шизоїдності (Se)"/>
                             <Label Grid.Row="27" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[9].Result}"/>
                             <TextBlock Grid.Row="28" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Особам з високими показниками за цією шкалою властивий шизоїдний тип поведінки. Вони здатні тонко відчувати і сприймати абстрактні образи, але повсякденні радощі й прикрощі не викликають у них емоційного відгуку. Таким чином, спільною рисою шизоїдного типу є поєднання підвищеної чутливості з емоційною холодністю і відчуженістю в міжособистісних стосунках.
                             </TextBlock>
-                            <TextBlock Name="textBlock10" Grid.Row="29" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[9].Description}"/>
+                            <TextBlock Name="textBlock10" Grid.Row="29" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[9].Description}"/>
 
                             <Label Grid.Row="30" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала гіпоманії (Ма)"/>
                             <Label Grid.Row="30" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[10].Result}"/>
                             <TextBlock Grid.Row="31" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
                                 Для осіб з високими оцінками за цією шкалою характерний піднесений настрій незалежно від обставин. Вони активні, діяльні, енергійні та життєрадісні. Вони люблять роботу з частими змінами, охоче контактують з людьми, проте інтереси їх поверхневі і нестійкі, їм не вистачає витримки і наполегливості.
                             </TextBlock>
-                            <TextBlock Name="textBlock11" Grid.Row="32" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[10].Description}"/>
+                            <TextBlock Name="textBlock11" Grid.Row="32" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[10].Description}"/>
                         </Grid>
                     </StackPanel>
                 </Border>
@@ -179,7 +180,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Зберегти"/>
-            <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити"/>
+            <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити" Click="CloseButtonClicked"/>
         </Grid>
     </Grid>
 </local:BaseResultsWindow>

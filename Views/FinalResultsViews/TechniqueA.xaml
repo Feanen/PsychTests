@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
         mc:Ignorable="d"
+        MouseLeftButtonDown="WindowMouseLeftButtonDown"
         Style="{DynamicResource CustomWindowStyle}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -109,7 +110,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Зберегти"/>
-            <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити"/>
+            <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити" Click="CloseButtonClicked"/>
         </Grid>
     </Grid>
 </local:BaseResultsWindow>
