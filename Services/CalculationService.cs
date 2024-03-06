@@ -25,7 +25,6 @@ namespace PsychTestsMilitary.Services
 
         public CalculationService(Account acc, UserAnswers answers) {
             userAnswers = GetAnswers(answers);
-            techniqueKeys = GetKeys(answers.TechniqueID);
             CurrentAccount = acc;
             CalculationProcess();
         }

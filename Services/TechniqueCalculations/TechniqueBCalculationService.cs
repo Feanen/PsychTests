@@ -16,6 +16,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
         public TechniqueBCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
+            techniqueKeys = GetKeys(answers.TechniqueID);
         }
 
         public override void CalculationProcess()
@@ -88,7 +89,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
         private double CalculateStandartValues(int scores, GenderDifference gf, float corrFact = 0)
         {
-            return Math.Round(50 + 10 * (scores - gf.Median) / gf.Delta + corrFact, 2);
+            return Math.Round(50 + 10 * (scores + corrFact - gf.Median) / gf.Delta, 2);
         }
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)

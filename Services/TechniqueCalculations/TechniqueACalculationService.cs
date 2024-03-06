@@ -14,6 +14,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
         private string[] finalResults;
         public TechniqueACalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
+            techniqueKeys = GetKeys(answers.TechniqueID);
         }
 
         public override void CalculationProcess()

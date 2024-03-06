@@ -1,12 +1,6 @@
 ﻿using PsychTestsMilitary.Models;
-using PsychTestsMilitary.ViewModels.FinalResults;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace PsychTestsMilitary.ViewModels
 {
@@ -20,19 +14,19 @@ namespace PsychTestsMilitary.ViewModels
 
         protected string PersonalData
         {
-            get { return (string) GetValue(personalData); }
+            get { return (string)GetValue(personalData); }
             set { SetValue(personalData, value); }
         }
 
         protected string CompletedTechniqueDate
         {
-            get { return (string) GetValue(completedTechniqueDateProperty); }
+            get { return (string)GetValue(completedTechniqueDateProperty); }
             set { SetValue(completedTechniqueDateProperty, ("Дата проходження: " + value)); }
         }
 
         protected string TechniqueName
         {
-            get { return (string) GetValue(techniqueName); }
+            get { return (string)GetValue(techniqueName); }
             set { SetValue(techniqueName, value); }
         }
 
