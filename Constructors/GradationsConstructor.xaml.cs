@@ -1,22 +1,12 @@
-﻿using PsychTestsMilitary.Models;
-using PsychTestsMilitary.Models.AdditionalModels;
-using PsychTestsMilitary.Services;
+﻿using PsychTestsMilitary.Models.AdditionalModels;
 using PsychTestsMilitary.Services.Contexts;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PsychTestsMilitary.Constructors
 {
@@ -55,7 +45,7 @@ namespace PsychTestsMilitary.Constructors
                 Gradation grad = new Gradation(index++, (barrierID.SelectedItem as Barrier).barrierID, i);
                 context.Gradations.Add(grad);
             }
-            
+
             context.SaveChanges();
             Update();
         }
@@ -79,13 +69,13 @@ namespace PsychTestsMilitary.Constructors
         {
             min.Text = max.Text = "";
             currentIndex = (sender as ComboBox).SelectedIndex;
-            Update();    
+            Update();
         }
 
         private void Update()
         {
             barrierID.SelectedIndex = currentIndex++;
-            Barrier selectedBarrier = (Barrier) barrierID.SelectedItem;
+            Barrier selectedBarrier = (Barrier)barrierID.SelectedItem;
             info.Text = selectedBarrier.Result;
         }
     }

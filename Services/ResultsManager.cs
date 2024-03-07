@@ -18,7 +18,7 @@ namespace PsychTestsMilitary.Services
                     return null;
                 case 4:
                     return new TechniqueDCalculationService(acc, data);
-                default: 
+                default:
                     return null;
             }
         }

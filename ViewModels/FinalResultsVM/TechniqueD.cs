@@ -1,5 +1,4 @@
 ﻿using PsychTestsMilitary.Models;
-using PsychTestsMilitary.ViewModels;
 using System.Collections.Generic;
 
 namespace PsychTestsMilitary.ViewModels.FinalResults

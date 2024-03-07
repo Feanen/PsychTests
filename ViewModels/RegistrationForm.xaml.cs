@@ -1,22 +1,10 @@
-﻿using PsychTestsMilitary.Services;
+﻿using PsychTestsMilitary.Models;
+using PsychTestsMilitary.Services;
+using PsychTestsMilitary.Services.Contexts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using PsychTestsMilitary.Services.Contexts;
-
-using PsychTestsMilitary.Models;
-using System.Data.Entity;
-using PsychTestsMilitary.Constructors;
 
 namespace PsychTestsMilitary.ViewModels
 {
@@ -40,9 +28,10 @@ namespace PsychTestsMilitary.ViewModels
                     ShowMainWindow();
                     break;
                 case "registrationButton":
-                    if (!ValidateAccData()) {
+                    if (!ValidateAccData())
+                    {
                         MessageBox.Show("Невірно вказані дані");
-                    } 
+                    }
                     else
                     {
                         Account acc = CreateAccountData();
@@ -66,7 +55,7 @@ namespace PsychTestsMilitary.ViewModels
 
         private void PsychologistCheckBoxChecked(object sender, RoutedEventArgs e)
         {
-            if ((bool) (sender as CheckBox).IsChecked)
+            if ((bool)(sender as CheckBox).IsChecked)
             {
                 if (ShowSUValidationWindow())
                 {
@@ -78,7 +67,7 @@ namespace PsychTestsMilitary.ViewModels
                 {
                     (sender as CheckBox).IsChecked = false;
                 }
-            } 
+            }
             else
             {
                 job.Visibility = spec.Visibility = rank.Visibility = Visibility.Visible;
@@ -90,14 +79,14 @@ namespace PsychTestsMilitary.ViewModels
         {
             Window suvalidwindow = new SuperUserValidationWindow();
             suvalidwindow.Owner = this;
-            return (bool) suvalidwindow.ShowDialog();
+            return (bool)suvalidwindow.ShowDialog();
         }
 
         private Account CreateAccountData()
         {
             return new Account(login.Text, surname.Text, name.Text, fname.Text,
                               (gender.SelectedItem as ComboBoxItem).Content.ToString(), birthday.SelectedDate.ToString().Split(' ')[0],
-                              job.Text = (job.Text.Equals(job.Tag)) ? null : job.Text, 
+                              job.Text = (job.Text.Equals(job.Tag)) ? null : job.Text,
                               spec.Text = (spec.Text.Equals(spec.Tag)) ? null : spec.Text,
                               rank.Text = (rank.Text.Equals(rank.Tag)) ? null : rank.Text,
                               PasswordHasher.HashPassword(pass.Password));
@@ -110,9 +99,9 @@ namespace PsychTestsMilitary.ViewModels
             this.Close();
         }
 
-        private bool ValidateAccData() 
+        private bool ValidateAccData()
         {
-            if ((bool) isPsychologist.IsChecked) 
+            if ((bool)isPsychologist.IsChecked)
             {
                 if (login.Text.Equals(login.Tag) || surname.Text.Equals(surname.Tag) ||
                     name.Text.Equals(name.Tag) || fname.Equals(fname.Tag) ||
@@ -126,11 +115,11 @@ namespace PsychTestsMilitary.ViewModels
                 if (login.Text.Equals(login.Tag) || surname.Text.Equals(surname.Tag) ||
                     name.Text.Equals(name.Tag) || fname.Equals(fname.Tag) ||
                     (gender.SelectedItem as ComboBoxItem).Equals((gender.Items.GetItemAt(0) as ComboBoxItem).Content.ToString()) ||
-                    job.Text.Equals(job.Tag) || spec.Text.Equals(spec.Tag) || rank.Text.Equals(rank.Tag) || 
+                    job.Text.Equals(job.Tag) || spec.Text.Equals(spec.Tag) || rank.Text.Equals(rank.Tag) ||
                     !Date.CheckOnCriticalAge(birthday.SelectedDate.ToString().Split(' ')[0]))
                 { return false; }
                 else { return true; }
-            } 
+            }
         }
 
         public void DataChanged(object sender, EventArgs e)

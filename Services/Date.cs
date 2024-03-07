@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PsychTestsMilitary.Services
 {
     public static class Date
     {
         private const int CRITICAL_AGE = 18;
-        public static bool CheckOnCriticalAge(string birthday) {
+        public static bool CheckOnCriticalAge(string birthday)
+        {
             DateTime dateTime = DateTime.Now;
             int[] numbers = new int[3];
             int i = 0;

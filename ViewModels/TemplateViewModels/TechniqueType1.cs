@@ -1,12 +1,9 @@
-﻿using PsychTestsMilitary.Models;
-using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
     public partial class TechniqueType1 : BaseTechniqueType
-    {                                                                                                                                                                                                                                                                                                                                                                                                          
+    {
         public TechniqueType1(BaseTechniqueModel td) : base(td)
         {
             InitializeComponent();
@@ -18,7 +15,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
             Technique = TechniqueData.Technique;
 
             if (TechniqueData != null)
-                Update(TechniqueData.NextQuestion(), nextButton);          
+                Update(TechniqueData.NextQuestion(), nextButton);
         }
 
         private void AnswerSelected(object sender, EventArgs e)

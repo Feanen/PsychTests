@@ -1,10 +1,11 @@
-﻿using System;
+﻿using PsychTestsMilitary.ViewModels;
+using System;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
-    public partial class TechniqueType2 : BaseTechniqueType
+    public partial class TechniqueType3 : BaseTechniqueType
     {
-        public TechniqueType2(BaseTechniqueModel td) : base(td)
+        public TechniqueType3(BaseTechniqueModel td) : base(td)
         {
             InitializeComponent();
             InitTechnique();

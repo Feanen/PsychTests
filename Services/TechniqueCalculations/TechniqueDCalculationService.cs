@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using PsychTestsMilitary.Models;
+﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Models.AdditionalModels;
 using PsychTestsMilitary.Services.Singletons;
 using PsychTestsMilitary.ViewModels.FinalResults;

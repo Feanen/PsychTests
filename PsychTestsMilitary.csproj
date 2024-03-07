@@ -194,6 +194,7 @@
     <Compile Include="ViewModels\BaseTechniqueType.cs" />
     <Compile Include="ViewModels\BaseWindow.cs" />
     <Compile Include="ViewModels\BaseWindowWithEditableFields.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueС.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueB.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
     <Compile Include="ViewModels\PsychologistWndow.xaml.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType1.cs" />
     <Compile Include="ViewModels\UserForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueD.cs" />
+    <Compile Include="ViewModels\TemplateViewModels\TechniqueType3.cs" />
     <Resource Include="Resources\Fonts\Montserrat-Black.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -340,6 +342,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueС.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\FinalResultsViews\TechniqueD.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -361,6 +367,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TechniqueTypes\TechniqueType3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

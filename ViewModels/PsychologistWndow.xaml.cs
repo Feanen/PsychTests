@@ -60,6 +60,7 @@ namespace PsychTestsMilitary.ViewModels
                     ResultsManager manager = new ResultsManager();
                     CompletedTechniquesModel selectedItem = data.SelectedItem as CompletedTechniquesModel;
                     CalculationService calculationService = manager.GetCalculationService(selectedAcc, selectedItem.Answers);
+                    calculationService.CalculationProcess();
                     Window window = calculationService.ShowResults(selectedAcc, selectedItem.Answers.Date, selectedItem.Name);
                     window.Owner = this;
                     window.ShowDialog();

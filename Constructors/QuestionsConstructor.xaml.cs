@@ -1,21 +1,10 @@
 ﻿using PsychTestsMilitary.Models;
-using PsychTestsMilitary.Services.Contexts;
 using PsychTestsMilitary.Services.Singletons;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PsychTestsMilitary.Constructors
 {
@@ -49,7 +38,7 @@ namespace PsychTestsMilitary.Constructors
 
         private List<Technique> GetTechniques()
         {
-            return TechniquesDBSingleton.Instance.GetTechniqueContext().Techniques.ToList();            
+            return TechniquesDBSingleton.Instance.GetTechniqueContext().Techniques.ToList();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -70,7 +59,7 @@ namespace PsychTestsMilitary.Constructors
 
         private void Update()
         {
-            Technique selectedTech = (Technique) techniques.SelectedItem;
+            Technique selectedTech = (Technique)techniques.SelectedItem;
             Question lastQuestion = TechniquesDBSingleton.Instance.GetTechniqueContext().Questions.Where(q => q.Technique_id == selectedTech.Id)
                 .OrderByDescending(q => q.Number)
                 .FirstOrDefault();

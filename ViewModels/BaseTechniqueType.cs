@@ -1,11 +1,10 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Controls;
-using System.Windows;
-using System;
 
 namespace PsychTestsMilitary.ViewModels
 {

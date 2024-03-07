@@ -23,7 +23,7 @@ namespace PsychTestsMilitary.Services
                 model.Init(tech, questions);
 
                 switch (tech.Type)
-                {                 
+                {
                     case 1:
                         window = new TechniqueType1(model);
                         break;
@@ -65,7 +65,7 @@ namespace PsychTestsMilitary.Services
                 }
             }
 
-            
+
             return completedTechniquesModels;
         }
 

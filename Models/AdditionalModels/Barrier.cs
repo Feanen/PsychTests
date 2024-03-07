@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PsychTestsMilitary.Models.AdditionalModels
 {
@@ -16,7 +11,8 @@ namespace PsychTestsMilitary.Models.AdditionalModels
         public string Result { get; set; }
 
         public Barrier() { }
-        public Barrier(int barrID, int ident, int number, string result ) {
+        public Barrier(int barrID, int ident, int number, string result)
+        {
             barrierID = barrID;
             id = ident;
             Number = number;

@@ -1,6 +1,5 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
-using PsychTestsMilitary.Services.Contexts;
 using PsychTestsMilitary.Services.Singletons;
 using System;
 using System.Collections;
@@ -21,13 +20,13 @@ namespace PsychTestsMilitary.ViewModels
         // Count of techniques names observed on the screen
         private const byte numberOfTechniquesInAColumn = 5;
         private LinkedList<DataWrapper[]> dataQueue = new LinkedList<DataWrapper[]>();
-        
+
         //---------------- INotifyPropertyChanged realization--------------------------
         private ObservableCollection<DataWrapper> observableTechniques;
         public ObservableCollection<DataWrapper> ObservableTechniques
         {
             get { return observableTechniques; }
-            set 
+            set
             {
                 observableTechniques = value;
                 OnPropertyChanged(nameof(ObservableTechniques));
@@ -82,8 +81,8 @@ namespace PsychTestsMilitary.ViewModels
 
                     listOfTechs[index] = new DataWrapper(enumerator.Current, false);
 
-                    index++;              
-                } 
+                    index++;
+                }
                 else
                     dataQueue.AddLast(listOfTechs);
             }
@@ -142,7 +141,7 @@ namespace PsychTestsMilitary.ViewModels
                             chosenTests.Enqueue(data[i].Key);
                     }
                 }
-            }  
+            }
 
             if (chosenTests.Count > 0)
             {
@@ -158,8 +157,8 @@ namespace PsychTestsMilitary.ViewModels
         public Technique Key { get; set; }
         public bool Value { get; set; }
 
-        public DataWrapper(Technique key, bool value) 
-        { 
+        public DataWrapper(Technique key, bool value)
+        {
             Key = key;
             Value = value;
         }

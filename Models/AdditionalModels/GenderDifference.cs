@@ -8,7 +8,7 @@
         public double Median { get; set; }
         public double Delta { get; set; }
 
-        public GenderDifference() { }   
+        public GenderDifference() { }
 
         public GenderDifference(int gender, string scale, double median, double delta)
         {

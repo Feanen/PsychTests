@@ -1,19 +1,6 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PsychTestsMilitary.Constructors
 {
@@ -32,8 +19,8 @@ namespace PsychTestsMilitary.Constructors
         {
             Technique technique = new Technique(id, this.name.Text, this.instruction.Text, 0);
 
-            using (TechniquesContext context = new TechniquesContext()) 
-            { 
+            using (TechniquesContext context = new TechniquesContext())
+            {
                 context.Techniques.Add(technique);
                 context.SaveChanges();
                 name.Text = "";

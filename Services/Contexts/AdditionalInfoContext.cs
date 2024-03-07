@@ -1,10 +1,5 @@
 ﻿using PsychTestsMilitary.Models.AdditionalModels;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PsychTestsMilitary.Services.Contexts
 {
@@ -17,6 +12,6 @@ namespace PsychTestsMilitary.Services.Contexts
         public DbSet<GenderDifference> GenderDifferences { get; set; }
         public DbSet<AnxietyQuestionsCoefficient> AnxietyQuestionsCoefficients { get; set; }
 
-        public AdditionalInfoContext() : base("AdditionalInfoConnection") {}
+        public AdditionalInfoContext() : base("AdditionalInfoConnection") { }
     }
 }

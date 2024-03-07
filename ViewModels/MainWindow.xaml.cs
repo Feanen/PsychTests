@@ -41,7 +41,7 @@ namespace PsychTestsMilitary.ViewModels
         private void DeveloperToolsClick(object sender, RoutedEventArgs e)
         {
             DeveloperToolsConstructor window1 = new DeveloperToolsConstructor();
-            window1.Show(); 
+            window1.Show();
             base.Close();
         }
     }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PsychTestsMilitary.Models.AdditionalModels
+﻿namespace PsychTestsMilitary.Models.AdditionalModels
 {
     public class Gradation
     {
@@ -12,7 +6,8 @@ namespace PsychTestsMilitary.Models.AdditionalModels
         public int barrierID { get; set; }
         public int Value { get; set; }
         public Gradation() { }
-        public Gradation(int gradID, int barrID, int value) { 
+        public Gradation(int gradID, int barrID, int value)
+        {
             gradationID = gradID;
             barrierID = barrID;
             Value = value;

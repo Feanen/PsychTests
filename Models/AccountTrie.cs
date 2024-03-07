@@ -1,10 +1,6 @@
 ﻿using PsychTestsMilitary.Services.Contexts;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace PsychTestsMilitary.Models
 {
@@ -15,7 +11,8 @@ namespace PsychTestsMilitary.Models
         public bool isEndOfWord;
         public Account acc;
 
-        public TrieNode(char symbol) {
+        public TrieNode(char symbol)
+        {
             chr = symbol;
             children = new Dictionary<char, TrieNode>();
             isEndOfWord = false;
@@ -25,7 +22,7 @@ namespace PsychTestsMilitary.Models
     public class AccountTrie
     {
         private TrieNode root;
-        
+
         public AccountTrie()
         {
             root = new TrieNode('/');
@@ -36,11 +33,13 @@ namespace PsychTestsMilitary.Models
         {
             List<Account> accounts = new List<Account>();
 
-            using (AccountContext context = new AccountContext()) {
+            using (AccountContext context = new AccountContext())
+            {
                 accounts = context.Accounts.ToList();
             }
 
-            foreach (Account account in accounts) {
+            foreach (Account account in accounts)
+            {
                 this.Add(ConcatDBFields(new string[] {account.Surname, " ", account.Name, " ", account.FName, " (",
                                                         account.Birthday,")"}), account);
             }
@@ -80,7 +79,7 @@ namespace PsychTestsMilitary.Models
             if (node.isEndOfWord)
             {
                 suggestions.Add(node.acc, currentPrefix);
-            }  
+            }
 
             foreach (var child in node.children)
                 AutocompleteRec(child.Value, currentPrefix + child.Key, suggestions);

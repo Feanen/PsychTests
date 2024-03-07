@@ -1,20 +1,7 @@
 ﻿using PsychTestsMilitary.Services;
-using PsychTestsMilitary.Services.TechniqueCalculations;
 using PsychTestsMilitary.ViewModels;
-using PsychTestsMilitary.ViewModels.FinalResults;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PsychTestsMilitary.Constructors
 {
@@ -33,7 +20,8 @@ namespace PsychTestsMilitary.Constructors
             Button button = sender as Button;
             Window window = null;
 
-            switch (button.Name) {
+            switch (button.Name)
+            {
                 case "techniques":
                     window = new TechniqueConstructor();
                     break;
@@ -43,7 +31,7 @@ namespace PsychTestsMilitary.Constructors
                 case "keys":
                     window = new TechniqueKeysConstructor();
                     break;
-                    
+
                 case "back":
                     window = new MainWindow();
                     break;
@@ -61,7 +49,7 @@ namespace PsychTestsMilitary.Constructors
                 case "pwds":
                     string result = PasswordHasher.HashPassword("");
                     break;
-           }
+            }
 
             window.Show();
             this.Close();

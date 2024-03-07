@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PsychTestsMilitary.Models
 {
     public class UserAnswers
     {
         [Key] public int id { get; set; }
-        public string Login {  get; set; }
+        public string Login { get; set; }
         public int TechniqueID { get; set; }
         public string Answers { get; set; }
-        public string Date {  get; set; } 
+        public string Date { get; set; }
 
         public UserAnswers() { }
 
@@ -22,7 +18,7 @@ namespace PsychTestsMilitary.Models
             Login = login;
             TechniqueID = techniqueID;
             Answers = answers;
-            Date = dt.ToString().Substring(0,10);
+            Date = dt.ToString().Substring(0, 10);
         }
     }
 }

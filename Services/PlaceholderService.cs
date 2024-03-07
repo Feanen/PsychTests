@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO.Ports;
-using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -37,12 +35,13 @@ namespace PsychTestsMilitary.Services
                 TextBox textBox = (TextBox)control;
                 if (string.IsNullOrEmpty(textBox.Text) || textBox.Text.Equals(textBox.Tag))
                     SetDefaultValue(textBox, 0.5f);
-            } else if (control is ComboBox)
+            }
+            else if (control is ComboBox)
             {
                 ComboBox comboBox = (ComboBox)control;
-                if (comboBox.SelectedIndex == 0 )
+                if (comboBox.SelectedIndex == 0)
                     SetDefaultValue(comboBox, 0.5f);
-            } 
+            }
         }
 
         private void SetDefaultValue(IInputElement obj, double opacity)
@@ -52,7 +51,8 @@ namespace PsychTestsMilitary.Services
                 TextBox textBox = (TextBox)obj;
                 textBox.Text = (string)textBox.Tag;
                 textBox.Opacity = opacity;
-            } else if (obj is ComboBox)
+            }
+            else if (obj is ComboBox)
             {
                 ComboBox comboBox = (ComboBox)obj;
                 comboBox.Opacity = opacity;

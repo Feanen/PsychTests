@@ -3,15 +3,9 @@ using PsychTestsMilitary.Interfaces;
 using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services.Contexts;
 using PsychTestsMilitary.Services.Singletons;
-using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace PsychTestsMilitary.Services
 {
@@ -23,10 +17,10 @@ namespace PsychTestsMilitary.Services
         protected UserAnswers Answers { get; }
         protected List<ScaleResult> CalculatedResults { get; set; }
 
-        public CalculationService(Account acc, UserAnswers answers) {
+        public CalculationService(Account acc, UserAnswers answers)
+        {
             userAnswers = GetAnswers(answers);
             CurrentAccount = acc;
-            CalculationProcess();
         }
 
         protected CalculationService(UserAnswers answers)
@@ -36,7 +30,7 @@ namespace PsychTestsMilitary.Services
 
         protected static UserAnswer[] GetAnswers(UserAnswers answers)
         {
-            return JsonConvert.DeserializeObject<List<UserAnswer>>(answers.Answers).ToArray();     
+            return JsonConvert.DeserializeObject<List<UserAnswer>>(answers.Answers).ToArray();
         }
 
         protected static List<TechniqueKey> GetKeys(int techID)
@@ -47,7 +41,7 @@ namespace PsychTestsMilitary.Services
             .Where(u => u.Id == techID)
             .Select(u => u.Keys)
             .FirstOrDefault();
-            
+
             return JsonConvert.DeserializeObject<List<TechniqueKey>>(keys);
         }
 

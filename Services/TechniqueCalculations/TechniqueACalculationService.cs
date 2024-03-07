@@ -1,10 +1,7 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.ViewModels.FinalResults;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace PsychTestsMilitary.Services.TechniqueCalculations
@@ -29,12 +26,12 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             string CR = ShowScaleResult(rawScores.ElementAt(6));
             string RTCS = ShowScaleResult(new KeyValuePair<string, int>("RTCS", GetRTCS(rawScores)));
 
-            finalResults = new string[] {D, PR, KP, MN, VPS, DAP, CR, RTCS};
+            finalResults = new string[] { D, PR, KP, MN, VPS, DAP, CR, RTCS };
         }
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueA(finalResults, String.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday), 
+            return new TechniqueA(finalResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
 
