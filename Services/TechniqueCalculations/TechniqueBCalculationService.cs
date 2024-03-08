@@ -25,20 +25,20 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
             int gender = GetGenderValue();
             Dictionary<string, int> rawScores = GetRawScores();
-            double L = CalculateStandartValues(rawScores.ElementAt(0).Value, GetGenderDifference("L", gender));//ShowScaleResult(rawScores.ElementAt(0));
-            double F = CalculateStandartValues(rawScores.ElementAt(1).Value, GetGenderDifference("F", gender));//ShowScaleResult(rawScores.ElementAt(1));
-            double K = CalculateStandartValues(rawScores.ElementAt(2).Value, GetGenderDifference("K", gender));//ShowScaleResult(rawScores.ElementAt(2));
+            double L = CalculateStandartValues(rawScores.ElementAt(0).Value, GetGenderDifference("L", gender));
+            double F = CalculateStandartValues(rawScores.ElementAt(1).Value, GetGenderDifference("F", gender));
+            double K = CalculateStandartValues(rawScores.ElementAt(2).Value, GetGenderDifference("K", gender));
 
             CorrectionFactor correctionFactor = GetCorrection(rawScores.ElementAt(2).Value);
 
-            double Hs = CalculateStandartValues(rawScores.ElementAt(3).Value, GetGenderDifference("Hs", gender), correctionFactor.CorrectionFiftyPercent);//ShowScaleResult(rawScores.ElementAt(3));
-            double D1 = CalculateStandartValues(rawScores.ElementAt(4).Value, GetGenderDifference("D1", gender));//ShowScaleResult(rawScores.ElementAt(4));
-            double Hy = CalculateStandartValues(rawScores.ElementAt(5).Value, GetGenderDifference("Hy", gender));//ShowScaleResult(rawScores.ElementAt(5));
-            double Pd = CalculateStandartValues(rawScores.ElementAt(6).Value, GetGenderDifference("Pd", gender), correctionFactor.CorrectionFourtyPercent);//ShowScaleResult(rawScores.ElementAt(6));
-            double Pa = CalculateStandartValues(rawScores.ElementAt(7).Value, GetGenderDifference("Pa", gender));//ShowScaleResult(rawScores.ElementAt(7));
-            double Pt = CalculateStandartValues(rawScores.ElementAt(8).Value, GetGenderDifference("Pt", gender), correctionFactor.CorrectionFull);//ShowScaleResult(rawScores.ElementAt(8));
-            double Se = CalculateStandartValues(rawScores.ElementAt(9).Value, GetGenderDifference("Se", gender), correctionFactor.CorrectionFull);//ShowScaleResult(rawScores.ElementAt(9));
-            double Ma = CalculateStandartValues(rawScores.ElementAt(10).Value, GetGenderDifference("Ma", gender), correctionFactor.CorrectionTwentyPercent);//ShowScaleResult(rawScores.ElementAt(10));
+            double Hs = CalculateStandartValues(rawScores.ElementAt(3).Value, GetGenderDifference("Hs", gender), correctionFactor.CorrectionFiftyPercent);
+            double D1 = CalculateStandartValues(rawScores.ElementAt(4).Value, GetGenderDifference("D1", gender));
+            double Hy = CalculateStandartValues(rawScores.ElementAt(5).Value, GetGenderDifference("Hy", gender));
+            double Pd = CalculateStandartValues(rawScores.ElementAt(6).Value, GetGenderDifference("Pd", gender), correctionFactor.CorrectionFourtyPercent);
+            double Pa = CalculateStandartValues(rawScores.ElementAt(7).Value, GetGenderDifference("Pa", gender));
+            double Pt = CalculateStandartValues(rawScores.ElementAt(8).Value, GetGenderDifference("Pt", gender), correctionFactor.CorrectionFull);
+            double Se = CalculateStandartValues(rawScores.ElementAt(9).Value, GetGenderDifference("Se", gender), correctionFactor.CorrectionFull);
+            double Ma = CalculateStandartValues(rawScores.ElementAt(10).Value, GetGenderDifference("Ma", gender), correctionFactor.CorrectionTwentyPercent);
 
             CalculatedResults.Add(new ScaleResult(L, GetScaleResult(L, "L")));
             CalculatedResults.Add(new ScaleResult(F, GetScaleResult(F, "F")));

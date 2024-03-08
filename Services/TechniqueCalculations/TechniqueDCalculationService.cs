@@ -66,7 +66,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueD(CalculatedResults, String.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
+            return new TechniqueD(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
     }
