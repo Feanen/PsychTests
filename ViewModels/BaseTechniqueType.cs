@@ -73,18 +73,16 @@ namespace PsychTestsMilitary.ViewModels
 
         protected abstract void InitTechnique();
 
-        protected void Update(Question question, Button nextBtn)
+        protected virtual void Update(Question question, Button nextBtn)
         {
+            nextBtn.IsEnabled = false;
+            nextBtn.Opacity = 0.3;
+
             if (question != null)
             {
                 Question = question;
                 QuestionNumber = question.Number.ToString();
-                nextBtn.IsEnabled = false;
-                nextBtn.Opacity = 0.3;
                 AnswerOptions = new ObservableCollection<AnswerOption>(JSONStringParser.ParseAnswerOptions(question.Answer_options));
-
-                if (TechniqueData.Questions.Count == 0)
-                    nextBtn.Content = "Завершити тест";
             }
             else
             {
@@ -92,6 +90,10 @@ namespace PsychTestsMilitary.ViewModels
                 TechniquesManager.RunNextTechnique();
                 this.Close();
             }
+
+
+            if (TechniqueData.Questions.Count == 0)
+                nextBtn.Content = "Завершити тест";
         }
 
         protected void ResetRadiobuttons(Grid grid)

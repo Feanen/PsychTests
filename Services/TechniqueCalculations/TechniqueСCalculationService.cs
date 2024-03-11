@@ -54,12 +54,12 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
         private double CalculateScaleLValues(int scores)
         {
-            return Math.Round((((float) scores / 10) - 0.16), 2);
+            return Math.Round(((float) scores / 10) - 0.16, 2);
         }
 
         private double CalculateScaleSrValues(int scores)
         {
-            double result = Math.Round((((float) scores / 35) + 7e-2), 2);
+            double result = Math.Round(((float) scores / 35) + 7e-2, 2);
             return (result > 1) ? 1 : result;
         }
     }

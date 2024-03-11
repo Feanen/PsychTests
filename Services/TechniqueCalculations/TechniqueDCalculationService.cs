@@ -27,11 +27,11 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             UserAnswer[] arr = new UserAnswer[20];
             AnxietyQuestionsCoefficient[] anxArr = new AnxietyQuestionsCoefficient[20];
 
-            Array.Copy(userAnswers, arr, 20);
+            Array.Copy(UserAnswers, arr, 20);
             Array.Copy(anxietyQuestionsCoefficients, anxArr, 20);
             int Ra = CalculateSummaryScaleResult(arr, anxArr, 50);
 
-            Array.Copy(userAnswers, 20, arr, 0, 20);
+            Array.Copy(UserAnswers, 20, arr, 0, 20);
             Array.Copy(anxietyQuestionsCoefficients, 20, anxArr, 0, 20);
             int Pa1 = CalculateSummaryScaleResult(arr, anxArr, 35);
 

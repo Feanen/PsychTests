@@ -11,7 +11,7 @@ namespace PsychTestsMilitary.Services
 {
     public abstract class CalculationService : ICalculationService
     {
-        protected UserAnswer[] userAnswers { get; set; }
+        protected UserAnswer[] UserAnswers { get; set; }
         protected List<TechniqueKey> techniqueKeys { get; set; }
         protected Account CurrentAccount { get; }
         protected UserAnswers Answers { get; }
@@ -19,11 +19,11 @@ namespace PsychTestsMilitary.Services
 
         public CalculationService(Account acc, UserAnswers answers)
         {
-            userAnswers = GetAnswers(answers);
+            UserAnswers = GetAnswers(answers);
             CurrentAccount = acc;
         }
 
-        protected CalculationService(UserAnswers answers)
+        public CalculationService(UserAnswers answers)
         {
             Answers = answers;
         }
@@ -73,7 +73,7 @@ namespace PsychTestsMilitary.Services
             int result = 0;
 
             foreach (QAPair pair in pairs)
-                result += (pair.AnswerID == userAnswers[pair.QuestionID - 1].AnswerID) ? 1 : 0;
+                result += (pair.AnswerID == UserAnswers[pair.QuestionID - 1].AnswerID) ? 1 : 0;
 
             return result;
         }
