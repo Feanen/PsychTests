@@ -39,7 +39,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
             Technique = TechniqueData.Technique;
 
             if (TechniqueData != null) {
-                Update(null, nextButton);
+                Update();
             }
         }
 

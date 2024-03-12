@@ -33,6 +33,9 @@ namespace PsychTestsMilitary.Services
                     case 3:
                         window = new TechniqueType3(model);
                         break;
+                    case 4:
+                        window = new TechniqueType4(model);
+                        break;
                 }
 
                 if (window != null)
