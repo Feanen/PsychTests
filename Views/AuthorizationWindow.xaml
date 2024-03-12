@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
-        xmlns:pwdph="clr-namespace:PsychTestsMilitary.Services"
         mc:Ignorable="d"
         MouseLeftButtonDown="WindowMouseLeftButtonDown"
         Style="{DynamicResource CustomWindowStyle}"
@@ -53,8 +52,8 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox Name="login" Style="{StaticResource CustomTextBox}" Grid.Row="0" Grid.Column="0" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть логін" TabIndex="1"/>
-                    <PasswordBox Style="{DynamicResource PasswordBoxStyle1}" Name="password" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden" TabIndex="2"/>
+                    <TextBox Name="login" Style="{StaticResource CustomTextBox}" Grid.Row="0" Grid.Column="0" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть логін" TabIndex="1" KeyDown="KeyDownHandler" />
+                    <PasswordBox Style="{DynamicResource PasswordBoxStyle1}" Name="password" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden" TabIndex="2" KeyDown="KeyDownHandler" />
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>

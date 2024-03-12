@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PsychTestsMilitary.Models;
 using System.Data.Entity;
 using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using PsychTestsMilitary.Models;
 
 namespace PsychTestsMilitary.Services.Contexts
 {
@@ -16,7 +11,7 @@ namespace PsychTestsMilitary.Services.Contexts
 
         public Account CurrentAccount { get; private set; }
 
-        public AccountContext() : base("AccountsConnection") {}
+        public AccountContext() : base("AccountsConnection") { }
 
         public bool CheckOnUniqueAccount(string login)
         {

@@ -23,12 +23,18 @@ namespace PsychTestsMilitary.Services
                 model.Init(tech, questions);
 
                 switch (tech.Type)
-                {                 
+                {
                     case 1:
                         window = new TechniqueType1(model);
                         break;
                     case 2:
                         window = new TechniqueType2(model);
+                        break;
+                    case 3:
+                        window = new TechniqueType3(model);
+                        break;
+                    case 4:
+                        window = new TechniqueType4(model);
                         break;
                 }
 
@@ -48,13 +54,13 @@ namespace PsychTestsMilitary.Services
             }
         }
 
-        public static List<CompletedTechniquesModel> GetUserResults(string login)
+        public static List<CompletedTechniquesModel> GetUserResults(Account account)
         {
             List<CompletedTechniquesModel> completedTechniquesModels = new List<CompletedTechniquesModel>();
 
             using (AccountContext context = new AccountContext())
             {
-                var answers = context.UserAnswers.Where(q => q.Login == login).ToList();
+                var answers = context.UserAnswers.Where(q => q.Login == account.login).ToList();
 
                 foreach (UserAnswers answer in answers)
                 {
@@ -65,7 +71,7 @@ namespace PsychTestsMilitary.Services
                 }
             }
 
-            
+
             return completedTechniquesModels;
         }
 

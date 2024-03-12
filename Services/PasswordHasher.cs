@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BCrypt.Net;
-
-namespace PsychTestsMilitary.Services
+﻿namespace PsychTestsMilitary.Services
 {
     public static class PasswordHasher
     {

@@ -1,14 +1,6 @@
 ﻿using PsychTestsMilitary.Services.Singletons;
-using PsychTestsMilitary.Services.Contexts;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
 
 namespace PsychTestsMilitary.ViewModels
 {

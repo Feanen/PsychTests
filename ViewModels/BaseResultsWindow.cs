@@ -1,30 +1,32 @@
-﻿using System;
+﻿using PsychTestsMilitary.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace PsychTestsMilitary.ViewModels
 {
     public abstract class BaseResultsWindow : BaseWindow
     {
+        protected List<ScaleResult> UserResults
+        {
+            get { return (List<ScaleResult>)GetValue(userResultsProperty); }
+            set { SetValue(userResultsProperty, value); }
+        }
+
         protected string PersonalData
         {
-            get { return (string) GetValue(personalData); }
+            get { return (string)GetValue(personalData); }
             set { SetValue(personalData, value); }
         }
 
         protected string CompletedTechniqueDate
         {
-            get { return (string) GetValue(completedTechniqueDateProperty); }
+            get { return (string)GetValue(completedTechniqueDateProperty); }
             set { SetValue(completedTechniqueDateProperty, ("Дата проходження: " + value)); }
         }
 
         protected string TechniqueName
         {
-            get { return (string) GetValue(techniqueName); }
+            get { return (string)GetValue(techniqueName); }
             set { SetValue(techniqueName, value); }
         }
 
@@ -37,6 +39,9 @@ namespace PsychTestsMilitary.ViewModels
         public static readonly DependencyProperty personalData =
             DependencyProperty.Register("PersonalData", typeof(string), typeof(BaseResultsWindow), new PropertyMetadata(string.Empty));
 
+        public static readonly DependencyProperty userResultsProperty =
+            DependencyProperty.Register("DataSet", typeof(List<ScaleResult>), typeof(BaseResultsWindow), new PropertyMetadata(null));
+
 
         public BaseResultsWindow() : base() { }
 
@@ -45,6 +50,19 @@ namespace PsychTestsMilitary.ViewModels
             PersonalData = pd;
             CompletedTechniqueDate = ctp;
             TechniqueName = tn;
+        }
+
+        public BaseResultsWindow(List<ScaleResult> ur, string pd, string ctp, string tn)
+        {
+            UserResults = ur;
+            PersonalData = pd;
+            CompletedTechniqueDate = ctp;
+            TechniqueName = tn;
+        }
+
+        protected new void CloseButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

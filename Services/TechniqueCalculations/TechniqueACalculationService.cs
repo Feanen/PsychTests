@@ -1,10 +1,7 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.ViewModels.FinalResults;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace PsychTestsMilitary.Services.TechniqueCalculations
@@ -12,8 +9,9 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
     public class TechniqueACalculationService : CalculationService
     {
         private string[] finalResults;
-        public TechniqueACalculationService(UserAnswers answers) : base(answers)
+        public TechniqueACalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
+            techniqueKeys = GetKeys(answers.TechniqueID);
         }
 
         public override void CalculationProcess()
@@ -28,32 +26,13 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             string CR = ShowScaleResult(rawScores.ElementAt(6));
             string RTCS = ShowScaleResult(new KeyValuePair<string, int>("RTCS", GetRTCS(rawScores)));
 
-            finalResults = new string[] {D, PR, KP, MN, VPS, DAP, CR, RTCS};
+            finalResults = new string[] { D, PR, KP, MN, VPS, DAP, CR, RTCS };
         }
 
-        public override Window ShowResults(string personalData, string completedTechniqueDate, string techniqueName)
+        public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueA(finalResults, personalData, completedTechniqueDate, techniqueName);
-        }
-
-        private Dictionary<string, int> GetRawScores()
-        {
-            Dictionary<string, int> rawScores = new Dictionary<string, int>();
-
-            foreach (TechniqueKey key in techniqueKeys)
-                rawScores.Add(key.Scale, CalculateRawScoresOnScale(key.Pairs));
-
-            return rawScores;
-        }
-
-        private int CalculateRawScoresOnScale(List<QAPair> pairs)
-        {
-            int result = 0;
-
-            foreach (QAPair pair in pairs)
-                result += (pair.AnswerID == userAnswers[pair.QuestionID - 1].AnswerID) ? 1 : 0;
-
-            return result;
+            return new TechniqueA(finalResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
+                                                            completedTechniqueDate, techniqueName);
         }
 
         private int GetRTCS(Dictionary<string, int> rawScores)

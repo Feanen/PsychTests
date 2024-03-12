@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PsychTestsMilitary.Models
+﻿namespace PsychTestsMilitary.Models
 {
     public class Technique
     {
@@ -18,11 +11,11 @@ namespace PsychTestsMilitary.Models
         public int Type { get; set; }
 
         public Technique() { }
-        public Technique(int id, string name, string instruction, int type) 
-        { 
+        public Technique(int id, string name, string instruction, int type)
+        {
             this.id = id;
             Name = name;
-            Instruction = instruction; 
+            Instruction = instruction;
             Type = type;
         }
 

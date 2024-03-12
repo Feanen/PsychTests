@@ -137,13 +137,17 @@
     <Compile Include="Interfaces\ITestTypes.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountTrie.cs" />
+    <Compile Include="Models\AdditionalModels\AnxietyQuestionsCoefficient.cs" />
     <Compile Include="Models\AdditionalModels\Barrier.cs" />
+    <Compile Include="Models\AdditionalModels\CorrectionFactor.cs" />
+    <Compile Include="Models\AdditionalModels\GenderDifference.cs" />
     <Compile Include="Models\AdditionalModels\Gradation.cs" />
     <Compile Include="Models\AdditionalModels\Scale.cs" />
     <Compile Include="Models\AnswerOption.cs" />
     <Compile Include="Models\CompletedTechniquesModel.cs" />
     <Compile Include="Models\Key.cs" />
     <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\ScaleResult.cs" />
     <Compile Include="Models\Technique.cs" />
     <Compile Include="Models\TechniqueKey.cs" />
     <Compile Include="Models\UserAnswer.cs" />
@@ -172,6 +176,11 @@
     <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueACalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueBCalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueFCalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueDCalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueECalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueСCalculationService.cs" />
     <Compile Include="Services\TechniquesManager.cs" />
     <Compile Include="Services\Singletons\TestsQueueSingleton.cs" />
     <Compile Include="Services\Contexts\TechniquesContext.cs" />
@@ -184,16 +193,24 @@
     <Compile Include="ViewModels\AuthorizationWindow.xaml.cs" />
     <Compile Include="Models\BaseTechniqueModel.cs" />
     <Compile Include="ViewModels\BaseResultsWindow.cs" />
+    <Compile Include="ViewModels\BaseTechniqueType.cs" />
     <Compile Include="ViewModels\BaseWindow.cs" />
     <Compile Include="ViewModels\BaseWindowWithEditableFields.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueF.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueE.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueС.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueB.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
     <Compile Include="ViewModels\PsychologistWndow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
     <Compile Include="ViewModels\SuperUserValidationWindow.xaml.cs" />
+    <Compile Include="ViewModels\TemplateViewModels\TechniqueType4.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType2.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType1.cs" />
     <Compile Include="ViewModels\UserForm.xaml.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueD.cs" />
+    <Compile Include="ViewModels\TemplateViewModels\TechniqueType3.cs" />
     <Resource Include="Resources\Fonts\Montserrat-Black.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -233,7 +250,6 @@
     <Content Include="Databases\techniques.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Databases\techniques.sqbpro" />
     <None Include="PsychTestsMilitary_TemporaryKey.pfx" />
     <Resource Include="Resources\Images\close.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -253,7 +269,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Databases\SQLQueries.txt" />
     <Resource Include="PTSDdiag.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -332,6 +347,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueF.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueС.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueD.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FinalResultsViews\TechniqueA.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -345,6 +380,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TechniqueTypes\TechniqueType4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TechniqueTypes\TechniqueType3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
