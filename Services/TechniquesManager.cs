@@ -6,6 +6,7 @@ using PsychTestsMilitary.ViewModels.TemplateViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 
 namespace PsychTestsMilitary.Services
@@ -36,6 +37,9 @@ namespace PsychTestsMilitary.Services
                     case 4:
                         window = new TechniqueType4(model);
                         break;
+                    case 5:
+                        window = new TechniqueType5(model);
+                        break;
                 }
 
                 if (window != null)
@@ -43,14 +47,24 @@ namespace PsychTestsMilitary.Services
             }
         }
 
-        public static void SaveAnswers(int techID, List<UserAnswer> listOfAnswers)
+        public static void SaveAnswers(int techID, object listOfAnswers)
         {
-            UserAnswers answers = new UserAnswers("feanen1", techID, JSONStringParser.StringToJSON(listOfAnswers), DateTime.Today.Date);
+            Type type = listOfAnswers.GetType();
 
-            using (AccountContext context = new AccountContext())
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>))
             {
-                context.UserAnswers.Add(answers);
-                context.SaveChanges();
+                Type elementType = type.GetGenericArguments()[0];
+                MethodInfo method = typeof(JSONStringParser).GetMethod("StringToJSON");
+                MethodInfo genericMethod = method.MakeGenericMethod(elementType);
+                string jsonString = (string)genericMethod.Invoke(null, new object[] { listOfAnswers });
+
+                UserAnswers answers = new UserAnswers("feanen1", techID, jsonString, DateTime.Today.Date);
+
+                using (AccountContext context = new AccountContext())
+                {
+                    context.UserAnswers.Add(answers);
+                    context.SaveChanges();
+                }
             }
         }
 

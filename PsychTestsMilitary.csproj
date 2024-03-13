@@ -152,6 +152,7 @@
     <Compile Include="Models\TechniqueKey.cs" />
     <Compile Include="Models\UserAnswer.cs" />
     <Compile Include="Models\UserAnswers.cs" />
+    <Compile Include="Models\UserMultipleAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -205,6 +206,7 @@
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
     <Compile Include="ViewModels\SuperUserValidationWindow.xaml.cs" />
+    <Compile Include="ViewModels\TemplateViewModels\TechniqueType5.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType4.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType2.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType1.cs" />
@@ -380,6 +382,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TechniqueTypes\TechniqueType5.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

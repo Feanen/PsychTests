@@ -2,6 +2,7 @@
 using PsychTestsMilitary.Services;
 using PsychTestsMilitary.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
@@ -71,7 +72,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 
             if (TechniqueData.Questions.Count.Equals(0))
             {
-                TechniquesManager.SaveAnswers(TechniqueData.Technique.Id, userAnswers);
+                TechniquesManager.SaveAnswers(TechniqueData.Technique.Id, userAnswers as List<UserAnswer>);
                 TechniquesManager.RunNextTechnique();
                 this.Close();
             }
@@ -90,7 +91,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         {
             foreach (var item in SlidersData)
                 if (!item.IsEmpty())
-                    userAnswers.Add(new UserAnswer(item.Qstn.Number, item.SliderResult));
+                    (userAnswers as List<UserAnswer>).Add(new UserAnswer(item.Qstn.Number, item.SliderResult));
         }
 
         private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

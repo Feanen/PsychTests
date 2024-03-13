@@ -42,7 +42,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
                                                             completedTechniqueDate, techniqueName);
         }
 
-        private string GetScaleResult(int value, string scale)
+        private string GetScaleResult(in int value, string scale)
         {
             string temp = ShowScaleResult(new KeyValuePair<string, int>(scale, GetGradationValue(value)));
             return (temp != null) ? temp : string.Empty;
