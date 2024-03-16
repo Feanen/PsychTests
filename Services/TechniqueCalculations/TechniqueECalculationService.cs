@@ -9,7 +9,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueECalculationService : CalculationService
     {
-        private int[] scalesFixedValues = { 81, 61, 41, 21, 0 };
+        private readonly int[] scalesFixedValues = { 81, 61, 41, 21, 0 };
 
         public TechniqueECalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {

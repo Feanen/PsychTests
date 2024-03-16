@@ -178,6 +178,8 @@
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueACalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueBCalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueHCalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueGCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueFCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueDCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueECalculationService.cs" />
@@ -197,6 +199,8 @@
     <Compile Include="ViewModels\BaseTechniqueType.cs" />
     <Compile Include="ViewModels\BaseWindow.cs" />
     <Compile Include="ViewModels\BaseWindowWithEditableFields.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueH.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueG.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueF.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueE.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueС.cs" />
@@ -348,6 +352,14 @@
     <Page Include="Views\AuthorizationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueH.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueG.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FinalResultsViews\TechniqueF.xaml">
       <Generator>MSBuild:Compile</Generator>

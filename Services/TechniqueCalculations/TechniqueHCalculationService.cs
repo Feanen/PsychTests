@@ -9,11 +9,11 @@ using System.Windows;
 
 namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
-    public class TechniqueFCalculationService : CalculationService
+    public class TechniqueHCalculationService : CalculationService
     {
-        private readonly int[] fixedValues = { 88, 68, 45, 25, 10, 0 };
+        private readonly int[] fixedValues = { 70, 60, 51, 0 };
 
-        public TechniqueFCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
+        public TechniqueHCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
         }
 
@@ -21,29 +21,34 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
         {
             CalculatedResults = new List<ScaleResult>();
 
-            int Dp = UserAnswers.Sum(item => item.AnswerID);
+            double SLM = CalculateTechniqueResult();
 
-            CalculatedResults.Add(new ScaleResult(Dp, GetScaleResult(Dp, "Dp")));
+            CalculatedResults.Add(new ScaleResult(SLM, GetScaleResult(SLM, "SLM")));
         }
 
-        private string GetScaleResult(int value, string scale)
+        private string GetScaleResult(double value, string scale)
         {
             string temp = ShowScaleResult(new KeyValuePair<string, int>(scale, GetGradationValue(value)));
             return (temp != null) ? temp : string.Empty;
         }
 
-        private int GetGradationValue(int value)
+        private int GetGradationValue(double value)
         {
             for (int i = 0; i < fixedValues.Length; i++)
-                if (value > fixedValues[i])
+                if (value >= fixedValues[i])
                     return fixedValues[i];
 
             return 0;
         }
 
+        private double CalculateTechniqueResult()
+        {
+            return Math.Round((UserAnswers.Sum(item => item.AnswerID) * 100 / 80d), 2);
+        }
+
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueF(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
+            return new TechniqueH(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
     }

@@ -599,7 +599,7 @@
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="17"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Opacity" Value="0.5"/>
         <Setter Property="Margin" Value="0 5 5 5"/>

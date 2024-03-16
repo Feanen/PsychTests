@@ -73,16 +73,16 @@
                     </Grid.RowDefinitions>
 
                     <RadioButton Style="{StaticResource RadioButtonStyle}" DataContext="{Binding AnswerOptions[0]}" Grid.Column="0" GroupName="AnswersList" Grid.Row="0" Checked="AnswerSelected">
-                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" TextWrapping="Wrap" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
+                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource RadioButtonStyle}" DataContext="{Binding AnswerOptions[1]}" Grid.Column="1" GroupName="AnswersList" Grid.Row="0" Checked="AnswerSelected">
-                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" TextWrapping="Wrap" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
+                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource RadioButtonStyle}" DataContext="{Binding AnswerOptions[2]}" Grid.Column="0" GroupName="AnswersList" Grid.Row="1" Checked="AnswerSelected">
-                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" TextWrapping="Wrap" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
+                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
                     </RadioButton>
                     <RadioButton Style="{StaticResource RadioButtonStyle}" DataContext="{Binding AnswerOptions[3]}" Grid.Column="1" GroupName="AnswersList" Grid.Row="1" Checked="AnswerSelected">
-                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" TextWrapping="Wrap" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
+                        <TextBlock Style="{StaticResource RadioButtonTextBlockStyle}" Margin="3 3 3 3" Text="{Binding Text}" Opacity="1"/>
                     </RadioButton>
                     <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="2" Grid.ColumnSpan="2" Content="Далі" Name="nextButton" IsEnabled="False" Click="ShowNextQuestion" Opacity="0.3"></Button>
                 </Grid>

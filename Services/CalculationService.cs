@@ -13,9 +13,11 @@ namespace PsychTestsMilitary.Services
     {
         protected UserAnswer[] UserAnswers { get; set; }
         protected List<TechniqueKey> techniqueKeys { get; set; }
-        protected Account CurrentAccount { get; }
+        protected Account CurrentAccount { get; set; }
         protected UserAnswers Answers { get; }
         protected List<ScaleResult> CalculatedResults { get; set; }
+
+        public CalculationService() { }
 
         public CalculationService(Account acc, UserAnswers answers)
         {

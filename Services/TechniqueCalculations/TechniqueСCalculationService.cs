@@ -9,8 +9,8 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueСCalculationService : CalculationService
     {
-        private int[] scaleLFixedValues = { 60, 0 };
-        private int[] scaleSrFixedValues = { 75, 60, 39, 24, 0 };
+        private readonly int[] scaleLFixedValues = { 60, 0 };
+        private readonly int[] scaleSrFixedValues = { 75, 60, 39, 24, 0 };
 
         public TechniqueСCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
