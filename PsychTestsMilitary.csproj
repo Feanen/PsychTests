@@ -178,6 +178,7 @@
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueACalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueBCalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueICalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueHCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueGCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueFCalculationService.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="ViewModels\FinalResultsVM\TechniqueG.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueF.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueE.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueI.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueС.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueB.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
@@ -366,6 +368,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FinalResultsViews\TechniqueE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
