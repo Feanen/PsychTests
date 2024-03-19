@@ -9,7 +9,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueECalculationService : CalculationService
     {
-        private int[] scalesFixedValues = { 81, 61, 41, 21, 0 };
+        private readonly int[] scalesFixedValues = { 81, 61, 41, 21, 0 };
 
         public TechniqueECalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
@@ -42,7 +42,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
                                                             completedTechniqueDate, techniqueName);
         }
 
-        private string GetScaleResult(int value, string scale)
+        private string GetScaleResult(in int value, string scale)
         {
             string temp = ShowScaleResult(new KeyValuePair<string, int>(scale, GetGradationValue(value)));
             return (temp != null) ? temp : string.Empty;

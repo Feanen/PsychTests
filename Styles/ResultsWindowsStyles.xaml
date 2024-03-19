@@ -103,6 +103,11 @@
         <Setter Property="Opacity" Value="1.0"/>
     </Style>
 
+    <Style TargetType="{x:Type TextBlock}" x:Key="NumbersResultsWindowDescriptionStyle" BasedOn="{StaticResource ResultsWindowDescriptionStyle}">
+        <Setter Property="FontFamily" Value="{StaticResource MontSerrat.SemiBold}"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
     <Style TargetType="{x:Type TextBlock}" x:Key="ResultsWindowTechniqueNameStyle" BasedOn="{StaticResource ResultsWindowDescriptionStyle}">
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Margin" Value="12 0 0 10"/>
@@ -163,5 +168,9 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridCell}" x:Key="ResultsDataGridCellStyle" BasedOn="{StaticResource DataGridCellStyle}">
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
     </Style>
 </ResourceDictionary>

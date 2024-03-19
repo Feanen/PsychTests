@@ -17,7 +17,7 @@ namespace PsychTestsMilitary.Models
         public int QuestionID { get; set; }
         public int AnswerID { get; set; }
 
-        public QAPair(int questionID, int answerID)
+        public QAPair(int questionID, int answerID = -1)
         {
             QuestionID = questionID;
             AnswerID = answerID;

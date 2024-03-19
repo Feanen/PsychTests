@@ -14,7 +14,7 @@ namespace PsychTestsMilitary.Services
 
         public static string StringToJSON<T>(List<T> list)
         {
-            return JsonConvert.SerializeObject(list);
+            return JsonConvert.SerializeObject(list, Formatting.Indented);
         }
     }
 }

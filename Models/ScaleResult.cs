@@ -2,8 +2,8 @@
 {
     public class ScaleResult
     {
-        public double Result { get; private set; }
-        public string Description { get; private set; }
+        public double Result { get; set; }
+        public string Description { get; set; }
 
         public ScaleResult(double result, string description)
         {

@@ -11,7 +11,7 @@ namespace PsychTestsMilitary.ViewModels
     public abstract class BaseTechniqueType : BaseWindow, INotifyPropertyChanged
     {
         public BaseTechniqueModel TechniqueData { get; set; }
-        protected List<UserAnswer> userAnswers = new List<UserAnswer>();
+        protected object userAnswers = new List<UserAnswer>();
         protected AnswerOption selectedAnswer;
 
         protected ObservableCollection<AnswerOption> answerOptions;
@@ -86,9 +86,9 @@ namespace PsychTestsMilitary.ViewModels
             }
             else
             {
-                TechniquesManager.SaveAnswers(TechniqueData.Technique.Id, userAnswers);
+                TechniquesManager.SaveAnswers(TechniqueData.Technique.Id, userAnswers as List<UserAnswer>);
                 TechniquesManager.RunNextTechnique();
-                this.Close();
+                Close();
             }
 
 
@@ -96,7 +96,7 @@ namespace PsychTestsMilitary.ViewModels
                 nextBtn.Content = "Завершити тест";
         }
 
-        protected void ResetRadiobuttons(Grid grid)
+        protected virtual void ResetRadiobuttons(Grid grid)
         {
             foreach (Control ctrl in grid.Children)
             {
@@ -105,7 +105,7 @@ namespace PsychTestsMilitary.ViewModels
             }
         }
 
-        protected void AnswerSelected(object sender, EventArgs e, Button btn)
+        protected virtual void AnswerSelected(object sender, EventArgs e, Button btn)
         {
             RadioButton rb = (RadioButton)sender;
             btn.IsEnabled = true;
@@ -113,10 +113,10 @@ namespace PsychTestsMilitary.ViewModels
             selectedAnswer = rb.DataContext as AnswerOption;
         }
 
-        protected void ShowNextQuestion(object sender, EventArgs e, Grid grid, Button btn)
+        protected virtual void ShowNextQuestion(object sender, EventArgs e, Grid grid, Button btn)
         {
             ResetRadiobuttons(grid);
-            userAnswers.Add(new UserAnswer(Question.Number, selectedAnswer.Id));
+            (userAnswers as List<UserAnswer>).Add(new UserAnswer(Question.Number, selectedAnswer.Id));
             Update(TechniqueData.NextQuestion(), btn);
         }
     }
