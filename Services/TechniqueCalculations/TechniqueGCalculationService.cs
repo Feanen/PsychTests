@@ -40,7 +40,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
         private string GetScaleResult(int value, string scale)
         {
             string temp = ShowScaleResult(new KeyValuePair<string, int>(scale, GetGradationValue(value)));
-            return (temp != null) ? temp : string.Empty;
+            return temp?.ToString() ?? string.Empty;
         }
 
         private int GetGradationValue(int value)
