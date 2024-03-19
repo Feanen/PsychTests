@@ -13,7 +13,6 @@ namespace PsychTestsMilitary.Constructors
     public partial class TechniqueKeysConstructor : Window
     {
         private TechniquesContext context = new TechniquesContext();
-        int id;
         private List<TechniqueKey> keys;
         private TechniqueKey key = null;
         public TechniqueKeysConstructor()
@@ -30,7 +29,7 @@ namespace PsychTestsMilitary.Constructors
             {
                 case "back":
                     DeveloperToolsConstructor wnd = new DeveloperToolsConstructor();
-                    this.Close();
+                    Close();
                     wnd.Show();
                     break;
                 case "addPair":
@@ -50,7 +49,7 @@ namespace PsychTestsMilitary.Constructors
         private void AddKey()
         {
             string json = JSONStringParser.StringToJSON(keys);
-            Models.Key km = new Models.Key((techniques.SelectedItem as Technique).Id, json);
+            Key km = new Key((techniques.SelectedItem as Technique).Id, json);
             context.Keys.Add(km);
             context.SaveChanges();
         }
@@ -67,7 +66,7 @@ namespace PsychTestsMilitary.Constructors
         {
             if (string.IsNullOrEmpty(scale.Text))
                 return;
-            else if (string.IsNullOrEmpty(QID) || string.IsNullOrEmpty(AID))
+            else if (string.IsNullOrEmpty(QID))
                 return;
             else
             {
@@ -77,7 +76,10 @@ namespace PsychTestsMilitary.Constructors
                     key.Pairs = new List<QAPair>();
                 }
 
-                key.Pairs.Add(new QAPair(int.Parse(QID), int.Parse(AID)));
+                if (string.IsNullOrEmpty(AID))
+                    key.Pairs.Add(new QAPair(int.Parse(QID)));
+                else
+                    key.Pairs.Add(new QAPair(int.Parse(QID), int.Parse(AID)));
             }
         }
 
@@ -91,8 +93,8 @@ namespace PsychTestsMilitary.Constructors
             List<Technique> techs = await GetTechniques();
             keys = new List<TechniqueKey>();
 
-            Question lastQuestion = ((context.Questions.OrderByDescending(q => q.qId).FirstOrDefault()) as Question);
-            id = (lastQuestion == null) ? 0 : lastQuestion.qId;
+            Question lastQuestion = context.Questions.OrderByDescending(q => q.qId).FirstOrDefault();
+            int id = (lastQuestion == null) ? 0 : lastQuestion.qId;
             techniques.ItemsSource = techs;
             techniques.DisplayMemberPath = "Name";
         }

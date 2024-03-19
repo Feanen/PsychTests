@@ -9,5 +9,11 @@
             QuestionID = questID;
             AnswerID = answerID;
         }
+
+        public UserAnswer(int questID)
+        {
+            QuestionID = questID;
+            AnswerID = -1;
+        }
     }
 }
