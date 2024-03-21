@@ -584,6 +584,10 @@
         </Setter>
     </Style>
 
+    <Style x:Key="RadioButtonsPyramidStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButtonStyle}">
+        <Setter Property="Width" Value="150"/>
+    </Style>
+    
     <Style x:Key="RadioButtonsAsTextBlocksStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButtonStyle}">
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="Auto"/>

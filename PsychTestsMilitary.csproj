@@ -139,6 +139,7 @@
     <Compile Include="Models\AccountTrie.cs" />
     <Compile Include="Models\AdditionalModels\AnxietyQuestionsCoefficient.cs" />
     <Compile Include="Models\AdditionalModels\Barrier.cs" />
+    <Compile Include="Models\AdditionalModels\ConversionScore.cs" />
     <Compile Include="Models\AdditionalModels\CorrectionFactor.cs" />
     <Compile Include="Models\AdditionalModels\GenderDifference.cs" />
     <Compile Include="Models\AdditionalModels\Gradation.cs" />
@@ -214,6 +215,7 @@
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
     <Compile Include="ViewModels\SuperUserValidationWindow.xaml.cs" />
+    <Compile Include="ViewModels\TemplateViewModels\TechniqueType6.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType5.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType4.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType2.cs" />
@@ -406,6 +408,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TechniqueTypes\TechniqueType6.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
