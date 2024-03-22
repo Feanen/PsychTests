@@ -70,7 +70,12 @@ namespace PsychTestsMilitary.Services
             return rawScores;
         }
 
-        private int CalculateRawScoresOnScale(List<QAPair> pairs)
+        protected int GetGenderValue()
+        {
+            return CurrentAccount.Gender.Equals("Чоловік") ? 0 : 1;
+        }
+
+        protected virtual int CalculateRawScoresOnScale(List<QAPair> pairs)
         {
             int result = 0;
 

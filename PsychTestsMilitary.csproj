@@ -178,6 +178,7 @@
     <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueACalculationService.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueKCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueBCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueJCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueICalculationService.cs" />

@@ -8,7 +8,7 @@ namespace PsychTestsMilitary.Models
 
         public List<QAPair> Pairs { get; set; }
 
-        public TechniqueKey(string scale) { this.Scale = scale; }
+        public TechniqueKey(string scale) { Scale = scale; }
     }
 
     // class represents pair of questions ID and correct answers ID on it

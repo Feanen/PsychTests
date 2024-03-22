@@ -48,7 +48,5 @@ namespace PsychTestsMilitary.Models.AdditionalModels
             ASD = aSD;
             Dprs = dprs;
         }
-
-
     }
 }
