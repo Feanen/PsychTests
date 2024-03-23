@@ -13,9 +13,6 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueKCalculationService : CalculationService
     {
-        private const int MINIMAL_THRESHOLD = 40;
-        private const int MAXIMUM_THRESHOLD = 70;
-
         public TechniqueKCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
             techniqueKeys = GetKeys(answers.TechniqueID);
@@ -38,68 +35,41 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             int e = GetTScores(rawScores.ElementAt(8), gender);
             int f = GetTScores(rawScores.ElementAt(9), gender);
             int L = GetTScores(rawScores.ElementAt(10), gender);
-            int Ag = GetTScores(new KeyValuePair<string, int>(rawScores.ElementAt(11).Key, rawScores.ElementAt(11).Value + rawScores.ElementAt(14).Value), gender);
-            int Di = GetTScores(new KeyValuePair<string, int>(rawScores.ElementAt(12).Key, rawScores.ElementAt(12).Value + (12 - rawScores.ElementAt(14).Value)), gender);
-            int Dprs = GetTScores(rawScores.ElementAt(13), gender);
 
-            int ptsd = A + B + C + D + F;
-            int asd = A + b + c + d + e + f;
+            int agSum = rawScores.ElementAt(11).Value + rawScores.ElementAt(14).Value;
+            int Ag = GetTScores(new KeyValuePair<string, int>(rawScores.ElementAt(11).Key, agSum), gender);
+
+            int diSum = rawScores.ElementAt(12).Value + (12 - rawScores.ElementAt(14).Value);
+            int Di = GetTScores(new KeyValuePair<string, int>(rawScores.ElementAt(12).Key, diSum), gender);
+
+            int Dprs = GetTScores(rawScores.ElementAt(13), gender);
+            int ptsd = SumDictValuesInRange(rawScores, 0, 4);
+            int asd = SumDictValuesInRange(rawScores, 5, 9) + rawScores.ElementAt(0).Value;
+
             int PTSD = GetTScores(new KeyValuePair<string, int>("PTSD", ptsd), gender);
             int ASD = GetTScores(new KeyValuePair<string, int>("ASD", asd), gender);
 
-            /*CalculatedResults.Add(new ScaleResult(L, GetScaleResult(L, "L")));
-            CalculatedResults.Add(new ScaleResult(F, GetScaleResult(F, "F")));
-            CalculatedResults.Add(new ScaleResult(K, GetScaleResult(K, "K")));
-            CalculatedResults.Add(new ScaleResult(Hs, GetScaleResult(Hs, "Hs")));
-            CalculatedResults.Add(new ScaleResult(D1, GetScaleResult(D1, "D1")));
-            CalculatedResults.Add(new ScaleResult(Hy, GetScaleResult(Hy, "Hy")));
-            CalculatedResults.Add(new ScaleResult(Pd, GetScaleResult(Pd, "Pd")));
-            CalculatedResults.Add(new ScaleResult(Pa, GetScaleResult(Pa, "Pa")));
-            CalculatedResults.Add(new ScaleResult(Pt, GetScaleResult(Pt, "Pt")));
-            CalculatedResults.Add(new ScaleResult(Se, GetScaleResult(Se, "Se")));
-            CalculatedResults.Add(new ScaleResult(Ma, GetScaleResult(Ma, "Ma")));*/
-        }
-
-        private string GetScaleResult(double value, string scale)
-        {
-            string temp = ShowScaleResult(new KeyValuePair<string, int>(scale, GetGradationValue(value)));
-            return (temp != null) ? temp : string.Empty;
-        }
-
-        private int GetGradationValue(double value)
-        {
-            if (value > MAXIMUM_THRESHOLD)
-                return MAXIMUM_THRESHOLD;
-            if (value < MINIMAL_THRESHOLD)
-                return MINIMAL_THRESHOLD;
-            return 0;
-        }
-
-        private int GetTScores(KeyValuePair<string, int> scaleValuePair, int gender)
-        {
-            var parameter = System.Linq.Expressions.Expression.Parameter(typeof(ConversionScore), "cs");
-            var property = System.Linq.Expressions.Expression.Property(parameter, scaleValuePair.Key);
-            var propertyValue = System.Linq.Expressions.Expression.Convert(property, typeof(int)); // Приводим свойство к типу long
-            var constant = System.Linq.Expressions.Expression.Constant(scaleValuePair.Value);
-            var equality = System.Linq.Expressions.Expression.Equal(propertyValue, constant);
-            var lambda = System.Linq.Expressions.Expression.Lambda<Func<ConversionScore, bool>>(equality, parameter);
-            var scores = AdditionalInfoDBSingleton.Instance.GetAddInfoContext().ConversionScores
-                .Where(cs => cs.Gender == gender)
-                .Where(lambda.Compile());
-
-            return scores.FirstOrDefault()?.Score ?? 0;
-        }
-
-        private CorrectionFactor GetCorrection(int userCorrectionFactor)
-        {
-            return AdditionalInfoDBSingleton.Instance.GetAddInfoContext().CorrectionFactors
-            .Where(u => u.CorrectionFull == userCorrectionFactor)
-            .FirstOrDefault();
+            CalculatedResults.Add(new ScaleResult(ptsd, ValidateValue(PTSD)));
+            CalculatedResults.Add(new ScaleResult(asd, ValidateValue(ASD)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(13).Value, ValidateValue(Dprs)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(10).Value, ValidateValue(L)));
+            CalculatedResults.Add(new ScaleResult(agSum, ValidateValue(Ag)));
+            CalculatedResults.Add(new ScaleResult(diSum, ValidateValue(Di)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(0).Value, ValidateValue(A)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(1).Value, ValidateValue(B)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(2).Value, ValidateValue(C)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(3).Value, ValidateValue(D)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(4).Value, ValidateValue(F)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(5).Value, ValidateValue(b)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(6).Value, ValidateValue(c)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(7).Value, ValidateValue(d)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(8).Value, ValidateValue(e)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(9).Value, ValidateValue(f)));
         }
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueB(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
+            return new TechniqueK(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
 
@@ -111,6 +81,38 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
                 result += UserAnswers[pair.QuestionID - 1].AnswerID;
 
             return result;
+        }
+
+        private string ValidateValue(int value)
+        {
+            return (value != 0) ? value.ToString() : "-";
+        }
+
+        private int SumDictValuesInRange(Dictionary<string, int> rawScores, int begin, int end)
+        {
+            int result = 0;
+
+            for (int i = begin; i <= end; i++)
+            {
+                result += rawScores.ElementAt(i).Value;
+            }
+
+            return result;
+        }
+
+        private int GetTScores(KeyValuePair<string, int> scaleValuePair, int gender)
+        {
+            var parameter = System.Linq.Expressions.Expression.Parameter(typeof(ConversionScore), "cs");
+            var property = System.Linq.Expressions.Expression.Property(parameter, scaleValuePair.Key);
+            var propertyValue = System.Linq.Expressions.Expression.Convert(property, typeof(int));
+            var constant = System.Linq.Expressions.Expression.Constant(scaleValuePair.Value);
+            var equality = System.Linq.Expressions.Expression.Equal(propertyValue, constant);
+            var lambda = System.Linq.Expressions.Expression.Lambda<Func<ConversionScore, bool>>(equality, parameter);
+            var scores = AdditionalInfoDBSingleton.Instance.GetAddInfoContext().ConversionScores
+                .Where(cs => cs.Gender == gender)
+                .Where(lambda.Compile());
+
+            return scores.FirstOrDefault()?.Score ?? 0;
         }
     }
 }
