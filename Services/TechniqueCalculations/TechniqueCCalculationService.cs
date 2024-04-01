@@ -7,12 +7,12 @@ using PsychTestsMilitary.ViewModels.FinalResults;
 
 namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
-    public class TechniqueСCalculationService : CalculationService
+    public class TechniqueCCalculationService : CalculationService
     {
         private readonly int[] scaleLFixedValues = { 60, 0 };
         private readonly int[] scaleSrFixedValues = { 75, 60, 39, 24, 0 };
 
-        public TechniqueСCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
+        public TechniqueCCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
             techniqueKeys = GetKeys(answers.TechniqueID);
         }
