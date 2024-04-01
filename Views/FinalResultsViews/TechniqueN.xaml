@@ -1,4 +1,4 @@
-﻿<local:BaseResultsWindow x:Class="PsychTestsMilitary.ViewModels.FinalResults.TechniqueN"
+﻿<local:BaseResultsWindow x:Class="PsychTestsMilitary.ViewModels.FinalResults.TechniqueM"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -63,16 +63,22 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Субшкала “вторгнення”"/>
-                            <TextBlock Name="textBlock1" Grid.Row="1" Style="{StaticResource ResultsWindowDescriptionStyle}">
+                            <Label Grid.Row="0" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Ворожість"/>
+                            <TextBlock Grid.Row="1" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
+                                Нормою агресивності є величина її індексу, що дорівнює 21 ± 4.
+                            </TextBlock>
+                            <TextBlock Grid.Row="2" Style="{StaticResource ResultsWindowDescriptionStyle}">
                                 <Run Text="Результат: "/>
                                 <Run Text="{Binding DataSet[0].Result}" FontSize="16"/>
                             </TextBlock>
-
-                            <Label Grid.Row="2" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Субшкала “уникнення”" />
-                            <TextBlock Name="textBlock2" Grid.Row="3" Style="{StaticResource ResultsWindowDescriptionStyle}">
+                            
+                            <Label Grid.Row="3" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Ворожість"/>
+                            <TextBlock Grid.Row="4" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
+                                Нормою агресивності є величина її індексу, що дорівнює 21 ± 4.
+                            </TextBlock>
+                            <TextBlock Grid.Row="5" Style="{StaticResource ResultsWindowDescriptionStyle}">
                                 <Run Text="Результат: "/>
-                                <Run Text="{Binding DataSet[1].Result}" FontSize="16"/>
+                                <Run Text="{Binding DataSet[0].Result}" FontSize="16"/>
                             </TextBlock>
 
                             <Label Grid.Row="4" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Субшкала “збудливість”" />
