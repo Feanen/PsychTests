@@ -8,7 +8,6 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueNCalculationService : CalculationService
     {
-        private string[] finalResults;
         public TechniqueNCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
             techniqueKeys = GetKeys(answers.TechniqueID);
@@ -17,21 +16,20 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
         public override void CalculationProcess()
         {
             Dictionary<string, int> rawScores = GetRawScores();
-            string D = ShowScaleResult(rawScores.ElementAt(0));
-            string PR = ShowScaleResult(rawScores.ElementAt(1));
-            string KP = ShowScaleResult(rawScores.ElementAt(2));
-            string MN = ShowScaleResult(rawScores.ElementAt(3));
-            string VPS = ShowScaleResult(rawScores.ElementAt(4));
-            string DAP = ShowScaleResult(rawScores.ElementAt(5));
-            string CR = ShowScaleResult(rawScores.ElementAt(6));
-            string RTCS = ShowScaleResult(new KeyValuePair<string, int>("RTCS", GetRTCS(rawScores)));
 
-            finalResults = new string[] { D, PR, KP, MN, VPS, DAP, CR, RTCS };
+            CalculatedResults = new List<ScaleResult>
+            {
+                new ScaleResult(rawScores.ElementAt(4).Value + rawScores.ElementAt(5).Value, null),
+                new ScaleResult(rawScores.ElementAt(0).Value + rawScores.ElementAt(1).Value + rawScores.ElementAt(6).Value, null)
+            };
+
+            for (int i = 0; i < rawScores.Count; i++)
+                CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(i).Value, null));
         }
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueN(finalResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
+            return new TechniqueN(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
 
