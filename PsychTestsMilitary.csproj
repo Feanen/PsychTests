@@ -177,6 +177,7 @@
     <Compile Include="Services\Singletons\AdditionalInfoDBSingleton.cs" />
     <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniquePCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueNCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueACalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueMCalculationService.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="ViewModels\BaseTechniqueType.cs" />
     <Compile Include="ViewModels\BaseWindow.cs" />
     <Compile Include="ViewModels\BaseWindowWithEditableFields.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueP.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueN.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueM.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueL.cs" />
@@ -223,6 +225,7 @@
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
     <Compile Include="ViewModels\SuperUserValidationWindow.xaml.cs" />
+    <Compile Include="ViewModels\TemplateViewModels\TechniqueType7.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType6.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType5.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType4.cs" />
@@ -231,6 +234,9 @@
     <Compile Include="ViewModels\UserForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueD.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType3.cs" />
+    <Compile Include="Views\TechniqueTypes\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
     <Resource Include="Resources\Fonts\Montserrat-Black.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -367,6 +373,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\FinalResultsViews\TechniqueN.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -432,6 +442,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TechniqueTypes\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TechniqueTypes\TechniqueType7.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

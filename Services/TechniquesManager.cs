@@ -43,10 +43,12 @@ namespace PsychTestsMilitary.Services
                     case 6:
                         window = new TechniqueType6(model);
                         break;
+                    case 7:
+                        window = new TechniqueType7(model);
+                        break;
                 }
 
-                if (window != null)
-                    window.Show();
+                window?.Show();
             }
         }
 

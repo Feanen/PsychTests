@@ -32,10 +32,5 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             return new TechniqueN(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
-
-        private int GetRTCS(Dictionary<string, int> rawScores)
-        {
-            return (rawScores.ElementAt(1).Value + rawScores.ElementAt(2).Value + rawScores.ElementAt(3).Value);
-        }
     }
 }
