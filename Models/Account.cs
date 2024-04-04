@@ -25,8 +25,8 @@ namespace PsychTestsMilitary.Models
 
         public string Surname
         {
-            get { return this.surname; }
-            set { this.surname = value; }
+            get => surname;
+            set => surname = value;
         }
 
         public string Name
