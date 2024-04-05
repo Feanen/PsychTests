@@ -11,23 +11,26 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueQCalculationService : CalculationService
     {
-        private Score[] scores;
+        private readonly Score[] scores;
+        private readonly int[] fixedValuesNeu = { 5, -5 };
+        private readonly int[] fixedValuesPsz = { 10, -10 };
 
         public TechniqueQCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
             techniqueKeys = GetKeys(answers.TechniqueID);
-            scores = AdditionalInfoDBSingleton.Instance.GetAddInfoContext().NeuPsyScores
-                .Where(g => g.Gender == GetGenderValue())
-                .Select(sc => new Score(sc.Question, sc.PosAnswer, sc.NegAnswer))
+            int gender = GetGenderValue();
+
+            var temp = AdditionalInfoDBSingleton.Instance.GetAddInfoContext().NeuPsyScores
+                .Where(g => g.Gender == gender)
+                .Select(sc => new { sc.Question, sc.PosAnswer, sc.NegAnswer })
                 .ToArray();
-                
+            
+            scores = temp.Select(sc => new Score(sc.Question, sc.PosAnswer, sc.NegAnswer)).ToArray();
         }
 
         public override void CalculationProcess()
         {
             CalculatedResults = new List<ScaleResult>();
-
-            int gender = GetGenderValue();
             Dictionary<string, int> rawScores = GetRawScores();
 
         }
@@ -43,7 +46,9 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             int result = 0;
 
             foreach (QAPair pair in pairs)
-                result += UserAnswers[pair.QuestionID - 1].AnswerID;
+                result += (UserAnswers[pair.QuestionID - 1].AnswerID == 1) ?
+                    scores[pair.QuestionID - 1].PosAnswer :
+                    scores[pair.QuestionID - 1].NegAnswer;
 
             return result;
         }
@@ -83,9 +88,9 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
     internal struct Score 
     {
-        public int Question { get; set; }
-        public int PosAnswer { get; set; }
-        public int NegAnswer { get; set; }
+        public int Question { get; }
+        public int PosAnswer { get; }
+        public int NegAnswer { get; }
 
         public Score(int quest, int posAnsw, int negAnswer)
         {
