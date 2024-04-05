@@ -12,6 +12,7 @@ namespace PsychTestsMilitary.Services.Contexts
         public DbSet<GenderDifference> GenderDifferences { get; set; }
         public DbSet<ConversionScore> ConversionScores { get; set; }
         public DbSet<AnxietyQuestionsCoefficient> AnxietyQuestionsCoefficients { get; set; }
+        public DbSet<NeuPsyScore> NeuPsyScores { get; set; }
 
         public AdditionalInfoContext() : base("AdditionalInfoConnection") { }
     }
