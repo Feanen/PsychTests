@@ -12,8 +12,11 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
     public class TechniqueQCalculationService : CalculationService
     {
         private readonly Score[] scores;
-        private readonly int[] fixedValuesNeu = { 5, -5 };
-        private readonly int[] fixedValuesPsz = { 10, -10 };
+        private readonly int[] fixedValuesPsz = { 6, -5 };
+        private readonly int[] fixedValuesNeu = { 11, -10 };
+        private readonly int fixedValueLiar = 5;
+
+        public double Dep { get; private set; }
 
         public TechniqueQCalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
@@ -33,6 +36,13 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             CalculatedResults = new List<ScaleResult>();
             Dictionary<string, int> rawScores = GetRawScores();
 
+            int Neu = rawScores.ElementAt(0).Value;
+            int Psz = rawScores.ElementAt(1).Value;
+            int Liar = rawScores.ElementAt(2).Value;
+
+            CalculatedResults.Add(new ScaleResult(Neu, GetScaleResult(Neu, "Neu", fixedValuesNeu)));
+            CalculatedResults.Add(new ScaleResult(Psz, GetScaleResult(Psz, "Psz", fixedValuesPsz)));
+            CalculatedResults.Add(new ScaleResult(Liar, GetScaleResult(Liar, "Liar", fixedValueLiar)));
         }
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
@@ -53,36 +63,27 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             return result;
         }
 
-        private string ValidateValue(int value)
+        private string GetScaleResult(int value, string scale, object fixedValues)
         {
-            return (value != 0) ? value.ToString() : "-";
+            string temp = ShowScaleResult(new KeyValuePair<string, int>(scale, GetGradationValue(value, fixedValues)));
+            return (temp != null) ? temp : string.Empty;
         }
 
-        private int SumDictValuesInRange(Dictionary<string, int> rawScores, int begin, int end)
+        private int GetGradationValue(int value, object fixedValues)
         {
-            int result = 0;
-
-            for (int i = begin; i <= end; i++)
+            switch (fixedValues)
             {
-                result += rawScores.ElementAt(i).Value;
+                case int[] array:      
+                    for (int i = 0; i < array.Length; i++)
+                        if (value >= array[i])
+                            return array[i];
+                    break;
+                    
+                case int fxValue:
+                    return (value > fxValue) ? fxValue : 0;
             }
 
-            return result;
-        }
-
-        private int GetTScores(KeyValuePair<string, int> scaleValuePair, int gender)
-        {
-            var parameter = System.Linq.Expressions.Expression.Parameter(typeof(ConversionScore), "cs");
-            var property = System.Linq.Expressions.Expression.Property(parameter, scaleValuePair.Key);
-            var propertyValue = System.Linq.Expressions.Expression.Convert(property, typeof(int));
-            var constant = System.Linq.Expressions.Expression.Constant(scaleValuePair.Value);
-            var equality = System.Linq.Expressions.Expression.Equal(propertyValue, constant);
-            var lambda = System.Linq.Expressions.Expression.Lambda<Func<ConversionScore, bool>>(equality, parameter);
-            var scores = AdditionalInfoDBSingleton.Instance.GetAddInfoContext().ConversionScores
-                .Where(cs => cs.Gender == gender)
-                .Where(lambda.Compile());
-
-            return scores.FirstOrDefault()?.Score ?? 0;
+            return 0;
         }
     }
 
