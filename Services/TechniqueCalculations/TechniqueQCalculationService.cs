@@ -1,8 +1,6 @@
 ﻿using PsychTestsMilitary.Models;
-using PsychTestsMilitary.Models.AdditionalModels;
 using PsychTestsMilitary.Services.Singletons;
 using PsychTestsMilitary.ViewModels.FinalResults;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -80,7 +78,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
                     break;
                     
                 case int fxValue:
-                    return (value > fxValue) ? fxValue : 0;
+                    return (value >= fxValue) ? fxValue : 0;
             }
 
             return 0;

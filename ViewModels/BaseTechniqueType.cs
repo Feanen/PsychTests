@@ -37,7 +37,7 @@ namespace PsychTestsMilitary.ViewModels
         }
 
         protected string questionNumber;
-        public string QuestionNumber
+        public virtual string QuestionNumber
         {
             get { return questionNumber; }
             set

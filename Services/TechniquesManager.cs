@@ -46,6 +46,9 @@ namespace PsychTestsMilitary.Services
                     case 7:
                         window = new TechniqueType7(model);
                         break;
+                    case 8:
+                        window = new TechniqueType8(model);
+                        break;
                 }
 
                 window?.Show();

@@ -230,6 +230,7 @@
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
     <Compile Include="ViewModels\SuperUserValidationWindow.xaml.cs" />
+    <Compile Include="ViewModels\TemplateViewModels\TechniqueType8.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType7.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType6.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType5.cs" />
@@ -452,6 +453,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TechniqueTypes\TechniqueType8.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

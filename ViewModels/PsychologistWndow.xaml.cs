@@ -9,9 +9,6 @@ using System.Windows.Controls.Primitives;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    /// <summary>
-    /// Логика взаимодействия для PsychologistWndow.xaml
-    /// </summary>
     public partial class PsychologistWindow : BaseWindow
     {
         private static AccountTrie accountData = new AccountTrie();

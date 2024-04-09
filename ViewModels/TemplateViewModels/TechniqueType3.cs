@@ -74,7 +74,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
             {
                 TechniquesManager.SaveAnswers(TechniqueData.Technique.Id, userAnswers as List<UserAnswer>);
                 TechniquesManager.RunNextTechnique();
-                this.Close();
+                Close();
             }
             else
                 ShowNextQuestion();
@@ -113,7 +113,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         public AnswerOption[] Answrs { get; set; }
         public int SliderResult { get; set; }
 
-        public SliderDataWrapper(Question question, AnswerOption[] answerOptions, int sliderResult = 50)
+        public SliderDataWrapper(Question question, AnswerOption[] answerOptions = null, int sliderResult = 50)
         {
             Qstn = question;
             Answrs = answerOptions;
