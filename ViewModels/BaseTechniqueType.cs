@@ -91,7 +91,6 @@ namespace PsychTestsMilitary.ViewModels
                 Close();
             }
 
-
             if (TechniqueData.Questions.Count == 0)
                 nextBtn.Content = "Завершити тест";
         }

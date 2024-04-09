@@ -13,22 +13,22 @@ using System.Windows.Data;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
-    public partial class TechniqueType8 : BaseTechniqueType, INotifyPropertyChanged
-    {
+    public partial class TechniqueType8 : BaseTechniqueType
+    { 
         private SliderDataWrapper slidersData;
-        public SliderDataWrapper SlidersData
+        public SliderDataWrapper SldrsData
         {
             get { return slidersData; }
             set 
             {
                 slidersData = value;
-                OnPropertyChanged(nameof(SlidersData));
+                OnPropertyChanged(nameof(SldrsData));
             }
         }
 
         public override string QuestionNumber { 
             get => base.QuestionNumber; 
-            set => base.QuestionNumber = "Назва фактора:"; 
+            set => questionNumber = "Назва фактора:"; 
         }
 
         public TechniqueType8(BaseTechniqueModel td) : base(td)
@@ -42,9 +42,8 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         {
             Technique = TechniqueData.Technique;
 
-            if (TechniqueData != null) {
-                Update();
-            }
+            if (TechniqueData != null)
+                Update(TechniqueData.NextQuestion());
         }
 
         protected override void Update(Question question = null, Button nextBtn = null)
@@ -55,8 +54,10 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 
         private void FillSlidersData()
         {
-            Question qstn = TechniqueData.NextQuestion(); 
-            SlidersData = new SliderDataWrapper(qstn, null, 15);
+            Question qstn = TechniqueData.NextQuestion();
+            Question = qstn;
+            QuestionNumber = qstn.Number.ToString();
+            SldrsData = new SliderDataWrapper(qstn, null, 15);
         }
 
         private void ClickNextButton(object sender, EventArgs e)
@@ -76,17 +77,17 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         private void ShowNextQuestion()
         {
             FillSlidersData();
-            OnPropertyChanged(nameof(SlidersData));
+            OnPropertyChanged(nameof(SldrsData));
             Update();
         }
 
         private void SaveSlidersResult()
         {
-            if (!SlidersData.IsEmpty())
-                (userAnswers as List<UserAnswer>).Add(new UserAnswer(SlidersData.Qstn.Number, SlidersData.SliderResult));
+            if (!SldrsData.IsEmpty())
+                (userAnswers as List<UserAnswer>).Add(new UserAnswer(SldrsData.Qstn.Number, SldrsData.SliderResult));
         }
 
-        private void SliderValueChangd(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void SliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Slider slider = sender as Slider;
 

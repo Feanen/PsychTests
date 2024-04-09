@@ -178,6 +178,7 @@
     <Compile Include="Services\Singletons\AdditionalInfoDBSingleton.cs" />
     <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />
+    <Compile Include="Services\TechniqueCalculations\TechniqueRCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueQCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniqueOCalculationService.cs" />
     <Compile Include="Services\TechniqueCalculations\TechniquePCalculationService.cs" />
@@ -202,6 +203,9 @@
     <Compile Include="Services\Contexts\AccountContext.cs" />
     <Compile Include="Services\PlaceholderService.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Templates\QuestionAndResultUserControl.xaml.cs">
+      <DependentUpon>QuestionAndResultUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Templates\TestsType.cs" />
     <Compile Include="ViewModels\App.xaml.cs" />
     <Compile Include="ViewModels\AuthorizationWindow.xaml.cs" />
@@ -211,6 +215,7 @@
     <Compile Include="ViewModels\BaseWindow.cs" />
     <Compile Include="ViewModels\BaseWindowWithEditableFields.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueO.cs" />
+    <Compile Include="ViewModels\FinalResultsVM\TechniqueR.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueQ.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueP.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueN.cs" />
@@ -368,6 +373,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Templates\QuestionAndResultUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -377,6 +386,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FinalResultsViews\TechniqueO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FinalResultsViews\TechniqueR.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
