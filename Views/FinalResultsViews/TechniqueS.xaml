@@ -1,0 +1,132 @@
+﻿<local:BaseResultsWindow x:Class="PsychTestsMilitary.ViewModels.FinalResults.TechniqueS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
+        mc:Ignorable="d"
+        MouseLeftButtonDown="WindowMouseLeftButtonDown"
+        Style="{DynamicResource CustomWindowStyle}"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Height="550" Width="550">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/CustomStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/ResultsWindowsStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Style="{StaticResource ResultsGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Style="{StaticResource ResultsWindowPanelStyle}">
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
+                <Image Style="{StaticResource MinimizeWindowImage}"/>
+            </Button>
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MaximizeButtonClicked">
+                <Image Style="{StaticResource MaximizeWindowImage}"/>
+            </Button>
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
+                <Image Style="{StaticResource CloseWindowImage}"/>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Style="{StaticResource ResultsWindowLabelStyle}" Content="Висновок"/>
+            <TextBlock Grid.Row="1" Style="{StaticResource ResultsWindowUserDataStyle}" Text="{Binding PersonalData}"/>
+            <TextBlock Grid.Row="2" Style="{StaticResource ResultsWindowTechniqueNameStyle}" Text="{Binding TechniqueName}"/>
+            <TextBlock Grid.Row="3" Style="{StaticResource ResultsWindowUserDataStyle}" Text="{Binding CompletedTechniqueDate}"/>
+        </Grid>
+        <TextBlock Grid.Row="2" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}" Margin="0 0 10 10">
+            Чим ближче отримане значення до максимальної величини, тим більше виражений фактор
+        </TextBlock>
+        <ScrollViewer Style="{DynamicResource ScrollViewerStyle}" VerticalScrollBarVisibility="Auto" Grid.Row="3" Margin="10 0 10 0">
+            <Grid Style="{StaticResource ResultsGridStyle}">
+                <Border Style="{StaticResource ResultsWindowBorderStyle}" Margin="0" VerticalAlignment="Top">
+                    <StackPanel>
+                        <Grid Name="grid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Style="{StaticResource ResultsWindowDescriptionLabelStyle}" FontSize="16" Content="Фактор" VerticalAlignment="Center" Margin="0"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource ResultsTBHeaderStyle}" FontSize="16" Text="Результат" Margin="10 0 10 0" HorizontalAlignment="Center"/>
+                            <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource ResultsTBHeaderStyle}" FontSize="16" Text="Max" Margin="10 0 0 0" HorizontalAlignment="Center"/>
+
+                            <Label Grid.Row="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Демонстративність"/>
+                            <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[0].Result}"/>
+                            <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="6"/>
+
+                            <Label Grid.Row="2" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Афективність"/>
+                            <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[1].Result}"/>
+                            <Label Grid.Row="2" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="6.6"/>
+
+                            <Label Grid.Row="3" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Унікальність"/>
+                            <Label Grid.Row="3" Grid.Column="1"  Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[2].Result}"/>
+                            <Label Grid.Row="3" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="6"/>
+
+                            <Label Grid.Row="4" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Неспроможність"/>
+                            <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[3].Result}"/>
+                            <Label Grid.Row="4" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="7.5"/>
+
+                            <Label Grid.Row="5" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Соціальний песимізм"/>
+                            <Label Grid.Row="5" Grid.Column="1" Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[4].Result}"/>
+                            <Label Grid.Row="5" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="6"/>
+
+                            <Label Grid.Row="6" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Злам культурних бар’єрів"/>
+                            <Label Grid.Row="6" Grid.Column="1" Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[5].Result}"/>
+                            <Label Grid.Row="6" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="6.9"/>
+
+                            <Label Grid.Row="7" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Максималізм"/>
+                            <Label Grid.Row="7" Grid.Column="1" Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[6].Result}"/>
+                            <Label Grid.Row="7" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="6.4"/>
+
+                            <Label Grid.Row="8" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Тимчасова перспектива"/>
+                            <Label Grid.Row="8" Grid.Column="1" Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[7].Result}"/>
+                            <Label Grid.Row="8" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="6.6"/>
+
+                            <Label Grid.Row="9" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Антисуїцидальний фактор"/>
+                            <Label Grid.Row="9" Grid.Column="1" Style="{StaticResource ResultsNumbersLabelStyle}" Content="{Binding DataSet[8].Result}"/>
+                            <Label Grid.Row="9" Grid.Column="2" Style="{StaticResource ResultsNumbersLabelStyle}" Content="6.4"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Зберегти"/>
+            <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити" Click="CloseButtonClicked"/>
+        </Grid>
+    </Grid>
+</local:BaseResultsWindow>

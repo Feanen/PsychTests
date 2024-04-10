@@ -26,7 +26,7 @@ namespace PsychTestsMilitary.ViewModels
 #pragma warning disable CS0108 // Член скрывает унаследованный член: отсутствует новое ключевое слово
         public void Loaded(object sender, EventArgs e)
         {
-            this.FocusOff(sender, e);
+            FocusOff(sender, e);
         }
 
         protected abstract void KeyDownHandler(object sender, KeyEventArgs e);

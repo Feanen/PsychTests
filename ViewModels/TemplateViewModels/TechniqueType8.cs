@@ -41,9 +41,6 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         protected override void InitTechnique()
         {
             Technique = TechniqueData.Technique;
-
-            if (TechniqueData != null)
-                Update(TechniqueData.NextQuestion());
         }
 
         protected override void Update(Question question = null, Button nextBtn = null)
