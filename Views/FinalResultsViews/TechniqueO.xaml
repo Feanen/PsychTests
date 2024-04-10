@@ -1,4 +1,4 @@
-﻿<local:BaseResultsWindow x:Class="PsychTestsMilitary.ViewModels.FinalResults.TechniqueС"
+﻿<local:BaseResultsWindow x:Class="PsychTestsMilitary.ViewModels.FinalResults.TechniqueO"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -61,25 +61,10 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            
-                            <Label Grid.Row="0" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала “неправди” (L)" FontSize="13"/>
+                            <Label Grid.Row="0" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала безнадійності"/>
                             <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[0].Result}"/>
-                            <TextBlock Grid.Row="1" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
-                                Показники, отримані за шкалою “неправди”, можуть варіюватися від 0 до 1. Показники, близькі до 1, свідчать про високе прагнення представити себе з вигідної сторони та неадекватність відповідей; близькі до нуля – про низький рівень і відносно надійну достовірність результатів обстеження.
-                            </TextBlock>
-                            <TextBlock Name="textBlock1" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[0].Description}"/>
-
-                            <Label Grid.Row="3" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Шкала оцінки схильності до суїцидальних реакцій (Sr)" FontSize="13"/>
-                            <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[1].Result}"/>
-                            <TextBlock Grid.Row="4" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}">
-                                Отримані показники можуть варіюватися від 0 до 1. Показники, близькі до 1, свідчать про високий рівень схильності до суїцидальних реакцій, близькі до нуля – про низький рівень.
-                            </TextBlock>
-                            <TextBlock Name="textBlock2" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[1].Description}"/>
+                            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding DataSet[0].Description}"/>
                         </Grid>
                     </StackPanel>
                 </Border>

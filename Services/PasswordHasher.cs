@@ -2,7 +2,9 @@
 {
     public static class PasswordHasher
     {
+        // superuser password hash
         private static string HASH = "$2a$11$8lgeuqXhh.s4PWhc.aCAjO8/7IEn5C0UzY5gqdO/1GkxFG0ewY3DC";
+        // empty string hash
         private static string HASH2 = "$2a$11$ASKunzOI0zv9DmgkYXZKzehS41QJaIhedfTuGeNEEn5.4zhS0EMVe";
 
         public static string HashPassword(string password)

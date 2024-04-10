@@ -14,7 +14,7 @@ namespace PsychTestsMilitary.Services
         protected UserAnswer[] UserAnswers { get; set; }
         protected List<TechniqueKey> techniqueKeys { get; set; }
         protected Account CurrentAccount { get; set; }
-        protected UserAnswers Answers { get; }
+        protected UserAnswers Answers { get; set; }
         protected List<ScaleResult> CalculatedResults { get; set; }
 
         public CalculationService() { }
@@ -50,12 +50,12 @@ namespace PsychTestsMilitary.Services
         public abstract void CalculationProcess();
         public abstract Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName);
 
-        protected string ShowScaleResult(KeyValuePair<string, int> keyValues)
+        protected string ShowScaleResult(KeyValuePair<string, int> keyValue)
         {
             return (from barrier in AdditionalInfoDBSingleton.Instance.GetAddInfoContext().Barriers
                     join gradation in AdditionalInfoDBSingleton.Instance.GetAddInfoContext().Gradations on barrier.barrierID equals gradation.barrierID
                     join scale in AdditionalInfoDBSingleton.Instance.GetAddInfoContext().Scales on barrier.id equals scale.id
-                    where gradation.Value == keyValues.Value && scale.Name == keyValues.Key
+                    where gradation.Value == keyValue.Value && scale.Name == keyValue.Key
                     select barrier.Result)
                     .FirstOrDefault();
         }
@@ -70,7 +70,12 @@ namespace PsychTestsMilitary.Services
             return rawScores;
         }
 
-        private int CalculateRawScoresOnScale(List<QAPair> pairs)
+        protected int GetGenderValue()
+        {
+            return CurrentAccount.Gender.Equals("Чоловік") ? 0 : 1;
+        }
+
+        protected virtual int CalculateRawScoresOnScale(List<QAPair> pairs)
         {
             int result = 0;
 

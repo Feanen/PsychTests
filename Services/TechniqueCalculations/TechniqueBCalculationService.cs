@@ -75,11 +75,6 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
                 .FirstOrDefault();
         }
 
-        private int GetGenderValue()
-        {
-            return CurrentAccount.Gender.Equals("Чоловік") ? 0 : 1;
-        }
-
         private CorrectionFactor GetCorrection(int userCorrectionFactor)
         {
             return AdditionalInfoDBSingleton.Instance.GetAddInfoContext().CorrectionFactors
@@ -94,7 +89,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueB(CalculatedResults, String.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
+            return new TechniqueB(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
     }

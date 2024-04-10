@@ -37,10 +37,12 @@ namespace PsychTestsMilitary.Services
         private static void OnIsMonitoringChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var pb = d as PasswordBox;
+
             if (pb == null)
             {
                 return;
             }
+
             if ((bool)e.NewValue)
             {
                 pb.PasswordChanged += PasswordChanged;
@@ -54,8 +56,8 @@ namespace PsychTestsMilitary.Services
         static void PasswordChanged(object sender, RoutedEventArgs e)
         {
             var pb = sender as PasswordBox;
-            if (pb == null)
-            {
+            
+            if (pb == null) { 
                 return;
             }
             SetPasswordLength(pb, pb.Password.Length);

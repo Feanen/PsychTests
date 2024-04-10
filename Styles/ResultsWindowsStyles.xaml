@@ -89,6 +89,21 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
     </Style>
 
+    <Style TargetType="{x:Type Label}" x:Key="ResultsNumbersLabelStyle" BasedOn="{StaticResource ResultsWindowHeadersStyle}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="ResultsTBHeaderStyle">
+        <Setter Property="FontFamily" Value="{StaticResource MontSerrat.Regular}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="5 0 0 10"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Opacity" Value="1.0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
     <Style TargetType="{x:Type Label}" x:Key="ResultsWindowUserNameStyle" BasedOn="{StaticResource ResultsWindowLabelStyle}">
         <Setter Property="FontFamily" Value="{StaticResource MontSerrat.Regular}"/>
         <Setter Property="FontSize" Value="15"/>
@@ -102,6 +117,22 @@
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Opacity" Value="1.0"/>
     </Style>
+
+    <Style TargetType="{x:Type Label}" x:Key="ResultsWindowDescriptionLabelStyle">
+        <Setter Property="FontFamily" Value="{StaticResource MontSerrat.Regular}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="5 0 0 10"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Opacity" Value="1.0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="CenterAlignResultsTextBlockStyle" BasedOn="{StaticResource ResultsWindowDescriptionStyle}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
 
     <Style TargetType="{x:Type TextBlock}" x:Key="NumbersResultsWindowDescriptionStyle" BasedOn="{StaticResource ResultsWindowDescriptionStyle}">
         <Setter Property="FontFamily" Value="{StaticResource MontSerrat.SemiBold}"/>

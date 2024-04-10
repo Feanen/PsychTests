@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="PsychTestsMilitary.Templates.QuestionAndResultUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ResultsWindowsStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Style="{StaticResource ResultsWindowDescriptionStyle}" Text="{Binding Description}"/>
+        <Label Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding Result}"/>
+    </Grid>
+</UserControl>

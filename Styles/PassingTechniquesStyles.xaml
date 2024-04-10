@@ -386,6 +386,23 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="StressFactorsSliderStyle" TargetType="{x:Type Slider}">
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Minimum" Value="1"/>
+        <Setter Property="Maximum" Value="30"/>
+        <Setter Property="Value" Value="15"/>
+        <Setter Property="SmallChange" Value="1"/>
+        <Setter Property="Foreground" Value="{StaticResource SliderThumb.Static.Foreground}"/>
+        <Setter Property="Template" Value="{StaticResource SliderHorizontal}"/>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Template" Value="{StaticResource SliderVertical}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     
     <Style x:Key="ToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
@@ -584,6 +601,11 @@
         </Setter>
     </Style>
 
+    <Style x:Key="RadioButtonsPyramidStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButtonStyle}">
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="55"/>
+    </Style>
+    
     <Style x:Key="RadioButtonsAsTextBlocksStyle" TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButtonStyle}">
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="Auto"/>

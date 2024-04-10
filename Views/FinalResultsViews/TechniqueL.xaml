@@ -1,4 +1,4 @@
-﻿<local:BaseResultsWindow x:Class="PsychTestsMilitary.ViewModels.FinalResults.TechniqueJ"
+﻿<local:BaseResultsWindow x:Class="PsychTestsMilitary.ViewModels.FinalResults.TechniqueL"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -65,17 +65,16 @@
                             </Grid.RowDefinitions>
 
                             <TextBlock Grid.Row="0" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}" Padding="0">
-                                Результат слід вважати “позитивним”, якщо респондент відповів “так” на будь-які три або більше запропоновані варіанти.
+                                Отримана сума дозволяє поділити досліджуваних на тих, які мають ПТСР і тих, які не мають ПТСР.
                                 <LineBreak/>
-                                Позитивна відповідь не обов’язково означає, що респондент має посттравматичний стресовий розлад, але вказує, що може мати ознаки ПТСР або проблеми пов’язані з травмою і повинна бути проведена подальша психодіагностика.
+                                За даними В.Ю. Шаніна:<LineBreak/>
+                                - добре адаптовані – 76 ± 18;<LineBreak/>
+                                - психічні розлади – 86 ± 26;<LineBreak/>
+                                - ПТСР – 130 ± 18.
                             </TextBlock>
                             <TextBlock Name="textBlock1" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource NumbersResultsWindowDescriptionStyle}" >
-                                <Run Text="Сумарна кількість відповідей &quot;так&quot;: "/>
+                                <Run Text="Загальний бал: "/>
                                 <Run Text="{Binding DataSet[0].Result}" FontSize="16"/>
-                            </TextBlock>
-                            <TextBlock Name="textBlock2" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource NumbersResultsWindowDescriptionStyle}" >
-                                <Run Text="Результат: "/>
-                                <Run Text="{Binding DataSet[0].Description}" FontSize="16"/>
                             </TextBlock>
                         </Grid>
                     </StackPanel>

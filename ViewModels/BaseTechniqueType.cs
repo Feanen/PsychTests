@@ -37,7 +37,7 @@ namespace PsychTestsMilitary.ViewModels
         }
 
         protected string questionNumber;
-        public string QuestionNumber
+        public virtual string QuestionNumber
         {
             get { return questionNumber; }
             set
@@ -90,7 +90,6 @@ namespace PsychTestsMilitary.ViewModels
                 TechniquesManager.RunNextTechnique();
                 Close();
             }
-
 
             if (TechniqueData.Questions.Count == 0)
                 nextBtn.Content = "Завершити тест";
