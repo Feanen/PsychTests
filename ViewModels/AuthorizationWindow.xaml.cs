@@ -26,7 +26,7 @@ namespace PsychTestsMilitary.ViewModels
                     VerifyAccountAndPassword(login.Text, password.Password);
                     break;
                 case "cancel":
-                    base.Close();
+                    Close();
                     break;
             }
         }
@@ -55,6 +55,7 @@ namespace PsychTestsMilitary.ViewModels
         {
             Close();
             Owner.Hide();
+
 
             Window wind = null;
 

@@ -62,7 +62,7 @@ namespace PsychTestsMilitary.ViewModels
 
         protected new void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

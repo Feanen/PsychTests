@@ -33,12 +33,6 @@ namespace PsychTestsMilitary.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         private int currentIndex;
         public int CurrentIndex
         {
@@ -49,6 +43,23 @@ namespace PsychTestsMilitary.ViewModels
                 OnPropertyChanged(nameof(CurrentIndex));
             }
         }
+
+        private string currentUser;
+        public string CurrentUser
+        {
+            get { return currentUser; }
+            set
+            {
+                currentUser = value;
+                OnPropertyChanged(nameof(CurrentUser));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         //-----------------------------------------------------------------------------
 
 
@@ -56,10 +67,19 @@ namespace PsychTestsMilitary.ViewModels
         {
             InitializeComponent();
             ConnectDictionaryData();
+            DataContext = this;
+            Loaded += UserFormLoaded;
+        }
+
+        private void UserFormLoaded(object sender, RoutedEventArgs e)
+        {
+            CurrentUser = CurrentUserSingleton.CurrentAcc.Surname + " " +
+                          CurrentUserSingleton.CurrentAcc.Name + " " +
+                          CurrentUserSingleton.CurrentAcc.FName;
+
             ObservableTechniques = ShowTechniquesList();
             CurrentIndex = 0;
         }
-
 
         private void ConnectDictionaryData()
         {

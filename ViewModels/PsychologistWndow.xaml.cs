@@ -43,7 +43,11 @@ namespace PsychTestsMilitary.ViewModels
         private void FocusOn(object sender, RoutedEventArgs e)
         {
             if (sender is TextBox)
+            {
                 (sender as TextBox).Text = null;
+                if (data.HasItems)
+                    data.ItemsSource = null;
+            }   
         }
 
         private void ButtonClicked(object sender, RoutedEventArgs e)
@@ -53,14 +57,17 @@ namespace PsychTestsMilitary.ViewModels
             switch (btn.Name)
             {
                 case "showResults":
-                    //TODO ResultsManager as Singleton
-                    ResultsManager manager = new ResultsManager();
-                    CompletedTechniquesModel selectedItem = data.SelectedItem as CompletedTechniquesModel;
-                    CalculationService calculationService = manager.GetCalculationService(selectedAcc, selectedItem.Answers);
-                    calculationService.CalculationProcess();
-                    Window window = calculationService.ShowResults(selectedAcc, selectedItem.Answers.Date, selectedItem.Name);
-                    window.Owner = this;
-                    window.ShowDialog();
+                    if (data.SelectedItem != null) 
+                    {
+                        ResultsManager manager = new ResultsManager();
+                        CompletedTechniquesModel selectedItem = data.SelectedItem as CompletedTechniquesModel;
+                        CalculationService calculationService = manager.GetCalculationService(selectedAcc, selectedItem.Answers);
+                        calculationService.CalculationProcess();
+                        Window window = calculationService.ShowResults(selectedAcc, selectedItem.Answers.Date, selectedItem.Name);
+                        window.Owner = this;
+                        window.ShowDialog();
+                        
+                    }
                     break;
             }
         }

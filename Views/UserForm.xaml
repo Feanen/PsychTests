@@ -4,9 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PsychTestsMilitary.ViewModels"
-        xmlns:services="clr-namespace:PsychTestsMilitary.Services"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         MouseLeftButtonDown="WindowMouseLeftButtonDown"
         Style="{DynamicResource CustomWindowStyle}"
         mc:Ignorable="d"
@@ -41,16 +38,13 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Margin="0 20 0 0">
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource CustomLabel}" Content="Оберіть тести" HorizontalAlignment="Left"/>
-                <Label Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomLabel}" FontSize="13" Content="asdfdsasdf" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <Label Grid.Column="0" Style="{StaticResource CustomLabel}" Content="Оберіть тести" HorizontalAlignment="Left"/>
+                <Label Grid.Column="1" Style="{StaticResource CustomLabel}" FontSize="13" Content="{Binding CurrentUser}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="2">
