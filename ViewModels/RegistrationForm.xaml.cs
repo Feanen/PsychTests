@@ -8,13 +8,11 @@ using System.Windows.Input;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    /// <summary>
-    /// Логика взаимодействия для Window1.xaml
-    /// </summary>
     public partial class RegistrationForm : BaseWindowWithEditableFields
     {
         public RegistrationForm()
         {
+            LoadDataAsync();
             InitializeComponent();
         }
 

@@ -20,19 +20,31 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Style="{StaticResource WindowPanelStyle}">
+
+        <Button Style="{DynamicResource ButtonArrowsStyle}" BorderThickness="0" Click="ReturnButtonClicked" Margin="40 20 30 0" HorizontalAlignment="Left">
+            <Button.Content>
+                <Image Source="/Resources/Images/Arrows/Vector3.png" Width="42" Height="26"/>
+            </Button.Content>
+        </Button>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Style="{StaticResource WindowPanelStyle}" VerticalAlignment="Top">
             <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
                 <Image Style="{StaticResource MinimizeWindowImage}"/>
             </Button>
             <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
                 <Image Style="{StaticResource CloseWindowImage}"/>
             </Button>
+
         </StackPanel>
-        <Border Grid.Row="1" Style="{StaticResource CustomBorderStyle}" VerticalAlignment="Top">
+        <Border Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource CustomBorderStyle}" Margin="20 10 20 20" VerticalAlignment="Top">
             <StackPanel>
                 <Grid Style="{StaticResource CustomGridBackgroundStyle}">
                     <Grid.ColumnDefinitions>
@@ -108,7 +120,7 @@
                         <Button Content="Результат" Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomRoundedButtonStyle}" Name="showResults" Click="ButtonClicked" FontSize="13"/>
                     </Grid>
                 </Grid>
-                
+
             </StackPanel>
         </Border>
     </Grid>

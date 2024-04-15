@@ -167,7 +167,7 @@ namespace PsychTestsMilitary.ViewModels
             {
                 TestsQueueSingleton.Instance.Techniques = chosenTests;
                 TechniquesManager.RunNextTechnique();
-                this.Close();
+                Close();
             }
         }
     }

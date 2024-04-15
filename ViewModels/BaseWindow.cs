@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace PsychTestsMilitary.ViewModels
@@ -18,19 +17,23 @@ namespace PsychTestsMilitary.ViewModels
             WindowState = WindowState.Minimized;
         }
 
-        protected void MaximizeButtonClicked(Object sender, RoutedEventArgs e)
+        protected void MaximizeButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (WindowState != WindowState.Maximized)
-                WindowState = WindowState.Maximized;
-            else WindowState = WindowState.Normal;
+            WindowState = (WindowState != WindowState.Maximized) ? WindowState.Maximized : WindowState.Normal;
         }
 
         protected void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (this.Owner == null)
-                App.Current.Shutdown();
+            if (Owner == null)
+                Application.Current.Shutdown();
             else
-                this.Close();
+                Close();
+        }
+
+        protected void ReturnButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Close();
+            new MainWindow().Show();
         }
     }
 }

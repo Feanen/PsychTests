@@ -1,19 +1,19 @@
 ﻿using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Contexts;
 using PsychTestsMilitary.Services.Singletons;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    /// <summary>
-    /// Логика взаимодействия для AuthorizationWindow.xaml
-    /// </summary>
     public partial class AuthorizationWindow : BaseWindowWithEditableFields
     {
         public AuthorizationWindow()
         {
+            LoadDataAsync();
             InitializeComponent();
         }
 
