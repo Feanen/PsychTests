@@ -1,0 +1,2573 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Evaluation</name>
+    </assembly>
+    <members>
+        <member name="T:Rijndael256.AeKeyRing">
+            <summary>
+            Authenticated Encryption keys.
+            </summary>
+        </member>
+        <member name="P:Rijndael256.AeKeyRing.CipherKey">
+            <summary>
+            The key used by the cipher.
+            </summary>
+        </member>
+        <member name="P:Rijndael256.AeKeyRing.MacKey">
+            <summary>
+            The key used by the MAC.
+            </summary>
+        </member>
+        <member name="M:Rijndael256.AeKeyRing.Generate(System.String)">
+            <summary>
+            Generates a SHA-512 hash from the provided password, and derives two
+            256-bit keys from the hash.
+            </summary>
+            <param name="password">The password to hash.</param>
+            <returns>A pair of 256-bit keys.</returns>
+        </member>
+        <member name="T:Rijndael256.Hash">
+            <summary>
+            Cryptographic hash functions.
+            </summary>
+        </member>
+        <member name="M:Rijndael256.Hash.Sha512(System.String)">
+            <summary>
+            Generates a SHA-512 hash from the specified <paramref name="data"/>.
+            </summary>
+            <param name="data">The data.</param>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:Rijndael256.Hash.Pbkdf2(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Generates a PBKDF2 hash from the specified <paramref name="data"/>.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="salt">The salt.</param>
+            <param name="iterations">The number of iterations to derive the hash.</param>
+            <param name="size">The size of the hash.</param>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:Rijndael256.Hash.Pbkdf2(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Generates a PBKDF2 hash from the specified <paramref name="data"/>.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="salt">The salt.</param>
+            <param name="iterations">The number of iterations to derive the hash.</param>
+            <param name="size">The size of the hash.</param>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:Rijndael256.Hash.Pbkdf2(System.Byte[],System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Generates a PBKDF2 hash from the specified <paramref name="data"/>.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="salt">The salt.</param>
+            <param name="iterations">The number of iterations to derive the hash.</param>
+            <param name="size">The size of the hash.</param>
+            <returns>The hash.</returns>
+        </member>
+        <member name="T:Rijndael256.KeySize">
+            <summary>
+            AES approved cipher key sizes.
+            </summary>
+        </member>
+        <member name="F:Rijndael256.KeySize.Aes128">
+            <summary>
+            128-bit
+            </summary>
+        </member>
+        <member name="F:Rijndael256.KeySize.Aes192">
+            <summary>
+            192-bit
+            </summary>
+        </member>
+        <member name="F:Rijndael256.KeySize.Aes256">
+            <summary>
+            256-bit
+            </summary>
+        </member>
+        <member name="T:Rijndael256.Rijndael">
+            <summary>
+            AES implementation of the Rijndael symmetric-key cipher.
+            </summary>
+        </member>
+        <member name="M:Rijndael256.Rijndael.Encrypt(System.String,System.String,Rijndael256.KeySize)">
+            <summary>
+            Encrypts plaintext using the Rijndael cipher in CBC mode with a password derived HMAC SHA-512 salt.
+            A random 128-bit Initialization Vector is generated for the cipher.
+            </summary>
+            <param name="plaintext">The plaintext to encrypt.</param>
+            <param name="password">The password to encrypt the plaintext with.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+            <returns>The Base64 encoded ciphertext.</returns>
+        </member>
+        <member name="M:Rijndael256.Rijndael.Encrypt(System.Byte[],System.String,Rijndael256.KeySize)">
+            <summary>
+            Encrypts plaintext using the Rijndael cipher in CBC mode with a password derived HMAC SHA-512 salt.
+            A random 128-bit Initialization Vector is generated for the cipher.
+            </summary>
+            <param name="plaintext">The plaintext to encrypt.</param>
+            <param name="password">The password to encrypt the plaintext with.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+            <returns>The Base64 encoded ciphertext.</returns>
+        </member>
+        <member name="M:Rijndael256.Rijndael.Encrypt(System.Byte[],System.String,System.Byte[],Rijndael256.KeySize)">
+            <summary>
+            Encrypts plaintext using the Rijndael cipher in CBC mode with a password derived HMAC SHA-512 salt.
+            </summary>
+            <param name="plaintext">The plaintext to encrypt.</param>
+            <param name="password">The password to encrypt the plaintext with.</param>
+            <param name="iv">The initialization vector. Must be 128-bits.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+            <returns>The ciphertext.</returns>
+        </member>
+        <member name="M:Rijndael256.Rijndael.Encrypt(System.String,System.String,System.String,Rijndael256.KeySize)">
+            <summary>
+            Encrypts a plaintext file using the Rijndael cipher in CBC mode with a password derived HMAC SHA-512 salt.
+            A random 128-bit Initialization Vector is generated for the cipher.
+            </summary>
+            <param name="plaintextFile">The plaintext file to encrypt.</param>
+            <param name="ciphertextFile">The resulting ciphertext file.</param>
+            <param name="password">The password to encrypt the plaintext file with.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+        </member>
+        <member name="M:Rijndael256.Rijndael.Decrypt(System.String,System.String,Rijndael256.KeySize)">
+            <summary>
+            Decrypts ciphertext using the Rijndael cipher in CBC mode with a password derived HMAC SHA-512 salt.
+            </summary>
+            <param name="ciphertext">The Base64 encoded ciphertext to decrypt.</param>
+            <param name="password">The password to decrypt the ciphertext with.</param>
+            <param name="keySize">The size of the cipher key used to create the ciphertext.</param>
+            <returns>The plaintext.</returns>
+        </member>
+        <member name="M:Rijndael256.Rijndael.Decrypt(System.Byte[],System.String,Rijndael256.KeySize)">
+            <summary>
+            Decrypts ciphertext using the Rijndael cipher in CBC mode with a password derived HMAC SHA-512 salt.
+            </summary>
+            <param name="ciphertext">The ciphertext to decrypt.</param>
+            <param name="password">The password to decrypt the ciphertext with.</param>
+            <param name="keySize">The size of the cipher key used to create the ciphertext.</param>
+            <returns>The plaintext.</returns>
+        </member>
+        <member name="M:Rijndael256.Rijndael.Decrypt(System.String,System.String,System.String,Rijndael256.KeySize)">
+            <summary>
+            Decrypts ciphertext using the Rijndael cipher in CBC mode with a password derived HMAC SHA-512 salt.
+            </summary>
+            <param name="ciphertextFile">The ciphertext file to decrypt.</param>
+            <param name="plaintextFile">The resulting plaintext file.</param>
+            <param name="password">The password to decrypt the ciphertext file with.</param>
+            <param name="keySize">The size of the cipher key used to create the ciphertext file.</param>
+        </member>
+        <member name="M:Rijndael256.Rijndael.GenerateKey(System.String,Rijndael256.KeySize)">
+            <summary>
+            Generates a cryptographic key from a password.
+            </summary>
+            <param name="password">The password.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+            <returns>The cryptographic key.</returns>
+        </member>
+        <member name="M:Rijndael256.Rijndael.CreateEncryptor(System.String,System.Byte[],Rijndael256.KeySize)">
+            <summary>
+            Creates a symmetric Rijndael encryptor.
+            </summary>
+            <param name="password">The password to encrypt the plaintext with.</param>
+            <param name="iv">The initialization vector. Must be 128-bits.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+            <returns>The symmetric encryptor.</returns>
+        </member>
+        <member name="M:Rijndael256.Rijndael.CreateDecryptor(System.String,System.Byte[],Rijndael256.KeySize)">
+            <summary>
+            Creates a symmetric Rijndael decryptor.
+            </summary>
+            <param name="password">The password to decrypt the ciphertext with.</param>
+            <param name="iv">The initialization vector. Must be 128-bits.</param>
+            <param name="keySize">The cipher key size.</param>
+            <returns>The symmetric decryptor.</returns>
+        </member>
+        <member name="T:Rijndael256.RijndaelEtM">
+            <summary>
+            AES implementation of the Rijndael symmetric-key cipher using
+            the Encrypt-then-MAC (EtM) mode for Authenticated Encryption.
+            </summary>
+        </member>
+        <member name="M:Rijndael256.RijndaelEtM.Encrypt(System.String,System.String,Rijndael256.KeySize)">
+            <summary>
+            Encrypts plaintext using the Encrypt-then-MAC (EtM) mode via the Rijndael cipher in 
+            CBC mode with a password derived HMAC SHA-512 salt. A random 128-bit Initialization 
+            Vector is generated for the cipher.
+            </summary>
+            <param name="plaintext">The plaintext to encrypt.</param>
+            <param name="password">The password to encrypt the plaintext with.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+            <returns>The Base64 encoded EtM ciphertext.</returns>
+        </member>
+        <member name="M:Rijndael256.RijndaelEtM.Encrypt(System.Byte[],System.String,Rijndael256.KeySize)">
+            <summary>
+            Encrypts plaintext using the Encrypt-then-MAC (EtM) mode via the Rijndael cipher in 
+            CBC mode with a password derived HMAC SHA-512 salt. A random 128-bit Initialization 
+            Vector is generated for the cipher.
+            </summary>
+            <param name="plaintext">The plaintext to encrypt.</param>
+            <param name="password">The password to encrypt the plaintext with.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+            <returns>The Base64 encoded EtM ciphertext.</returns>
+        </member>
+        <member name="M:Rijndael256.RijndaelEtM.Encrypt(System.Byte[],System.String,System.Byte[],Rijndael256.KeySize)">
+            <summary>
+            Encrypts plaintext using the Encrypt-then-MAC (EtM) mode via the Rijndael cipher in 
+            CBC mode with a password derived HMAC SHA-512 salt.
+            </summary>
+            <param name="plaintext">The plaintext to encrypt.</param>
+            <param name="password">The password to encrypt the plaintext with.</param>
+            <param name="iv">The initialization vector. Must be 128-bits.</param>
+            <param name="keySize">The cipher key size. 256-bit is stronger, but slower.</param>
+            <returns>The EtM ciphertext.</returns>
+        </member>
+        <member name="M:Rijndael256.RijndaelEtM.Decrypt(System.String,System.String,Rijndael256.KeySize)">
+            <summary>
+            Decrypts EtM ciphertext using the Rijndael cipher in CBC mode with a password derived 
+            HMAC SHA-512 salt.
+            </summary>
+            <param name="etmCiphertext">The Base64 encoded EtM ciphertext to decrypt.</param>
+            <param name="password">The password to decrypt the EtM ciphertext with.</param>
+            <param name="keySize">The size of the cipher key used to create the EtM ciphertext.</param>
+            <returns>The plaintext.</returns>
+        </member>
+        <member name="M:Rijndael256.RijndaelEtM.Decrypt(System.Byte[],System.String,Rijndael256.KeySize)">
+            <summary>
+            Decrypts authenticated ciphertext using the Rijndael cipher in CBC mode with a password derived 
+            HMAC SHA-512 salt.
+            </summary>
+            <param name="etmCiphertext">The EtM ciphertext to decrypt.</param>
+            <param name="password">The password to decrypt the EtM ciphertext with.</param>
+            <param name="keySize">The size of the cipher key used to create the EtM ciphertext.</param>
+            <returns>The plaintext.</returns>
+        </member>
+        <member name="M:Rijndael256.RijndaelEtM.CalculateMac(System.Byte[],System.Byte[])">
+            <summary>
+            Calculates the MAC for a ciphertext.
+            </summary>
+            <param name="ciphertext">The ciphertext.</param>
+            <param name="key">The key.</param>
+            <returns>The MAC.</returns>
+        </member>
+        <member name="M:Rijndael256.Rng.GenerateRandomBytes(System.Int32)">
+            <summary>
+            Generates an array of bytes using a cryptographically strong sequence
+            of random values.
+            </summary>
+            <param name="size">The size of the array.</param>
+            <returns>The array of bytes.</returns>
+        </member>
+        <member name="T:Rijndael256.Settings">
+            <summary>
+            A collection of mutable defaults
+            </summary>
+        </member>
+        <member name="M:Rijndael256.Settings.Reset">
+            <summary>
+            Resets all the settings to their default values
+            </summary>
+        </member>
+        <member name="F:Rijndael256.Settings.HashIterations">
+            <summary>
+            The number of iterations used to derive hashes.
+            Default is 10000.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Activation">
+            <summary>
+            Provides license activation services.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Helpers.Activation.LicenseExists">
+            <summary>
+            Checks whether a valid product license exists.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Activation.Activate(System.String,System.String)">
+            <summary>
+            Parses and returns the details of a Gumroad license key.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Activation.Activate(System.String)">
+            <summary>
+            Parses and returns the details of a Gumroad license key.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Cryptography">
+            <summary>
+            Provides cryptographic services for
+            managing all sensitive information.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Cryptography.Encrypt(System.String)">
+            <summary>
+            Encrypts any particular string into <see cref="T:System.Security.Cryptography.RijndaelManaged"/> format.
+            </summary>
+            <param name="rawData">
+            The text to encrypt.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Cryptography.Decrypt(System.String)">
+            <summary>
+            Decrypts any particular string from <see cref="T:System.Security.Cryptography.RijndaelManaged"/> 
+            format to plain text.
+            </summary>
+            <param name="cipheredText">
+            The ciphered text to decrypt.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Cryptography.Base64Encode(System.String)">
+            <summary>
+            Encodes a string into Base64 format.
+            </summary>
+            <param name="rawData">
+            The text to encode.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Cryptography.Base64Decode(System.String)">
+            <summary>
+            Decodes a formatted Base64 string into plain text.
+            </summary>
+            <param name="base64EncodedData">
+            The Base64 string to decode.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Cryptography.IsBase64String(System.String)">
+            <summary>
+            Determines whether a particular string is in Base64 format.
+            </summary>
+            <param name="base64String">
+            The string to determine.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Cryptography.ComputeMD5(System.String)">
+            <summary>
+            Computes an MD5 checksum based on specified data.
+            </summary>
+            <param name="rawData">
+            The raw data to be computed.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Cryptography.ComputeSHA1(System.String)">
+            <summary>
+            Computes a SHA1 checksum based on specified data.
+            </summary>
+            <param name="rawData">
+            The raw data to be computed.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Cryptography.ComputeSHA256(System.String)">
+            <summary>
+            Computes a SHA256 checksum based on specified data.
+            </summary>
+            <param name="rawData">
+            The raw data to be computed.
+            </param>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.InternetTime">
+            <summary>
+            Determines the current Internet time.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.InternetTime.GetDateTime">
+            <summary>
+            Gets the Internet date and time for the current machine.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Network">
+            <summary>
+            Provides Network-related methods.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Network.IsAvailable">
+            <summary>
+            Indicates whether any network connection is available.
+            Filter connections below a specified speed, as well as virtual network cards.
+            </summary>
+            <returns>
+            <c>true</c> if a network connection is available; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Network.IsAvailable(System.Int64)">
+            <summary>
+            Indicates whether any network connection is available.
+            Filter connections below a specified speed, as well as virtual network cards.
+            </summary>
+            <param name="minimumSpeed">
+            The minimum speed required. 
+            Passing 0 will not filter connection using speed.
+            </param>
+            <returns>
+            <c>true</c> if a network connection is available; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Registry">
+            <summary>
+            Provides utility methods required to generate and 
+            verify product licenses within the System Registry.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Registry.Base">
+            <summary>
+            Provides the base methods used to 
+            write values to the System Registry.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Base.SaveValue(System.String,System.String,System.String,System.Object)">
+            <summary>
+            Saves a string value in the System Registry.
+            </summary>
+            <param name="company">The company name.</param>
+            <param name="product">The product name.</param>
+            <param name="key">The specific key to create.</param>
+            <param name="value">The specific value to write to the key.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Base.GetValue(System.String,System.String,System.String)">
+            <summary>
+            Gets any specific value from the Registry.
+            </summary>
+            <param name="company">The company name.</param>
+            <param name="product">The product name.</param>
+            <param name="key">The key to check.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Base.DeleteValue(System.String,System.String,System.String)">
+            <summary>
+            Deletes any specific value from the Registry.
+            </summary>
+            <param name="company">The company name.</param>
+            <param name="product">The product name.</param>
+            <param name="key">The key to check.</param>
+            <returns></returns>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Registry.Licensing">
+            <summary>
+            Provides the methods used to write licenses to the 
+            company's specific path within the System Registry.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Licensing.SaveLicense(System.String,WK.Libraries.TrialMakerNS.Models.License)">
+            <summary>
+            Saves a product's license in the System Registry.
+            </summary>
+            <param name="product">The product name.</param>
+            <param name="license">The <see cref="T:WK.Libraries.TrialMakerNS.Models.License"/> object.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Licensing.SaveLicense(WK.Libraries.TrialMakerNS.Models.GumroadLicense)">
+            <summary>
+            Saves a product's license in the System Registry.
+            </summary>
+            <param name="license">The <see cref="T:WK.Libraries.TrialMakerNS.Models.License"/> object.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Licensing.GetLicense(System.String)">
+            <summary>
+            Gets a product's license from the System Registry.
+            </summary>
+            <param name="product">The product to check.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Licensing.GetLicense">
+            <summary>
+            Gets a product's license from the System Registry.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Licensing.ReadLicense(System.String)">
+            <summary>
+            Gets a product's license from the System Registry.
+            </summary>
+            <param name="path">The path to the license file.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Licensing.ContainsKey(WK.Libraries.TrialMakerNS.Models.ProductInfo)">
+            <summary>
+            Gets a value indicating whether the 
+            license registry key is available.
+            </summary>
+            <param name="productInfo">
+            The product information to verify.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Registry.Licensing.DeleteLicense(System.String)">
+            <summary>
+            Deletes an existing product's license from the System Registry.
+            </summary>
+            <param name="product">The product to delete.</param>
+            <returns></returns>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.NativeMethods">
+            <summary>
+            This class is primarily used to apply
+            a neat and decent drop-shadow effect
+            to any Windows Form using the method
+            <see cref="M:WK.Libraries.TrialMakerNS.Helpers.NativeMethods.ApplyShadows(System.Windows.Forms.Form)"/>.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.IManagedType">
+            <summary>
+            Interface for all types we can perform transitions on. 
+            Each type (e.g. int, double, Color) that we can perform a transition on 
+            needs to have its own class that implements this interface. These classes 
+            tell the transition system how to act on objects of that type.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.IManagedType.getManagedType">
+            <summary>
+            Returns the Type that the instance is managing.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.IManagedType.copy(System.Object)">
+            <summary>
+            Returns a deep copy of the object passed in. (In particular this is 
+            needed for types that are objects.)
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.IManagedType.getIntermediateValue(System.Object,System.Object,System.Double)">
+            <summary>
+            Returns an object holding the value between the start and end corresponding
+            to the percentage passed in. (Note: the percentage can be less than 0% or
+            greater than 100%.)
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ITransitionType.onTimer(System.Int32,System.Double@,System.Boolean@)">
+            <summary>
+            Called by the Transition framework when its timer ticks to pass in the
+            time (in ms) since the transition started. 
+            
+            You should return (in an out parameter) the percentage movement towards 
+            the destination value for the time passed in. Note: this does not need to
+            be a smooth transition from 0% to 100%. You can overshoot with values
+            greater than 100% or undershoot if you need to (for example, to have some
+            form of "elasticity").
+            
+            The percentage should be returned as (for example) 0.1 for 10%.
+            
+            You should return (in an out parameter) whether the transition has completed.
+            (This may not be at the same time as the percentage has moved to 100%.)
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Color">
+            <summary>
+            Class that manages transitions for Color properties. For these we
+            need to transition the R, G, B and A sub-properties independently.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Color.getManagedType">
+            <summary>
+            Returns the type we are managing.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Color.copy(System.Object)">
+            <summary>
+            Returns a copy of the color object passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Color.getIntermediateValue(System.Object,System.Object,System.Double)">
+            <summary>
+            Creates an intermediate value for the colors depending on the percentage passed in.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Double">
+            <summary>
+            Manages transitions for double properties.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Double.getManagedType">
+            <summary>
+             Returns the type managed by this class.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Double.copy(System.Object)">
+            <summary>
+            Returns a copy of the double passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Double.getIntermediateValue(System.Object,System.Object,System.Double)">
+            <summary>
+            Returns the value between start and end for the percentage passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Float.getManagedType">
+            <summary>
+            Returns the type we're managing.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Float.copy(System.Object)">
+            <summary>
+            Returns a copy of the float passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Float.getIntermediateValue(System.Object,System.Object,System.Double)">
+            <summary>
+            Returns the interpolated value for the percentage passed in.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Int">
+            <summary>
+            Manages transitions for int properties.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Int.getManagedType">
+            <summary>
+            Returns the type we are managing.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Int.copy(System.Object)">
+            <summary>
+            Returns a copy of the int passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_Int.getIntermediateValue(System.Object,System.Object,System.Double)">
+            <summary>
+            Returns the value between the start and end for the percentage passed in.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_String">
+            <summary>
+            Manages transitions for strings. This doesn't make as much sense as transitions
+            on other types, but I like the way it looks!
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_String.getManagedType">
+            <summary>
+            Returns the type we're managing.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_String.copy(System.Object)">
+            <summary>
+            Returns a copy of the string passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.ManagedType_String.getIntermediateValue(System.Object,System.Object,System.Double)">
+            <summary>
+            Returns an "interpolated" string.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition">
+            <summary>
+            Lets you perform animated transitions of properties on arbitrary objects. These 
+            will often be transitions of UI properties, for example an animated fade-in of 
+            a UI object, or an animated move of a UI object from one position to another.
+            
+            Each transition can simulataneously change multiple properties, including properties
+            across multiple objects.
+            
+            Example transition
+            ------------------
+            a.      Transition t = new Transition(new TransitionMethod_Linear(500));
+            b.      t.add(form1, "Width", 500);
+            c.      t.add(form1, "BackColor", Color.Red);
+            d.      t.run();
+              
+            Line a:         Creates a new transition. You specify the transition method.
+                            
+            Lines b. and c: Set the destination values of the properties you are animating.
+            
+            Line d:         Starts the transition.
+            
+            Transition methods
+            ------------------
+            TransitionMethod objects specify how the transition is made. Examples include
+            linear transition, ease-in-ease-out and so on. Different transition methods may
+            need different parameters.
+            
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.#cctor">
+            <summary>
+            You should register all managed-types here.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.Args">
+            <summary>
+            Args passed with the TransitionCompletedEvent.
+            </summary>
+        </member>
+        <member name="E:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.TransitionCompletedEvent">
+            <summary>
+            Event raised when the transition hass completed.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.run(System.Object,System.String,System.Object,WK.Libraries.TrialMakerNS.Helpers.Transitions.ITransitionType)">
+            <summary>
+            Creates and immediately runs a transition on the property passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.run(System.Object,System.String,System.Object,System.Object,WK.Libraries.TrialMakerNS.Helpers.Transitions.ITransitionType)">
+            <summary>
+            Sets the property passed in to the initial value passed in, then creates and 
+            immediately runs a transition on it.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.runChain(WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition[])">
+            <summary>
+            Creates a TransitionChain and runs it.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.#ctor(WK.Libraries.TrialMakerNS.Helpers.Transitions.ITransitionType)">
+            <summary>
+            Constructor. You pass in the object that holds the properties 
+            that you are performing transitions on.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.add(System.Object,System.String,System.Object)">
+            <summary>
+            Adds a property that should be animated as part of this transition.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.run">
+            <summary>
+            Starts the transition.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.TransitionedProperties">
+            <summary>
+            Property that returns a list of information about each property managed
+            by this transition.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.removeProperty(WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.TransitionedPropertyInfo)">
+            <summary>
+            We remove the property with the info passed in from the transition.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.onTimer">
+            <summary>
+            Called when the transition timer ticks.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.setProperty(System.Object,WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.PropertyUpdateArgs)">
+            <summary>
+            Sets a property on the object passed in to the value passed in. This method
+            invokes itself on the GUI thread if the property is being invoked on a GUI 
+            object.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.isDisposed(System.Object)">
+            <summary>
+            Returns true if the object passed in is a Control and is disposed
+            or in the process of disposing. (If this is the case, we don't want
+            to make any changes to its properties.)
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.registerType(WK.Libraries.TrialMakerNS.Helpers.Transitions.IManagedType)">
+            <summary>
+            Registers a transition-type. We hold them in a map.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionChain.runNextTransition">
+            <summary>
+            Runs the next transition in the list.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionChain.onTransitionCompleted(System.Object,WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.Args)">
+            <summary>
+            Called when the transition we have just run has completed.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionElement.#ctor(System.Double,System.Double,WK.Libraries.TrialMakerNS.Helpers.Transitions.InterpolationMethod)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionElement.EndTime">
+            <summary>
+            The percentage of elapsed time, expressed as (for example) 75 for 75%.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionElement.EndValue">
+            <summary>
+            The value of the animated properties at the EndTime. This is the percentage 
+            movement of the properties between their start and end values. This should
+            be expressed as (for example) 75 for 75%.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionElement.InterpolationMethod">
+            <summary>
+            The interpolation method to use when moving between the previous value
+            and the current one.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionManager">
+            <summary>
+            This class is responsible for running transitions. It holds the timer that
+            triggers transaction animation. 
+            </summary><remarks>
+            This class is a singleton.
+            
+            We manage the transaction timer here so that we can have a single timer
+            across all transactions. If each transaction has its own timer, this creates
+            one thread for each transaction, and this can lead to too many threads in
+            an application.
+            
+            This class essentially just manages the timer for the transitions. It calls 
+            back into the running transitions, which do the actual work of the transition.
+            
+            </remarks>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionManager.getInstance">
+            <summary>
+            Singleton's getInstance method.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionManager.register(WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition)">
+            <summary>
+            You register a transition with the manager here. This will start to run
+            the transition as the manager's timer ticks.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionManager.removeDuplicates(WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition)">
+            <summary>
+            Checks if any existing transitions are acting on the same properties as the
+            transition passed in. If so, we remove the duplicated properties from the 
+            older transitions.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionManager.removeDuplicates(WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition,WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition)">
+            <summary>
+            Finds any properties in the old-transition that are also in the new one,
+            and removes them from the old one.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionManager.#ctor">
+            <summary>
+            Private constructor (for singleton).
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionManager.onTimerElapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            Called when the timer ticks.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionManager.onTransitionCompleted(System.Object,WK.Libraries.TrialMakerNS.Helpers.Transitions.Transition.Args)">
+            <summary>
+            Called when a transition has completed. 
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Acceleration">
+            <summary>
+            Manages transitions under constant acceleration from a standing start.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Acceleration.#ctor(System.Int32)">
+            <summary>
+            Constructor. You pass in the time that the transition 
+            will take (in milliseconds).
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Acceleration.onTimer(System.Int32,System.Double@,System.Boolean@)">
+            <summary>
+            Works out the percentage completed given the time passed in.
+            This uses the formula:
+              s = ut + 1/2at^2
+            The initial velocity is 0, and the acceleration to get to 1.0
+            at t=1.0 is 2, so the formula just becomes:
+              s = t^2
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Bounce">
+            <summary>
+            This transition bounces the property to a destination value and back to the
+            original value. It is accelerated to the destination and then decelerated back
+            as if being dropped with gravity and bouncing back against gravity.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Bounce.#ctor(System.Int32)">
+            <summary>
+            Constructor. You pass in the total time taken for the bounce.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_CriticalDamping">
+            <summary>
+            This transition animates with an exponential decay. This has a damping effect
+            similar to the motion of a needle on an electomagnetically controlled dial.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_CriticalDamping.#ctor(System.Int32)">
+            <summary>
+            Constructor. You pass in the time that the transition 
+            will take (in milliseconds).
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_CriticalDamping.onTimer(System.Int32,System.Double@,System.Boolean@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Deceleration">
+            <summary>
+            Manages a transition starting from a high speed and decelerating to zero by
+            the end of the transition.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Deceleration.#ctor(System.Int32)">
+            <summary>
+            Constructor. You pass in the time that the transition 
+            will take (in milliseconds).
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Deceleration.onTimer(System.Int32,System.Double@,System.Boolean@)">
+            <summary>
+            Works out the percentage completed given the time passed in.
+            This uses the formula:
+              s = ut + 1/2at^2
+            The initial velocity is 2, and the acceleration to get to 1.0
+            at t=1.0 is -2, so the formula becomes:
+              s = t(2-t)
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_EaseInEaseOut">
+            <summary>
+            Manages an ease-in-ease-out transition. This accelerates during the first 
+            half of the transition, and then decelerates during the second half.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_EaseInEaseOut.#ctor(System.Int32)">
+            <summary>
+            Constructor. You pass in the time that the transition 
+            will take (in milliseconds).
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_EaseInEaseOut.onTimer(System.Int32,System.Double@,System.Boolean@)">
+            <summary>
+            Works out the percentage completed given the time passed in.
+            This uses the formula:
+              s = ut + 1/2at^2
+            We accelerate as at the rate needed (a=4) to get to 0.5 at t=0.5, and
+            then decelerate at the same rate to end up at 1.0 at t=1.0.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Flash">
+            <summary>
+            This transition type 'flashes' the properties a specified number of times, ending
+            up by reverting them to their initial values. You specify the number of bounces and
+            the length of each bounce. 
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Flash.#ctor(System.Int32,System.Int32)">
+            <summary>
+            You specify the number of bounces and the time taken for each bounce.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Linear">
+            <summary>
+            This class manages a linear transition. The percentage complete for the transition
+            increases linearly with time.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Linear.#ctor(System.Int32)">
+            <summary>
+            Constructor. You pass in the time (in milliseconds) that the
+            transition will take.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_Linear.onTimer(System.Int32,System.Double@,System.Boolean@)">
+            <summary>
+            We return the percentage completed.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_ThrowAndCatch">
+            <summary>
+            This transition bounces the property to a destination value and back to the
+            original value. It is decelerated to the destination and then acclerated back
+            as if being thrown against gravity and then descending back with gravity.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_ThrowAndCatch.#ctor(System.Int32)">
+            <summary>
+            Constructor. You pass in the total time taken for the bounce.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_UserDefined">
+            <summary>
+            This class allows you to create user-defined transition types. You specify these
+            as a list of TransitionElements. Each of these defines: 
+            End time , End value, Interpolation method
+            
+            For example, say you want to make a bouncing effect with a decay:
+            
+            EndTime%    EndValue%   Interpolation
+            --------    ---------   -------------
+            50          100         Acceleration 
+            75          50          Deceleration
+            85          100         Acceleration
+            91          75          Deceleration
+            95          100         Acceleration
+            98          90          Deceleration
+            100         100         Acceleration
+            
+            The time values are expressed as a percentage of the overall transition time. This 
+            means that you can create a user-defined transition-type and then use it for transitions
+            of different lengths.
+            
+            The values are percentages of the values between the start and end values of the properties
+            being animated in the transitions. 0% is the start value and 100% is the end value.
+            
+            The interpolation is one of the values from the InterpolationMethod enum.
+            
+            So the example above accelerates to the destination (as if under gravity) by
+            t=50%, then bounces back up to half the initial height by t=75%, slowing down 
+            (as if against gravity) before falling down again and bouncing to decreasing 
+            heights each time.
+            
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_UserDefined.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_UserDefined.#ctor(System.Collections.Generic.IList{WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionElement},System.Int32)">
+            <summary>
+            Constructor. You pass in the list of TransitionElements and the total time
+            (in milliseconds) for the transition.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_UserDefined.setup(System.Collections.Generic.IList{WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionElement},System.Int32)">
+            <summary>
+            Sets up the transitions. 
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_UserDefined.onTimer(System.Int32,System.Double@,System.Boolean@)">
+            <summary>
+            Called to find the value for the movement of properties for the time passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.TransitionType_UserDefined.getElementInfo(System.Double,System.Double@,System.Double@,System.Double@,System.Double@,WK.Libraries.TrialMakerNS.Helpers.Transitions.InterpolationMethod@)">
+            <summary>
+            Returns the element info for the time-fraction passed in. 
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility">
+            <summary>
+            A class holding static utility functions.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.getValue(System.Object,System.String)">
+            <summary>
+            Returns the value of the property passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.setValue(System.Object,System.String,System.Object)">
+            <summary>
+            Sets the value of the property passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.interpolate(System.Double,System.Double,System.Double)">
+            <summary>
+            Returns a value between d1 and d2 for the percentage passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.interpolate(System.Int32,System.Int32,System.Double)">
+            <summary>
+            Returns a value betweeen i1 and i2 for the percentage passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.interpolate(System.Single,System.Single,System.Double)">
+            <summary>
+            Returns a value betweeen f1 and f2 for the percentage passed in.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.convertLinearToEaseInEaseOut(System.Double)">
+            <summary>
+            Converts a fraction representing linear time to a fraction representing
+            the distance traveled under an ease-in-ease-out transition.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.convertLinearToAcceleration(System.Double)">
+            <summary>
+            Converts a fraction representing linear time to a fraction representing
+            the distance traveled under a constant acceleration transition.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.convertLinearToDeceleration(System.Double)">
+            <summary>
+            Converts a fraction representing linear time to a fraction representing
+            the distance traveled under a constant deceleration transition.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Helpers.Transitions.Utility.raiseEvent``1(System.EventHandler{``0},System.Object,``0)">
+            <summary>
+            Fires the event passed in in a thread-safe way. 
+            </summary><remarks>
+            This method loops through the targets of the event and invokes each in turn. If the
+            target supports ISychronizeInvoke (such as forms or controls) and is set to run 
+            on a different thread, then we call BeginInvoke to marshal the event to the target
+            thread. If the target does not support this interface (such as most non-form classes)
+            or we are on the same thread as the target, then the event is fired on the same
+            thread as this is called from.
+            </remarks>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Licensing.ClientLicense">
+            <summary>
+            Provides the standard class for generating client licenses.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Licensing.ClientLicense._licenseKey">
+            <summary>
+            [Internal] Gets or sets the license key.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Licensing.ClientLicense.Valid">
+            <summary>
+            Gets or sets a value determining whether the 
+            license is valid.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Licensing.ClientLicense.LicenseKey">
+            <summary>
+            Gets the license key applied.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Licensing.ClientLicenseProvider">
+            <summary>
+            Provides the base class for implementing license provisioning services.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Licensing.ClientLicenseProvider.DevelopmentMode">
+            <summary>
+            Determines whether the client application is 
+            being run from within Visual Studio or not.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Licensing.ClientLicenseProvider.InvokeActivation(System.ComponentModel.LicenseContext,System.Type)">
+            <summary>
+            Invokes the License Activation dialog.
+            </summary>
+            <param name="context">The <see cref="T:System.ComponentModel.LicenseContext"/> mode.</param>
+            <param name="type">The control type.</param>
+            <param name="status">The current license status.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Licensing.ClientLicenseProvider.ValidateLicense(System.ComponentModel.LicenseContext,System.Type)">
+            <summary>
+            Simplifies the product license checking tasks.
+            </summary>
+            <param name="product">The product to check.</param>
+            <param name="context">The <see cref="T:System.ComponentModel.LicenseContext"/> mode.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Licensing.ClientLicenseProvider.GetLicense(System.ComponentModel.LicenseContext,System.Type,System.Object,System.Boolean)">
+            <summary>
+            Gets the currently active license in the user's machine.
+            </summary>
+            <param name="context">The license's context of use.</param>
+            <param name="type">The control-type being licensed.</param>
+            <param name="instance">The control's instance.</param>
+            <param name="allowExceptions">Allow raising exceptions?</param>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.GumroadLicense">
+            <summary>
+            Represents a raw Gumroad license for 
+            use when generating standard licenses.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.GumroadLicense.IsValid">
+            <summary>
+            Gets a value indicating whether the license 
+            is valid based on the Hardware ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.GumroadLicense.HardwareID">
+            <summary>
+            Gets the device's Hardware ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.GumroadLicense.Success">
+            <summary>
+            Gets or sets a value indicating whether 
+            the purchase was successful.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.GumroadLicense.Uses">
+            <summary>
+            Gets the number of times the API has been called or used.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.GumroadLicense.PurchaseInfo">
+            <summary>
+            Gets or sets the product purchase information.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.PurchaseInfo">
+            <summary>
+            Provides a list of properties included
+            in Gumroad's product purchase details.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Test">
+            <summary>
+            Gets or sets a value indicating 
+            whether this was a test purchase.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Refunded">
+            <summary>
+            Gets or sets a value indicating 
+            whether the client was refunded.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Disputed">
+            <summary>
+            Gets or sets a value indicating 
+            whether the purchase was disputed.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.DisputeWon">
+            <summary>
+            Gets or sets a value indicating 
+            whether the purchase dispute was won.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.ChargeBacked">
+            <summary>
+            Gets or sets a value indicating 
+            whether the sale was charge-backed.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.ID">
+            <summary>
+            Gets or sets the purchase ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.SellerID">
+            <summary>
+            Gets or sets the seller ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.ProductID">
+            <summary>
+            Gets or sets the product ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.ProductName">
+            <summary>
+            Gets or sets the product name.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Permalink">
+            <summary>
+            Gets or sets the product permalink.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.ProductPermalink">
+            <summary>
+            Gets or sets the product purchase link.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Email">
+            <summary>
+            Gets or sets the client email.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Price">
+            <summary>
+            Gets or sets the purchase price.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Currency">
+            <summary>
+            Gets or sets the currency used when purchasing.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Quantity">
+            <summary>
+            Gets or sets the quantity of licenses purchased. 
+            This could be used to determine the maximum 
+            number of devices capable of being activated.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.OrderNumber">
+            <summary>
+            Gets or sets the order number.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.SaleID">
+            <summary>
+            Gets or sets the sale ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.SaleTimestamp">
+            <summary>
+            Gets or sets the exact time and date 
+            the client purchased the product.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.PurchaserID">
+            <summary>
+            Gets or sets the purchaser's or client's ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.LicenseKey">
+            <summary>
+            Gets or sets the license key.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.IPCountry">
+            <summary>
+            Gets or sets the client's country.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.IsGiftReceiverPurchase">
+            <summary>
+            Gets or sets a value indicating whether 
+            the purchase was made a gift to someone.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.Variants">
+            <summary>
+            Gets or sets the list of variants for this product.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.CreatedAt">
+            <summary>
+            Gets or sets the date the license was created. 
+            This is also considered the date of purchase.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.PurchaseInfo.CustomFields">
+            <summary>
+            Gets or sets the list of custom fields added.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.ProductInfo">
+            <summary>
+            Provides the necessary product information.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.ProductInfo.ID">
+            <summary>
+            Gets or sets the unique product ID. 
+            This will differentiate and validate 
+            the product from other available 
+            products with the same name.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.ProductInfo.Name">
+            <summary>
+            Gets or sets the product name.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.ProductInfo.Owner">
+            <summary>
+            Gets or sets the product owner.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.ProductInfo.PurchasePage">
+            <summary>
+            Gets or sets the product's official purchase page 
+            that can be launched once the free-trial has ended.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.ProductInfo.TotalDays">
+            <summary>
+            Gets or sets the total number of free-trial 
+            days assigned to customers using the product.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.DeviceInfo">
+            <summary>
+            Provides general device information about a user device.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.DeviceInfo.Name">
+            <summary>
+            Gets the registered Device name.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.DeviceInfo.User">
+            <summary>
+            Gets the logged-in Device User.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.DeviceInfo.OperatingSystem">
+            <summary>
+            Gets the Operating System name.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.DeviceInfo.HardwareID">
+            <summary>
+            Gets the unique Hardware ID for the current computer.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.DeviceInfo.SystemType">
+            <summary>
+            Gets the Operating System type.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.License">
+            <summary>
+            Provides a standard class for generating licenses.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.IsValid">
+            <summary>
+            Gets a value indicating whether the license is valid 
+            based on the Hardware ID or registered information.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.FirstTime">
+            <summary>
+            Verifies whether this is a first-time user, meaning 
+            their license has been created for the first time.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.Activations">
+            <summary>
+            Gets the maximum number of activations 
+            based on the list of devices available.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.Uses">
+            <summary>
+            Gets the number of times the license has been used. 
+            This is synonymous with the number of times the 
+            application has been run. However once a premium 
+            license has been activated, the usage count will
+            be reset to zero to initiate a new counting.
+            <para>
+            This is only updated if the <see cref="P:WK.Libraries.TrialMakerNS.TrialMaker.TrackUsage"/> 
+            property is set to true.
+            </para>
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.TotalDays">
+            <summary>
+            Gets or sets the total number of days assigned to the customer.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.RemainingDays">
+            <summary>
+            Gets the number of days remaining before the license expires.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.Client">
+            <summary>
+            Gets or sets the licensed individual, group or company.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.ProductID">
+            <summary>
+            Gets or sets the unique product ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.Product">
+            <summary>
+            Gets or sets the product name.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.LicenseKey">
+            <summary>
+            Provides an auto-generated free-trial license key 
+            based on the MD5 hash of the customer's Hardware ID.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.HardwareIDs">
+            <summary>
+            Gets or sets the list of devices that can 
+            be activated based on their Hardware IDs.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.LastUsed">
+            <summary>
+            Gets or sets the date the license was last used. 
+            This is only updated if the <see cref="P:WK.Libraries.TrialMakerNS.TrialMaker.TrackUsage"/> 
+            property is set to true.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.ActivationDate">
+            <summary>
+            Gets or sets the date the license 
+            was created and activated.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.ExpiryDate">
+            <summary>
+            Gets the date the license is set to expire.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.Type">
+            <summary>
+            Gets or sets the license type.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.Status">
+            <summary>
+            Gets or sets the license status.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Models.License.DeviceInfo">
+            <summary>
+            Gets the user device information.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.LicenseTypes">
+            <summary>
+            Provides the various supported license types.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.LicenseTypes.FreeTrial">
+            <summary>
+            Represents a free-trial license.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.LicenseTypes.Premium">
+            <summary>
+            Represents a premium, purchased license.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.LicenseStatus">
+            <summary>
+            Provides the various supported license status options.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.LicenseStatus.Active">
+            <summary>
+            The license is currently active.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.LicenseStatus.Expired">
+            <summary>
+            The license has expired.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.LicenseStatus.Invalid">
+            <summary>
+            The Hardware ID registered with the license 
+            does not match the current device's ID.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.SystemTypes">
+            <summary>
+            Provides the various supported system types.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.SystemTypes.x86">
+            <summary>
+            The System is 32-bit (x86).
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.SystemTypes.x64">
+            <summary>
+            The System is 64-bit (x64).
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Models.ValidationErrors">
+            <summary>
+            Provides expected external errors when validating licenses.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.ValidationErrors.SystemBackdated">
+            <summary>
+            The System Date/Time has been backdated.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.ValidationErrors.LicenseEmpty">
+            <summary>
+            The license is empty.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.ValidationErrors.LicenseCorrupted">
+            <summary>
+            The license is corrupted.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.ValidationErrors.InternalException">
+            <summary>
+            An internal exception has occurred.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.ValidationErrors.InvalidHardwareID">
+            <summary>
+            The device Hardware ID does not match the 
+            Hardware ID registered with the license.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.ValidationErrors.InvalidProductID">
+            <summary>
+            The license's product ID does not 
+            match the original product ID.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Models.ValidationErrors.InvalidProductName">
+            <summary>
+            The license's product name does not 
+            match the original product name.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.API">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.calendar_16">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.CPY">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.EPV">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.error">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.expand_light">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.FEP">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.FSP">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.GLV">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.GPI">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.GPL">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.information">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.KEY">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.left_arrow">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.PRD">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.PRD2">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.red_warning">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.restore_light">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.right_arrow">
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Properties.Resources.yellow_warning">
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Hardware.CheckSum">
+            <summary>
+            Class for creating check sum for an array of bytes.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Hardware.CheckSum.Length">
+            <summary>
+            Gets the length of the check sum.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.CheckSum.#ctor(System.Char[],System.Int32)">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+            <param name="supportedCharacters">
+            List of supported characters for the check sum.
+            </param>
+            <param name="length">
+            The lenght of the check sum.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.CheckSum.#ctor(System.Int32)">
+            <summary>
+            Creates a new instance of the class.
+            Check sum consists of the characters [A-Z] and [0-9].
+            </summary>
+            <param name="length">
+            The length of the check sum.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.CheckSum.Create(System.Byte[])">
+            <summary>
+            Creates the check sum for the specified byte array.
+            </summary>
+            <param name="bytes">
+            The byte array to create the check sum for.
+            </param>
+            <returns>
+            A string that represents the check sum of the specified byte array.
+            </returns>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Hardware.CheckSumAppender">
+            <summary>
+            The CheckSumAppender can be used to append the checksum to 
+            a string and verify strings which have a checksum appended.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.CheckSumAppender.#ctor(System.String,WK.Libraries.TrialMakerNS.Hardware.CheckSum)">
+            <summary>
+            Creates a new instance of the class.
+            </summary>
+            <param name="separator">
+            The separator that separates the check sum from the string.
+            </param>
+            <param name="checksum">
+            <see cref="T:WK.Libraries.TrialMakerNS.Hardware.CheckSum"/> to use for creating the check sum.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.CheckSumAppender.Append(System.String)">
+            <summary>
+            Appends the check sum to the specified string.
+            </summary>
+            <param name="inputToAppendCheckSum">
+            The string to append the check sum to.
+            </param>
+            <returns>
+            The specified string + the separator + the check sum.
+            </returns>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.CheckSumAppender.Verify(System.String)">
+            <summary>
+            Verifies if the specified string (which includes the check sum) is valid.
+            </summary>
+            <param name="inputWithCheckSumToVerify">
+            The string + separator + check sum.
+            </param>
+            <returns>
+            True if the check sum is valid; otherwise false.
+            </returns>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Hardware.Constants">
+            <summary>
+            Provides library-dependent constants.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Hardware.Encoder">
+            <summary>
+            Provides string encoding methods.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Hardware.IComputerCharacteristics">
+            <summary>
+            Interface that abstracts an OS specific implementation for creating characteristics of the current computer.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.IComputerCharacteristics.GetCharacteristicsForCurrentComputer">
+            <summary>
+            Gets a list of characteristics for the current computer.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier">
+            <summary>
+            Class that provides methods for generating / verifying hardware identifiers.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.SetComputerCharacteristics(WK.Libraries.TrialMakerNS.Hardware.IComputerCharacteristics)">
+            <summary>
+            Sets the <see cref="T:WK.Libraries.TrialMakerNS.Hardware.IComputerCharacteristics"/> implementation to use.
+            </summary>
+            <remarks>
+            Not that the implementation depends on the actual OS. If no implementation is set, some methods like
+            <see cref="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.ForCurrentComputer"/> and <see cref="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.IsValidForCurrentComputer(System.String)"/> throw an exception.
+            </remarks>
+            <param name="computerCharacteristics">
+            An implementation of <see cref="T:WK.Libraries.TrialMakerNS.Hardware.IComputerCharacteristics"/>.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.ForCurrentComputer">
+            <summary>
+            Gets the hardware identifier for the current computer.
+            NOTE: <see cref="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.SetComputerCharacteristics(WK.Libraries.TrialMakerNS.Hardware.IComputerCharacteristics)"/> must be set before using this method.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException">
+            Thrown if <see cref="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.SetComputerCharacteristics(WK.Libraries.TrialMakerNS.Hardware.IComputerCharacteristics)"/> was not set before.
+            </exception>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.IsValidForCurrentComputer(System.String)">
+            <summary>
+            Checks if at least 2 of 4 hardware components are valid.
+            Note: CheckSum is ignored by this check.
+            </summary>
+            <param name="hardwareIdentifier">
+            The hardware identifier to check
+            </param>
+            <returns>
+            True if at least 2 of 4 hardware components are valid.
+            </returns>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.ArePartialEqual(System.String,System.String)">
+            <summary>
+            Returns true if at least 2 of the sub codes are equal.
+            </summary>
+            <param name="hardwareIdentifier1">
+            The first hardware identifier to compare.
+            </param>
+            <param name="hardwareIdentifier2">
+            The second hardware identifier to compare.
+            </param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if hardwareIdentifier1 or hardwareIdentifier2 is null.
+            </exception>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.IsCheckSumValid(System.String)">
+            <summary>
+            Checks if the check sum is valid.
+            </summary>
+            <param name="hardwareIdentifier">
+            The hardware identifier to check.
+            </param>
+            <returns>
+            true if the hardware identifier has a valid check sum or the hardware 
+            identifier is equal to <see cref="F:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.NoHardwareIdentifier"/>; otherwise false.
+            </returns>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Hardware.HardwareIdentifier.NoHardwareIdentifier">
+            <summary>
+            Defines the "No Hardware ID" status.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Hardware.WindowsComputerIdentifierCreator">
+            <summary>
+            Exposes computer characteristics to dependent classes.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.TrialMaker">
+            <summary>
+            Provides free-trial license generation and management 
+            for premium and enterprise-ready .NET applications.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:WK.Libraries.TrialMakerNS.TrialMaker"/>.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes a new instance of <see cref="T:WK.Libraries.TrialMakerNS.TrialMaker"/>.
+            </summary>
+            <param name="container">
+            The hosting container control.
+            </param>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.LicenseExists">
+            <summary>
+            Checks whether a valid customer license 
+            exists within the current computer.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.TrackUsage">
+            <summary>
+            Gets or sets a value indicating whether licenses 
+            will be tracked on their usage upon validation.
+            <para>
+            Enabling this property unlocks the properties 
+            <see cref="P:WK.Libraries.TrialMakerNS.Models.License.Uses"/> and <see cref="P:WK.Libraries.TrialMakerNS.Models.License.LastUsed"/> 
+            in all active product licenses.
+            </para>
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.TrackTime">
+            <summary>
+            Gets or sets a value indicating whether 
+            time tracking will be enabled. Enabling 
+            this will let you use the <see cref="E:WK.Libraries.TrialMakerNS.TrialMaker.TimeTracking"/> event.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.TimeTracker">
+            <summary>
+            Gets the time tracker that lets you monitor  
+            how long the application has been in use.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.ProductInfo">
+            <summary>
+            Gets or sets the general information about a product 
+            for license generation and validation purposes.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.ValidationErrors">
+            <summary>
+            Gets any validation errors captured when 
+            validating or activating a license.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.HardwareID">
+            <summary>
+            Gets the unique Hardware ID for the current computer.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.RetrievedLicense">
+            <summary>
+            Gets the license retrieved upon validation or activation.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.Instance">
+            <summary>
+            Gets the currently running instance of <see cref="T:WK.Libraries.TrialMakerNS.TrialMaker"/> 
+            or creates a new instance of the library if none exists.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.POUExists">
+            <summary>
+            Checks whether the Proof-Of-Use file exists. 
+            If the file is found, this means that the 
+            customer is using or has used the product's 
+            free-trial before.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.POUFolder">
+            <summary>
+            Gets the Proof-Of-Use (POU) folder that is used 
+            to store a file that verifies whether the user 
+            ever launched the application for a free-trial.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.POUFile">
+            <summary>
+            Gets the product's Proof-Of-Use (POU) file location.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.Validate">
+            <summary>
+            Validates an existing free-trial license or creates a 
+            new license if the product has not been used before.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.Validate(WK.Libraries.TrialMakerNS.Models.ProductInfo)">
+            <summary>
+            Validates an existing free-trial license or creates a 
+            new license if the product has not been used before.
+            </summary>
+            <param name="productInfo">
+            Provide basic information about your product for 
+            license generation and validation purposes.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.Activate(System.String)">
+            <summary>
+            [Premium] Activates a valid premium license (per-device).
+            </summary>
+            <param name="license">
+            Provide the securely encrypted license string.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.DeleteLicense">
+            <summary>
+            [Premium] Deletes an existing premium license. This is applicable in scenarios 
+            where a client wishes to transfer their license to another device. For free-trials 
+            however, this feature has been disabled to prevent multiple uses.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.IsNetworkAvailable">
+            <summary>
+            Determines if an Internet connection is available.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.IsSystemBackdated">
+            <summary>
+            Determines if the user has backdated their System Date settings.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.IsSystemDateCorrect">
+            <summary>
+            Determines if the current System Date is 
+            correct based on the local area Time.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.ModelProductTitle">
+            <summary>
+            Models a product title message based on the retrieved license 
+            for displaying to active users e.g. in the main application window. 
+            <para>
+            Format: "Product {LicenseType}"
+            </para>
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.ModelExpirationMessage">
+            <summary>
+            Models a license expiration message based on the retrieved license 
+            for displaying to active users e.g. in the main application window. 
+            <para>
+            Format: "Evaluation period expires on {dddd dd MMMM, yyyy}"
+            </para>
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.OpenPurchasePage">
+            <summary>
+            Launches the product's purchase page via the default web browser.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.OpenLink(System.String)">
+            <summary>
+            Opens a valid link via the default web browser.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.HardwareIDMatchesAny(System.Collections.Generic.List{System.String})">
+            <summary>
+            Checks if a Hardware ID is valid from a list of Hardware IDs 
+            based on the current computer's Hardware ID.
+            </summary>
+            <param name="hardwareIDs">
+            Checks the ID amongst a list of devices.
+            </param>  
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.Validate(System.Type,System.Object)">
+            <summary>
+            Validates client licenses using the default <see cref="T:System.ComponentModel.LicenseManager"/> class.
+            </summary>
+            <param name="type">The control type.</param>
+            <param name="instance">The current instance of the control.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.ThrowLicenseException(System.ComponentModel.LicenseUsageMode,System.Type,System.Object)">
+            <summary>
+            Throws an invalid license exception.
+            </summary>
+            <param name="mode">The usage mode.</param>
+            <param name="type">The object type.</param>
+            <param name="instance">The object instance.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.ValidateLicense">
+            <summary>
+            Validates an existing customer product license.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.CreateLicense">
+            <summary>
+            Creates a new customer license 
+            based on the default properties.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.CreateLicense(WK.Libraries.TrialMakerNS.Models.License)">
+            <summary>
+            Creates a new customer license.
+            </summary>
+            <param name="license">The license.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.CreatePOU(WK.Libraries.TrialMakerNS.Models.License)">
+            <summary>
+            Creates the Proof-Of-Use file containing a customer's license information.
+            </summary>
+            <param name="license">The license.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.SaveLicense(WK.Libraries.TrialMakerNS.Models.License)">
+            <summary>
+            Saves an existing customer license.
+            </summary>
+            <param name="license">The license to save.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.ReadLicense">
+            <summary>
+            Reads an existing license.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.ReadPOU">
+            <summary>
+            Reads an existing customer's Proof-Of-Use file.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.ReadPOUString">
+            <summary>
+            Reads an existing customer's Proof-Of-Use file.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.GetDaySuffix(System.Int32)">
+            <summary>
+            Gets the suffix of any day, e.g. 21st.
+            </summary>
+            <param name="day">
+            The day in Integer format.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.DeletePOU">
+            <summary>
+            Deletes an existing customer's Proof-Of-Use file.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.DeletePOUFolder">
+            <summary>
+            Deletes the Proof-Of-Use folder.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.IsURLValid(System.String)">
+            <summary>
+            Determines if any link provided is a valid URL.
+            </summary>
+            <param name="text">
+            The URL link.
+            </param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.GenerateFreeTrialKey">
+            <summary>
+            Generates a secure free-trial key based 
+            on the user's device Hardware ID.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.GeneratePremiumKey">
+            <summary>
+            Generates a secure free-trial key based on the Hardware ID.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.GetCurrentDateTime">
+            <summary>
+            Fetches the local date and time online.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.ExitApplication">
+            <summary>
+            Closes the parent application.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.RestartApplication">
+            <summary>
+            Restarts the parent application.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.StartTimer">
+            <summary>
+            Starts tracking the license usage.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.StopTimer">
+            <summary>
+            Stops tracking the license usage.
+            </summary>
+        </member>
+        <member name="E:WK.Libraries.TrialMakerNS.TrialMaker.TimeTracking">
+            <summary>
+            Raised while the time tracker is running. The time tracker provides 
+            a runtime timer that lets you monitor how long the application has 
+            been in use. You can use this to determine how much time clients 
+            have been using or can use your application in free-trial mode.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.TrialMaker.TimeTrackingEventArgs">
+            <summary>
+            Provides data for the <see cref="E:WK.Libraries.TrialMakerNS.TrialMaker.TimeTracking"/> event.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.TimeTrackingEventArgs.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="E:WK.Libraries.TrialMakerNS.TrialMaker.TimeTracking"/> event.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.TrialMaker.TimeTrackingEventArgs.TimeSpan">
+            <summary>
+            Gets the time elapsed.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.TimeTrackingEventArgs.Pause">
+            <summary>
+            Pauses the timer.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.TimeTrackingEventArgs.Stop">
+            <summary>
+            Stops the timer.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.TimeTrackingEventArgs.Continue">
+            <summary>
+            Resumes running the timer if paused.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.TimeTrackingEventArgs.ToString">
+            <summary>
+            Returns a string containing the converted time 
+            in hours, minutes, and seconds.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.TrialMaker.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TrialMaker.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.TimeTracker">
+            <summary>
+            This is used to manage the runtime time tracker.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TimeTracker.Pause">
+            <summary>
+            Pauses the timer.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TimeTracker.Stop">
+            <summary>
+            Stops the timer.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.TimeTracker.Continue">
+            <summary>
+            Resumes running the timer if paused or stopped.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.ActivateProduct.ActivatedLicense">
+            <summary>
+            Gets the activated client license.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.Show">
+            <summary>
+            Displays the window with animation.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.ShowDialog">
+            <summary>
+            Displays the window in dialog-mode with animation.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.Hide">
+            <summary>
+            Hides the window with animation.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.Close">
+            <summary>
+            Closes the window with animation.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.ActivateProduct.CreateParams">
+            <summary>
+            Overriden the default parameters to 
+            provide window minimizing features.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Overrides window message processing to enable form resizing.
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.ShowVisualMovementCues">
+            <summary>
+            Shows the cues that indicate window movement.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.HideVisualMovementCues">
+            <summary>
+            Hides the cues that indicate window movement.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Views.ActivateProduct.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.ActivateProduct.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Views.Controls.Box">
+            <summary>
+            Provides a custom box control.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.Controls.Box.#ctor">
+            <summary>
+            Creates a new custom box control.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.Controls.Box.LineColor">
+            <summary>
+            Gets or sets the box line color.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Views.Controls.Box.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.Controls.Box.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.Controls.Box.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Views.Controls.Input">
+            <summary>
+            Provides a custom input control.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.Controls.Input.Multiline">
+            <summary>
+            Gets or sets a value indicating whether 
+            the input accepts multiline text.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.Controls.Input.Text">
+            <summary>
+            Gets or sets the control text.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.Controls.Input.PlaceholderText">
+            <summary>
+            Gets or sets the placeholder text.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.Controls.Input.PlaceholderForeColor">
+            <summary>
+            Gets or sets the placeholder fore color.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.Controls.Input.ForeColor">
+            <summary>
+            Gets or sets the control fore color.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.Controls.Input.TextBox">
+            <summary>
+            Gets or sets the TextBox properties.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.Controls.Input.Border">
+            <summary>
+            Gets or sets the TextBox border properties.
+            </summary>
+        </member>
+        <member name="E:WK.Libraries.TrialMakerNS.Views.Controls.Input.TextChanged">
+            <summary>
+            Occurs whenever the <see cref="P:WK.Libraries.TrialMakerNS.Views.Controls.Input.Text"/> changes.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Views.Controls.Input.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.Controls.Input.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.Controls.Input.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Views.InfoBox">
+            <summary>
+            Displays a message to the user.
+            (Please use the <see cref="T:WK.Libraries.TrialMakerNS.Views.InfoBoxHelper"/> class for easier usage.)
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBox.#ctor">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:WK.Libraries.TrialMakerNS.Views.InfoBox"/> class.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Views.InfoBox.InformationBoxIcons">
+            <summary>
+            Provides a list of custom message icons.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Views.InfoBox.InformationBoxIcons.Information">
+            <summary>
+            Displays an information icon.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Views.InfoBox.InformationBoxIcons.Warning">
+            <summary>
+            Displays a warning icon.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Views.InfoBox.InformationBoxIcons.Alert">
+            <summary>
+            Displays an alert icon.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Views.InfoBox.InformationBoxIcons.Error">
+            <summary>
+            Displays an error icon.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.TrialMakerNS.Views.InfoBox.MoreInformationText">
+            <summary>
+            Gets or sets some extra information to be displayed 
+            when the "More Information" link is clicked.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBox.IsTextURL(System.String)">
+            <summary>
+            Determines if any provided text is in URL format.
+            </summary>
+            <param name="text">
+            The content to verify.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBox.ImproveTextRendering">
+            <summary>
+            Applies the property <see cref="P:System.Windows.Forms.Label.UseCompatibleTextRendering"/> to true 
+            for improving rendering of texts when the dialog is shown at build-time.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBox.ShowVisualMovementCues">
+            <summary>
+            Shows some visual cues indicating window movement.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBox.HideVisualMovementCues">
+            <summary>
+            Hides the visual cues indicating window movement has stopped.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBox.ApplyShadows">
+            <summary>
+            Applies border shadows to the window.
+            </summary>
+        </member>
+        <member name="F:WK.Libraries.TrialMakerNS.Views.InfoBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:WK.Libraries.TrialMakerNS.Views.InfoBoxHelper">
+            <summary>
+            [Static] Displays an <see cref="T:WK.Libraries.TrialMakerNS.Views.InfoBox"/> message to the user.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.TrialMakerNS.Views.InfoBoxHelper.Show(System.String,System.String,System.String,WK.Libraries.TrialMakerNS.Views.InfoBox.InformationBoxIcons,System.String,System.String)">
+            <summary>
+            Displays a message to the user.
+            </summary>
+            <param name="message">The message to be displayed.</param>
+            <param name="title">The window title.</param>
+            <param name="moreInfoText">
+            Some extra information to be displayed 
+            when the "More Information" link is clicked.
+            </param>
+            <param name="icon">The message icon.</param>
+            <param name="okayText">The "Okay" button's text.</param>
+            <param name="cancelText">The "Cancel" button's text.</param>
+            <returns>
+            <see cref="!:true"/> when "Okay" is clicked 
+            or <see cref="!:false"/> when "Cancel" is clicked.
+            </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:System.Windows.Forms.PlaceholderInput" -->
+        <member name="M:System.Windows.Forms.PlaceholderInput.#ctor">
+            <summary>
+            Initializes a new instance of the PlaceholderTextBox class.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Forms.PlaceholderInput.DEFAULT_PLACEHOLDER">
+            <summary>
+            Specifies the default placeholder text.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Forms.PlaceholderInput._avoidTextChanged">
+            <summary>
+            Flag to avoid the TextChanged Event. Don't access directly, use Method 'ActionWithoutTextChanged(Action act)' instead.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Forms.PlaceholderInput.IsPlaceholderActive">
+            <summary>
+            Gets a value indicating whether the Placeholder is active.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Forms.PlaceholderInput.PlaceholderText">
+            <summary>
+            Gets or sets the placeholder in the PlaceholderTextBox.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Forms.PlaceholderInput.Text">
+            <summary>
+            Gets or sets the current text in the TextBox.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Forms.PlaceholderInput.PlaceholderTextColor">
+            <summary>
+            Gets or sets the foreground color of the control.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Forms.PlaceholderInput.TextColor">
+            <summary>
+            Gets or sets the foreground color of the control.
+            </summary>
+        </member>
+        <member name="P:System.Windows.Forms.PlaceholderInput.ForeColor">
+            <summary>
+            Do not access directly. Use TextColor.
+            </summary>
+        </member>
+        <member name="E:System.Windows.Forms.PlaceholderInput.PlaceholderActiveChanged">
+            <summary>
+            Occurs when the value of the IsPlaceholderActive property has changed.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Forms.PlaceholderInput.Reset">
+            <summary>
+            Inserts placeholder, assigns placeholder style and sets cursor to first position.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Forms.PlaceholderInput.ActionWithoutTextChanged(System.Action)">
+            <summary>
+            Run an action with avoiding the TextChanged event.
+            </summary>
+            <param name="act">Specifies the action to run.</param>
+        </member>
+        <member name="T:System.Windows.Forms.PlaceholderInput.PlaceholderActiveChangedEventArgs">
+            <summary>
+            Provides data for the PlaceholderActiveChanged event.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Forms.PlaceholderInput.PlaceholderActiveChangedEventArgs.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the PlaceholderActiveChangedEventArgs class.
+            </summary>
+            <param name="isActive">Specifies whether the placeholder is currently active.</param>
+        </member>
+        <member name="P:System.Windows.Forms.PlaceholderInput.PlaceholderActiveChangedEventArgs.IsActive">
+            <summary>
+            Gets the new value of the IsPlaceholderActive property.
+            </summary>
+        </member>
+        <member name="M:System.Windows.Forms.PlaceholderInput.OnGotFocus(System.EventArgs)">
+            <summary>
+            Helps avoid full text selection after 
+            first display with 'TabIndex = 0'.
+            </summary>
+            <param name="e"></param>
+        </member>
+    </members>
+</doc>

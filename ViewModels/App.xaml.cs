@@ -1,12 +1,10 @@
 ﻿using PsychTestsMilitary.Services.Singletons;
 using System;
+using PsychTestsMilitary.Services;
 using System.Windows;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    /// <summary>
-    /// Логика взаимодействия для App.xaml
-    /// </summary>
     public partial class App : Application
     {
         [STAThread]
@@ -26,6 +24,8 @@ namespace PsychTestsMilitary.ViewModels
         {
             base.OnStartup(e);
 
+            LicenseManager.Validate();
+            //MessageBox.Show((LicenseManager.CheckOnTrialTimeLeft() ? "All is OK" : "Trial end!"));
             TechniquesDBSingleton.Instance.Init();
             AdditionalInfoDBSingleton.Instance.Init();
         }

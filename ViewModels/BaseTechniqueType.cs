@@ -58,13 +58,6 @@ namespace PsychTestsMilitary.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
         public BaseTechniqueType(BaseTechniqueModel td)
         {
             TechniqueData = td;

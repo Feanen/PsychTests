@@ -51,6 +51,11 @@
             </StackPanel>
         </Border>
 
-        <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="2" Content="For Developers" HorizontalAlignment="Center" VerticalAlignment="Top" Name="developersButton" Click="DeveloperToolsClick"/>
+        <TextBlock Grid.Row="2" Style="{StaticResource RegistrationTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Run Text="Термін дії демо-версії програми закінчується через "/>
+            <Run Text="{Binding TrialLeftDays}"/>
+            <Run Text=" днів"/>
+        </TextBlock>
+        <!--<Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="2" Content="For Developers" HorizontalAlignment="Center" VerticalAlignment="Top" Name="developersButton" Click="DeveloperToolsClick"/>-->
     </Grid>
 </local:BaseWindow>

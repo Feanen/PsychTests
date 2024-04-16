@@ -1,11 +1,18 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public abstract class BaseWindow : Window
+    public abstract class BaseWindow : Window, INotifyPropertyChanged
     {
         public BaseWindow() : base() { }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         private void WindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
