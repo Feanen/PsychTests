@@ -86,7 +86,7 @@
                         <ComboBoxItem>Жінка</ComboBoxItem>
                     </ComboBox>
                     <TextBox Name="login" Grid.Row="4" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Логін" ToolTip="Введіть логін, який повинен складатися з латинських літер, чисел та знаку _ &#x0a;Логін повинен починатися з літери"/>
-                    <DatePicker Name="birthday" Grid.Row="4" Style="{StaticResource CustomDP}" Grid.Column="1" IsTodayHighlighted="True" SelectedDate="{x:Static sys:DateTime.Today}"  SelectedDateChanged="DataChanged" Margin="10,10,10,10">
+                    <DatePicker Name="birthday" Grid.Row="4" Style="{StaticResource CustomDP}" Grid.Column="1" IsTodayHighlighted="True" SelectedDate="{x:Static sys:DateTime.Today}" SelectedDateChanged="DataChanged" Margin="10,10,10,10">
                         <DatePicker.Resources>
                             <Style TargetType="{x:Type DatePickerTextBox}" BasedOn="{StaticResource DatePickerTextBoxStyle1}"/>
                         </DatePicker.Resources>
@@ -100,9 +100,7 @@
 
                     <Button Content="Назад" Grid.Column="1" Grid.Row="0" FontSize="20" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top" Name="backButton" Click="ButtonClicked" Visibility="Hidden"/>
                 </Grid>
-
             </StackPanel>
         </Border>
-
     </Grid>
 </local:BaseWindowWithEditableFields>

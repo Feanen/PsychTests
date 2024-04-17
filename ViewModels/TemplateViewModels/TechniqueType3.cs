@@ -1,11 +1,8 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
-using PsychTestsMilitary.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;

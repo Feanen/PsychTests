@@ -1,9 +1,0 @@
-TrialMaker Proprietary License (EULA)
-
-Copyright (c) 2020, Willy Kimura.
-
-TrialMaker is a premium .NET library and is therefore distributed with restrictions on the use, copy, modification, merging, publishing, redistribution, sub-licensing, reverse engineering, and/or selling copies of the Software without prior written permissions from Willy Kimura. If you have purchased the library's source code, you will be allowed to distribute your applications with the library and/or modify the sources to suit your own needs or your organization's. You are however not allowed to sub-license and/or sell copies of the Software to any third-parties without a prior written consent from Willy Kimura.
-
-All rights reserved.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

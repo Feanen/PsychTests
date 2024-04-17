@@ -94,7 +94,7 @@ namespace PsychTestsMilitary.ViewModels
         {
             MainWindow window = new MainWindow();
             window.Show();
-            this.Close();
+            Hide();
         }
 
         private bool ValidateAccData()

@@ -39,8 +39,8 @@ namespace PsychTestsMilitary.ViewModels
 
         protected void ReturnButtonClicked(object sender, RoutedEventArgs e)
         {
-            Close();
             new MainWindow().Show();
+            Close();
         }
     }
 }
