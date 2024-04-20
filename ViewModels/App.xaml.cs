@@ -25,7 +25,6 @@ namespace PsychTestsMilitary.ViewModels
             base.OnStartup(e);
 
             LicenseManager.Validate();
-            //MessageBox.Show((LicenseManager.CheckOnTrialTimeLeft() ? "All is OK" : "Trial end!"));
             TechniquesDBSingleton.Instance.Init();
             AdditionalInfoDBSingleton.Instance.Init();
         }

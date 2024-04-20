@@ -244,6 +244,7 @@
     <Compile Include="ViewModels\PsychologistWindow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
+    <Compile Include="ViewModels\LicenseExpiredWindow.cs" />
     <Compile Include="ViewModels\SuperUserValidationWindow.xaml.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType8.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType7.cs" />
@@ -484,6 +485,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegistrationForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LicenseExpiredWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
