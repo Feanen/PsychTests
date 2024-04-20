@@ -1,11 +1,13 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
+using PsychTestsMilitary.Services.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels
 {
@@ -21,8 +23,17 @@ namespace PsychTestsMilitary.ViewModels
             InitializeComponent();
         }
 
+        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            base.MaximizeButtonClicked(sender, e);
+            SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
+        }
+
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
+            selectedData.Text = StringFormatter.Format(selectedData.Text);
+            selectedData.CaretIndex = selectedData.Text.Length;
+            selectedData.ScrollToEnd();
             accounts = accountData.Autocomplete(selectedData.Text);
 
             if (accounts != null)

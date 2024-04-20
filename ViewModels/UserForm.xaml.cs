@@ -11,6 +11,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 
 namespace PsychTestsMilitary.ViewModels
@@ -69,6 +70,12 @@ namespace PsychTestsMilitary.ViewModels
             ConnectDictionaryData();
             DataContext = this;
             Loaded += UserFormLoaded;
+        }
+
+        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            base.MaximizeButtonClicked(sender, e);
+            SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
         }
 
         private void UserFormLoaded(object sender, RoutedEventArgs e)

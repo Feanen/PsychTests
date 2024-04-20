@@ -25,9 +25,6 @@
             <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
                 <Image Style="{StaticResource MinimizeWindowImage}"/>
             </Button>
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MaximizeButtonClicked">
-                <Image Style="{StaticResource MaximizeWindowImage}"/>
-            </Button>
             <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
                 <Image Style="{StaticResource CloseWindowImage}"/>
             </Button>

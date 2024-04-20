@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Media;
+using System.Windows;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
@@ -16,6 +18,12 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 
             if (TechniqueData != null)
                 Update(TechniqueData.NextQuestion(), nextButton);
+        }
+
+        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            base.MaximizeButtonClicked(sender, e);
+            SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
         }
 
         private void AnswerSelected(object sender, EventArgs e)

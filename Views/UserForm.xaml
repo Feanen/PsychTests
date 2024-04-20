@@ -8,8 +8,7 @@
         Style="{DynamicResource CustomWindowStyle}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        Height="600" Width="800">
+        ResizeMode="NoResize">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,14 +17,13 @@
             <local:DataToVisibilityConverter x:Key="VisibilityConverter"/>
         </ResourceDictionary>
     </Window.Resources>
-
-    <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Style="{StaticResource WindowPanelStyle}">
+
+        <StackPanel Style="{StaticResource WindowPanelStyle}">
             <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
                 <Image Style="{StaticResource MinimizeWindowImage}"/>
             </Button>
@@ -36,94 +34,95 @@
                 <Image Style="{StaticResource CloseWindowImage}"/>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="1" Margin="0 20 0 0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Style="{StaticResource CustomLabel}" Content="Оберіть тести" HorizontalAlignment="Left"/>
-                <Label Grid.Column="1" Style="{StaticResource CustomLabel}" FontSize="13" Content="{Binding CurrentUser}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            </Grid>
-        </StackPanel>
-        <StackPanel Grid.Row="2">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+        <Grid Style="{StaticResource SizedGridStyle}" Grid.Row="1" Name="mainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-                <Border Grid.Column="1" Style="{StaticResource CustomBorderStyle}">
-                    <StackPanel x:Name="stackPanel">
-                        <Grid Height="230" DataContext="{Binding RelativeSource={RelativeSource AncestorType=local:UserForm}}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
+            <Button Style="{DynamicResource ButtonArrowsStyle}" BorderThickness="0" Click="ReturnButtonClicked" Margin="40 0 30 0" HorizontalAlignment="Left">
+                <Button.Content>
+                    <Image Source="/Resources/Images/Arrows/Vector3.png" Width="42" Height="26"/>
+                </Button.Content>
+            </Button>
 
-                            <Button Style="{DynamicResource ButtonArrowsStyle}" Name="back" Grid.Column="0" BorderThickness="0" Click="ButtonClicked" Margin="30 0 30 0">
-                                <Button.Content>
-                                    <Image Source="/Resources/Images/Arrows/Vector1.png" Width="14" Height="24"/>
-                                </Button.Content>
-                            </Button>
-                            <Button Style="{StaticResource ButtonArrowsStyle}" Name="forward" Grid.Column="3" BorderThickness="0" Click="ButtonClicked" Margin="30 0 30 0">
-                                <Button.Content>
-                                    <Image Source="/Resources/Images/Arrows/Vector2.png" Width="14" Height="24"/>
-                                </Button.Content>
-                            </Button>
+            <StackPanel Margin="0 50 0 0" Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="1">
+                    <Label Grid.Column="0" Style="{StaticResource CustomLabel}" Content="Оберіть тести" HorizontalAlignment="Left"/>
+                    <Label Grid.Column="1" Style="{StaticResource CustomLabel}" FontSize="13" Content="{Binding CurrentUser}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <Border Style="{StaticResource CustomBorderStyle}" Padding="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Grid Height="250" DataContext="{Binding RelativeSource={RelativeSource AncestorType=local:UserForm}}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
 
-                                <CheckBox Grid.Row="0" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[0].Value}" Visibility="{Binding ObservableTechniques[0], Converter={StaticResource VisibilityConverter}}"/>
-                                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[0].Key.Name}"/>
+                                <Button Style="{DynamicResource ButtonArrowsStyle}" Name="back" BorderThickness="0" Click="ButtonClicked" Margin="30 0 30 0">
+                                    <Button.Content>
+                                        <Image Source="/Resources/Images/Arrows/Vector1.png" Width="14" Height="24"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button Style="{StaticResource ButtonArrowsStyle}" Name="forward" Grid.Column="2" BorderThickness="0" Click="ButtonClicked" Margin="30 0 30 0">
+                                    <Button.Content>
+                                        <Image Source="/Resources/Images/Arrows/Vector2.png" Width="14" Height="24"/>
+                                    </Button.Content>
+                                </Button>
+
+                                <Grid Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <CheckBox Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[0].Value}" Visibility="{Binding ObservableTechniques[0], Converter={StaticResource VisibilityConverter}}"/>
+                                    <TextBlock Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[0].Key.Name}"/>
 
 
-                                <CheckBox Grid.Row="1" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[1].Value}" Visibility="{Binding ObservableTechniques[1], Converter={StaticResource VisibilityConverter}}"/>
-                                <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[1].Key.Name}"/>
+                                    <CheckBox Grid.Row="1" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[1].Value}" Visibility="{Binding ObservableTechniques[1], Converter={StaticResource VisibilityConverter}}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[1].Key.Name}"/>
 
 
-                                <CheckBox Grid.Row="2" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[2].Value}" Visibility="{Binding ObservableTechniques[2], Converter={StaticResource VisibilityConverter}}"/>
-                                <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[2].Key.Name}"/>
+                                    <CheckBox Grid.Row="2" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[2].Value}" Visibility="{Binding ObservableTechniques[2], Converter={StaticResource VisibilityConverter}}"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[2].Key.Name}"/>
 
 
-                                <CheckBox Grid.Row="3" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[3].Value}" Visibility="{Binding ObservableTechniques[3], Converter={StaticResource VisibilityConverter}}"/>
-                                <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[3].Key.Name}"/>
+                                    <CheckBox Grid.Row="3" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[3].Value}" Visibility="{Binding ObservableTechniques[3], Converter={StaticResource VisibilityConverter}}"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[3].Key.Name}"/>
 
 
-                                <CheckBox Grid.Row="4" Grid.Column="0" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[4].Value}" Visibility="{Binding ObservableTechniques[4], Converter={StaticResource VisibilityConverter}}"/>
-                                <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[4].Key.Name}"/>
+                                    <CheckBox Grid.Row="4" Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" IsChecked="{Binding ObservableTechniques[4].Value}" Visibility="{Binding ObservableTechniques[4], Converter={StaticResource VisibilityConverter}}"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource RegistrationTextBlockStyle}" Margin="10" FontSize="14" Text="{Binding ObservableTechniques[4].Key.Name}"/>
+                                </Grid>
                             </Grid>
 
-                        </Grid>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                        </Grid>
-                        <Button Grid.Row="1" Grid.Column="1" Name="beginButton" FontSize="13" Content="Розпочати тести" Click="BeginButtonClicked" Style="{StaticResource CustomRoundedButtonStyle}"/>
-                    </StackPanel>
+                        <Button Grid.Row="1" Name="beginButton" Margin="0 30 0 0" FontSize="13" Content="Розпочати тести" Click="BeginButtonClicked" Style="{StaticResource CustomRoundedButtonStyle}"/>
+                    </Grid>
                 </Border>
-            </Grid>
-        </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </local:BaseWindow>

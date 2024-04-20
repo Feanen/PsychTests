@@ -3,7 +3,9 @@ using PsychTestsMilitary.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
@@ -44,6 +46,11 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
                 nextBtn.Content = "Завершити тест";
         }
 
+        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            base.MaximizeButtonClicked(sender, e);
+            SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
+        }
 
         protected override void ShowNextQuestion(object sender, EventArgs e, Grid grid, Button btn)
         {

@@ -208,6 +208,7 @@
     <Compile Include="Services\Date.cs" />
     <Compile Include="Services\Contexts\AccountContext.cs" />
     <Compile Include="Services\PlaceholderService.cs" />
+    <Compile Include="Services\Utilities\StringFormatter.cs" />
     <Compile Include="Services\Utilities\UnixTimeConverter.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\QuestionAndResultUserControl.xaml.cs">
@@ -240,7 +241,7 @@
     <Compile Include="ViewModels\FinalResultsVM\TechniqueC.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueB.cs" />
     <Compile Include="ViewModels\MainWindow.xaml.cs" />
-    <Compile Include="ViewModels\PsychologistWndow.xaml.cs" />
+    <Compile Include="ViewModels\PsychologistWindow.xaml.cs" />
     <Compile Include="ViewModels\RegistrationForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueA.cs" />
     <Compile Include="ViewModels\SuperUserValidationWindow.xaml.cs" />

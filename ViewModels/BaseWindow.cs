@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels
 {
@@ -24,7 +26,7 @@ namespace PsychTestsMilitary.ViewModels
             WindowState = WindowState.Minimized;
         }
 
-        protected void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        protected virtual void MaximizeButtonClicked(object sender, RoutedEventArgs e)
         {
             WindowState = (WindowState != WindowState.Maximized) ? WindowState.Maximized : WindowState.Normal;
         }
@@ -41,6 +43,16 @@ namespace PsychTestsMilitary.ViewModels
         {
             new MainWindow().Show();
             Close();
+        }
+
+        protected void SetWindowScale(UIElement control, ScaleTransform scale)
+        {
+            ScaleTransform st = control.RenderTransform as ScaleTransform;
+
+            if (WindowState == WindowState.Maximized)
+                control.RenderTransform = scale;
+            else
+                control.RenderTransform = new ScaleTransform(1, 1);
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
@@ -47,6 +48,12 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         {
             if (TechniqueData.Questions.Count.Equals(0))
                 nextButton.Content = "Завершити тест";
+        }
+
+        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            base.MaximizeButtonClicked(sender, e);
+            SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
         }
 
         private void FillSlidersData()

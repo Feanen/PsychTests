@@ -111,7 +111,7 @@
 
     <Style TargetType="{x:Type TextBlock}" x:Key="ResultsWindowDescriptionStyle" BasedOn="{StaticResource RegistrationTextBlockStyle}">
         <Setter Property="FontFamily" Value="{StaticResource MontSerrat.Regular}"/>
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Margin" Value="5 0 0 10"/>
         <Setter Property="Foreground" Value="Black"/>
@@ -133,7 +133,6 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
-
     <Style TargetType="{x:Type TextBlock}" x:Key="NumbersResultsWindowDescriptionStyle" BasedOn="{StaticResource ResultsWindowDescriptionStyle}">
         <Setter Property="FontFamily" Value="{StaticResource MontSerrat.SemiBold}"/>
         <Setter Property="FontSize" Value="14"/>
@@ -153,10 +152,11 @@
 
     <Style TargetType="{x:Type TextBlock}" x:Key="ResultsWindowShortScaleDescriptionStyle" BasedOn="{StaticResource ResultsWindowDescriptionStyle}">
         <Setter Property="Padding" Value="15 0 0 0"/>
-        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="FontSize" Value="12"/>
     </Style>
 
     <Style TargetType="{x:Type Border}" x:Key="ResultsWindowBorderStyle" BasedOn="{StaticResource CustomBorderStyle}">
+        <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Background" Value="Transparent"/>
     </Style>
 

@@ -6,13 +6,20 @@
     <FontFamily x:Key="MontSerrat.Medium">/Resources/Fonts/#Montserrat Medium</FontFamily>
     <SolidColorBrush x:Key="FirstColor" Color="#222d1e"/>
     <SolidColorBrush x:Key="SecondColor" Color="#fffce6"/>
-    
+
     <!-- Main color of app's background -->
     <Style TargetType="Grid" x:Key="CustomGridBackgroundStyle">
-        <Setter Property="Background" Value="#222d1e"/>
+        <Setter Property="Background" Value="{StaticResource FirstColor}"/>
     </Style>
+
+    <Style TargetType="Grid" x:Key="SizedGridStyle" BasedOn="{StaticResource CustomGridBackgroundStyle}">
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+        <Setter Property="Width" Value="750"/>
+        <Setter Property="Height" Value="600"/>
+    </Style>
+
     <Style TargetType="Border" x:Key="CustomBorderStyle">
-        <Setter Property="Background" Value="#222d1e"/>
+        <Setter Property="Background" Value="{StaticResource FirstColor}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="20" />
         <Setter Property="Margin" Value="20"/>
@@ -24,16 +31,16 @@
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Background" Value="#222d1e"/>
+        <Setter Property="Background" Value="{StaticResource FirstColor}"/>
         <Setter Property="Margin" Value="0 12 12 0"/>
     </Style>
 
     <Style TargetType="StackPanel" x:Key="ResultsWindowPanelStyle" BasedOn="{StaticResource WindowPanelStyle}">
-        <Setter Property="Background" Value="#fffce6"/>
+        <Setter Property="Background" Value="{StaticResource SecondColor}"/>
     </Style>
     
     <Style TargetType="Button" x:Key="WindowPanelButtonsStyle">
-        <Setter Property="Background" Value="#222d1e"/>
+        <Setter Property="Background" Value="{StaticResource FirstColor}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="12 0 0 0"/>
         <Setter Property="Template">
@@ -44,7 +51,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#222d1e"/>
+                            <Setter Property="Background" Value="{StaticResource FirstColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -52,7 +59,7 @@
         </Setter>
     </Style>
     <Style TargetType="Button" x:Key="ResultsWindowPanelButtonStyle" BasedOn="{StaticResource WindowPanelButtonsStyle}">
-        <Setter Property="Background" Value="#fffce6"/>
+        <Setter Property="Background" Value="{StaticResource SecondColor}"/>
     </Style>
     <Style TargetType="Image" x:Key="WindowPanelButtonImagesStyle">
         <Setter Property="Height" Value="15"/>
@@ -191,14 +198,14 @@
     </ControlTemplate>
     
     <Style TargetType="TextBox" x:Key="CustomTextBox">
-        <Setter Property="CaretBrush" Value="#fffce6"/>
-        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="CaretBrush" Value="{StaticResource SecondColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="Background" Value="#222d1e"/>
+        <Setter Property="Background" Value="{StaticResource FirstColor}"/>
         <Setter Property="BorderThickness" Value="0 0 0 2"/>
-        <Setter Property="BorderBrush" Value="#fffce6"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SecondColor}"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="VerticalContentAlignment" Value="Bottom"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -210,10 +217,10 @@
     <Style x:Key="PasswordBoxStyle1" TargetType="{x:Type PasswordBox}">
         <Setter Property="PasswordChar" Value="●"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="#fffce6"/>
-        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SecondColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="BorderThickness" Value="0 0 0 2"/>
-        <Setter Property="CaretBrush" Value="#fffce6"/>
+        <Setter Property="CaretBrush" Value="{StaticResource SecondColor}"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
@@ -272,10 +279,10 @@
     <Style x:Key="PasswordBoxStyle2" TargetType="{x:Type PasswordBox}">
         <Setter Property="PasswordChar" Value="●"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="#fffce6"/>
-        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SecondColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="BorderThickness" Value="0 0 0 2"/>
-        <Setter Property="CaretBrush" Value="#fffce6"/>
+        <Setter Property="CaretBrush" Value="{StaticResource SecondColor}"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
@@ -332,7 +339,7 @@
     </Style>
     
     <Style TargetType="TextBlock" x:Key="PasswordBoxTextBlockStyle">
-        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
@@ -341,9 +348,9 @@
     </Style>
     
     <Style TargetType="ComboBox" x:Key="CustomComboBox">
-        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="BorderThickness" Value="0 0 0 2"/>
-        <Setter Property="BorderBrush" Value="#fffce6"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SecondColor}"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontSize" Value="15"/>
@@ -352,7 +359,7 @@
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
                 <Style TargetType="ComboBoxItem">
-                    <Setter Property="Background" Value="#222d1e"/>
+                    <Setter Property="Background" Value="{StaticResource FirstColor}"/>
                     <Setter Property="BorderThickness" Value="0 0 0 0"/>
                 </Style>
             </Setter.Value>
@@ -410,7 +417,7 @@
 
     <Style TargetType="DatePicker" x:Key="CustomDP">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#FFFCE6"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
@@ -421,15 +428,15 @@
     </Style>
 
     <Style TargetType="DatePickerTextBox" x:Key="CustomDPTextBox">
-        <Setter Property="Background" Value="#222D1E"/>
+        <Setter Property="Background" Value="{StaticResource FirstColor}"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
     <Style TargetType="CheckBox" x:Key="PsychologistCheckBox">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#FFFCE6"/>
-        <Setter Property="Foreground" Value="#FFFCE6"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SecondColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -440,8 +447,8 @@
     <Style TargetType="CheckBox" x:Key="UserFormCheckbox">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#FFFCE6"/>
-        <Setter Property="Foreground" Value="#FFFCE6"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SecondColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -454,7 +461,7 @@
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontWeight" Value="Medium"/>
         <Setter Property="FontSize" Value="30"/>
-        <Setter Property="Foreground" Value="#fffce6"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="Margin" Value="5"/>
     </Style>
     
@@ -466,7 +473,7 @@
 
     <Style TargetType="TextBlock" x:Key="TechniquePassingTextBlock">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#FFFCE6"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="15"/>
@@ -485,7 +492,7 @@
 
     <Style TargetType="TextBlock" x:Key="RegistrationTextBlockStyle">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#FFFCE6"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="17"/>
@@ -505,13 +512,14 @@
         <Setter Property="Width" Value="800"/>
         <Setter Property="Height" Value="600"/>
         <Setter Property="WindowStyle" Value="None"/>
-        <Setter Property="BorderBrush" Value="#fffce6"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SecondColor}"/>
+        <Setter Property="Background" Value="{StaticResource FirstColor}"/>
         <Setter Property="BorderThickness" Value="2"/>
     </Style>
 
     <Style TargetType="TextBox" x:Key="CustomTextBoxStyle">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#FFFCE6"/>
+        <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>
         <Setter Property="FontFamily" Value="/Resources/Fonts/#Montserrat Regular"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="FontSize" Value="15"/>
@@ -522,8 +530,6 @@
     </Style>
 
     <Style TargetType="Grid" x:Key="ResultsGridStyle" BasedOn="{StaticResource CustomGridBackgroundStyle}">
-        <Setter Property="Background" Value="#fffce6"/>
+        <Setter Property="Background" Value="{StaticResource SecondColor}"/>
     </Style>
-
-
 </ResourceDictionary>

@@ -45,6 +45,7 @@ namespace PsychTestsMilitary.ViewModels
                             db.Accounts.Add(acc);
                             db.SaveChanges();
                             MessageBox.Show("Реєстрація пройшла успішно!");
+                            ReturnButtonClicked(null, null);
                         }
                     }
                     break;
