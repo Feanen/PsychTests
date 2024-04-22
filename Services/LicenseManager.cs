@@ -6,6 +6,7 @@ using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 
 namespace PsychTestsMilitary.Services
 {
@@ -26,8 +27,8 @@ namespace PsychTestsMilitary.Services
             Directory.CreateDirectory(fullPath);
             confFilePath = Path.Combine(fullPath, confFileName);
             path = confFilePath;
-            //RegistryValidation();
             СreateConfigFile();
+            RegistryValidation(); 
         }
 
         public static bool CheckOnTrialTimeLeft()
@@ -78,6 +79,7 @@ namespace PsychTestsMilitary.Services
                     if (key.GetValue("ID") != null)
                     {
                         int x;
+
                         if (CheckOnCorrectValues(key.GetValue("ID").ToString(), key.GetValue("Auth").ToString()))
                         {
                             if (Int32.TryParse(key.GetValue("ID").ToString(), out x))
@@ -95,7 +97,7 @@ namespace PsychTestsMilitary.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ошибка при работе с реестром: " + ex.Message);
+                Console.WriteLine("Problem with registry: " + ex.Message);
             }
         }
 
@@ -110,17 +112,30 @@ namespace PsychTestsMilitary.Services
 
         private static string GenerateHexValue(int num)
         {
-            return ((new Random().Next(num, Int32.MaxValue / 2)) * num).ToString("X");
+            return (new Random().Next(num, Int32.MaxValue / (num + 1)) * num).ToString("X");
         }
 
         private static void СreateConfigFile()
         {
-            if (!File.Exists(confFilePath))
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\PTSD"))
             {
-                string data = (UnixTimeConverter.ConvertToUnixTime(DateTime.Now) +
-                               (long)TimeSpan.FromDays(trialDays).TotalSeconds).ToString() + "\n" +
-                               UnixTimeConverter.ConvertToUnixTime(DateTime.Now).ToString();
-                File.WriteAllText(confFilePath, data);
+                if (key == null) 
+                {
+                    if (!File.Exists(confFilePath))
+                    {
+                        string data = (UnixTimeConverter.ConvertToUnixTime(DateTime.Now) +
+                                       (long)TimeSpan.FromDays(trialDays).TotalSeconds).ToString() + "\n" +
+                                       UnixTimeConverter.ConvertToUnixTime(DateTime.Now).ToString();
+                        File.WriteAllText(confFilePath, data);
+                    } else
+                    {
+                        new LicenseExpiredWindow().ShowDialog();
+                    }
+                } else
+                {
+                    if (!File.Exists(confFilePath)) 
+                        new LicenseExpiredWindow().ShowDialog();
+                }
             }
         }
     }
