@@ -1,4 +1,5 @@
-﻿using PsychTestsMilitary.Models;
+﻿using PsychTestsMilitary.Interfaces;
+using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Singletons;
 using System;

@@ -1,14 +1,17 @@
-﻿using PsychTestsMilitary.Models;
+﻿using PsychTestsMilitary.Interfaces;
+using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public abstract class BaseTechniqueType : BaseWindow, INotifyPropertyChanged
+    public abstract class BaseTechniqueType : BaseWindow, INotifyPropertyChanged, IFullScreenable
     {
         public BaseTechniqueModel TechniqueData { get; set; }
         protected object userAnswers = new List<UserAnswer>();
@@ -110,6 +113,16 @@ namespace PsychTestsMilitary.ViewModels
             ResetRadiobuttons(grid);
             (userAnswers as List<UserAnswer>).Add(new UserAnswer(Question.Number, selectedAnswer.Id));
             Update(TechniqueData.NextQuestion(), btn);
+        }
+
+        public virtual void OnFullScreen()
+        {
+        }
+
+        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            base.MaximizeButtonClicked(sender, e);
+            OnFullScreen();
         }
     }
 }

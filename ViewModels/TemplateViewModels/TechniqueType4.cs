@@ -30,9 +30,8 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
             ShowNextQuestion(sender, e, answerButtonsGrid, nextButton);
         }
 
-        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        public override void OnFullScreen()
         {
-            base.MaximizeButtonClicked(sender, e);
             SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
         }
     }

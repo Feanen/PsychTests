@@ -26,7 +26,7 @@ namespace PsychTestsMilitary.Services
             Directory.CreateDirectory(fullPath);
             confFilePath = Path.Combine(fullPath, confFileName);
             path = confFilePath;
-            RegistryValidation();
+            //RegistryValidation();
             СreateConfigFile();
         }
 

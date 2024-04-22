@@ -12,7 +12,7 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
         private const int matrixHeight = 7;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
+        protected override void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

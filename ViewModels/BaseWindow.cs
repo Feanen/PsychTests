@@ -1,6 +1,8 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.Win32;
+using PsychTestsMilitary.Interfaces;
+using PsychTestsMilitary.Services;
+using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -8,9 +10,25 @@ namespace PsychTestsMilitary.ViewModels
 {
     public abstract class BaseWindow : Window, INotifyPropertyChanged
     {
-        public BaseWindow() : base() { }
+        public BaseWindow() : base() 
+        {
+            Loaded += BaseWindowLoaded;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void BaseWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is IFullScreenable)
+            {
+                WindowState = FullScreenManager.WindowState;
+                (sender as IFullScreenable).OnFullScreen();
+            } else
+            {
+                FullScreenManager.WindowState = WindowState;
+            }       
+        }
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -28,7 +46,7 @@ namespace PsychTestsMilitary.ViewModels
 
         protected virtual void MaximizeButtonClicked(object sender, RoutedEventArgs e)
         {
-            WindowState = (WindowState != WindowState.Maximized) ? WindowState.Maximized : WindowState.Normal;
+            FullScreenManager.ToggleFullScreen(this);
         }
 
         protected void CloseButtonClicked(object sender, RoutedEventArgs e)

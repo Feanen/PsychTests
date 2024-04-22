@@ -104,9 +104,8 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
             }
         }
 
-        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        public override void OnFullScreen()
         {
-            base.MaximizeButtonClicked(sender, e);
             SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
         }
     }

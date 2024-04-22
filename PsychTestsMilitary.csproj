@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Interfaces\ICalculationService.cs" />
     <Compile Include="Interfaces\ICreatingCalculation.cs" />
+    <Compile Include="Interfaces\IFullScreenable.cs" />
     <Compile Include="Interfaces\ITechniqueData.cs" />
     <Compile Include="Interfaces\ITestTypes.cs" />
     <Compile Include="Models\Account.cs" />
@@ -172,6 +173,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\CalculationService.cs" />
+    <Compile Include="Services\FullScreenManager.cs" />
     <Compile Include="Services\LicenseManager.cs" />
     <Compile Include="Services\PasswordBoxMonitor.cs" />
     <Compile Include="Services\Contexts\AdditionalInfoContext.cs" />
