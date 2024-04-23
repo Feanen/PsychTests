@@ -2,6 +2,7 @@
 using PsychTestsMilitary.Templates;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace PsychTestsMilitary.ViewModels.FinalResults
@@ -27,6 +28,11 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
                 grid.Children.Add(questionAndResultUserControl);
                 Grid.SetRow(questionAndResultUserControl, i);
             }
+        }
+
+        protected override UIElement GetDataElement()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

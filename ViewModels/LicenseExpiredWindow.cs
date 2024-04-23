@@ -9,18 +9,24 @@ namespace PsychTestsMilitary.ViewModels
         public LicenseExpiredWindow()
         {
             InitializeComponent();
+            Closing += WindowClosing;
         }
         private void ButtonClicked(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
 
-            Close();
+            Application.Current.Shutdown();
         }
 
         protected override void KeyDownHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
-                Close();
+                Application.Current.Shutdown();
+        }
+
+        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

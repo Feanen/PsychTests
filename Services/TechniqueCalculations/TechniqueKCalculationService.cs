@@ -58,6 +58,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
             CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(2).Value, ValidateValue(C)));
             CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(3).Value, ValidateValue(D)));
             CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(4).Value, ValidateValue(F)));
+            CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(0).Value, ValidateValue(A)));
             CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(5).Value, ValidateValue(b)));
             CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(6).Value, ValidateValue(c)));
             CalculatedResults.Add(new ScaleResult(rawScores.ElementAt(7).Value, ValidateValue(d)));

@@ -1,5 +1,6 @@
 ﻿using PsychTestsMilitary.Models;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace PsychTestsMilitary.ViewModels.FinalResults
 {
@@ -11,6 +12,11 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
         {
             InitializeComponent();
             DataContext = this;
+        }
+
+        protected override UIElement GetDataElement()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

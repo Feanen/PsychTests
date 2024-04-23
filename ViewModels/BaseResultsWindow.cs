@@ -1,11 +1,14 @@
 ﻿using PsychTestsMilitary.Models;
+using PsychTestsMilitary.Services;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace PsychTestsMilitary.ViewModels
 {
     public abstract class BaseResultsWindow : BaseWindow
     {
+        //----------------------------------------//
         protected List<ScaleResult> UserResults
         {
             get { return (List<ScaleResult>)GetValue(userResultsProperty); }
@@ -21,7 +24,7 @@ namespace PsychTestsMilitary.ViewModels
         protected string CompletedTechniqueDate
         {
             get { return (string)GetValue(completedTechniqueDateProperty); }
-            set { SetValue(completedTechniqueDateProperty, ("Дата проходження: " + value)); }
+            set { SetValue(completedTechniqueDateProperty, "Дата проходження: " + value); }
         }
 
         protected string TechniqueName
@@ -42,6 +45,7 @@ namespace PsychTestsMilitary.ViewModels
         public static readonly DependencyProperty userResultsProperty =
             DependencyProperty.Register("DataSet", typeof(List<ScaleResult>), typeof(BaseResultsWindow), new PropertyMetadata(null));
 
+        //----------------------------------------//
 
         public BaseResultsWindow() : base() { }
 
@@ -60,9 +64,41 @@ namespace PsychTestsMilitary.ViewModels
             TechniqueName = tn;
         }
 
+        protected virtual void SaveToClipboardClicked(object sender, RoutedEventArgs e)
+        {
+            ClipboardManager.SaveToClipboard(GetListOfScales(GetDataElement()), 
+                                             TechniqueName, CompletedTechniqueDate,
+                                             UserResults);
+        }
+
+        protected abstract UIElement GetDataElement();
+
         protected new void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+        protected virtual List<string> GetListOfScales(UIElement element)
+        {
+            if (element != null)
+            {
+                if (element is Grid grid)
+                {
+                    List<string> listOfScales = new List<string>();
+                    int index = 0;
+
+                    foreach (var child in grid.Children)
+                    {
+                        if (child is Label label && Grid.GetColumn(label) == 0)
+                            listOfScales.Add(label?.Content.ToString());
+                        index++;
+                    }
+
+                    return listOfScales;
+                }
+            }
+
+            return null;
+        } 
     }
 }

@@ -181,6 +181,7 @@
     <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\PasswordPlaceholder.cs" />
     <Compile Include="Services\ResultsManager.cs" />
+    <Compile Include="Services\ClipboardManager.cs" />
     <Compile Include="Services\Singletons\AdditionalInfoDBSingleton.cs" />
     <Compile Include="Services\Singletons\CurrentUserSingleton.cs" />
     <Compile Include="Services\Singletons\TechniquesDBSingleton.cs" />

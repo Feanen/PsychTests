@@ -2,11 +2,9 @@
 using PsychTestsMilitary.Services.Utilities;
 using PsychTestsMilitary.ViewModels;
 using System;
-using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Media.Animation;
 
 namespace PsychTestsMilitary.Services
 {
@@ -28,10 +26,9 @@ namespace PsychTestsMilitary.Services
             confFilePath = Path.Combine(fullPath, confFileName);
             path = confFilePath;
             СreateConfigFile();
-            RegistryValidation(); 
         }
 
-        public static bool CheckOnTrialTimeLeft()
+        public static void CheckOnTrialTimeLeft()
         {
             try
             {
@@ -43,24 +40,21 @@ namespace PsychTestsMilitary.Services
 
                     if (!long.TryParse(lines[0], out trialExpiredTime) ||
                         !long.TryParse(lines[1], out previousTime))
-                        return false;
+                        return;
 
                     currentTime = UnixTimeConverter.ConvertToUnixTime(DateTime.Now);
 
                     if (trialExpiredTime - currentTime <= 0 || currentTime + threshold < previousTime)
-                        return false;
+                        new LicenseExpiredWindow().ShowDialog();
                     else
                     {
                         lines[1] = currentTime.ToString();
                         DaysLeft = (int) Math.Ceiling( (double) (trialExpiredTime - currentTime) / 86400);
                         WriteToFile(lines);
-                        return true;
                     }       
                 }
-                else
-                    return false;
             }
-            catch { return false; }
+            catch { return; }
         }
 
         private async static void WriteToFile(string[] lines)
@@ -74,7 +68,7 @@ namespace PsychTestsMilitary.Services
         {
             try
             {
-                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"Software\PTSD"))
+                using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Keyboard\Media"))
                 {
                     if (key.GetValue("ID") != null)
                     {
@@ -117,7 +111,7 @@ namespace PsychTestsMilitary.Services
 
         private static void СreateConfigFile()
         {
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\PTSD"))
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Keyboard\Media"))
             {
                 if (key == null) 
                 {
@@ -127,6 +121,7 @@ namespace PsychTestsMilitary.Services
                                        (long)TimeSpan.FromDays(trialDays).TotalSeconds).ToString() + "\n" +
                                        UnixTimeConverter.ConvertToUnixTime(DateTime.Now).ToString();
                         File.WriteAllText(confFilePath, data);
+                        RegistryValidation();
                     } else
                     {
                         new LicenseExpiredWindow().ShowDialog();

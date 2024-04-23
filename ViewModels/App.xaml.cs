@@ -1,6 +1,5 @@
 ﻿using PsychTestsMilitary.Services.Singletons;
 using System;
-using PsychTestsMilitary.Services;
 using System.Windows;
 
 namespace PsychTestsMilitary.ViewModels
@@ -24,7 +23,6 @@ namespace PsychTestsMilitary.ViewModels
         {
             base.OnStartup(e);
 
-            LicenseManager.Validate();
             TechniquesDBSingleton.Instance.Init();
             AdditionalInfoDBSingleton.Instance.Init();
         }

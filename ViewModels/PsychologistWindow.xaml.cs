@@ -1,7 +1,6 @@
-﻿using PsychTestsMilitary.Interfaces;
-using PsychTestsMilitary.Models;
-using PsychTestsMilitary.Models.AdditionalModels;
+﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
+using PsychTestsMilitary.Services.Singletons;
 using PsychTestsMilitary.Services.Utilities;
 using System;
 using System.Collections.Generic;
@@ -48,6 +47,7 @@ namespace PsychTestsMilitary.ViewModels
             {
                 selectedData.Text = dropList.SelectedItem.ToString();
                 selectedAcc = accounts.Keys.FirstOrDefault();
+                CurrentUserSingleton.CurrentAcc = selectedAcc;
                 data.ItemsSource = TechniquesManager.GetUserResults(selectedAcc);
                 dropList.ItemsSource = null;
             }

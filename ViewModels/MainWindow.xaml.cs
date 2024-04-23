@@ -19,10 +19,11 @@ namespace PsychTestsMilitary.ViewModels
 
         public MainWindow()
         {
-            LicenseManager.CheckOnTrialTimeLeft();
-            TrialLeftDays = LicenseManager.DaysLeft;
             DataContext = this;
             InitializeComponent();
+            LicenseManager.Validate();
+            LicenseManager.CheckOnTrialTimeLeft();
+            TrialLeftDays = LicenseManager.DaysLeft;
         }
 
         private void AppExit(object sender, EventArgs e)
