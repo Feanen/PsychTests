@@ -67,9 +67,15 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Label Content="Введіть ПІБ: " Grid.Column="0" Grid.Row="0" Style="{StaticResource CustomLabel}" FontSize="30"/>
-                        <TextBox Name="selectedData" Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomTextBox}" FontSize="14" TextChanged="TextChanged" GotFocus="FocusOn" VerticalAlignment="Center"/>
-                        <Label Content="Результати: " Grid.Column="0" Grid.Row="1" Style="{StaticResource CustomLabel}" FontSize="20" HorizontalAlignment="Left" Margin="5 30 0 10"/>
+                        <Label Content="Введіть ПІБ: " Style="{StaticResource CustomLabel}" FontSize="30"/>
+                        <TextBox Name="selectedData" Grid.Column="1" Style="{StaticResource CustomTextBox}" FontSize="14" TextChanged="TextChanged" GotFocus="FocusOn" VerticalAlignment="Center"/>
+                        <Label Content="Результати: " Grid.Row="1" Style="{StaticResource CustomLabel}" FontSize="20" HorizontalAlignment="Left" Margin="5 30 0 10" VerticalAlignment="Center"/>
+                        <Button Content="?" Grid.Column="1" Grid.Row="1" Style="{StaticResource CustomRoundedButtonStyle}" Click="TooltipClicked" FontSize="20" HorizontalAlignment="Right"
+                                VerticalContentAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Padding="0 2 0 5"
+                                Width="30" Height="30"
+                                Margin="0 0 0 13"/>
                         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
                               CellStyle="{DynamicResource DataGridCellStyle}" 
                               Style="{DynamicResource DataGridStyle}" 
@@ -125,8 +131,8 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
-                            <Button Content="Очистити" Grid.Column="0" Grid.Row="0" Style="{StaticResource CustomRoundedButtonStyle}" Name="clear" Click="ButtonClicked" FontSize="13"/>
-                            <Button Content="Результат" Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomRoundedButtonStyle}" Name="showResults" Click="ButtonClicked" FontSize="13"/>
+                            <Button Content="Очистити" Style="{StaticResource CustomRoundedButtonStyle}" Name="clear" Click="FocusOn" FontSize="13"/>
+                            <Button Content="Результат" Grid.Column="1" Style="{StaticResource CustomRoundedButtonStyle}" Name="showResults" Click="ButtonClicked" FontSize="13"/>
                         </Grid>
                     </Grid>
 

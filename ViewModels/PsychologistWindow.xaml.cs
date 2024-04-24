@@ -55,12 +55,10 @@ namespace PsychTestsMilitary.ViewModels
 
         private void FocusOn(object sender, RoutedEventArgs e)
         {
-            if (sender is TextBox)
-            {
-                (sender as TextBox).Text = null;
-                if (data.HasItems)
-                    data.ItemsSource = null;
-            }   
+            selectedData.Text = null;
+
+            if (data.HasItems)
+                data.ItemsSource = null;
         }
 
         private void ButtonClicked(object sender, RoutedEventArgs e)
@@ -78,11 +76,18 @@ namespace PsychTestsMilitary.ViewModels
                         calculationService.CalculationProcess();
                         Window window = calculationService.ShowResults(selectedAcc, selectedItem.Answers.Date, selectedItem.Name);
                         window.Owner = this;
-                        window.ShowDialog();
-                        
+                        window.ShowDialog();  
                     }
+
                     break;
             }
+        }
+
+        private void TooltipClicked(object sender, RoutedEventArgs e)
+        {
+            Window window = new TooltipWindow();
+            window.Owner = this;
+            window.ShowDialog();
         }
 
         private void Thumb_DragStarted(object sender, DragStartedEventArgs e)

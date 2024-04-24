@@ -1,5 +1,6 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Templates;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -32,7 +33,17 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
 
         protected override UIElement GetDataElement()
         {
-            throw new System.NotImplementedException();
+            return grid;
+        }
+
+        protected override List<string> GetListOfScales(UIElement element)
+        {
+            List<string> list = new List<string>();
+            
+            for (int i = 0; i < UserResults.Count; i++)
+                list.Add(string.Empty);
+
+            return list;
         }
     }
 }

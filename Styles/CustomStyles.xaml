@@ -74,6 +74,11 @@
     <Style TargetType="Image" x:Key="MaximizeWindowImage" BasedOn="{StaticResource WindowPanelButtonImagesStyle}">
         <Setter Property="Source" Value="/Resources/Images/maximize.png"/>
     </Style>
+    <Style TargetType="Image" x:Key="QRCodeImage">
+        <Setter Property="Height" Value="150"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Source" Value="/Resources/Images/qr.jpg"/>
+    </Style>
     <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
     <Style x:Key="FocusVisual">

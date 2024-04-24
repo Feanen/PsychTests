@@ -16,7 +16,12 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
 
         protected override UIElement GetDataElement()
         {
-            throw new System.NotImplementedException();
+            return grid;
+        }
+
+        protected override List<string> GetListOfScales(UIElement element)
+        {
+            return new List<string> { string.Empty };
         }
     }
 }

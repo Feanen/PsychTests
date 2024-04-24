@@ -1,4 +1,4 @@
-﻿<local:BaseResultsWindow x:Class="PsychTestsMilitary.ViewModels.FinalResults.TechniqueR"
+﻿<local:BaseWindow x:Class="PsychTestsMilitary.ViewModels.TooltipWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -25,13 +25,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Style="{StaticResource ResultsWindowPanelStyle}">
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
-                <Image Style="{StaticResource MinimizeWindowImage}"/>
-            </Button>
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MaximizeButtonClicked">
-                <Image Style="{StaticResource MaximizeWindowImage}"/>
-            </Button>
+        <StackPanel Style="{StaticResource ResultsWindowPanelStyle}">
             <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
                 <Image Style="{StaticResource CloseWindowImage}"/>
             </Button>
@@ -44,10 +38,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Style="{StaticResource ResultsWindowLabelStyle}" Content="Висновок"/>
-            <TextBlock Grid.Row="1" Style="{StaticResource ResultsWindowUserDataStyle}" Text="{Binding PersonalData}"/>
-            <TextBlock Grid.Row="2" Style="{StaticResource ResultsWindowTechniqueNameStyle}" Text="{Binding TechniqueName}"/>
-            <TextBlock Grid.Row="3" Style="{StaticResource ResultsWindowUserDataStyle}" Text="{Binding CompletedTechniqueDate}"/>
+            <Label Grid.Row="0" Style="{StaticResource ResultsWindowLabelStyle}" Content="Список методик" HorizontalAlignment="Center"/>
         </Grid>
         <ScrollViewer Style="{DynamicResource ScrollViewerStyle}" VerticalScrollBarVisibility="Auto" Grid.Row="2" Margin="10 0 10 0">
             <Grid Style="{StaticResource ResultsGridStyle}">
@@ -60,12 +51,7 @@
             </Grid>
         </ScrollViewer>
         <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Скопіювати" Click="SaveToClipboardClicked"/>
-            <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити" Click="CloseButtonClicked"/>
+            <Button Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити" Click="CloseButtonClicked"/>
         </Grid>
     </Grid>
-</local:BaseResultsWindow>
+</local:BaseWindow>

@@ -33,17 +33,16 @@
         <Border Grid.Row="1" Style="{StaticResource CustomBorderStyle}">
             <StackPanel>
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="0" Content="Реєстрація" Click="AppRegistration"/>
-                    <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="1" Content="Вхід" Click="Authorization"></Button>
-                    <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="2" Content="Вихід" Click="AppExit"></Button>
+                    <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="1" Content="Вхід" Click="Authorization"/>
+                    <Button Style="{StaticResource CustomRoundedButtonStyle}" Grid.Row="2" Content="Вихід" Click="AppExit"/>
+                    <Image Style="{StaticResource QRCodeImage}" Grid.Row="3" Margin="0 50 0 -50"/>
                 </Grid>
             </StackPanel>
         </Border>

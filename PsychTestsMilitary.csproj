@@ -256,9 +256,13 @@
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType4.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType2.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType1.cs" />
+    <Compile Include="ViewModels\TooltipWindow.cs" />
     <Compile Include="ViewModels\UserForm.xaml.cs" />
     <Compile Include="ViewModels\FinalResultsVM\TechniqueD.cs" />
     <Compile Include="ViewModels\TemplateViewModels\TechniqueType3.cs" />
+    <Resource Include="Resources\Images\qr.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Fonts\Montserrat-Black.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -524,6 +528,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\TechniqueTypes\TechniqueType1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TooltipWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

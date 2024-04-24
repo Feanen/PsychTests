@@ -16,7 +16,7 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
 
         protected override UIElement GetDataElement()
         {
-            throw new System.NotImplementedException();
+            return grid;
         }
     }
 }

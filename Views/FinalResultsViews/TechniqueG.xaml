@@ -143,7 +143,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Зберегти" Click="SaveToClipboardClicked"/>
+            <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Скопіювати" Click="SaveToClipboardClicked"/>
             <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити" Click="CloseButtonClicked"/>
         </Grid>
     </Grid>

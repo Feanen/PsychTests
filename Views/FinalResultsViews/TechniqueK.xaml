@@ -179,42 +179,42 @@
                             <Label Grid.Row="22" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[11].Description}"/>
                             <TextBlock Grid.Row="23" Name="textBlock12" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}">
                                 <Run Text="«Сире» значення: "/>
-                                <Run Text="{Binding DataSet[6].Result}" />
+                                <Run Text="{Binding DataSet[11].Result}" />
                             </TextBlock>
 
                             <Label Grid.Row="24" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Дисоціативні симптоми (b)" />
                             <Label Grid.Row="24" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[12].Description}"/>
                             <TextBlock Grid.Row="25" Name="textBlock13" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}">
                                 <Run Text="«Сире» значення: "/>
-                                <Run Text="{Binding DataSet[11].Result}" />
+                                <Run Text="{Binding DataSet[12].Result}" />
                             </TextBlock>
 
                             <Label Grid.Row="26" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Повторне переживання травми – «вторгнення» (c)" />
                             <Label Grid.Row="26" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[13].Description}"/>
                             <TextBlock Grid.Row="27" Name="textBlock14" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}">
                                 <Run Text="«Сире» значення: "/>
-                                <Run Text="{Binding DataSet[12].Result}" />
+                                <Run Text="{Binding DataSet[13].Result}" />
                             </TextBlock>
 
                             <Label Grid.Row="28" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Симптоми «уникнення» (d)" />
                             <Label Grid.Row="28" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[14].Description}"/>
                             <TextBlock Grid.Row="29" Name="textBlock15" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}">
                                 <Run Text="«Сире» значення: "/>
-                                <Run Text="{Binding DataSet[13].Result}" />
+                                <Run Text="{Binding DataSet[14].Result}" />
                             </TextBlock>
 
                             <Label Grid.Row="30" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Симптоми гіперактивації (e)" />
                             <Label Grid.Row="30" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[15].Description}"/>
                             <TextBlock Grid.Row="31" Name="textBlock16" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}">
                                 <Run Text="«Сире» значення: "/>
-                                <Run Text="{Binding DataSet[14].Result}" />
+                                <Run Text="{Binding DataSet[15].Result}" />
                             </TextBlock>
 
                             <Label Grid.Row="32" Style="{StaticResource ResultsWindowHeadersStyle}" Content="Дистрес і дезадаптація (f)" />
                             <Label Grid.Row="32" Grid.Column="1" Style="{StaticResource ResultsWindowHeadersStyle}" Content="{Binding DataSet[16].Description}"/>
                             <TextBlock Grid.Row="33" Name="textBlock17" Grid.ColumnSpan="2" Style="{StaticResource ResultsWindowDescriptionStyle}">
                                 <Run Text="«Сире» значення: "/>
-                                <Run Text="{Binding DataSet[15].Result}" />
+                                <Run Text="{Binding DataSet[16].Result}" />
                             </TextBlock>
                         </Grid>
                     </StackPanel>
@@ -226,7 +226,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Зберегти" Click="SaveToClipboardClicked"/>
+            <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Скопіювати" Click="SaveToClipboardClicked"/>
             <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити" Click="CloseButtonClicked"/>
         </Grid>
     </Grid>
