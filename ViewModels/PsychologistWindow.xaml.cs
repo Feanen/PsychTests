@@ -1,4 +1,5 @@
-﻿using PsychTestsMilitary.Models;
+﻿using PsychTestsMilitary.Interfaces;
+using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Singletons;
 using PsychTestsMilitary.Services.Utilities;
@@ -12,7 +13,7 @@ using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public partial class PsychologistWindow : BaseWindow
+    public partial class PsychologistWindow : BaseWindow, IFullScreenable
     {
         private static AccountTrie accountData = new AccountTrie();
         private static Dictionary<Account, string> accounts;
@@ -22,12 +23,6 @@ namespace PsychTestsMilitary.ViewModels
         public PsychologistWindow()
         {
             InitializeComponent();
-        }
-
-        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
-        {
-            base.MaximizeButtonClicked(sender, e);
-            SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
@@ -105,6 +100,11 @@ namespace PsychTestsMilitary.ViewModels
         private void Thumb_DragCompleted(object sender, DragCompletedEventArgs e)
         {
             thumbOffset = 0;
+        }
+
+        public void OnFullScreen()
+        {
+            SetWindowScale(mainGrid, ScreenManager.SetDynamicFullScreen());
         }
     }
 }

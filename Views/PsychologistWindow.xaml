@@ -24,19 +24,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Style="{StaticResource WindowPanelStyle}" VerticalAlignment="Top">
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
-                <Image Style="{StaticResource MinimizeWindowImage}"/>
-            </Button>
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MaximizeButtonClicked">
-                <Image Style="{StaticResource MaximizeWindowImage}"/>
-            </Button>
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
-                <Image Style="{StaticResource CloseWindowImage}"/>
-            </Button>
-
-        </StackPanel>
-
         <Grid Style="{StaticResource SizedGridStyle}" Grid.Row="1" Name="mainGrid" Margin="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -139,5 +126,18 @@
                 </StackPanel>
             </Border>
         </Grid>
+
+        <StackPanel Style="{StaticResource WindowPanelStyle}" VerticalAlignment="Top">
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
+                <Image Style="{StaticResource MinimizeWindowImage}"/>
+            </Button>
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MaximizeButtonClicked">
+                <Image Style="{StaticResource MaximizeWindowImage}"/>
+            </Button>
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
+                <Image Style="{StaticResource CloseWindowImage}"/>
+            </Button>
+
+        </StackPanel>
     </Grid>
 </local:BaseWindow>

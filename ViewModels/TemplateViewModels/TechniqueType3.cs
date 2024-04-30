@@ -106,7 +106,7 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 
         public override void OnFullScreen()
         {
-            SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
+            SetWindowScale(mainGrid, ScreenManager.SetDynamicFullScreen());
         }
     }
 

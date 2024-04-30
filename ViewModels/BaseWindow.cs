@@ -2,6 +2,7 @@
 using PsychTestsMilitary.Interfaces;
 using PsychTestsMilitary.Services;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -21,6 +22,7 @@ namespace PsychTestsMilitary.ViewModels
         {
             if (sender is IFullScreenable)
             {
+                //(sender as Window).MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
                 WindowState = FullScreenManager.WindowState;
                 (sender as IFullScreenable).OnFullScreen();
             } else

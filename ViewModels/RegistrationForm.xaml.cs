@@ -1,7 +1,9 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Contexts;
+using PsychTestsMilitary.Services.Utilities;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,6 +16,23 @@ namespace PsychTestsMilitary.ViewModels
         {
             LoadDataAsync();
             InitializeComponent();
+            fname.PreviewKeyDown += PreviewKeyDownHandlerDigits; 
+            name.PreviewKeyDown += PreviewKeyDownHandlerDigits; 
+            surname.PreviewKeyDown += PreviewKeyDownHandlerDigits;
+        }
+
+        protected void PreviewKeyDownHandlerDigits(object sender, KeyEventArgs e)
+        {
+            Regex regex = new Regex(@"\d");
+
+            if (regex.IsMatch(e.Key.ToString()))
+                e.Handled = true;
+        }
+
+        protected void PreviewKeyDownHandlerSpace(object sender, KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+                e.Handled = true;
         }
 
         private void ButtonClicked(object sender, RoutedEventArgs e)
@@ -83,12 +102,15 @@ namespace PsychTestsMilitary.ViewModels
 
         private Account CreateAccountData()
         {
-            return new Account(login.Text, surname.Text, name.Text, fname.Text,
-                              (gender.SelectedItem as ComboBoxItem).Content.ToString(), birthday.SelectedDate.ToString().Split(' ')[0],
-                              job.Text = (job.Text.Equals(job.Tag)) ? null : job.Text,
-                              spec.Text = (spec.Text.Equals(spec.Tag)) ? null : spec.Text,
-                              rank.Text = (rank.Text.Equals(rank.Tag)) ? null : rank.Text,
-                              PasswordHasher.HashPassword(pass.Password));
+            return new Account(login.Text,
+                               StringFormatter.FormatWithoutSpaces(surname.Text),
+                               StringFormatter.FormatWithoutSpaces(name.Text),
+                               StringFormatter.FormatWithoutSpaces(fname.Text),
+                               (gender.SelectedItem as ComboBoxItem).Content.ToString(), birthday.SelectedDate.ToString().Split(' ')[0],
+                               job.Text = (job.Text.Equals(job.Tag)) ? null : job.Text,
+                               spec.Text = (spec.Text.Equals(spec.Tag)) ? null : spec.Text,
+                               rank.Text = (rank.Text.Equals(rank.Tag)) ? null : rank.Text,
+                               PasswordHasher.HashPassword(pass.Password));
         }
 
         private void ShowMainWindow()
@@ -114,7 +136,7 @@ namespace PsychTestsMilitary.ViewModels
                 if (login.Text.Equals(login.Tag) || surname.Text.Equals(surname.Tag) ||
                     name.Text.Equals(name.Tag) || fname.Equals(fname.Tag) ||
                     (gender.SelectedItem as ComboBoxItem).Equals((gender.Items.GetItemAt(0) as ComboBoxItem).Content.ToString()) ||
-                    job.Text.Equals(job.Tag) || spec.Text.Equals(spec.Tag) || rank.Text.Equals(rank.Tag) ||
+                    /*job.Text.Equals(job.Tag) || spec.Text.Equals(spec.Tag) || rank.Text.Equals(rank.Tag) ||*/
                     !Date.CheckOnCriticalAge(birthday.SelectedDate.ToString().Split(' ')[0]))
                 { return false; }
                 else { return true; }

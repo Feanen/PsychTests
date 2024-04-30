@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:pb="clr-namespace:PsychTestsMilitary.Services">
+                    xmlns:pb="clr-namespace:PsychTestsMilitary.Services"
+>
     <FontFamily x:Key="MontSerrat.Regular">/Resources/Fonts/#Montserrat Regular</FontFamily>
     <FontFamily x:Key="MontSerrat.SemiBold">/Resources/Fonts/#Montserrat Semibold</FontFamily>
     <FontFamily x:Key="MontSerrat.Medium">/Resources/Fonts/#Montserrat Medium</FontFamily>
@@ -13,7 +14,7 @@
     </Style>
 
     <Style TargetType="Grid" x:Key="SizedGridStyle" BasedOn="{StaticResource CustomGridBackgroundStyle}">
-        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0"/>
         <Setter Property="Width" Value="750"/>
         <Setter Property="Height" Value="600"/>
     </Style>
@@ -201,7 +202,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
     <Style TargetType="TextBox" x:Key="CustomTextBox">
         <Setter Property="CaretBrush" Value="{StaticResource SecondColor}"/>
         <Setter Property="Foreground" Value="{StaticResource SecondColor}"/>

@@ -1,4 +1,6 @@
-﻿namespace PsychTestsMilitary.Services.Utilities
+﻿using System.Text;
+
+namespace PsychTestsMilitary.Services.Utilities
 {
     public static class StringFormatter
     {
@@ -31,7 +33,35 @@
                     return s.Substring(0, s.Length - 1) + lastSymb;
             }
 
-            return null;
+            return string.Empty;
+        }
+
+        public static string FormatWithoutSpaces(string s)
+        {
+            if (!string.IsNullOrEmpty(s))
+            {
+                string[] parts = s.Split('-');
+
+                for (var i = 0; i < parts.Length; i++)
+                {
+                    if (string.IsNullOrEmpty(parts[i]))
+                        continue;
+                    else
+                    {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        stringBuilder.Append(char.ToUpper(parts[i][0]));
+
+                        for (int j = 1; j < parts[i].Length; j++)
+                            stringBuilder.Append(char.ToLower(parts[i][j]));
+
+                        parts[i] = stringBuilder.ToString();
+                    }
+                }
+
+                return string.Join("-", parts);
+            }
+
+            return string.Empty;
         }
     }
 }

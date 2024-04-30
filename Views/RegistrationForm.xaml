@@ -74,25 +74,25 @@
 
                     </Grid>
 
-                    <TextBox Name="surname" Grid.Row="2" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть прізвище"/>
-                    <TextBox Name="name" Grid.Row="2" Grid.Column="1" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть ім'я"/>
-                    <TextBox Name="fname" Grid.Row="3" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="По батькові"/>
+                    <TextBox Name="surname" Grid.Row="2" Grid.Column="0" Style="{StaticResource CustomTextBox}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть прізвище"/>
+                    <TextBox Name="name" Grid.Row="2" Grid.Column="1" Style="{StaticResource CustomTextBox}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть ім'я"/>
+                    <TextBox Name="fname" Grid.Row="3" Grid.Column="0" Style="{StaticResource CustomTextBox}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="По батькові"/>
                     <ComboBox Template="{DynamicResource ComboBoxTemplate1}" Padding="0"  Style="{StaticResource CustomComboBox}" Name="gender" Grid.Row="3" Grid.Column="1" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" SelectedIndex="0">
                         <ComboBoxItem IsEnabled="False" Visibility="Collapsed">Оберіть стать</ComboBoxItem>
                         <ComboBoxItem>Чоловік</ComboBoxItem>
                         <ComboBoxItem>Жінка</ComboBoxItem>
                     </ComboBox>
-                    <TextBox Name="login" Grid.Row="4" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Логін" ToolTip="Введіть логін, який повинен складатися з латинських літер, чисел та знаку _ &#x0a;Логін повинен починатися з літери"/>
+                    <TextBox Name="login" Grid.Row="4" Grid.Column="0" Style="{StaticResource CustomTextBox}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Логін" ToolTip="Введіть логін, який повинен складатися з латинських літер, чисел та знаку _ &#x0a;Логін повинен починатися з літери"/>
                     <DatePicker Name="birthday" Grid.Row="4" Style="{StaticResource CustomDP}" Grid.Column="1" IsTodayHighlighted="True" SelectedDate="{x:Static sys:DateTime.Today}" SelectedDateChanged="DataChanged" Margin="10,10,10,10">
                         <DatePicker.Resources>
                             <Style TargetType="{x:Type DatePickerTextBox}" BasedOn="{StaticResource DatePickerTextBoxStyle1}"/>
                         </DatePicker.Resources>
                     </DatePicker>
-                    <TextBox Name="job" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Посада, підрозділ"/>
-                    <TextBox Name="spec" Grid.Row="5" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Спеціальність"/>
-                    <TextBox Name="rank" Grid.Row="5" Grid.Column="1" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Військове звання"/>
-                    <PasswordBox Name="pass" Grid.Row="5" Grid.Column="0" Style="{StaticResource PasswordBoxStyle1}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
-                    <PasswordBox Name="repass" Grid.Row="5" Grid.Column="1" Style="{StaticResource PasswordBoxStyle2}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
+                    <TextBox Name="job" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Посада, підрозділ (не обов'язково)"/>
+                    <TextBox Name="spec" Grid.Row="5" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Спеціальність (не обов'язково)"/>
+                    <TextBox Name="rank" Grid.Row="5" Grid.Column="1" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Військове звання (не обов'язково)"/>
+                    <PasswordBox Name="pass" Grid.Row="5" Grid.Column="0" Style="{StaticResource PasswordBoxStyle1}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
+                    <PasswordBox Name="repass" Grid.Row="5" Grid.Column="1" Style="{StaticResource PasswordBoxStyle2}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
                     <Button Content="Зареєструватися" Style="{StaticResource CustomRoundedButtonStyle}" Margin="0 25 0 0" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="registrationButton" Click="ButtonClicked"/>
 
                     <Button Content="Назад" Grid.Column="1" Grid.Row="0" FontSize="20" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top" Name="backButton" Click="ButtonClicked" Visibility="Hidden"/>

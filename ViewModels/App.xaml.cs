@@ -1,4 +1,5 @@
-﻿using PsychTestsMilitary.Services.Singletons;
+﻿using PsychTestsMilitary.Services;
+using PsychTestsMilitary.Services.Singletons;
 using System;
 using System.Windows;
 
@@ -25,6 +26,7 @@ namespace PsychTestsMilitary.ViewModels
 
             TechniquesDBSingleton.Instance.Init();
             AdditionalInfoDBSingleton.Instance.Init();
+            ScreenManager.GetScreenParameters();
         }
     }
 }
