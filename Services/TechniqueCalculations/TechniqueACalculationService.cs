@@ -8,7 +8,7 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 {
     public class TechniqueACalculationService : CalculationService
     {
-        private string[] finalResults;
+        //private string[] finalResults;
         public TechniqueACalculationService(Account acc, UserAnswers answers) : base(acc, answers)
         {
             techniqueKeys = GetKeys(answers.TechniqueID);
@@ -16,22 +16,49 @@ namespace PsychTestsMilitary.Services.TechniqueCalculations
 
         public override void CalculationProcess()
         {
+            CalculatedResults = new List<ScaleResult>();
+
             Dictionary<string, int> rawScores = GetRawScores();
-            string D = ShowScaleResult(rawScores.ElementAt(0));
+
+            int D = rawScores.ElementAt(0).Value;
+            int PR = rawScores.ElementAt(1).Value;
+            int KP = rawScores.ElementAt(2).Value;
+            int MN = rawScores.ElementAt(3).Value;
+            int VPS = rawScores.ElementAt(4).Value;
+            int DAP = rawScores.ElementAt(5).Value;
+            int CR = rawScores.ElementAt(6).Value;
+            int RTCS = GetRTCS(rawScores);
+
+            CalculatedResults.Add(new ScaleResult(D, GetScaleResult(D, "D")));
+            CalculatedResults.Add(new ScaleResult(PR, GetScaleResult(PR, "PR")));
+            CalculatedResults.Add(new ScaleResult(KP, GetScaleResult(KP, "KP")));
+            CalculatedResults.Add(new ScaleResult(MN, GetScaleResult(MN, "MN")));
+            CalculatedResults.Add(new ScaleResult(VPS, GetScaleResult(VPS, "VPS")));
+            CalculatedResults.Add(new ScaleResult(DAP, GetScaleResult(DAP, "DAP")));
+            CalculatedResults.Add(new ScaleResult(CR, GetScaleResult(CR, "CR")));
+            CalculatedResults.Add(new ScaleResult(RTCS, GetScaleResult(RTCS, "RTCS")));
+
+            /*string D = ShowScaleResult(rawScores.ElementAt(0));
             string PR = ShowScaleResult(rawScores.ElementAt(1));
             string KP = ShowScaleResult(rawScores.ElementAt(2));
             string MN = ShowScaleResult(rawScores.ElementAt(3));
             string VPS = ShowScaleResult(rawScores.ElementAt(4));
             string DAP = ShowScaleResult(rawScores.ElementAt(5));
             string CR = ShowScaleResult(rawScores.ElementAt(6));
-            string RTCS = ShowScaleResult(new KeyValuePair<string, int>("RTCS", GetRTCS(rawScores)));
+            string RTCS = ShowScaleResult(new KeyValuePair<string, int>("RTCS", GetRTCS(rawScores)));*/
 
-            finalResults = new string[] { D, PR, KP, MN, VPS, DAP, CR, RTCS };
+            //finalResults = new string[] { D, PR, KP, MN, VPS, DAP, CR, RTCS };
+        }
+
+        private string GetScaleResult(int value, string scale)
+        {
+            string temp = ShowScaleResult(new KeyValuePair<string, int>(scale, value));
+            return (temp != null) ? temp : string.Empty;
         }
 
         public override Window ShowResults(Account personalData, string completedTechniqueDate, string techniqueName)
         {
-            return new TechniqueA(finalResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
+            return new TechniqueA(CalculatedResults, string.Join(" ", personalData.Surname, personalData.Name, personalData.FName, personalData.Birthday),
                                                             completedTechniqueDate, techniqueName);
         }
 

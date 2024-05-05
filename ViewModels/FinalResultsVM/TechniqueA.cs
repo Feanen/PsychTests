@@ -1,5 +1,6 @@
-﻿using System.Linq;
-using System.Windows.Controls;
+﻿using PsychTestsMilitary.Models;
+using System.Collections.Generic;
+using System.Windows;
 
 namespace PsychTestsMilitary.ViewModels.FinalResults
 {
@@ -7,22 +8,15 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
     {
         public TechniqueA() : base() { }
 
-        public TechniqueA(string[] finalResults, string pd, string ctp, string tn) : base(finalResults, pd, ctp, tn)
+        public TechniqueA(List<ScaleResult> ur, string pd, string ctp, string tn) : base(ur, pd, ctp, tn)
         {
             InitializeComponent();
             DataContext = this;
-            Update(finalResults);
         }
 
-        private void Update(string[] fr)
+        protected override UIElement GetDataElement()
         {
-            int index = 0;
-
-            foreach (var tb in grid.Children.OfType<TextBlock>())
-            {
-                tb.Text = fr[index];
-                index++;
-            }
+            return grid;
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using PsychTestsMilitary.Services.Contexts;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PsychTestsMilitary.Services.Singletons
 {
     public class TechniquesDBSingleton
     {
         private static TechniquesDBSingleton instance;
-        private TechniquesContext context;
+        private static TechniquesContext context;
 
         public static TechniquesDBSingleton Instance
         {
@@ -14,14 +16,24 @@ namespace PsychTestsMilitary.Services.Singletons
                 if (instance == null)
                 {
                     instance = new TechniquesDBSingleton();
+                    GetData();
                 }
 
                 return instance;
             }
         }
-        public void Init()
+        public async void Init()
         {
-            context = new TechniquesContext();
+            await Task.Run(() => context = new TechniquesContext());
+        }
+
+        private static void GetData()
+        {
+            using (TechniquesContext ctx = new TechniquesContext())
+            {
+                var cache = ctx.Techniques.
+                    OrderBy(x => x.Id);
+            }
         }
 
         public TechniquesContext GetTechniqueContext()

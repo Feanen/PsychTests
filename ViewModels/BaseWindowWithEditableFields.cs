@@ -1,5 +1,9 @@
 ﻿using PsychTestsMilitary.Services;
+using PsychTestsMilitary.Services.Contexts;
 using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -30,5 +34,20 @@ namespace PsychTestsMilitary.ViewModels
         }
 
         protected abstract void KeyDownHandler(object sender, KeyEventArgs e);
+
+        protected async void LoadDataAsync()
+        {
+            await Task.Run(() => CaсheUsersData());
+        }
+
+        private void CaсheUsersData()
+        {
+            using (AccountContext context = new AccountContext())
+            {
+                var temp = context.Accounts.
+                    Select(x => x.Name).
+                    FirstOrDefault();
+            }
+        }
     }
 }

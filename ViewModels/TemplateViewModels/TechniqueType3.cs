@@ -1,15 +1,13 @@
 ﻿using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
-using PsychTestsMilitary.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
@@ -104,6 +102,11 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
                 SliderDataWrapper sliderData = slider.DataContext as SliderDataWrapper;
                 sliderData.SliderResult = (int) Math.Round(newValue);
             }
+        }
+
+        public override void OnFullScreen()
+        {
+            SetWindowScale(mainGrid, ScreenManager.SetDynamicFullScreen());
         }
     }
 

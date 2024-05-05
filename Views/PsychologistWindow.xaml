@@ -9,8 +9,7 @@
         Style="{DynamicResource CustomWindowStyle}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
-        WindowStyle="None"
-        Height="600" Width="800">
+        WindowStyle="None">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,44 +18,59 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Style="{StaticResource WindowPanelStyle}">
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
-                <Image Style="{StaticResource MinimizeWindowImage}"/>
-            </Button>
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
-                <Image Style="{StaticResource CloseWindowImage}"/>
-            </Button>
-        </StackPanel>
-        <Border Grid.Row="1" Style="{StaticResource CustomBorderStyle}" VerticalAlignment="Top">
-            <StackPanel>
-                <Grid Style="{StaticResource CustomGridBackgroundStyle}">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
 
-                    <Label Content="Введіть ПІБ: " Grid.Column="0" Grid.Row="0" Style="{StaticResource CustomLabel}" FontSize="30"/>
-                    <TextBox Name="selectedData" Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomTextBox}" FontSize="14" TextChanged="TextChanged" GotFocus="FocusOn" VerticalAlignment="Center"/>
-                    <Label Content="Результати: " Grid.Column="0" Grid.Row="1" Style="{StaticResource CustomLabel}" FontSize="20" HorizontalAlignment="Left" Margin="5 50 0 10"/>
-                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
+        <Grid Style="{StaticResource SizedGridStyle}" Grid.Row="1" Name="mainGrid" Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Style="{DynamicResource ButtonArrowsStyle}" BorderThickness="0" Click="ReturnButtonClicked" Margin="40 0 30 0" HorizontalAlignment="Left">
+                <Button.Content>
+                    <Image Source="/Resources/Images/Arrows/Vector3.png" Width="42" Height="26"/>
+                </Button.Content>
+            </Button>
+
+            <Border Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource CustomBorderStyle}" Margin="20 0 20 20" VerticalAlignment="Top">
+                <StackPanel>
+                    <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Введіть ПІБ: " Style="{StaticResource CustomLabel}" FontSize="30"/>
+                        <TextBox Name="selectedData" Grid.Column="1" Style="{StaticResource CustomTextBox}" FontSize="14" TextChanged="TextChanged" GotFocus="FocusOn" VerticalAlignment="Center"/>
+                        <Label Content="Результати: " Grid.Row="1" Style="{StaticResource CustomLabel}" FontSize="20" HorizontalAlignment="Left" Margin="5 30 0 10" VerticalAlignment="Center"/>
+                        <Button Content="?" Grid.Column="1" Grid.Row="1" Style="{StaticResource CustomRoundedButtonStyle}" Click="TooltipClicked" FontSize="20" HorizontalAlignment="Right"
+                                VerticalContentAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Padding="0 2 0 5"
+                                Width="30" Height="30"
+                                Margin="0 0 0 13"/>
+                        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
                               CellStyle="{DynamicResource DataGridCellStyle}" 
                               Style="{DynamicResource DataGridStyle}" 
                               ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}" 
                               CanUserReorderColumns="False"
                               CanUserResizeRows="False"
                               CanUserResizeColumns="False"
-                              Name="data" 
+                              Name="data"
                               Grid.Row="2" Grid.ColumnSpan="2"
                               Background="Transparent" AutoGenerateColumns="False" 
                               VerticalScrollBarVisibility="Auto"
@@ -64,26 +78,26 @@
                               HorizontalGridLinesBrush="{x:Null}" 
                               HeadersVisibility="Column"
                               VerticalGridLinesBrush="#FFFFFCE6" GridLinesVisibility="Vertical">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Методика" Binding="{Binding Name}" Width="*" 
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Методика" Binding="{Binding Name}" Width="*" 
                                                 HeaderStyle="{StaticResource DataGridNotRightestColumnHeaderStyle}"
                                                 CellStyle="{StaticResource DataGridCellStyle}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridCellContent}"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Дата проходження" Binding="{Binding Answers.Date}" Width="Auto" 
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridCellContent}"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Дата проходження" Binding="{Binding Answers.Date}" Width="Auto" 
                                                 HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
                                                 CellStyle="{StaticResource DataGridCellStyle}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridCellContent}"/>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock" BasedOn="{StaticResource DataGridCellContent}"/>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
 
-                    <Canvas Grid.Row="1" Grid.Column="1" Margin="10 -19 10 10">
-                        <ListBox Style="{DynamicResource ListBoxStyle}"
+                        <Canvas Grid.Row="1" Grid.Column="1" Margin="10 -19 10 10">
+                            <ListBox Style="{DynamicResource ListBoxStyle}"
                                  ItemContainerStyle="{DynamicResource ListBoxItemContainerStyle}"
                                  Name="dropList" 
                                  ScrollViewer.VerticalScrollBarVisibility="Auto" 
@@ -92,24 +106,38 @@
                                  SelectionChanged="DropListSelected" 
                                  Width="{Binding ActualWidth, ElementName=text}">
 
-                        </ListBox>
-                    </Canvas>
+                            </ListBox>
+                        </Canvas>
 
-                    <Grid Margin="0 10 0 0" Grid.Row="3" Grid.ColumnSpan="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
+                        <Grid Margin="0 10 0 0" Grid.Row="3" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
-                        <Button Content="Очистити" Grid.Column="0" Grid.Row="0" Style="{StaticResource CustomRoundedButtonStyle}" Name="clear" Click="ButtonClicked" FontSize="13"/>
-                        <Button Content="Результат" Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomRoundedButtonStyle}" Name="showResults" Click="ButtonClicked" FontSize="13"/>
+                            <Button Content="Очистити" Style="{StaticResource CustomRoundedButtonStyle}" Name="clear" Click="FocusOn" FontSize="13"/>
+                            <Button Content="Результат" Grid.Column="1" Style="{StaticResource CustomRoundedButtonStyle}" Name="showResults" Click="ButtonClicked" FontSize="13"/>
+                        </Grid>
                     </Grid>
-                </Grid>
-                
-            </StackPanel>
-        </Border>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <StackPanel Style="{StaticResource WindowPanelStyle}" VerticalAlignment="Top">
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
+                <Image Style="{StaticResource MinimizeWindowImage}"/>
+            </Button>
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MaximizeButtonClicked">
+                <Image Style="{StaticResource MaximizeWindowImage}"/>
+            </Button>
+            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
+                <Image Style="{StaticResource CloseWindowImage}"/>
+            </Button>
+
+        </StackPanel>
     </Grid>
 </local:BaseWindow>

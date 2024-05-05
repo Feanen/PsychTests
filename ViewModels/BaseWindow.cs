@@ -1,12 +1,40 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using PsychTestsMilitary.Interfaces;
+using PsychTestsMilitary.Services;
+using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    public abstract class BaseWindow : Window
+    public abstract class BaseWindow : Window, INotifyPropertyChanged
     {
-        public BaseWindow() : base() { }
+        public BaseWindow() : base() 
+        {
+            Loaded += BaseWindowLoaded;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void BaseWindowLoaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is IFullScreenable)
+            {
+                //(sender as Window).MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+                WindowState = FullScreenManager.WindowState;
+                (sender as IFullScreenable).OnFullScreen();
+            } else
+            {
+                FullScreenManager.WindowState = WindowState;
+            }       
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         private void WindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -18,19 +46,33 @@ namespace PsychTestsMilitary.ViewModels
             WindowState = WindowState.Minimized;
         }
 
-        protected void MaximizeButtonClicked(Object sender, RoutedEventArgs e)
+        protected virtual void MaximizeButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (WindowState != WindowState.Maximized)
-                WindowState = WindowState.Maximized;
-            else WindowState = WindowState.Normal;
+            FullScreenManager.ToggleFullScreen(this);
         }
 
         protected void CloseButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (this.Owner == null)
-                App.Current.Shutdown();
+            if (Owner == null)
+                Application.Current.Shutdown();
             else
-                this.Close();
+                Close();
+        }
+
+        protected void ReturnButtonClicked(object sender, RoutedEventArgs e)
+        {
+            new MainWindow().Show();
+            Close();
+        }
+
+        protected void SetWindowScale(UIElement control, ScaleTransform scale)
+        {
+            ScaleTransform st = control.RenderTransform as ScaleTransform;
+
+            if (WindowState == WindowState.Maximized)
+                control.RenderTransform = scale;
+            else
+                control.RenderTransform = new ScaleTransform(1, 1);
         }
     }
 }

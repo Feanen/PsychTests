@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Windows.Media;
+using System.Windows;
+using PsychTestsMilitary.Services;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
@@ -26,6 +29,11 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         private void ShowNextQuestion(object sender, EventArgs e)
         {
             ShowNextQuestion(sender, e, answerButtonsGrid, nextButton);
+        }
+
+        public override void OnFullScreen()
+        {
+            SetWindowScale(mainGrid, ScreenManager.SetDynamicFullScreen());
         }
     }
 }

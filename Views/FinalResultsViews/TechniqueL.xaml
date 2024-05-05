@@ -53,18 +53,8 @@
             <Grid Style="{StaticResource ResultsGridStyle}">
                 <Border Style="{StaticResource ResultsWindowBorderStyle}" Margin="0">
                     <StackPanel>
-                        <Grid Name="grid">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Grid.Row="0" Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}" Padding="0">
+                        <Grid>
+                            <TextBlock Style="{StaticResource ResultsWindowShortScaleDescriptionStyle}" Padding="0">
                                 Отримана сума дозволяє поділити досліджуваних на тих, які мають ПТСР і тих, які не мають ПТСР.
                                 <LineBreak/>
                                 За даними В.Ю. Шаніна:<LineBreak/>
@@ -72,7 +62,9 @@
                                 - психічні розлади – 86 ± 26;<LineBreak/>
                                 - ПТСР – 130 ± 18.
                             </TextBlock>
-                            <TextBlock Name="textBlock1" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource NumbersResultsWindowDescriptionStyle}" >
+                        </Grid>
+                        <Grid Name="grid">
+                            <TextBlock Style="{StaticResource NumbersResultsWindowDescriptionStyle}" >
                                 <Run Text="Загальний бал: "/>
                                 <Run Text="{Binding DataSet[0].Result}" FontSize="16"/>
                             </TextBlock>
@@ -86,7 +78,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Зберегти"/>
+            <Button Grid.Column="0" Style="{StaticResource ResultsWindowButtonStyle}" Content="Скопіювати" Click="SaveToClipboardClicked"/>
             <Button Grid.Column="1" Style="{StaticResource ResultsWindowButtonStyle}" Content="Закрити" Click="CloseButtonClicked"/>
         </Grid>
     </Grid>

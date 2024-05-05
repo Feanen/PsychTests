@@ -15,7 +15,7 @@ namespace PsychTestsMilitary.Services.Contexts
 
         public bool CheckOnUniqueAccount(string login)
         {
-            CurrentAccount = this.Accounts.FirstOrDefault(user => user.login.Equals(login));
+            CurrentAccount = Accounts.FirstOrDefault(user => user.login.Equals(login));
             return CurrentAccount == null ? false : true;
         }
 

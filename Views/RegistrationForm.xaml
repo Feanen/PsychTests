@@ -20,22 +20,29 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid Style="{StaticResource CustomGridBackgroundStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Style="{StaticResource WindowPanelStyle}">
+
+        <Button Style="{DynamicResource ButtonArrowsStyle}" BorderThickness="0" Click="ReturnButtonClicked" Margin="40 20 30 0" HorizontalAlignment="Left">
+            <Button.Content>
+                <Image Source="/Resources/Images/Arrows/Vector3.png" Width="42" Height="26"/>
+            </Button.Content>
+        </Button>
+        <StackPanel Style="{StaticResource WindowPanelStyle}" VerticalAlignment="Top">
             <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MinimizeButtonClicked">
                 <Image Style="{StaticResource MinimizeWindowImage}"/>
-            </Button>
-            <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="MaximizeButtonClicked">
-                <Image Style="{StaticResource MaximizeWindowImage}"/>
             </Button>
             <Button Style="{StaticResource WindowPanelButtonsStyle}" Click="CloseButtonClicked">
                 <Image Style="{StaticResource CloseWindowImage}"/>
             </Button>
         </StackPanel>
-        <Border Grid.Row="1" Style="{StaticResource CustomBorderStyle}" VerticalAlignment="Top">
+        <Border Grid.Row="1" Style="{StaticResource CustomBorderStyle}" VerticalAlignment="Top" Margin="20 50 20 20">
             <StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -62,37 +69,35 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <CheckBox Name="isPsychologist" Grid.Row="0" Grid.Column="0" Style="{StaticResource PsychologistCheckBox}" Click="PsychologistCheckBoxChecked"/>
+                        <CheckBox Template="{DynamicResource CheckBox}" Style="{StaticResource UserFormCheckbox}" Name="isPsychologist" Grid.Row="0" Grid.Column="0" Click="PsychologistCheckBoxChecked"/>
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="Психолог" Style="{StaticResource RegistrationTextBlockStyle}"/>
 
                     </Grid>
 
-                    <TextBox Name="surname" Grid.Row="2" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть прізвище"/>
-                    <TextBox Name="name" Grid.Row="2" Grid.Column="1" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть ім'я"/>
-                    <TextBox Name="fname" Grid.Row="3" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="По батькові"/>
+                    <TextBox Name="surname" Grid.Row="2" Grid.Column="0" Style="{StaticResource CustomTextBox}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть прізвище"/>
+                    <TextBox Name="name" Grid.Row="2" Grid.Column="1" Style="{StaticResource CustomTextBox}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Введіть ім'я"/>
+                    <TextBox Name="fname" Grid.Row="3" Grid.Column="0" Style="{StaticResource CustomTextBox}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="По батькові"/>
                     <ComboBox Template="{DynamicResource ComboBoxTemplate1}" Padding="0"  Style="{StaticResource CustomComboBox}" Name="gender" Grid.Row="3" Grid.Column="1" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" SelectedIndex="0">
                         <ComboBoxItem IsEnabled="False" Visibility="Collapsed">Оберіть стать</ComboBoxItem>
                         <ComboBoxItem>Чоловік</ComboBoxItem>
                         <ComboBoxItem>Жінка</ComboBoxItem>
                     </ComboBox>
-                    <TextBox Name="login" Grid.Row="4" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Логін" ToolTip="Введіть логін, який повинен складатися з латинських літер, чисел та знаку _ &#x0a;Логін повинен починатися з літери"/>
-                    <DatePicker Name="birthday" Grid.Row="4" Style="{StaticResource CustomDP}" Grid.Column="1" IsTodayHighlighted="True" SelectedDate="{x:Static sys:DateTime.Today}"  SelectedDateChanged="DataChanged" Margin="10,10,10,10">
+                    <TextBox Name="login" Grid.Row="4" Grid.Column="0" Style="{StaticResource CustomTextBox}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Логін" ToolTip="Введіть логін, який повинен складатися з латинських літер, чисел та знаку _ &#x0a;Логін повинен починатися з літери"/>
+                    <DatePicker Name="birthday" Grid.Row="4" Style="{StaticResource CustomDP}" Grid.Column="1" IsTodayHighlighted="True" SelectedDate="{x:Static sys:DateTime.Today}" SelectedDateChanged="DataChanged" Margin="10,10,10,10">
                         <DatePicker.Resources>
                             <Style TargetType="{x:Type DatePickerTextBox}" BasedOn="{StaticResource DatePickerTextBoxStyle1}"/>
                         </DatePicker.Resources>
                     </DatePicker>
-                    <TextBox Name="job" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Посада, підрозділ"/>
-                    <TextBox Name="spec" Grid.Row="5" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Спеціальність"/>
-                    <TextBox Name="rank" Grid.Row="5" Grid.Column="1" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Військове звання"/>
-                    <PasswordBox Name="pass" Grid.Row="5" Grid.Column="0" Style="{StaticResource PasswordBoxStyle1}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
-                    <PasswordBox Name="repass" Grid.Row="5" Grid.Column="1" Style="{StaticResource PasswordBoxStyle2}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
+                    <TextBox Name="job" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Посада, підрозділ (не обов'язково)"/>
+                    <TextBox Name="spec" Grid.Row="5" Grid.Column="0" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Спеціальність (не обов'язково)"/>
+                    <TextBox Name="rank" Grid.Row="5" Grid.Column="1" Style="{StaticResource CustomTextBox}" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Tag="Військове звання (не обов'язково)"/>
+                    <PasswordBox Name="pass" Grid.Row="5" Grid.Column="0" Style="{StaticResource PasswordBoxStyle1}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
+                    <PasswordBox Name="repass" Grid.Row="5" Grid.Column="1" Style="{StaticResource PasswordBoxStyle2}" PreviewKeyDown="PreviewKeyDownHandlerSpace" Loaded="Loaded" GotFocus="FocusOn" LostFocus="FocusOff" Visibility="Hidden"/>
                     <Button Content="Зареєструватися" Style="{StaticResource CustomRoundedButtonStyle}" Margin="0 25 0 0" Grid.Row="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Name="registrationButton" Click="ButtonClicked"/>
 
                     <Button Content="Назад" Grid.Column="1" Grid.Row="0" FontSize="20" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top" Name="backButton" Click="ButtonClicked" Visibility="Hidden"/>
                 </Grid>
-
             </StackPanel>
         </Border>
-
     </Grid>
 </local:BaseWindowWithEditableFields>

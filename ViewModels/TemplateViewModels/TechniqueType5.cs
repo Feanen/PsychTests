@@ -3,7 +3,9 @@ using PsychTestsMilitary.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
@@ -44,6 +46,10 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
                 nextBtn.Content = "Завершити тест";
         }
 
+        public override void OnFullScreen()
+        {
+            SetWindowScale(mainGrid, ScreenManager.SetDynamicFullScreen());
+        }
 
         protected override void ShowNextQuestion(object sender, EventArgs e, Grid grid, Button btn)
         {

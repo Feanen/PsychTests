@@ -1,12 +1,10 @@
-﻿using PsychTestsMilitary.Services.Singletons;
+﻿using PsychTestsMilitary.Services;
+using PsychTestsMilitary.Services.Singletons;
 using System;
 using System.Windows;
 
 namespace PsychTestsMilitary.ViewModels
 {
-    /// <summary>
-    /// Логика взаимодействия для App.xaml
-    /// </summary>
     public partial class App : Application
     {
         [STAThread]
@@ -28,6 +26,7 @@ namespace PsychTestsMilitary.ViewModels
 
             TechniquesDBSingleton.Instance.Init();
             AdditionalInfoDBSingleton.Instance.Init();
+            ScreenManager.GetScreenParameters();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using PsychTestsMilitary.Constructors;
+using PsychTestsMilitary.Services;
 using System;
 using System.Windows;
 
@@ -6,21 +7,35 @@ namespace PsychTestsMilitary.ViewModels
 {
     public partial class MainWindow : BaseWindow
     {
+        private int trialLeftDays;
+        public int TrialLeftDays
+        {
+            get { return trialLeftDays; }
+            set {
+                trialLeftDays = value;
+                OnPropertyChanged(nameof(trialLeftDays));
+            }
+        }
+
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
+            LicenseManager.Validate();
+            LicenseManager.CheckOnTrialTimeLeft();
+            TrialLeftDays = LicenseManager.DaysLeft;
         }
 
         private void AppExit(object sender, EventArgs e)
         {
-            App.Current.Shutdown();
+            Application.Current.Shutdown();
         }
 
         private void AppRegistration(object sender, EventArgs e)
         {
             RegistrationForm form = new RegistrationForm();
             form.Show();
-            base.Close();
+            Close();
         }
 
         private void AppChoosingTests(object sender, EventArgs e)
@@ -35,7 +50,6 @@ namespace PsychTestsMilitary.ViewModels
             AuthorizationWindow window = new AuthorizationWindow();
             window.Owner = this;
             window.ShowDialog();
-
         }
 
         private void DeveloperToolsClick(object sender, RoutedEventArgs e)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PsychTestsMilitary.ViewModels.FinalResults
 {
@@ -12,7 +13,7 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
         private const int matrixHeight = 7;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
+        protected override void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -34,6 +35,11 @@ namespace PsychTestsMilitary.ViewModels.FinalResults
             MakeUserAnswersViewable(ua);
             InitializeComponent();
             DataContext = this;
+        }
+
+        protected override UIElement GetDataElement()
+        {
+            return grid;
         }
 
         private async void MakeUserAnswersViewable(UserMultipleAnswer[] ua)

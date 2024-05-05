@@ -52,7 +52,8 @@ namespace PsychTestsMilitary.Services
                 }
 
                 window?.Show();
-            }
+            } else 
+                new MainWindow().Show();
         }
 
         public static void SaveAnswers(int techID, object listOfAnswers)
@@ -66,7 +67,7 @@ namespace PsychTestsMilitary.Services
                 MethodInfo genericMethod = method.MakeGenericMethod(elementType);
                 string jsonString = (string)genericMethod.Invoke(null, new object[] { listOfAnswers });
 
-                UserAnswers answers = new UserAnswers("feanen1", techID, jsonString, DateTime.Today.Date);
+                UserAnswers answers = new UserAnswers(CurrentUserSingleton.CurrentAcc.login, techID, jsonString, DateTime.Today.Date);
 
                 using (AccountContext context = new AccountContext())
                 {

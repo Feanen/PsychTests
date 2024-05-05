@@ -1,4 +1,5 @@
-﻿using PsychTestsMilitary.Models;
+﻿using PsychTestsMilitary.Interfaces;
+using PsychTestsMilitary.Models;
 using PsychTestsMilitary.Services;
 using PsychTestsMilitary.Services.Singletons;
 using System;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 
 namespace PsychTestsMilitary.ViewModels
@@ -33,12 +35,6 @@ namespace PsychTestsMilitary.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         private int currentIndex;
         public int CurrentIndex
         {
@@ -49,6 +45,23 @@ namespace PsychTestsMilitary.ViewModels
                 OnPropertyChanged(nameof(CurrentIndex));
             }
         }
+
+        private string currentUser;
+        public string CurrentUser
+        {
+            get { return currentUser; }
+            set
+            {
+                currentUser = value;
+                OnPropertyChanged(nameof(CurrentUser));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         //-----------------------------------------------------------------------------
 
 
@@ -56,10 +69,25 @@ namespace PsychTestsMilitary.ViewModels
         {
             InitializeComponent();
             ConnectDictionaryData();
+            DataContext = this;
+            Loaded += UserFormLoaded;
+        }
+
+        protected override void MaximizeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            base.MaximizeButtonClicked(sender, e);
+            SetWindowScale(mainGrid, new ScaleTransform(1.28, 1.28));
+        }
+
+        private void UserFormLoaded(object sender, RoutedEventArgs e)
+        {
+            CurrentUser = CurrentUserSingleton.CurrentAcc.Surname + " " +
+                          CurrentUserSingleton.CurrentAcc.Name + " " +
+                          CurrentUserSingleton.CurrentAcc.FName;
+
             ObservableTechniques = ShowTechniquesList();
             CurrentIndex = 0;
         }
-
 
         private void ConnectDictionaryData()
         {
@@ -147,7 +175,7 @@ namespace PsychTestsMilitary.ViewModels
             {
                 TestsQueueSingleton.Instance.Techniques = chosenTests;
                 TechniquesManager.RunNextTechnique();
-                this.Close();
+                Close();
             }
         }
     }

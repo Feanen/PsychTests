@@ -10,6 +10,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace PsychTestsMilitary.ViewModels.TemplateViewModels
 {
@@ -47,6 +48,11 @@ namespace PsychTestsMilitary.ViewModels.TemplateViewModels
         {
             if (TechniqueData.Questions.Count.Equals(0))
                 nextButton.Content = "Завершити тест";
+        }
+
+        public override void OnFullScreen()
+        {
+            SetWindowScale(mainGrid, ScreenManager.SetDynamicFullScreen());
         }
 
         private void FillSlidersData()
