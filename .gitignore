@@ -2,3 +2,10 @@
 /obj/
 /.vs
 /Resources/Temp/
+/Databases
+/Views/LicenseExpiredWindow.xaml
+/Views/TooltipWindow.xaml
+/ViewModels/LicenseExpiredWindow.cs
+/ViewModels/TooltipWindow.cs
+/Services/LicenseManager.cs
+/Services/PasswordHasher.cs
